@@ -1,2 +1,6 @@
-# aac-launchpad
-Conveniently create AAC low tech resources
+# AAC Launchpad
+
+Conveniently create high quality AAC resources
+
+## Why?
+
