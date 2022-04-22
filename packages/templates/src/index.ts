@@ -1,6 +1,6 @@
 import { Board } from "types";
 
-const simpleSingleTile: Board = {
+export const simpleSingleTile: Board = {
   format: "open-board-0.1",
   id: "singleTile",
   locale: "en-GB",
