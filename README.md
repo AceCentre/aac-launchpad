@@ -12,6 +12,7 @@ This Turborepo includes the following packages and apps:
 - `logger`: isomorphic logger (a small wrapper around console.log)
 - `scripts`: Jest and eslint configurations
 - `tsconfig`: tsconfig.json;s used throughout the monorepo
+- `templates`: Stores the static templates
 
 ### Utilities
 
