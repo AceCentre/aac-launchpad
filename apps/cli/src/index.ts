@@ -1,3 +1,6 @@
 #! /usr/bin/env node
 
-console.log("THIS IS A CLII");
+import boardToPdf from "board-to-pdf";
+import { simpleSingleTile } from "templates";
+
+boardToPdf(simpleSingleTile, "./simple-single-tile.pdf");
