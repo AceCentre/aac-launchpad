@@ -12,7 +12,7 @@ export const simpleSingleTile: Board = {
       id: "main",
       label: "Core",
       border_color: "rgb(0, 0, 55)",
-      background_color: "rgb(200, 255, 255)",
+      background_color: "rgb(255, 0, 0)",
     },
   ],
   grid: {
