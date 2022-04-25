@@ -16,7 +16,7 @@ type Button = {
 type Grid = {
   rows: number;
   columns: number;
-  order: [[ButtonID]];
+  order: Array<Array<ButtonID>>;
 };
 
 export type Board = {
@@ -33,6 +33,6 @@ export type Board = {
    */
   description_html: string;
 
-  buttons: [Button];
+  buttons: Button[];
   grid: Grid;
 };
