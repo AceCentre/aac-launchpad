@@ -19,12 +19,20 @@ type Grid = {
   order: Array<Array<ButtonID>>;
 };
 
+type Options = {
+  padding?: number;
+  gap?: number;
+  button_radius?: number;
+  button_border_width?: number;
+};
+
 export type Board = {
   format: "open-board-0.1";
   id: BoardID;
   locale: "en-GB";
   url?: string;
   name: string;
+  ext_launchpad_options: Options;
 
   /**
    * The standard allows you to include html in this field, but this implementation

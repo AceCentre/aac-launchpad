@@ -14,10 +14,10 @@ type RBG = {
 
 const WIDTH = 297;
 const HEIGHT = 210;
-const PADDING = 10;
-const GAP = 10;
-const ROUNDED_BUTTONS = 2;
-const LINE_WIDTH = 2;
+const DEFAULT_PADDING = 10;
+const DEFAULT_GAP = 10;
+const DEFAULT_BUTTON_RADIUS = 2;
+const DEFAULT_BUTTON_BORDER_WIDTH = 2;
 
 const calculateButtonSize = (
   pageWidth: number,
@@ -64,11 +64,18 @@ const boardToPdf = (board: Board, saveLocation: string) => {
     orientation: "landscape",
   });
 
+  const options = board.ext_launchpad_options;
+  const padding = options.padding || DEFAULT_PADDING;
+  const gap = options.gap || DEFAULT_GAP;
+  const buttonRadius = options.button_radius || DEFAULT_BUTTON_RADIUS;
+  const buttonBorderWidth =
+    options.button_border_width || DEFAULT_BUTTON_BORDER_WIDTH;
+
   const buttonDimensions = calculateButtonSize(
     WIDTH,
     HEIGHT,
-    PADDING,
-    GAP,
+    padding,
+    gap,
     board.grid.rows,
     board.grid.columns
   );
@@ -88,11 +95,11 @@ const boardToPdf = (board: Board, saveLocation: string) => {
       const backgroundColor = getRGB(currentButton.background_color);
       const borderColor = getRGB(currentButton.border_color);
 
-      const currentX = columnCount * (buttonDimensions.width + GAP) + PADDING;
-      const currentY = rowCount * (buttonDimensions.height + GAP) + PADDING;
+      const currentX = columnCount * (buttonDimensions.width + gap) + padding;
+      const currentY = rowCount * (buttonDimensions.height + gap) + padding;
 
       doc
-        .setLineWidth(LINE_WIDTH)
+        .setLineWidth(buttonBorderWidth)
         .setDrawColor(borderColor.red, borderColor.green, borderColor.blue)
         .setFillColor(
           backgroundColor.red,
@@ -104,8 +111,8 @@ const boardToPdf = (board: Board, saveLocation: string) => {
           currentY,
           buttonDimensions.width,
           buttonDimensions.height,
-          ROUNDED_BUTTONS,
-          ROUNDED_BUTTONS,
+          buttonRadius,
+          buttonRadius,
           "FD"
         )
         .text(

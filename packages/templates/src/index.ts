@@ -6,6 +6,7 @@ export const simpleSingleTile: Board = {
   locale: "en-GB",
   name: "Simple Single Tile",
   description_html: "A board with a single tile in the centre",
+  ext_launchpad_options: {},
 
   buttons: [
     {
@@ -28,6 +29,7 @@ export const twoByTwo: Board = {
   locale: "en-GB",
   name: "Simple Single Tile",
   description_html: "A board with a single tile in the centre",
+  ext_launchpad_options: {},
 
   buttons: [
     {
@@ -71,6 +73,8 @@ export const threeByThree: Board = {
   locale: "en-GB",
   name: "Simple Single Tile",
   description_html: "A board with a single tile in the centre",
+  ext_launchpad_options: {},
+
   buttons: [
     {
       id: "first",
