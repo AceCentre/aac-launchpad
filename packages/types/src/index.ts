@@ -8,7 +8,7 @@ type Color = string;
 
 type Button = {
   id: ButtonID;
-  label: String;
+  label: string;
   border_color: Color;
   background_color: Color;
 };
