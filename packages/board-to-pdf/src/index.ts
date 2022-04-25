@@ -17,6 +17,7 @@ const HEIGHT = 210;
 const PADDING = 10;
 const GAP = 10;
 const ROUNDED_BUTTONS = 2;
+const LINE_WIDTH = 2;
 
 const calculateButtonSize = (
   pageWidth: number,
@@ -85,11 +86,14 @@ const boardToPdf = (board: Board, saveLocation: string) => {
       }
 
       const backgroundColor = getRGB(currentButton.background_color);
+      const borderColor = getRGB(currentButton.border_color);
 
       const currentX = columnCount * (buttonDimensions.width + GAP) + PADDING;
       const currentY = rowCount * (buttonDimensions.height + GAP) + PADDING;
 
       doc
+        .setLineWidth(LINE_WIDTH)
+        .setDrawColor(borderColor.red, borderColor.green, borderColor.blue)
         .setFillColor(
           backgroundColor.red,
           backgroundColor.green,
@@ -102,7 +106,16 @@ const boardToPdf = (board: Board, saveLocation: string) => {
           buttonDimensions.height,
           ROUNDED_BUTTONS,
           ROUNDED_BUTTONS,
-          "F"
+          "FD"
+        )
+        .text(
+          currentButton.label,
+          currentX + buttonDimensions.width / 2,
+          currentY + buttonDimensions.height / 2,
+          {
+            baseline: "middle",
+            align: "center",
+          }
         );
     }
   }
