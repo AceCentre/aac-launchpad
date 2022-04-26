@@ -96,11 +96,30 @@ const boardToPdf = (board: Board, saveLocation: string) => {
         );
       }
 
+      let buttonsWide = 0;
+
+      // Look forward to see if this is a long button
+      for (let i = columnCount; i < board.grid.columns; i++) {
+        const temp = board.grid.order[rowCount][i];
+        if (temp === currentButtonId) {
+          buttonsWide++;
+        } else {
+          break;
+        }
+      }
+
       const backgroundColor = getRGB(currentButton.background_color);
       const borderColor = getRGB(currentButton.border_color);
 
       const currentX = columnCount * (buttonDimensions.width + gap) + padding;
       const currentY = rowCount * (buttonDimensions.height + gap) + padding;
+
+      const width =
+        buttonDimensions.width * buttonsWide + gap * (buttonsWide - 1);
+      const height = buttonDimensions.height;
+
+      // Skip over the extra buttons
+      columnCount += buttonsWide - 1;
 
       doc
         .setLineWidth(buttonBorderWidth)
@@ -113,16 +132,16 @@ const boardToPdf = (board: Board, saveLocation: string) => {
         .roundedRect(
           currentX,
           currentY,
-          buttonDimensions.width,
-          buttonDimensions.height,
+          width,
+          height,
           buttonRadius,
           buttonRadius,
           "FD"
         )
         .text(
           currentButton.label,
-          currentX + buttonDimensions.width / 2,
-          currentY + buttonDimensions.height / 2,
+          currentX + width / 2,
+          currentY + height / 2,
           {
             baseline: "middle",
             align: "center",
