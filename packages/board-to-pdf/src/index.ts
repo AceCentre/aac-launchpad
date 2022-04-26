@@ -65,11 +65,11 @@ const boardToPdf = (board: Board, saveLocation: string) => {
   });
 
   const options = board.ext_launchpad_options;
-  const padding = options.padding || DEFAULT_PADDING;
-  const gap = options.gap || DEFAULT_GAP;
-  const buttonRadius = options.button_radius || DEFAULT_BUTTON_RADIUS;
+  const padding = options.padding ?? DEFAULT_PADDING;
+  const gap = options.gap ?? DEFAULT_GAP;
+  const buttonRadius = options.button_radius ?? DEFAULT_BUTTON_RADIUS;
   const buttonBorderWidth =
-    options.button_border_width || DEFAULT_BUTTON_BORDER_WIDTH;
+    options.button_border_width ?? DEFAULT_BUTTON_BORDER_WIDTH;
 
   const buttonDimensions = calculateButtonSize(
     WIDTH,
@@ -83,6 +83,10 @@ const boardToPdf = (board: Board, saveLocation: string) => {
   for (let rowCount = 0; rowCount < board.grid.rows; rowCount++) {
     for (let columnCount = 0; columnCount < board.grid.columns; columnCount++) {
       const currentButtonId = board.grid.order[rowCount][columnCount];
+
+      if (currentButtonId === null) {
+        continue;
+      }
 
       const currentButton = board.buttons.find((x) => x.id === currentButtonId);
 
