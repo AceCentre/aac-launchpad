@@ -11,6 +11,10 @@ type Button = {
   label: string;
   border_color: Color;
   background_color: Color;
+  ext_launchpad_label_color?: Color;
+  ext_launchpad_label_font_size?: number;
+  ext_launchpad_label_bold?: boolean;
+  ext_launchpad_label_font_style?: string;
 };
 
 type Grid = {

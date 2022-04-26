@@ -18,6 +18,9 @@ const DEFAULT_PADDING = 10;
 const DEFAULT_GAP = 10;
 const DEFAULT_BUTTON_RADIUS = 2;
 const DEFAULT_BUTTON_BORDER_WIDTH = 2;
+const DEFAULT_LABEL_COLOR = "rgb(0, 0, 0)";
+const DEFAULT_LABEL_FONT_SIZE = 18;
+const DEFAULT_LABEL_FONT_STYLE = "normal";
 
 const calculateButtonSize = (
   pageWidth: number,
@@ -110,6 +113,16 @@ const boardToPdf = (board: Board, saveLocation: string) => {
 
       const backgroundColor = getRGB(currentButton.background_color);
       const borderColor = getRGB(currentButton.border_color);
+      const textColor = getRGB(
+        currentButton.ext_launchpad_label_color ?? DEFAULT_LABEL_COLOR
+      );
+
+      const fontSize =
+        currentButton.ext_launchpad_label_font_size ?? DEFAULT_LABEL_FONT_SIZE;
+      const fontStyle =
+        currentButton.ext_launchpad_label_font_style ??
+        DEFAULT_LABEL_FONT_STYLE;
+      const currentFont = doc.getFont();
 
       const currentX = columnCount * (buttonDimensions.width + gap) + padding;
       const currentY = rowCount * (buttonDimensions.height + gap) + padding;
@@ -138,6 +151,9 @@ const boardToPdf = (board: Board, saveLocation: string) => {
           buttonRadius,
           "FD"
         )
+        .setFont(currentFont.fontName, fontStyle)
+        .setFontSize(fontSize)
+        .setTextColor(textColor.red, textColor.green, textColor.blue)
         .text(
           currentButton.label,
           currentX + width / 2,
