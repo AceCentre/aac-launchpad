@@ -16,7 +16,7 @@ type Button = {
 type Grid = {
   rows: number;
   columns: number;
-  order: Array<Array<ButtonID>>;
+  order: Array<Array<ButtonID | null>>;
 };
 
 type Options = {
