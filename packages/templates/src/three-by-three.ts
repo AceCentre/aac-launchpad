@@ -1,6 +1,7 @@
-import { Board } from "types";
+import { Template } from "types";
 
-export const threeByThree: Board = {
+export const threeByThree: Template = {
+  variables: [],
   format: "open-board-0.1",
   id: "three-by-three",
   locale: "en-GB",

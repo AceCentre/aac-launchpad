@@ -1,6 +1,7 @@
-import { Board } from "types";
+import { Template } from "types";
 
-export const twoByTwo: Board = {
+export const twoByTwo: Template = {
+  variables: [],
   format: "open-board-0.1",
   id: "two-by-two",
   locale: "en-GB",

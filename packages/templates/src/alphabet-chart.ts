@@ -1,6 +1,7 @@
-import { Board } from "types";
+import { Template } from "types";
 
-export const alphabetChart: Board = {
+export const alphabetChart: Template = {
+  variables: [],
   format: "open-board-0.1",
   id: "alphabet-chart",
   locale: "en-GB",

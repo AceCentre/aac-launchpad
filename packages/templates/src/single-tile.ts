@@ -1,13 +1,13 @@
-import { Board } from "types";
+import { Template } from "types";
 
-export const simpleSingleTile: Board = {
+export const simpleSingleTile: Template = {
+  variables: [],
   format: "open-board-0.1",
   id: "single-tile",
   locale: "en-GB",
   name: "Simple Single Tile",
   description_html: "A board with a single tile in the centre",
   ext_launchpad_options: {},
-
   buttons: [
     {
       id: "main",
