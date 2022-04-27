@@ -1,7 +1,10 @@
 import { Template } from "types";
 
 export const simpleSingleTile: Template = {
-  variables: [],
+  templateVariables: [],
+  templateDescription: "Create a single tile board with no variables",
+  templateName: "Simple Single Tile",
+
   format: "open-board-0.1",
   id: "single-tile",
   locale: "en-GB",

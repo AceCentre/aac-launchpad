@@ -88,9 +88,11 @@ export type TemplateItem = {
 };
 
 export type Template = {
-  variables: Array<
+  templateVariables: Array<
     OptionTemplateVariable | FreeTextVariable | NumberTemplateVariable
   >;
+  templateName: string;
+  templateDescription: string;
 
   format: string | TemplateItem;
   id: BoardID | TemplateItem;

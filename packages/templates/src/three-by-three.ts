@@ -1,7 +1,10 @@
 import { Template } from "types";
 
 export const threeByThree: Template = {
-  variables: [],
+  templateVariables: [],
+  templateDescription: "Create a nine tile board with no variables",
+  templateName: "Three by Three",
+
   format: "open-board-0.1",
   id: "three-by-three",
   locale: "en-GB",

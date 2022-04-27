@@ -1,7 +1,10 @@
 import { Template } from "types";
 
 export const twoByTwo: Template = {
-  variables: [],
+  templateVariables: [],
+  templateDescription: "Create a four tile board with no variables",
+  templateName: "Two by Two",
+
   format: "open-board-0.1",
   id: "two-by-two",
   locale: "en-GB",
