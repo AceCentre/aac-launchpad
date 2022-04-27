@@ -19,13 +19,5 @@ This Turborepo includes the following packages and apps:
 - `tsconfig`: tsconfig.json;s used throughout the monorepo
 - `templates`: Stores the static templates
 - `types`: Type definitions for the monorepo
+- `template-to-board`: Converts a template and result into a board
 - `board-to-pdf`: Converts a board to a PDF
-
-### Utilities
-
-This turborepo has some additional tools already setup for you:
-
-- [Typescript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Jest](https://jestjs.io) test runner for all things JavaScript
-- [Prettier](https://prettier.io) for code formatting
