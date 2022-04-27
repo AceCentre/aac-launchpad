@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "board-to-pdf": "*",
+    "template-to-board": "*",
     "logger": "*",
     "templates": "*"
   }
