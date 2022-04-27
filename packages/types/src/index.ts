@@ -23,11 +23,83 @@ type Grid = {
   order: Array<Array<ButtonID | null>>;
 };
 
-type Options = {
+type GridWithTemplateItems = {
+  rows: number | TemplateItem;
+  columns: number | TemplateItem;
+  order: Array<Array<ButtonID | null | TemplateItem>>;
+};
+
+type LaunchpadOptions = {
   padding?: number;
   gap?: number;
   button_radius?: number;
   button_border_width?: number;
+};
+
+type LaunchpadOptionsWithTemplateItems = {
+  padding?: number | TemplateItem;
+  gap?: number | TemplateItem;
+  button_radius?: number | TemplateItem;
+  button_border_width?: number | TemplateItem;
+};
+
+interface TemplateVariable {
+  id: string;
+  description: string;
+  type: string;
+}
+
+type Option = {
+  value: string;
+  label: string;
+  description: string;
+};
+
+interface OptionTemplateVariable extends TemplateVariable {
+  type: "option";
+  options: Array<Option>;
+}
+
+interface FreeTextVariable extends TemplateVariable {
+  type: "freeText";
+  maxLength: number;
+}
+
+interface NumberTemplateVariable extends TemplateVariable {
+  type: "number";
+  min: number;
+  max: number;
+}
+
+type TemplateItem = {
+  id: string;
+};
+
+type ButtonWithTemplateItems = {
+  id: ButtonID | TemplateItem;
+  label: string | TemplateItem;
+  border_color: Color | TemplateItem;
+  background_color: Color | TemplateItem;
+  ext_launchpad_label_color?: Color | TemplateItem;
+  ext_launchpad_label_font_size?: number | TemplateItem;
+  ext_launchpad_label_bold?: boolean | TemplateItem;
+  ext_launchpad_label_font_style?: string | TemplateItem;
+};
+
+export type Template = {
+  variables: Array<
+    OptionTemplateVariable | FreeTextVariable | NumberTemplateVariable
+  >;
+
+  format: "open-board-0.1" | TemplateItem;
+  id: BoardID | TemplateItem;
+  locale: "en-GB" | TemplateItem;
+  url?: string | TemplateItem;
+  name: string | TemplateItem;
+  ext_launchpad_options: LaunchpadOptionsWithTemplateItems;
+  description_html: string | TemplateItem;
+  buttons: Array<ButtonWithTemplateItems>;
+  grid: GridWithTemplateItems;
 };
 
 export type Board = {
@@ -36,7 +108,7 @@ export type Board = {
   locale: "en-GB";
   url?: string;
   name: string;
-  ext_launchpad_options: Options;
+  ext_launchpad_options: LaunchpadOptions;
 
   /**
    * The standard allows you to include html in this field, but this implementation
