@@ -6,7 +6,7 @@ type ButtonID = string;
  */
 type Color = string;
 
-type Button = {
+export type Button = {
   id: ButtonID;
   label: string;
   border_color: Color;
@@ -17,7 +17,18 @@ type Button = {
   ext_launchpad_label_font_style?: string;
 };
 
-type Grid = {
+type ButtonWithTemplateItems = {
+  id: ButtonID | TemplateItem;
+  label: string | TemplateItem;
+  border_color: Color | TemplateItem;
+  background_color: Color | TemplateItem;
+  ext_launchpad_label_color?: Color | TemplateItem;
+  ext_launchpad_label_font_size?: number | TemplateItem;
+  ext_launchpad_label_bold?: boolean | TemplateItem;
+  ext_launchpad_label_font_style?: string | TemplateItem;
+};
+
+export type Grid = {
   rows: number;
   columns: number;
   order: Array<Array<ButtonID | null>>;
@@ -29,7 +40,7 @@ type GridWithTemplateItems = {
   order: Array<Array<ButtonID | null | TemplateItem>>;
 };
 
-type LaunchpadOptions = {
+export type LaunchpadOptions = {
   padding?: number;
   gap?: number;
   button_radius?: number;
@@ -71,19 +82,9 @@ interface NumberTemplateVariable extends TemplateVariable {
   max: number;
 }
 
-type TemplateItem = {
+export type TemplateItem = {
   id: string;
-};
-
-type ButtonWithTemplateItems = {
-  id: ButtonID | TemplateItem;
-  label: string | TemplateItem;
-  border_color: Color | TemplateItem;
-  background_color: Color | TemplateItem;
-  ext_launchpad_label_color?: Color | TemplateItem;
-  ext_launchpad_label_font_size?: number | TemplateItem;
-  ext_launchpad_label_bold?: boolean | TemplateItem;
-  ext_launchpad_label_font_style?: string | TemplateItem;
+  type: "TemplateItem";
 };
 
 export type Template = {
@@ -91,9 +92,9 @@ export type Template = {
     OptionTemplateVariable | FreeTextVariable | NumberTemplateVariable
   >;
 
-  format: "open-board-0.1" | TemplateItem;
+  format: string | TemplateItem;
   id: BoardID | TemplateItem;
-  locale: "en-GB" | TemplateItem;
+  locale: string | TemplateItem;
   url?: string | TemplateItem;
   name: string | TemplateItem;
   ext_launchpad_options: LaunchpadOptionsWithTemplateItems;
@@ -103,9 +104,9 @@ export type Template = {
 };
 
 export type Board = {
-  format: "open-board-0.1";
+  format: string;
   id: BoardID;
-  locale: "en-GB";
+  locale: string;
   url?: string;
   name: string;
   ext_launchpad_options: LaunchpadOptions;
