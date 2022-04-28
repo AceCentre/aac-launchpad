@@ -19,4 +19,4 @@ const server = new ApolloServer({
   resolvers,
 });
 
-export default server.createHandler();
+export const handler = server.createHandler();

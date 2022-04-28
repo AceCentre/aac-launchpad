@@ -1,2 +1,5 @@
 [build]
-  command = "yarn build"
+    command = "yarn build"
+
+[functions]
+    directory = "./apps/graphql/src"
