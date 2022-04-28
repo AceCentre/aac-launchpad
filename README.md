@@ -36,3 +36,5 @@ This Turborepo includes the following packages and apps:
 - `types`: Type definitions for the monorepo
 - `template-to-board`: Converts a template and result into a board
 - `board-to-pdf`: Converts a board to a PDF
+- `cli`: The CLI to create templates
+- `graphql`: The GraphQL api to create templates

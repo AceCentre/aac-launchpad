@@ -1,0 +1,26 @@
+{
+  "name": "graphql",
+  "bin": {
+    "launchpad": "dist/index.js"
+  },
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "lint": "tsc --noEmit && TIMING=1 eslint src --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "scripts": "*",
+    "tsconfig": "*",
+    "typescript": "^4.5.3"
+  },
+  "jest": {
+    "preset": "scripts/jest/node"
+  },
+  "dependencies": {
+    "apollo-server-lambda": "^3.6.7"
+  }
+}
