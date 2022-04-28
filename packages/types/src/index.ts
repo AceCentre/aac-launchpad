@@ -1,5 +1,6 @@
 type BoardID = string;
 type ButtonID = string;
+export type Result = { id: string; value: string };
 
 /**
  * Color attributes are string values and can be represented as rgb or rgba values.
@@ -82,6 +83,10 @@ interface NumberTemplateVariable extends TemplateVariable {
   max: number;
 }
 
+interface ColorTemplateVariable extends TemplateVariable {
+  type: "color";
+}
+
 export type TemplateItem = {
   id: string;
   type: "TemplateItem";
@@ -89,7 +94,10 @@ export type TemplateItem = {
 
 export type Template = {
   templateVariables: Array<
-    OptionTemplateVariable | FreeTextVariable | NumberTemplateVariable
+    | OptionTemplateVariable
+    | FreeTextVariable
+    | NumberTemplateVariable
+    | ColorTemplateVariable
   >;
   templateName: string;
   templateDescription: string;
