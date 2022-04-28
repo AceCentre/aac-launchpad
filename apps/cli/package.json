@@ -6,7 +6,6 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "test": "echo \"No tests yet\"",
     "build": "tsc",
     "dev": "tsc -w",
     "lint": "tsc --noEmit && TIMING=1 eslint src --fix",
@@ -14,12 +13,8 @@
   },
   "devDependencies": {
     "@types/inquirer": "^8.2.1",
-    "@types/jest": "^26.0.22",
     "@types/node": "^15.12.2",
-    "esbuild-register": "^2.5.0",
     "eslint": "^7.32.0",
-    "jest": "^26.6.3",
-    "nodemon": "^2.0.15",
     "scripts": "*",
     "tsconfig": "*",
     "types": "*",
@@ -31,7 +26,6 @@
   "dependencies": {
     "board-to-pdf": "*",
     "inquirer": "^8.2.3",
-    "logger": "*",
     "template-to-board": "*",
     "templates": "*"
   }
