@@ -28,3 +28,4 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn install
       - run: yarn netlify build
+      - run: yarn netlify deploy
