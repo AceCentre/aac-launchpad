@@ -29,7 +29,6 @@ This Turborepo includes the following packages and apps:
 
 ### Apps and Packages
 
-- `api`: an [Express](https://expressjs.com/) server
 - `logger`: isomorphic logger (a small wrapper around console.log)
 - `scripts`: Jest and eslint configurations
 - `tsconfig`: tsconfig.json;s used throughout the monorepo
