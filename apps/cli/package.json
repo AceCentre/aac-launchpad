@@ -13,6 +13,7 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
+    "@types/inquirer": "^8.2.1",
     "@types/jest": "^26.0.22",
     "@types/node": "^15.12.2",
     "esbuild-register": "^2.5.0",
@@ -21,6 +22,7 @@
     "nodemon": "^2.0.15",
     "scripts": "*",
     "tsconfig": "*",
+    "types": "*",
     "typescript": "^4.5.3"
   },
   "jest": {
@@ -28,8 +30,9 @@
   },
   "dependencies": {
     "board-to-pdf": "*",
-    "template-to-board": "*",
+    "inquirer": "^8.2.3",
     "logger": "*",
+    "template-to-board": "*",
     "templates": "*"
   }
 }
