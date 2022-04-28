@@ -2,6 +2,22 @@
 
 Conveniently create high quality AAC resources
 
+## Building the application
+
+```bash
+# Install the dependencies
+yarn install
+
+# Build the packages
+yarn build
+
+# Install the CLI
+npm i -g ./apps/cli
+
+# Run the CLI anywhere
+launchpad
+```
+
 ## Glossary
 
 - Board - A completed OBF file
