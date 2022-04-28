@@ -5,9 +5,8 @@ import {
   LaunchpadOptions,
   Template,
   TemplateItem,
+  Result,
 } from "types";
-
-type Result = { id: string; value: string };
 
 const getExtLaunchpadOptions = (
   template: Template,
