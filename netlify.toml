@@ -4,3 +4,4 @@
 
 [functions]
     directory = "./apps/graphql/src"
+    external_node_modules = ["express"]
