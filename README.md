@@ -18,6 +18,10 @@ npm i -g ./apps/cli
 
 # Run the CLI anywhere
 launchpad
+
+# Automatically build on any changes
+# Hosts the graphql server at http://localhost:4000/
+yarn dev
 ```
 
 ## Glossary
