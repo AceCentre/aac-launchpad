@@ -13,8 +13,6 @@ const templateMap: any = {
 const resolvers = {
   Query: {
     templates: () => {
-      console.log("RESOLVING");
-
       return ALL_TEMPLATES.map((template) => {
         return {
           ...template,
