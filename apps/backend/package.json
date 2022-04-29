@@ -1,18 +1,20 @@
 {
-  "name": "graphql",
+  "name": "backend",
   "bin": {
     "launchpad": "dist/index.js"
   },
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "start": "node dist/index.js",
     "build": "tsc",
-    "dev": "tsc -w",
+    "dev": "nodemon --exec \"tsc && node dist/index.js\" -e .ts -i dist",
     "lint": "tsc --noEmit && TIMING=1 eslint src --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
+    "nodemon": "^2.0.15",
     "scripts": "*",
     "tsconfig": "*",
     "typescript": "^4.5.3"
@@ -21,9 +23,8 @@
     "preset": "scripts/jest/node"
   },
   "dependencies": {
+    "apollo-server": "^3.6.7",
     "apollo-server-core": "^3.6.7",
-    "apollo-server-lambda": "^3.6.7",
-    "express": "^4.18.0",
     "graphql": "^16.4.0"
   }
 }

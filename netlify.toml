@@ -1,7 +1,0 @@
-[build]
-    command = "yarn build"
-    publish = "website/"
-
-[functions]
-    directory = "./apps/graphql/src"
-    external_node_modules = ["express"]
