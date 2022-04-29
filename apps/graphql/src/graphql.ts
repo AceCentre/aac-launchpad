@@ -1,4 +1,5 @@
 import { ApolloServer, gql } from "apollo-server-lambda";
+import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 
 const typeDefs = gql`
   type Query {
@@ -17,6 +18,8 @@ const resolvers = {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  introspection: true,
+  plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
 });
 
 export const handler = server.createHandler();
