@@ -16,8 +16,8 @@
     "eslint": "^7.32.0",
     "nodemon": "^2.0.15",
     "scripts": "*",
-    "types": "*",
     "tsconfig": "*",
+    "types": "*",
     "typescript": "^4.5.3"
   },
   "jest": {
@@ -26,7 +26,6 @@
   "dependencies": {
     "apollo-server": "^3.6.7",
     "apollo-server-core": "^3.6.7",
-    "graphql": "^16.4.0",
     "templates": "*"
   }
 }
