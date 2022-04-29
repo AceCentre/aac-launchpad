@@ -1,6 +1,8 @@
 # AAC Launchpad
 
-Conveniently create high quality AAC resources
+Conveniently create high quality AAC resources.
+
+Visit the GraphQL Playground to get started: https://aac-launchpad-2mtuk.ondigitalocean.app/
 
 ## Building the application
 
