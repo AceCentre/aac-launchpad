@@ -13,6 +13,7 @@ export const alphabetChart: Template = {
       type: "color",
     },
   ],
+  templateId: "alphabet-chart",
   templateDescription: "Create an alphabet chart with custom colors",
   templateName: "Alphabet Chart Template",
 

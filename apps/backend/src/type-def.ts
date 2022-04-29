@@ -51,6 +51,7 @@ export const typeDefs = gql`
     templateName: String!
     templateDescription: String!
     templateVariables: [TemplateVariableType]!
+    templateId: String!
   }
 
   type Query {

@@ -101,6 +101,7 @@ export type Template = {
   >;
   templateName: string;
   templateDescription: string;
+  templateId: string;
 
   format: string | TemplateItem;
   id: BoardID | TemplateItem;

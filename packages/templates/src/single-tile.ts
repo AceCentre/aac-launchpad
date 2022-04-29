@@ -4,6 +4,7 @@ export const simpleSingleTile: Template = {
   templateVariables: [],
   templateDescription: "Create a single tile board with no variables",
   templateName: "Simple Single Tile",
+  templateId: "single-tile",
 
   format: "open-board-0.1",
   id: "single-tile",

@@ -4,6 +4,7 @@ export const twoByTwo: Template = {
   templateVariables: [],
   templateDescription: "Create a four tile board with no variables",
   templateName: "Two by Two",
+  templateId: "two-by-two",
 
   format: "open-board-0.1",
   id: "two-by-two",
