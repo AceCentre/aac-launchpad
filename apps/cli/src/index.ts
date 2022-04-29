@@ -7,6 +7,7 @@ import { Result } from "types";
 import { ALL_TEMPLATES } from "templates";
 
 import inquirer from "inquirer";
+import { writeFileSync } from "fs";
 
 const main = async () => {
   const templateAnswer: { template: string } = await inquirer.prompt([
@@ -126,13 +127,17 @@ const main = async () => {
   const board = templateToBoard(chosenTemplate, results);
 
   const pdfPath = path.join(`./${chosenTemplate.id}.pdf`);
+  const obfPath = path.join(`./${chosenTemplate.id}.obf`);
+
+  writeFileSync(obfPath, JSON.stringify(board, null, 2));
 
   boardToPdf(board, pdfPath);
 
   console.log("");
   console.log("✨✨✨✨✨ Successfully created a new board ✨✨✨✨✨");
   console.log("");
-  console.log("Board saved to:", pdfPath);
+  console.log("PDF saved to:", pdfPath);
+  console.log("OBF saved to:", obfPath);
   console.log("");
 };
 
