@@ -1,7 +1,9 @@
-import { ApolloServer } from "apollo-server";
+import { ApolloServer } from "apollo-server-express";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import { typeDefs } from "./type-def";
 import { ALL_TEMPLATES } from "templates";
+import express from "express";
+import http from "http";
 
 const templateMap: any = {
   option: "OptionTemplateVariable",
@@ -30,13 +32,22 @@ const resolvers = {
   },
 };
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  introspection: true,
-  plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
-});
+async function setupServer() {
+  const app = express();
+  const httpServer = http.createServer(app);
+  const port = process.env.PORT || 4000;
 
-server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`);
-});
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    introspection: true,
+    plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
+  });
+  await server.start();
+  server.applyMiddleware({ app, path: "/" });
+  await new Promise<void>((resolve) => httpServer.listen({ port }, resolve));
+
+  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
+}
+
+setupServer();

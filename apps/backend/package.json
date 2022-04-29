@@ -24,8 +24,9 @@
     "preset": "scripts/jest/node"
   },
   "dependencies": {
-    "apollo-server": "^3.6.7",
     "apollo-server-core": "^3.6.7",
+    "apollo-server-express": "^3.6.7",
+    "express": "^4.18.0",
     "templates": "*"
   }
 }
