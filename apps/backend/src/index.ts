@@ -3,9 +3,32 @@ import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-co
 import { typeDefs } from "./type-def";
 import { ALL_TEMPLATES } from "templates";
 
+const templateMap: any = {
+  option: "OptionTemplateVariable",
+  freeText: "FreeTextTemplateVariable",
+  number: "NumberTemplateVariable",
+  color: "ColorTemplateVariable",
+};
+
 const resolvers = {
   Query: {
-    templates: () => ALL_TEMPLATES,
+    templates: () => {
+      console.log("RESOLVING");
+
+      return ALL_TEMPLATES.map((template) => {
+        return {
+          ...template,
+          templateVariables: template.templateVariables.map(
+            (templateVariable) => {
+              return {
+                ...templateVariable,
+                __typename: templateMap[templateVariable.type],
+              };
+            }
+          ),
+        };
+      });
+    },
   },
 };
 

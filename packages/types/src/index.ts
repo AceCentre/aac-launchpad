@@ -55,7 +55,7 @@ type LaunchpadOptionsWithTemplateItems = {
   button_border_width?: number | TemplateItem;
 };
 
-interface TemplateVariable {
+export interface TemplateVariable {
   id: string;
   description: string;
   type: string;
@@ -72,7 +72,7 @@ interface OptionTemplateVariable extends TemplateVariable {
   options: Array<Option>;
 }
 
-interface FreeTextVariable extends TemplateVariable {
+interface FreeTextTemplateVariable extends TemplateVariable {
   type: "freeText";
   maxLength: number;
 }
@@ -95,7 +95,7 @@ export type TemplateItem = {
 export type Template = {
   templateVariables: Array<
     | OptionTemplateVariable
-    | FreeTextVariable
+    | FreeTextTemplateVariable
     | NumberTemplateVariable
     | ColorTemplateVariable
   >;
