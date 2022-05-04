@@ -94,6 +94,15 @@ const getBaseUrl = () => {
 async function setupServer() {
   const app = express();
 
+  app.get("/boards/:id", (req, res) => {
+    const date = new Date();
+
+    res.download(
+      "./public/boards/" + req.params.id,
+      `launchpad-${date.toISOString()}.pdf`
+    );
+  });
+
   app.use(express.static("public"));
 
   const httpServer = http.createServer(app);
