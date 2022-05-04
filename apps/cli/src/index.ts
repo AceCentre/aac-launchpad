@@ -131,7 +131,8 @@ const main = async () => {
 
   writeFileSync(obfPath, JSON.stringify(board, null, 2));
 
-  boardToPdf(board, pdfPath);
+  const pdf = boardToPdf(board);
+  pdf.save(pdfPath);
 
   console.log("");
   console.log("✨✨✨✨✨ Successfully created a new board ✨✨✨✨✨");
