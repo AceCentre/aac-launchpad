@@ -1,5 +1,6 @@
 .DS_Store
 test-files
+apps/backend/public/boards
 
 # Logs
 logs
