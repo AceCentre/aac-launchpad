@@ -92,13 +92,14 @@ export type TemplateItem = {
   type: "TemplateItem";
 };
 
+export type AllTemplateVariable =
+  | OptionTemplateVariable
+  | FreeTextTemplateVariable
+  | NumberTemplateVariable
+  | ColorTemplateVariable;
+
 export type Template = {
-  templateVariables: Array<
-    | OptionTemplateVariable
-    | FreeTextTemplateVariable
-    | NumberTemplateVariable
-    | ColorTemplateVariable
-  >;
+  templateVariables: Array<AllTemplateVariable>;
   templateName: string;
   templateDescription: string;
   templateId: string;

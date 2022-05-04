@@ -61,7 +61,7 @@ const getRGB = (input: String): RBG => {
   return { red, green, blue };
 };
 
-const boardToPdf = (board: Board, saveLocation: string) => {
+const boardToPdf = (board: Board): jsPDF => {
   // Default export is a4 paper, portrait, using millimeters for units
   const doc = new jsPDF({
     orientation: "landscape",
@@ -166,7 +166,7 @@ const boardToPdf = (board: Board, saveLocation: string) => {
     }
   }
 
-  doc.save(saveLocation);
+  return doc;
 };
 
 export default boardToPdf;
