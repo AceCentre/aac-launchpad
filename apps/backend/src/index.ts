@@ -9,6 +9,7 @@ import boardToPdf from "board-to-pdf";
 import templateToBoard from "template-to-board";
 import crypto from "crypto";
 import path from "path";
+import fs from "fs";
 
 const templateMap: any = {
   option: "OptionTemplateVariable",
@@ -112,3 +113,22 @@ async function setupServer() {
 }
 
 setupServer();
+
+const CLEAR_INTERVAL = 10 * 60 * 1000; // 10 minutes
+const MIN_STORAGE_TIME = 60000; // 60 Seconds
+
+setInterval(async () => {
+  // Get the files then wait a while,
+  // this is incase the user only just got the download link
+  const filesToDelete = fs.readdirSync("./public/boards");
+  await new Promise((res) => setTimeout(res, MIN_STORAGE_TIME));
+
+  // Delete the files
+  for (const file of filesToDelete) {
+    if (file.includes("sample.pdf")) continue;
+
+    const filePath = path.join("./public/boards", file);
+    fs.unlinkSync(filePath);
+    console.log(`🗑  Deleting: ${file}`);
+  }
+}, CLEAR_INTERVAL);
