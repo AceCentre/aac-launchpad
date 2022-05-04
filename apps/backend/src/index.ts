@@ -67,7 +67,10 @@ const resolvers = {
         .update(JSON.stringify(input))
         .digest("hex");
 
-      pdf.save(path.join("./public/boards", `${fileHash}.pdf`));
+      fs.writeFileSync(
+        path.join("./public/boards", `${fileHash}.pdf`),
+        pdf.output()
+      );
 
       const fileLocation = new URL(
         `/boards/${fileHash}.pdf`,
