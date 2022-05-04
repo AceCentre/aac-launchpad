@@ -5,6 +5,7 @@ export const threeByThree: Template = {
   templateDescription: "Create a nine tile board with no variables",
   templateName: "Three by Three",
   templateId: "three-by-three",
+  templateImageUrl: "three-by-three.png",
 
   format: "open-board-0.1",
   id: "three-by-three",

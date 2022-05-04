@@ -16,6 +16,7 @@ export const alphabetChart: Template = {
   templateId: "alphabet-chart",
   templateDescription: "Create an alphabet chart with custom colors",
   templateName: "Alphabet Chart Template",
+  templateImageUrl: "alphabet-chart.png",
 
   format: "open-board-0.1",
   id: "alphabet-chart",
