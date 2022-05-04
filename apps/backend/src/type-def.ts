@@ -58,4 +58,19 @@ export const typeDefs = gql`
   type Query {
     templates: [Template]!
   }
+
+  type BoardResult {
+    success: Boolean!
+    message: String!
+    fileLocation: String!
+  }
+
+  input AnswerInput {
+    id: String!
+    value: String!
+  }
+
+  type Mutation {
+    generateBoard(templateId: String!, answers: [AnswerInput!]!): BoardResult!
+  }
 `;

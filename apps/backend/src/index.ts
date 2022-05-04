@@ -4,13 +4,36 @@ import { typeDefs } from "./type-def";
 import { ALL_TEMPLATES } from "templates";
 import express from "express";
 import http from "http";
-import { Template } from "types";
+import { Template, AllTemplateVariable } from "types";
+import boardToPdf from "board-to-pdf";
+import templateToBoard from "template-to-board";
+import crypto from "crypto";
+import path from "path";
 
 const templateMap: any = {
   option: "OptionTemplateVariable",
   freeText: "FreeTextTemplateVariable",
   number: "NumberTemplateVariable",
   color: "ColorTemplateVariable",
+};
+
+const addTypenameToTemplate = (template: Template): any => {
+  return {
+    ...template,
+    templateVariables: template.templateVariables.map(
+      (templateVariable: AllTemplateVariable) => {
+        return {
+          ...templateVariable,
+          __typename: templateMap[templateVariable.type],
+        };
+      }
+    ),
+  };
+};
+
+type GenerateBoardInput = {
+  templateId: string;
+  answers: Array<{ id: string; value: string }>;
 };
 
 const resolvers = {
@@ -21,19 +44,40 @@ const resolvers = {
   },
   Query: {
     templates: () => {
-      return ALL_TEMPLATES.map((template) => {
-        return {
-          ...template,
-          templateVariables: template.templateVariables.map(
-            (templateVariable) => {
-              return {
-                ...templateVariable,
-                __typename: templateMap[templateVariable.type],
-              };
-            }
-          ),
-        };
-      });
+      return ALL_TEMPLATES.map(addTypenameToTemplate);
+    },
+  },
+
+  Mutation: {
+    generateBoard: async (_: undefined, input: GenerateBoardInput) => {
+      const template = ALL_TEMPLATES.find(
+        (x) => x.templateId === input.templateId
+      );
+
+      if (!template) {
+        throw new Error(`Could not find template with id: ${input.templateId}`);
+      }
+
+      const board = templateToBoard(template, input.answers);
+      const pdf = boardToPdf(board);
+
+      const fileHash = crypto
+        .createHash("sha256")
+        .update(JSON.stringify(input))
+        .digest("hex");
+
+      pdf.save(path.join("./public/boards", `${fileHash}.pdf`));
+
+      const fileLocation = new URL(
+        `/boards/${fileHash}.pdf`,
+        getBaseUrl()
+      ).toString();
+
+      return {
+        success: true,
+        message: "Board generated!",
+        fileLocation,
+      };
     },
   },
 };
