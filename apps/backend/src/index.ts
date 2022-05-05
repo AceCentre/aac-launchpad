@@ -100,10 +100,9 @@ async function setupServer() {
   app.get("/boards/:id", (req, res) => {
     const date = new Date();
 
-    res.download(
-      "./public/boards/" + req.params.id,
-      `launchpad-${date.toISOString()}.pdf`
-    );
+    res.download(req.params.id, `launchpad-${date.toISOString()}.pdf`, {
+      root: "./public/boards",
+    });
   });
 
   app.use(express.static("public"));
