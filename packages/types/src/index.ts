@@ -59,6 +59,7 @@ export interface TemplateVariable {
   id: string;
   description: string;
   type: string;
+  name: string;
 }
 
 type Option = {

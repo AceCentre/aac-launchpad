@@ -6,11 +6,13 @@ export const alphabetChart: Template = {
       id: "backgroundColor",
       description: "The color of the background",
       type: "color",
+      name: "Background Color",
     },
     {
       id: "textColor",
       description: "The color of the text",
       type: "color",
+      name: "Text Color",
     },
   ],
   templateId: "alphabet-chart",
