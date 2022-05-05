@@ -1,14 +1,7 @@
-import { simpleSingleTile } from "./single-tile";
-import { twoByTwo } from "./two-by-two";
-import { threeByThree } from "./three-by-three";
 import { alphabetChart } from "./alphabet-chart";
+import { simpleChoice } from "./simple-choice";
 import { Template } from "types";
 
-export { simpleSingleTile, twoByTwo, threeByThree, alphabetChart };
+export { alphabetChart, simpleChoice };
 
-export const ALL_TEMPLATES: Array<Template> = [
-  simpleSingleTile,
-  twoByTwo,
-  threeByThree,
-  alphabetChart,
-];
+export const ALL_TEMPLATES: Array<Template> = [alphabetChart, simpleChoice];
