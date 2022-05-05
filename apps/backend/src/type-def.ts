@@ -6,6 +6,7 @@ export const typeDefs = gql`
     description: String!
     type: String!
     name: String!
+    defaultValue: String!
   }
 
   type Option {
@@ -20,6 +21,7 @@ export const typeDefs = gql`
     description: String!
     type: String!
     options: [Option]!
+    defaultValue: String!
   }
 
   type FreeTextTemplateVariable implements TemplateVariable {
@@ -28,6 +30,7 @@ export const typeDefs = gql`
     description: String!
     type: String!
     maxLength: Int!
+    defaultValue: String!
   }
 
   type NumberTemplateVariable implements TemplateVariable {
@@ -37,6 +40,7 @@ export const typeDefs = gql`
     type: String!
     min: Int!
     max: Int!
+    defaultValue: String!
   }
 
   type ColorTemplateVariable implements TemplateVariable {
@@ -44,6 +48,7 @@ export const typeDefs = gql`
     name: String!
     description: String!
     type: String!
+    defaultValue: String!
   }
 
   union TemplateVariableType =
