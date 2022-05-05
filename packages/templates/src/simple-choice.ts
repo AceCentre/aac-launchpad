@@ -35,14 +35,14 @@ export const simpleChoice: Template = {
       name: "Left Background Color",
       description: "The color of the background for the left box",
       type: "color",
-      defaultValue: "rgb(0,0,0)",
+      defaultValue: "rgb(255,0,0)",
     },
     {
       id: "leftTextColor",
       name: "Left Text Color",
       description: "The color of the text in the left box",
       type: "color",
-      defaultValue: "rgb(0,0,0)",
+      defaultValue: "rgb(255,255,255)",
     },
     {
       id: "rightBorderColor",
@@ -56,14 +56,14 @@ export const simpleChoice: Template = {
       name: "Right Background Color",
       description: "The color of the background for the right box",
       type: "color",
-      defaultValue: "rgb(0,0,0)",
+      defaultValue: "rgb(0,0,200)",
     },
     {
       id: "rightTextColor",
       name: "Right Text Color",
       description: "The color of the text in the right box",
       type: "color",
-      defaultValue: "rgb(0,0,0)",
+      defaultValue: "rgb(255,255,255)",
     },
   ],
 
