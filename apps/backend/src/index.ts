@@ -100,6 +100,10 @@ async function setupServer() {
   app.get("/boards/:id", (req, res) => {
     const date = new Date();
 
+    const files = fs.readdirSync("./public/boards");
+
+    console.log({ files, fileName: req.params.id });
+
     res.download(req.params.id, `launchpad-${date.toISOString()}.pdf`, {
       root: "./public/boards",
     });
