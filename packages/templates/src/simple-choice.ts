@@ -74,7 +74,7 @@ export const simpleChoice: Template = {
   description_html: "A board that allows you to choose between two options",
 
   ext_launchpad_options: {},
-
+  images: [],
   buttons: [
     {
       id: "left",

@@ -70,6 +70,7 @@ export const threeByThree: Template = {
       background_color: "rgb(200, 255, 255)",
     },
   ],
+  images: [],
   grid: {
     rows: 3,
     columns: 3,

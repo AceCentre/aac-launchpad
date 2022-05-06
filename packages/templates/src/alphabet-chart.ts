@@ -431,6 +431,7 @@ export const alphabetChart: Template = {
       ext_launchpad_label_font_style: "bold",
     },
   ],
+  images: [],
   grid: {
     rows: 5,
     columns: 10,

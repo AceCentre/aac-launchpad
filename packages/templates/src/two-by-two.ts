@@ -40,6 +40,7 @@ export const twoByTwo: Template = {
       background_color: "rgb(200, 255, 255)",
     },
   ],
+  images: [],
   grid: {
     rows: 2,
     columns: 2,

@@ -13,6 +13,7 @@ export const simpleSingleTile: Template = {
   name: "Simple Single Tile",
   description_html: "A board with a single tile in the centre",
   ext_launchpad_options: {},
+  images: [],
   buttons: [
     {
       id: "main",
