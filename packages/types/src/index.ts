@@ -16,6 +16,13 @@ export type Button = {
   ext_launchpad_label_font_size?: number;
   ext_launchpad_label_bold?: boolean;
   ext_launchpad_label_font_style?: string;
+  image_id?: string;
+};
+
+type Image = {
+  // Gone a bit of spec here, its easier for us to infer the content type and width and height
+  id: string;
+  url: string;
 };
 
 type ButtonWithTemplateItems = {
@@ -27,6 +34,7 @@ type ButtonWithTemplateItems = {
   ext_launchpad_label_font_size?: number | TemplateItem;
   ext_launchpad_label_bold?: boolean | TemplateItem;
   ext_launchpad_label_font_style?: string | TemplateItem;
+  image_id?: string;
 };
 
 export type Grid = {
@@ -116,6 +124,8 @@ export type Template = {
   description_html: string | TemplateItem;
   buttons: Array<ButtonWithTemplateItems>;
   grid: GridWithTemplateItems;
+
+  images: Array<Image>;
 };
 
 export type Board = {
@@ -135,4 +145,6 @@ export type Board = {
 
   buttons: Button[];
   grid: Grid;
+
+  images: Array<Image>;
 };
