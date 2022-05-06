@@ -194,6 +194,7 @@ const getButtons = (
 ): Array<Button> => {
   return template.buttons.map((current): Button => {
     return {
+      image_id: current.image_id,
       id: getStringFromTemplateItem(current.id, results),
       label: getStringFromTemplateItem(current.label, results),
       border_color: getStringFromTemplateItem(current.border_color, results),
@@ -255,6 +256,7 @@ const templateToBoard = (template: Template, results: Array<Result>): Board => {
     name,
     buttons,
     grid,
+    images: template.images,
   };
 };
 
