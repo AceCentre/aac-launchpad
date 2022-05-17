@@ -6,6 +6,7 @@ import {
   Template,
   TemplateItem,
   Result,
+  Image,
 } from "types";
 
 const getExtLaunchpadOptions = (
@@ -232,6 +233,16 @@ const getGrid = (template: Template, results: Array<Result>): Grid => {
   };
 };
 
+const getImages = (
+  template: Template,
+  results: Array<Result>
+): Array<Image> => {
+  return template.images.map((image) => {
+    const url = getStringFromTemplateItem(image.url, results);
+    return { id: image.id, url };
+  });
+};
+
 const templateToBoard = (template: Template, results: Array<Result>): Board => {
   const format = getStringFromTemplateItem(template.format, results);
   const id = getStringFromTemplateItem(template.id, results);
@@ -245,6 +256,7 @@ const templateToBoard = (template: Template, results: Array<Result>): Board => {
   const ext_launchpad_options = getExtLaunchpadOptions(template, results);
   const buttons = getButtons(template, results);
   const grid = getGrid(template, results);
+  const images = getImages(template, results);
 
   return {
     format,
@@ -256,7 +268,7 @@ const templateToBoard = (template: Template, results: Array<Result>): Board => {
     name,
     buttons,
     grid,
-    images: template.images,
+    images,
   };
 };
 

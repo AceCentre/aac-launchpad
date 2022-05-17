@@ -19,7 +19,7 @@ export type Button = {
   image_id?: string;
 };
 
-type Image = {
+export type Image = {
   // Gone a bit of spec here, its easier for us to infer the content type and width and height
   id: string;
   url: string;
@@ -97,6 +97,10 @@ interface ColorTemplateVariable extends TemplateVariable {
   type: "color";
 }
 
+interface ImageUrlVariable extends TemplateVariable {
+  type: "imageUrl";
+}
+
 export type TemplateItem = {
   id: string;
   type: "TemplateItem";
@@ -106,7 +110,8 @@ export type AllTemplateVariable =
   | OptionTemplateVariable
   | FreeTextTemplateVariable
   | NumberTemplateVariable
-  | ColorTemplateVariable;
+  | ColorTemplateVariable
+  | ImageUrlVariable;
 
 export type Template = {
   templateVariables: Array<AllTemplateVariable>;
@@ -125,7 +130,12 @@ export type Template = {
   buttons: Array<ButtonWithTemplateItems>;
   grid: GridWithTemplateItems;
 
-  images: Array<Image>;
+  images: Array<ImageWithTemplateItems>;
+};
+
+type ImageWithTemplateItems = {
+  id: string;
+  url: string | TemplateItem;
 };
 
 export type Board = {

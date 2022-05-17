@@ -5,7 +5,15 @@ export const withImages: Template = {
   templateName: "Two cell with images",
   templateDescription: "Create a board that uses images",
   templateImageUrl: "choice.png",
-  templateVariables: [],
+  templateVariables: [
+    {
+      id: "rightImage",
+      type: "imageUrl",
+      name: "Right image",
+      defaultValue: "./right.png",
+      description: "URL or path for image on the right hand side",
+    },
+  ],
 
   format: "open-board-0.1",
   id: "with-images",
@@ -45,7 +53,7 @@ export const withImages: Template = {
     },
     {
       id: "rightImage",
-      url: "./right.png",
+      url: { type: "TemplateItem", id: "rightImage" },
     },
   ],
 
