@@ -34,6 +34,7 @@ export const withImages: Template = {
       ext_launchpad_label_color: "rgb(0,0,0)",
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      image_id: "rightImage",
     },
   ],
 
@@ -41,6 +42,10 @@ export const withImages: Template = {
     {
       id: "leftImage",
       url: "./left.png",
+    },
+    {
+      id: "rightImage",
+      url: "./right.png",
     },
   ],
 
