@@ -61,7 +61,9 @@ const resolvers = {
       }
 
       const board = templateToBoard(template, input.answers);
-      const pdf = await boardToPdf(board);
+
+      const rootToImages = path.join(__dirname, "../private");
+      const pdf = await boardToPdf(board, { rootToImages });
 
       const fileHash = crypto
         .createHash("sha256")

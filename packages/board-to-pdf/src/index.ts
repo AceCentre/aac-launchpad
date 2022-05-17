@@ -48,7 +48,7 @@ const calculateButtonSize = (
   return { width: buttonWidth, height: buttonHeight };
 };
 
-const getRGB = (input: String): RBG => {
+const getRGB = (input: string): RBG => {
   if (!input.startsWith("rgb(") || !input.endsWith(")")) {
     throw new Error(
       `Failed to parse '${input}' into an RGB color. Please specify your colors as RGB values. For example: rgb(255, 0, 0)`
@@ -83,9 +83,9 @@ const validateUrl = (url: string): Boolean => {
   }
 };
 
-const getImageFromFile = (url: string) => {
+const getImageFromFile = (imageRoot: string, url: string) => {
   try {
-    const imagePath = path.join(process.cwd(), url);
+    const imagePath = path.join(imageRoot, url);
     return fs.readFileSync(imagePath);
   } catch (error: any) {
     if (error && error.code && error.code === "ENOENT") {
@@ -112,7 +112,18 @@ const getImageFromNetwork = async (url: string): Promise<Buffer> => {
 
 const POINT_TO_MM = 0.3514;
 
-const boardToPdf = async (board: Board): Promise<jsPDF> => {
+type BoardToPdfOptions = {
+  rootToImages: string;
+};
+
+const DEFAULT_BOARD_TO_PDF_OPTIONS: BoardToPdfOptions = {
+  rootToImages: process.cwd(),
+};
+
+const boardToPdf = async (
+  board: Board,
+  boardToPdfOptions: BoardToPdfOptions = DEFAULT_BOARD_TO_PDF_OPTIONS
+): Promise<jsPDF> => {
   // Default export is a4 paper, portrait, using millimeters for units
   const doc = new jsPDF({
     orientation: "landscape",
@@ -218,7 +229,7 @@ const boardToPdf = async (board: Board): Promise<jsPDF> => {
         const isUrl = validateUrl(image.url);
         const imageData = isUrl
           ? await getImageFromNetwork(image.url)
-          : getImageFromFile(image.url);
+          : getImageFromFile(boardToPdfOptions.rootToImages, image.url);
 
         const imageProperties = doc.getImageProperties(imageData);
 
