@@ -110,6 +110,8 @@ const getImageFromNetwork = async (url: string): Promise<Buffer> => {
   return Buffer.from(response.data);
 };
 
+const POINT_TO_MM = 0.3514;
+
 const boardToPdf = async (board: Board): Promise<jsPDF> => {
   // Default export is a4 paper, portrait, using millimeters for units
   const doc = new jsPDF({
@@ -176,9 +178,9 @@ const boardToPdf = async (board: Board): Promise<jsPDF> => {
       const currentX = columnCount * (buttonDimensions.width + gap) + padding;
       const currentY = rowCount * (buttonDimensions.height + gap) + padding;
 
-      const width =
+      const cellWidth =
         buttonDimensions.width * buttonsWide + gap * (buttonsWide - 1);
-      const height = buttonDimensions.height;
+      const cellHeight = buttonDimensions.height;
 
       // Skip over the extra buttons
       columnCount += buttonsWide - 1;
@@ -194,8 +196,8 @@ const boardToPdf = async (board: Board): Promise<jsPDF> => {
         .roundedRect(
           currentX,
           currentY,
-          width,
-          height,
+          cellWidth,
+          cellHeight,
           buttonRadius,
           buttonRadius,
           "FD"
@@ -220,58 +222,60 @@ const boardToPdf = async (board: Board): Promise<jsPDF> => {
 
         const imageProperties = doc.getImageProperties(imageData);
 
-        let imageWidth = 100;
-        let imageHeight = 100;
-        let x = 0;
-        let y = 0;
-
-        // The image will max be n% wide or tall
-        const IMAGE_PERCENTAGE = 0.75;
+        // The content will max be n% wide or tall
+        const CONTENT_PERCENTAGE = 0.8;
+        const fontHeightInMm = doc.getFontSize() * POINT_TO_MM;
+        const fontImageGap = fontHeightInMm * 0.2;
 
         const widthToHeightRatio =
           imageProperties.height / imageProperties.width;
         const heightToWidthRatio =
           imageProperties.width / imageProperties.height;
 
-        imageWidth = width * IMAGE_PERCENTAGE;
-        imageHeight = width * widthToHeightRatio;
+        let contentWidth = cellWidth * CONTENT_PERCENTAGE;
+        let contentHeight =
+          contentWidth * widthToHeightRatio + fontHeightInMm + fontImageGap;
 
-        const maxHeight = height * IMAGE_PERCENTAGE;
+        const maxHeight = cellHeight * CONTENT_PERCENTAGE;
 
-        if (imageHeight > maxHeight) {
-          imageHeight = height * IMAGE_PERCENTAGE;
-          imageWidth = height * heightToWidthRatio;
+        if (contentHeight > maxHeight) {
+          contentHeight = cellHeight * CONTENT_PERCENTAGE;
+          let imageHeight = contentHeight - fontHeightInMm - fontImageGap;
+          contentWidth = imageHeight * heightToWidthRatio;
         }
 
-        x = currentX + (width - imageWidth) / 2;
-        y = currentY + (height - imageHeight) / 2;
+        let imageHeight = contentHeight - fontHeightInMm - fontImageGap;
+
+        let imageX = currentX + (cellWidth - contentWidth) / 2;
+        let imageY = currentY + (cellHeight - contentHeight) / 2;
+
+        let topPadding = (cellHeight - contentHeight) / 2;
+        let textX = currentX + cellWidth / 2;
+        let textY = currentY + topPadding + imageHeight + fontImageGap;
+
+        console.log({ textX, textY, topPadding, cellHeight, contentHeight });
 
         doc
           .addImage(
             imageData,
             imageProperties.fileType,
-            x,
-            y - 4,
-            imageWidth,
+            imageX,
+            imageY,
+            contentWidth,
             imageHeight,
             image.url,
             "MEDIUM",
             0
           )
-          .text(
-            currentButton.label,
-            currentX + width / 2,
-            currentY + height / 2 + imageHeight / 2 - 3,
-            {
-              baseline: "top",
-              align: "center",
-            }
-          );
+          .text(currentButton.label, textX, textY, {
+            baseline: "top",
+            align: "center",
+          });
       } else {
         doc.text(
           currentButton.label,
-          currentX + width / 2,
-          currentY + height / 2,
+          currentX + cellWidth / 2,
+          currentY + cellHeight / 2,
           {
             baseline: "middle",
             align: "center",
