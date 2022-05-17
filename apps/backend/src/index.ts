@@ -143,3 +143,20 @@ setInterval(async () => {
     console.log(`🗑  Deleting: ${file}`);
   }
 }, CLEAR_INTERVAL);
+
+setInterval(async () => {
+  // Get the files then wait a while,
+  // this is incase the user only just got the download link
+  const filesToDelete = fs.readdirSync("./private");
+  await new Promise((res) => setTimeout(res, MIN_STORAGE_TIME));
+
+  // Delete the files
+  for (const file of filesToDelete) {
+    if (file.includes("left.png")) continue;
+    if (file.includes("right.png")) continue;
+
+    const filePath = path.join("./private", file);
+    fs.unlinkSync(filePath);
+    console.log(`🗑  Deleting: ${file}`);
+  }
+}, CLEAR_INTERVAL);
