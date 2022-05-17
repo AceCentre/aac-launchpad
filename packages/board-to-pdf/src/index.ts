@@ -253,8 +253,6 @@ const boardToPdf = async (board: Board): Promise<jsPDF> => {
         let textX = currentX + cellWidth / 2;
         let textY = currentY + topPadding + imageHeight + fontImageGap;
 
-        console.log({ textX, textY, topPadding, cellHeight, contentHeight });
-
         doc
           .addImage(
             imageData,
