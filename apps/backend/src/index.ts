@@ -10,6 +10,7 @@ import templateToBoard from "template-to-board";
 import crypto from "crypto";
 import path from "path";
 import fs from "fs";
+import multer from "multer";
 
 const templateMap: any = {
   option: "OptionTemplateVariable",
@@ -96,6 +97,24 @@ const getBaseUrl = () => {
 
 async function setupServer() {
   const app = express();
+
+  const upload = multer({ dest: "private/" });
+
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
+
+  app.post("/image-upload", upload.single("image"), (req, res) => {
+    if (!req.file) {
+      return res.send({
+        success: false,
+      });
+    } else {
+      return res.send({
+        success: true,
+        name: req.file.filename,
+      });
+    }
+  });
 
   app.get("/boards/:id", (req, res) => {
     const date = new Date();
