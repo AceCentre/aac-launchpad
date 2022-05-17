@@ -62,6 +62,14 @@ const main = async () => {
         };
       }
 
+      if (variable.type === "imageUrl") {
+        return {
+          type: "input",
+          name: variable.id,
+          message: variable.description,
+        };
+      }
+
       if (variable.type === "number") {
         return {
           type: "number",
