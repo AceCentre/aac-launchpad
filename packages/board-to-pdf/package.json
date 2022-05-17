@@ -26,6 +26,7 @@
     "preset": "scripts/jest/node"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "jspdf": "^2.5.1"
   }
 }
