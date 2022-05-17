@@ -1,5 +1,7 @@
 import { Board } from "types";
 import { jsPDF } from "jspdf";
+import path from "path";
+import fs from "fs";
 
 type ButtonDimensions = {
   width: number;
@@ -153,8 +155,79 @@ const boardToPdf = (board: Board): jsPDF => {
         )
         .setFont(currentFont.fontName, fontStyle)
         .setFontSize(fontSize)
-        .setTextColor(textColor.red, textColor.green, textColor.blue)
-        .text(
+        .setTextColor(textColor.red, textColor.green, textColor.blue);
+
+      if (currentButton.image_id !== undefined) {
+        const image = board.images.find((x) => x.id === currentButton.image_id);
+
+        if (image === undefined) {
+          throw new Error(
+            `Image referenced in Button but not defined ('${currentButton.image_id}')`
+          );
+        }
+
+        const imagePath = path.join(process.cwd(), image.url);
+        let imageData = null;
+
+        try {
+          imageData = fs.readFileSync(imagePath);
+        } catch (error: any) {
+          if (error && error.code && error.code === "ENOENT") {
+            throw Error(`No image found at path: ${imagePath}`);
+          }
+        }
+
+        const imageProperties = doc.getImageProperties(imageData);
+
+        let imageWidth = 100;
+        let imageHeight = 100;
+        let x = 0;
+        let y = 0;
+
+        // The image will max be n% wide or tall
+        const IMAGE_PERCENTAGE = 0.8;
+
+        const widthToHeightRatio =
+          imageProperties.height / imageProperties.width;
+        const heightToWidthRatio =
+          imageProperties.width / imageProperties.height;
+
+        imageWidth = width * IMAGE_PERCENTAGE;
+        imageHeight = width * widthToHeightRatio;
+
+        const maxHeight = height * IMAGE_PERCENTAGE;
+
+        if (imageHeight > maxHeight) {
+          imageHeight = height * IMAGE_PERCENTAGE;
+          imageWidth = height * heightToWidthRatio;
+        }
+
+        x = currentX + (width - imageWidth) / 2;
+        y = currentY + (height - imageHeight) / 2;
+
+        doc
+          .addImage(
+            imageData,
+            imageProperties.fileType,
+            x,
+            y,
+            imageWidth,
+            imageHeight,
+            imagePath,
+            "MEDIUM",
+            0
+          )
+          .text(
+            currentButton.label,
+            currentX + width / 2,
+            currentY + height / 2 + imageHeight / 2 + 2,
+            {
+              baseline: "top",
+              align: "center",
+            }
+          );
+      } else {
+        doc.text(
           currentButton.label,
           currentX + width / 2,
           currentY + height / 2,
@@ -163,6 +236,7 @@ const boardToPdf = (board: Board): jsPDF => {
             align: "center",
           }
         );
+      }
     }
   }
 
