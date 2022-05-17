@@ -33,6 +33,14 @@ export const typeDefs = gql`
     defaultValue: String!
   }
 
+  type ImageUrlTemplateVariable implements TemplateVariable {
+    id: String!
+    name: String!
+    description: String!
+    type: String!
+    defaultValue: String!
+  }
+
   type NumberTemplateVariable implements TemplateVariable {
     id: String!
     name: String!
@@ -56,6 +64,7 @@ export const typeDefs = gql`
     | FreeTextTemplateVariable
     | NumberTemplateVariable
     | ColorTemplateVariable
+    | ImageUrlTemplateVariable
 
   type Template {
     templateName: String!

@@ -16,6 +16,7 @@ const templateMap: any = {
   freeText: "FreeTextTemplateVariable",
   number: "NumberTemplateVariable",
   color: "ColorTemplateVariable",
+  imageUrl: "ImageUrlTemplateVariable",
 };
 
 const addTypenameToTemplate = (template: Template): any => {
@@ -67,10 +68,7 @@ const resolvers = {
         .update(JSON.stringify(input))
         .digest("hex");
 
-      fs.writeFileSync(
-        path.join("./public/boards", `${fileHash}.pdf`),
-        pdf.output()
-      );
+      pdf.save(path.join("./public/boards", `${fileHash}.pdf`));
 
       const fileLocation = new URL(
         `/boards/${fileHash}.pdf`,

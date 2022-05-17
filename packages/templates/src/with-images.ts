@@ -13,6 +13,13 @@ export const withImages: Template = {
       defaultValue: "./right.png",
       description: "URL or path for image on the right hand side",
     },
+    {
+      id: "leftImage",
+      type: "imageUrl",
+      name: "Left image",
+      defaultValue: "./left.png",
+      description: "URL or path for image on the left hand side",
+    },
   ],
 
   format: "open-board-0.1",
@@ -49,7 +56,7 @@ export const withImages: Template = {
   images: [
     {
       id: "leftImage",
-      url: "./left.png",
+      url: { type: "TemplateItem", id: "leftImage" },
     },
     {
       id: "rightImage",
