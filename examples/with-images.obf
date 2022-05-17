@@ -40,11 +40,11 @@
   "images": [
     {
       "id": "leftImage",
-      "url": "./left.png"
+      "url": "https://acecentre.org.uk/collage.png"
     },
     {
       "id": "rightImage",
-      "url": "./right.png"
+      "url": "https://acecentre.org.uk/landing-page-cover.jpeg"
     }
   ]
 }
