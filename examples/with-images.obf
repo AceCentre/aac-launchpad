@@ -17,6 +17,7 @@
       "ext_launchpad_label_font_size": 30
     },
     {
+      "image_id": "rightImage",
       "id": "right",
       "label": "Right",
       "border_color": "rgb(0,0,0)",
@@ -40,6 +41,10 @@
     {
       "id": "leftImage",
       "url": "./left.png"
+    },
+    {
+      "id": "rightImage",
+      "url": "./right.png"
     }
   ]
 }
