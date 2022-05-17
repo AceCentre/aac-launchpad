@@ -61,7 +61,7 @@ export const fourImages: Template = {
   images: [
     {
       id: "upImage",
-      url: "https://toppng.com/uploads/preview/arrow-up-black-up-arrow-115632617737cvxxumden.png",
+      url: "https://www.pinclipart.com/picdir/big/111-1115959_up-arrow-image-up-arrow-with-transparent-background.png",
     },
     {
       id: "downImage",
