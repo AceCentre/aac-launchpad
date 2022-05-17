@@ -60,7 +60,7 @@ const resolvers = {
       }
 
       const board = templateToBoard(template, input.answers);
-      const pdf = boardToPdf(board);
+      const pdf = await boardToPdf(board);
 
       const fileHash = crypto
         .createHash("sha256")

@@ -2,6 +2,8 @@ import { Board } from "types";
 import { jsPDF } from "jspdf";
 import path from "path";
 import fs from "fs";
+import { URL } from "url";
+import axios from "axios";
 
 type ButtonDimensions = {
   width: number;
@@ -63,7 +65,52 @@ const getRGB = (input: String): RBG => {
   return { red, green, blue };
 };
 
-const boardToPdf = (board: Board): jsPDF => {
+const validateUrl = (url: string): Boolean => {
+  try {
+    const parsedUrl = new URL(url);
+
+    if (parsedUrl.protocol !== "https:") {
+      throw new Error(`Image must be loaded over https (${url})`);
+    }
+
+    return true;
+  } catch (error: any) {
+    if (error.code !== "ERR_INVALID_URL") {
+      throw error;
+    }
+
+    return false;
+  }
+};
+
+const getImageFromFile = (url: string) => {
+  try {
+    const imagePath = path.join(process.cwd(), url);
+    return fs.readFileSync(imagePath);
+  } catch (error: any) {
+    if (error && error.code && error.code === "ENOENT") {
+      throw Error(`Image URL '${url}' does not exist as a path or as a URL`);
+    } else {
+      throw error;
+    }
+  }
+};
+
+const VALID_RESPONSE_TYPES = ["image/png", "image/jpeg"];
+
+const getImageFromNetwork = async (url: string): Promise<Buffer> => {
+  const response = await axios.get(url, { responseType: "arraybuffer" });
+
+  if (!VALID_RESPONSE_TYPES.includes(response.headers["content-type"])) {
+    throw new Error(
+      `Could not use image with content-type: ${response.headers["content-type"]}`
+    );
+  }
+
+  return Buffer.from(response.data);
+};
+
+const boardToPdf = async (board: Board): Promise<jsPDF> => {
   // Default export is a4 paper, portrait, using millimeters for units
   const doc = new jsPDF({
     orientation: "landscape",
@@ -166,16 +213,10 @@ const boardToPdf = (board: Board): jsPDF => {
           );
         }
 
-        const imagePath = path.join(process.cwd(), image.url);
-        let imageData = null;
-
-        try {
-          imageData = fs.readFileSync(imagePath);
-        } catch (error: any) {
-          if (error && error.code && error.code === "ENOENT") {
-            throw Error(`No image found at path: ${imagePath}`);
-          }
-        }
+        const isUrl = validateUrl(image.url);
+        const imageData = isUrl
+          ? await getImageFromNetwork(image.url)
+          : getImageFromFile(image.url);
 
         const imageProperties = doc.getImageProperties(imageData);
 
@@ -185,7 +226,7 @@ const boardToPdf = (board: Board): jsPDF => {
         let y = 0;
 
         // The image will max be n% wide or tall
-        const IMAGE_PERCENTAGE = 0.8;
+        const IMAGE_PERCENTAGE = 0.75;
 
         const widthToHeightRatio =
           imageProperties.height / imageProperties.width;
@@ -210,17 +251,17 @@ const boardToPdf = (board: Board): jsPDF => {
             imageData,
             imageProperties.fileType,
             x,
-            y,
+            y - 4,
             imageWidth,
             imageHeight,
-            imagePath,
+            image.url,
             "MEDIUM",
             0
           )
           .text(
             currentButton.label,
             currentX + width / 2,
-            currentY + height / 2 + imageHeight / 2 + 2,
+            currentY + height / 2 + imageHeight / 2 - 3,
             {
               baseline: "top",
               align: "center",
