@@ -5,4 +5,6 @@ var callAddFont = function (this: any) {
   this.addFileToVFS("OpenDyslexic-normal.ttf", font);
   this.addFont("OpenDyslexic-normal.ttf", "OpenDyslexic", "normal");
 };
-jsPDF.API.events.push(["addFonts", callAddFont]);
+export const initialise = () => {
+  jsPDF.API.events.push(["addFonts", callAddFont]);
+};
