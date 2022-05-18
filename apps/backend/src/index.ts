@@ -2,7 +2,7 @@ import { ApolloServer } from "apollo-server-express";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import { typeDefs } from "./type-def";
 import { ALL_TEMPLATES } from "templates";
-import express from "express";
+import express, { Request } from "express";
 import http from "http";
 import { Template, AllTemplateVariable } from "types";
 import boardToPdf from "board-to-pdf";
@@ -95,10 +95,26 @@ const getBaseUrl = () => {
   return "http://localhost:4000";
 };
 
+const ACCEPTED_MIME_TYPES = ["image/jpeg", "image/png"];
+
+const fileFilter = (
+  req: Request,
+  file: Express.Multer.File,
+  cb: multer.FileFilterCallback
+): void => {
+  const mimeType = file.mimetype.toLowerCase();
+
+  if (ACCEPTED_MIME_TYPES.includes(mimeType)) {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
 async function setupServer() {
   const app = express();
 
-  const upload = multer({ dest: "private/" });
+  const upload = multer({ dest: "private/", fileFilter });
 
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
