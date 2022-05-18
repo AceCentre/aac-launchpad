@@ -4,6 +4,7 @@ import path from "path";
 import fs from "fs";
 import { URL } from "url";
 import axios from "axios";
+import { initialiseFonts, FONT_OPTIONS } from "./fonts/fonts";
 
 type ButtonDimensions = {
   width: number;
@@ -24,7 +25,9 @@ const DEFAULT_BUTTON_RADIUS = 2;
 const DEFAULT_BUTTON_BORDER_WIDTH = 2;
 const DEFAULT_LABEL_COLOR = "rgb(0, 0, 0)";
 const DEFAULT_LABEL_FONT_SIZE = 18;
+
 const DEFAULT_LABEL_FONT_STYLE = "normal";
+const DEFAULT_LABEL_FONT = "helvetica";
 
 const calculateButtonSize = (
   pageWidth: number,
@@ -124,6 +127,8 @@ const boardToPdf = async (
   board: Board,
   boardToPdfOptions: BoardToPdfOptions = DEFAULT_BOARD_TO_PDF_OPTIONS
 ): Promise<jsPDF> => {
+  initialiseFonts();
+
   // Default export is a4 paper, portrait, using millimeters for units
   const doc = new jsPDF({
     orientation: "landscape",
@@ -184,7 +189,18 @@ const boardToPdf = async (
       const fontStyle =
         currentButton.ext_launchpad_label_font_style ??
         DEFAULT_LABEL_FONT_STYLE;
-      const currentFont = doc.getFont();
+      const fontName =
+        currentButton.ext_launchpad_label_font ?? DEFAULT_LABEL_FONT;
+
+      const fontList = doc.getFontList();
+
+      const selectedFont = fontList[fontName];
+
+      if (!selectedFont || !selectedFont.includes(fontStyle)) {
+        throw new Error(
+          `Font '${fontName}' with style '${fontStyle}' not found`
+        );
+      }
 
       const currentX = columnCount * (buttonDimensions.width + gap) + padding;
       const currentY = rowCount * (buttonDimensions.height + gap) + padding;
@@ -213,7 +229,7 @@ const boardToPdf = async (
           buttonRadius,
           "FD"
         )
-        .setFont(currentFont.fontName, fontStyle)
+        .setFont(fontName, fontStyle)
         .setFontSize(fontSize)
         .setTextColor(textColor.red, textColor.green, textColor.blue);
 
@@ -298,3 +314,4 @@ const boardToPdf = async (
 };
 
 export default boardToPdf;
+export { FONT_OPTIONS };
