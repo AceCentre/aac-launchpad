@@ -14,8 +14,8 @@ export type Button = {
   background_color: Color;
   ext_launchpad_label_color?: Color;
   ext_launchpad_label_font_size?: number;
-  ext_launchpad_label_bold?: boolean;
   ext_launchpad_label_font_style?: string;
+  ext_launchpad_label_font?: string;
   image_id?: string;
 };
 
@@ -32,8 +32,8 @@ type ButtonWithTemplateItems = {
   background_color: Color | TemplateItem;
   ext_launchpad_label_color?: Color | TemplateItem;
   ext_launchpad_label_font_size?: number | TemplateItem;
-  ext_launchpad_label_bold?: boolean | TemplateItem;
   ext_launchpad_label_font_style?: string | TemplateItem;
+  ext_launchpad_label_font?: string | TemplateItem;
   image_id?: string;
 };
 
@@ -71,7 +71,7 @@ export interface TemplateVariable {
   defaultValue: string;
 }
 
-type Option = {
+export type Option = {
   value: string;
   label: string;
   description: string;
