@@ -211,12 +211,12 @@ const getButtons = (
         current.ext_launchpad_label_font_style,
         results
       ),
-      ext_launchpad_label_font_size: getOptionalNumberFromTemplateItem(
-        current.ext_launchpad_label_font_size,
+      ext_launchpad_label_font: getOptionalStringFromTemplateItem(
+        current.ext_launchpad_label_font,
         results
       ),
-      ext_launchpad_label_bold: getOptionalBooleanFromTemplateItem(
-        current.ext_launchpad_label_bold,
+      ext_launchpad_label_font_size: getOptionalNumberFromTemplateItem(
+        current.ext_launchpad_label_font_size,
         results
       ),
     };
