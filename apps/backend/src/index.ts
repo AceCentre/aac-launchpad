@@ -11,6 +11,7 @@ import crypto from "crypto";
 import path from "path";
 import fs from "fs";
 import multer from "multer";
+import cors from "cors";
 
 const templateMap: any = {
   option: "OptionTemplateVariable",
@@ -116,6 +117,7 @@ async function setupServer() {
 
   const upload = multer({ dest: "private/", fileFilter });
 
+  app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
