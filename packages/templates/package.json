@@ -20,6 +20,7 @@
     "scripts": "*",
     "tsconfig": "*",
     "types": "*",
+    "board-to-pdf": "*",
     "typescript": "^4.5.3"
   },
   "jest": {
