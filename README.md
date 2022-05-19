@@ -45,6 +45,10 @@ This Turborepo includes the following packages and apps:
 - `cli`: The CLI to create templates
 - `graphql`: The GraphQL api to create templates
 
+## Adding a new font
+
+[Check out the documentation in the `font` folder](./packages/board-to-pdf/src/fonts/README.md) to find out how to add a new font.
+
 ## Attribution
 
 - Thanks to Braille Institute for the [Atkinson Hyperlegible Font](https://brailleinstitute.org/freefont)
