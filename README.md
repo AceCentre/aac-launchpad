@@ -44,3 +44,8 @@ This Turborepo includes the following packages and apps:
 - `board-to-pdf`: Converts a board to a PDF
 - `cli`: The CLI to create templates
 - `graphql`: The GraphQL api to create templates
+
+## Attribution
+
+- Thanks to Braille Institute for the [Atkinson Hyperlegible Font](https://brailleinstitute.org/freefont)
+- Thanks to the [OpenDyslexic font](https://opendyslexic.org/) project.
