@@ -1,7 +1,12 @@
-import { initialise as initOpenDyslexicItalic } from "./OpenDyslexic-italic.js";
-import { initialise as initOpenDyslexicNormal } from "./OpenDyslexic-normal.js";
-import { initialise as initOpenDyslexicBold } from "./OpenDyslexic-bold.js";
-import { initialise as initOpenDyslexicBoldItalic } from "./OpenDyslexic-bolditalic.js";
+import { initialise as initOpenDyslexicItalic } from "./OpenDyslexic-italic";
+import { initialise as initOpenDyslexicNormal } from "./OpenDyslexic-normal";
+import { initialise as initOpenDyslexicBold } from "./OpenDyslexic-bold";
+import { initialise as initOpenDyslexicBoldItalic } from "./OpenDyslexic-bolditalic";
+import { initialise as initHyperlegibleBold } from "./Atkinson-Hyperlegible-bold";
+import { initialise as initHyperlegibleNormal } from "./Atkinson-Hyperlegible-normal";
+import { initialise as initHyperlegibleItalic } from "./Atkinson-Hyperlegible-italic";
+import { initialise as initHyperlegibleBoldItalic } from "./Atkinson-Hyperlegible-bolditalic";
+
 import { Option } from "types";
 
 export const initialiseFonts = () => {
@@ -9,6 +14,10 @@ export const initialiseFonts = () => {
   initOpenDyslexicBoldItalic();
   initOpenDyslexicNormal();
   initOpenDyslexicItalic();
+  initHyperlegibleBold();
+  initHyperlegibleNormal();
+  initHyperlegibleItalic();
+  initHyperlegibleBoldItalic();
 };
 
 export const FONT_OPTIONS: Array<Option> = [
@@ -22,5 +31,11 @@ export const FONT_OPTIONS: Array<Option> = [
     label: "Helvetica",
     value: "helvetica",
     description: "Helvetica is a widely used sans-serif typeface",
+  },
+  {
+    label: "Atkinson Hyperlegible",
+    value: "Atkinson-Hyperlegible",
+    description:
+      "Atkinson Hyperlegible focuses on letterform distinction to increase character recognition, ultimately improving readability.",
   },
 ];
