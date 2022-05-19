@@ -6,6 +6,10 @@ import { initialise as initHyperlegibleBold } from "./Atkinson-Hyperlegible-bold
 import { initialise as initHyperlegibleNormal } from "./Atkinson-Hyperlegible-normal";
 import { initialise as initHyperlegibleItalic } from "./Atkinson-Hyperlegible-italic";
 import { initialise as initHyperlegibleBoldItalic } from "./Atkinson-Hyperlegible-bolditalic";
+import { initialise as initComicNeueNormal } from "./ComicNeue-normal";
+import { initialise as initComicNeueBold } from "./ComicNeue-bold";
+import { initialise as initComicNeueBoldItalic } from "./ComicNeue-bolditalic";
+import { initialise as initComicNeueItalic } from "./ComicNeue-italic";
 
 import { Option } from "types";
 
@@ -14,10 +18,16 @@ export const initialiseFonts = () => {
   initOpenDyslexicBoldItalic();
   initOpenDyslexicNormal();
   initOpenDyslexicItalic();
+
   initHyperlegibleBold();
   initHyperlegibleNormal();
   initHyperlegibleItalic();
   initHyperlegibleBoldItalic();
+
+  initComicNeueNormal();
+  initComicNeueBold();
+  initComicNeueBoldItalic();
+  initComicNeueItalic();
 };
 
 export const FONT_OPTIONS: Array<Option> = [
@@ -37,5 +47,11 @@ export const FONT_OPTIONS: Array<Option> = [
     value: "Atkinson-Hyperlegible",
     description:
       "Atkinson Hyperlegible focuses on letterform distinction to increase character recognition, ultimately improving readability.",
+  },
+  {
+    label: "Comic Neue (Sans)",
+    value: "ComicNeue",
+    description:
+      "Comic Neue is an original reinterpretation of the classic, Comic Sans.",
   },
 ];

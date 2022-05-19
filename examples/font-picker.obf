@@ -11,7 +11,7 @@
       "label": "Long text 9996666 in open dyslexic",
       "border_color": "rgb(0, 0, 55)",
       "background_color": "rgb(255, 0, 0)",
-      "ext_launchpad_label_font": "Atkinson-Hyperlegible"
+      "ext_launchpad_label_font": "ComicNeue"
     }
   ],
   "grid": {

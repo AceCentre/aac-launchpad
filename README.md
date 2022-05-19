@@ -49,3 +49,4 @@ This Turborepo includes the following packages and apps:
 
 - Thanks to Braille Institute for the [Atkinson Hyperlegible Font](https://brailleinstitute.org/freefont)
 - Thanks to the [OpenDyslexic font](https://opendyslexic.org/) project.
+- Thanks to Google fonts for [Comic Neue](https://fonts.google.com/specimen/Comic+Neue)
