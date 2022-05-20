@@ -1,4 +1,4 @@
-import { Board } from "types";
+import { Board, Casing, Option } from "types";
 import { jsPDF } from "jspdf";
 import path from "path";
 import fs from "fs";
@@ -25,6 +25,7 @@ const DEFAULT_BUTTON_RADIUS = 2;
 const DEFAULT_BUTTON_BORDER_WIDTH = 2;
 const DEFAULT_LABEL_COLOR = "rgb(0, 0, 0)";
 const DEFAULT_LABEL_FONT_SIZE = 18;
+const DEFAULT_LABEL_CASING = "no-change";
 
 const DEFAULT_LABEL_FONT_STYLE = "normal";
 const DEFAULT_LABEL_FONT = "helvetica";
@@ -49,6 +50,55 @@ const calculateButtonSize = (
   const buttonHeight = totalButtonHeight / rows;
 
   return { width: buttonWidth, height: buttonHeight };
+};
+
+export const CASING_OPTIONS: Array<Option> = [
+  {
+    label: "No change",
+    value: "no-change",
+    description: "Use the default casing",
+  },
+  {
+    label: "Uppercase",
+    value: "upper",
+    description: "Convert the text to all uppercase",
+  },
+  {
+    label: "Lowercase",
+    value: "lower",
+    description: "Convert the text to all lowercase",
+  },
+  {
+    label: "Capital Case",
+    value: "capital",
+    description: "Uppercase the first letter of each word",
+  },
+];
+
+const alterCasing = (rawLabel: string, casingType: Casing): string => {
+  if (casingType === "no-change") {
+    return rawLabel;
+  }
+
+  if (casingType === "lower") {
+    return rawLabel.toLowerCase();
+  }
+
+  if (casingType === "upper") {
+    return rawLabel.toUpperCase();
+  }
+
+  if (casingType === "capital") {
+    return rawLabel
+      .toLowerCase()
+      .split(" ")
+      .map(function (word) {
+        return word.replace(word[0], word[0].toUpperCase());
+      })
+      .join(" ");
+  }
+
+  throw new Error(`You gave an invalid casing type: ${casingType}`);
 };
 
 const getRGB = (input: string): RBG => {
@@ -191,6 +241,10 @@ const boardToPdf = async (
         DEFAULT_LABEL_FONT_STYLE;
       const fontName =
         currentButton.ext_launchpad_label_font ?? DEFAULT_LABEL_FONT;
+      const labelCasing =
+        currentButton.ext_launchpad_label_casing ?? DEFAULT_LABEL_CASING;
+
+      const labelText = alterCasing(currentButton.label, labelCasing);
 
       const fontList = doc.getFontList();
 
@@ -292,13 +346,13 @@ const boardToPdf = async (
             "MEDIUM",
             0
           )
-          .text(currentButton.label, textX, textY, {
+          .text(labelText, textX, textY, {
             baseline: "top",
             align: "center",
           });
       } else {
         doc.text(
-          currentButton.label,
+          labelText,
           currentX + cellWidth / 2,
           currentY + cellHeight / 2,
           {
