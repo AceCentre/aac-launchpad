@@ -1,0 +1,27 @@
+{
+  "format": "open-board-0.1",
+  "id": "change-casing",
+  "locale": "en-GB",
+  "description_html": "Create a single tile board that allows you to change casing",
+  "ext_launchpad_options": {},
+  "name": "Change Casing",
+  "buttons": [
+    {
+      "id": "main",
+      "label": "this is a upper case sentence",
+      "border_color": "rgb(0, 0, 55)",
+      "background_color": "rgb(255, 0, 0)",
+      "ext_launchpad_label_casing": "upper"
+    }
+  ],
+  "grid": {
+    "rows": 1,
+    "columns": 1,
+    "order": [
+      [
+        "main"
+      ]
+    ]
+  },
+  "images": []
+}
