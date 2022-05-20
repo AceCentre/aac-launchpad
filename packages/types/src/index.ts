@@ -7,6 +7,8 @@ export type Result = { id: string; value: string };
  */
 type Color = string;
 
+export type Casing = "no-change" | "lower" | "upper" | "capital";
+
 export type Button = {
   id: ButtonID;
   label: string;
@@ -16,6 +18,7 @@ export type Button = {
   ext_launchpad_label_font_size?: number;
   ext_launchpad_label_font_style?: string;
   ext_launchpad_label_font?: string;
+  ext_launchpad_label_casing?: Casing;
   image_id?: string;
 };
 
@@ -34,6 +37,7 @@ type ButtonWithTemplateItems = {
   ext_launchpad_label_font_size?: number | TemplateItem;
   ext_launchpad_label_font_style?: string | TemplateItem;
   ext_launchpad_label_font?: string | TemplateItem;
+  ext_launchpad_label_casing?: Casing | TemplateItem;
   image_id?: string;
 };
 

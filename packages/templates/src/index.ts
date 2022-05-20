@@ -4,6 +4,7 @@ import { Template } from "types";
 import { withImages } from "./with-images";
 import { fourImages } from "./four-images";
 import { fontPicker } from "./font-picker";
+import { changeCasing } from "./change-casing";
 
 export { alphabetChart, simpleChoice, withImages };
 
@@ -13,4 +14,5 @@ export const ALL_TEMPLATES: Array<Template> = [
   withImages,
   fourImages,
   fontPicker,
+  changeCasing,
 ];

@@ -7,6 +7,7 @@ import {
   TemplateItem,
   Result,
   Image,
+  Casing,
 } from "types";
 
 const getExtLaunchpadOptions = (
@@ -188,6 +189,17 @@ const getOptionalBooleanFromTemplateItem = (
 
   throw new Error(`You provided an invalid item: ${JSON.stringify(item)}`);
 };
+const castToCasing = (input: string | undefined): Casing | undefined => {
+  if (input === undefined) return undefined;
+
+  const validCasing = ["no-change", "lower", "upper", "capital"];
+
+  if (validCasing.includes(input)) {
+    return input as Casing;
+  }
+
+  throw new Error(`You entered an invalid casing option: ${input}`);
+};
 
 const getButtons = (
   template: Template,
@@ -218,6 +230,12 @@ const getButtons = (
       ext_launchpad_label_font_size: getOptionalNumberFromTemplateItem(
         current.ext_launchpad_label_font_size,
         results
+      ),
+      ext_launchpad_label_casing: castToCasing(
+        getOptionalStringFromTemplateItem(
+          current.ext_launchpad_label_casing,
+          results
+        )
       ),
     };
   });
