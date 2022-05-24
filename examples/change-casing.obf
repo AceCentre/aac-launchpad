@@ -11,17 +11,22 @@
       "label": "this is a upper case sentence",
       "border_color": "rgb(0, 0, 55)",
       "background_color": "rgb(255, 0, 0)",
-      "ext_launchpad_label_casing": "upper"
+      "ext_launchpad_label_casing": "no-change"
     }
   ],
-  "grid": {
-    "rows": 1,
-    "columns": 1,
-    "order": [
-      [
-        "main"
-      ]
-    ]
-  },
+  "pages": [
+    {
+      "grid": {
+        "rows": 1,
+        "columns": 1,
+        "order": [
+          [
+            "main"
+          ]
+        ]
+      },
+      "id": "first"
+    }
+  ],
   "images": []
 }
