@@ -191,175 +191,194 @@ const boardToPdf = async (
   const buttonBorderWidth =
     options.button_border_width ?? DEFAULT_BUTTON_BORDER_WIDTH;
 
-  const buttonDimensions = calculateButtonSize(
-    WIDTH,
-    HEIGHT,
-    padding,
-    gap,
-    board.grid.rows,
-    board.grid.columns
-  );
+  let firstPage = true;
+  for (const page of board.pages) {
+    // The first page doesn't need added as its there by default.
+    if (firstPage) {
+      firstPage = false;
+    } else {
+      doc.addPage();
+    }
 
-  for (let rowCount = 0; rowCount < board.grid.rows; rowCount++) {
-    for (let columnCount = 0; columnCount < board.grid.columns; columnCount++) {
-      const currentButtonId = board.grid.order[rowCount][columnCount];
+    const buttonDimensions = calculateButtonSize(
+      WIDTH,
+      HEIGHT,
+      padding,
+      gap,
+      page.grid.rows,
+      page.grid.columns
+    );
 
-      if (currentButtonId === null) {
-        continue;
-      }
+    for (let rowCount = 0; rowCount < page.grid.rows; rowCount++) {
+      for (
+        let columnCount = 0;
+        columnCount < page.grid.columns;
+        columnCount++
+      ) {
+        const currentButtonId = page.grid.order[rowCount][columnCount];
 
-      const currentButton = board.buttons.find((x) => x.id === currentButtonId);
-
-      if (currentButton === undefined) {
-        throw new Error(
-          `Button referenced in Grid but not defined ('${currentButtonId}')`
-        );
-      }
-
-      let buttonsWide = 0;
-
-      // Look forward to see if this is a long button
-      for (let i = columnCount; i < board.grid.columns; i++) {
-        const temp = board.grid.order[rowCount][i];
-        if (temp === currentButtonId) {
-          buttonsWide++;
-        } else {
-          break;
+        if (currentButtonId === null) {
+          continue;
         }
-      }
 
-      const backgroundColor = getRGB(currentButton.background_color);
-      const borderColor = getRGB(currentButton.border_color);
-      const textColor = getRGB(
-        currentButton.ext_launchpad_label_color ?? DEFAULT_LABEL_COLOR
-      );
-
-      const fontSize =
-        currentButton.ext_launchpad_label_font_size ?? DEFAULT_LABEL_FONT_SIZE;
-      const fontStyle =
-        currentButton.ext_launchpad_label_font_style ??
-        DEFAULT_LABEL_FONT_STYLE;
-      const fontName =
-        currentButton.ext_launchpad_label_font ?? DEFAULT_LABEL_FONT;
-      const labelCasing =
-        currentButton.ext_launchpad_label_casing ?? DEFAULT_LABEL_CASING;
-
-      const labelText = alterCasing(currentButton.label, labelCasing);
-
-      const fontList = doc.getFontList();
-
-      const selectedFont = fontList[fontName];
-
-      if (!selectedFont || !selectedFont.includes(fontStyle)) {
-        throw new Error(
-          `Font '${fontName}' with style '${fontStyle}' not found`
+        const currentButton = board.buttons.find(
+          (x) => x.id === currentButtonId
         );
-      }
 
-      const currentX = columnCount * (buttonDimensions.width + gap) + padding;
-      const currentY = rowCount * (buttonDimensions.height + gap) + padding;
-
-      const cellWidth =
-        buttonDimensions.width * buttonsWide + gap * (buttonsWide - 1);
-      const cellHeight = buttonDimensions.height;
-
-      // Skip over the extra buttons
-      columnCount += buttonsWide - 1;
-
-      doc
-        .setLineWidth(buttonBorderWidth)
-        .setDrawColor(borderColor.red, borderColor.green, borderColor.blue)
-        .setFillColor(
-          backgroundColor.red,
-          backgroundColor.green,
-          backgroundColor.blue
-        )
-        .roundedRect(
-          currentX,
-          currentY,
-          cellWidth,
-          cellHeight,
-          buttonRadius,
-          buttonRadius,
-          "FD"
-        )
-        .setFont(fontName, fontStyle)
-        .setFontSize(fontSize)
-        .setTextColor(textColor.red, textColor.green, textColor.blue);
-
-      if (currentButton.image_id !== undefined) {
-        const image = board.images.find((x) => x.id === currentButton.image_id);
-
-        if (image === undefined) {
+        if (currentButton === undefined) {
           throw new Error(
-            `Image referenced in Button but not defined ('${currentButton.image_id}')`
+            `Button referenced in Grid but not defined ('${currentButtonId}')`
           );
         }
 
-        const isUrl = validateUrl(image.url);
-        const imageData = isUrl
-          ? await getImageFromNetwork(image.url)
-          : getImageFromFile(boardToPdfOptions.rootToImages, image.url);
+        let buttonsWide = 0;
 
-        const imageProperties = doc.getImageProperties(imageData);
-
-        // The content will max be n% wide or tall
-        const CONTENT_PERCENTAGE = 0.8;
-        const fontHeightInMm = doc.getFontSize() * POINT_TO_MM;
-        const fontImageGap = fontHeightInMm * 0.2;
-
-        const widthToHeightRatio =
-          imageProperties.height / imageProperties.width;
-        const heightToWidthRatio =
-          imageProperties.width / imageProperties.height;
-
-        let contentWidth = cellWidth * CONTENT_PERCENTAGE;
-        let contentHeight =
-          contentWidth * widthToHeightRatio + fontHeightInMm + fontImageGap;
-
-        const maxHeight = cellHeight * CONTENT_PERCENTAGE;
-
-        if (contentHeight > maxHeight) {
-          contentHeight = cellHeight * CONTENT_PERCENTAGE;
-          let imageHeight = contentHeight - fontHeightInMm - fontImageGap;
-          contentWidth = imageHeight * heightToWidthRatio;
+        // Look forward to see if this is a long button
+        for (let i = columnCount; i < page.grid.columns; i++) {
+          const temp = page.grid.order[rowCount][i];
+          if (temp === currentButtonId) {
+            buttonsWide++;
+          } else {
+            break;
+          }
         }
 
-        let imageHeight = contentHeight - fontHeightInMm - fontImageGap;
+        const backgroundColor = getRGB(currentButton.background_color);
+        const borderColor = getRGB(currentButton.border_color);
+        const textColor = getRGB(
+          currentButton.ext_launchpad_label_color ?? DEFAULT_LABEL_COLOR
+        );
 
-        let imageX = currentX + (cellWidth - contentWidth) / 2;
-        let imageY = currentY + (cellHeight - contentHeight) / 2;
+        const fontSize =
+          currentButton.ext_launchpad_label_font_size ??
+          DEFAULT_LABEL_FONT_SIZE;
+        const fontStyle =
+          currentButton.ext_launchpad_label_font_style ??
+          DEFAULT_LABEL_FONT_STYLE;
+        const fontName =
+          currentButton.ext_launchpad_label_font ?? DEFAULT_LABEL_FONT;
+        const labelCasing =
+          currentButton.ext_launchpad_label_casing ?? DEFAULT_LABEL_CASING;
 
-        let topPadding = (cellHeight - contentHeight) / 2;
-        let textX = currentX + cellWidth / 2;
-        let textY = currentY + topPadding + imageHeight + fontImageGap;
+        const labelText = alterCasing(currentButton.label, labelCasing);
+
+        const fontList = doc.getFontList();
+
+        const selectedFont = fontList[fontName];
+
+        if (!selectedFont || !selectedFont.includes(fontStyle)) {
+          throw new Error(
+            `Font '${fontName}' with style '${fontStyle}' not found`
+          );
+        }
+
+        const currentX = columnCount * (buttonDimensions.width + gap) + padding;
+        const currentY = rowCount * (buttonDimensions.height + gap) + padding;
+
+        const cellWidth =
+          buttonDimensions.width * buttonsWide + gap * (buttonsWide - 1);
+        const cellHeight = buttonDimensions.height;
+
+        // Skip over the extra buttons
+        columnCount += buttonsWide - 1;
 
         doc
-          .addImage(
-            imageData,
-            imageProperties.fileType,
-            imageX,
-            imageY,
-            contentWidth,
-            imageHeight,
-            image.url,
-            "MEDIUM",
-            0
+          .setLineWidth(buttonBorderWidth)
+          .setDrawColor(borderColor.red, borderColor.green, borderColor.blue)
+          .setFillColor(
+            backgroundColor.red,
+            backgroundColor.green,
+            backgroundColor.blue
           )
-          .text(labelText, textX, textY, {
-            baseline: "top",
-            align: "center",
-          });
-      } else {
-        doc.text(
-          labelText,
-          currentX + cellWidth / 2,
-          currentY + cellHeight / 2,
-          {
-            baseline: "middle",
-            align: "center",
+          .roundedRect(
+            currentX,
+            currentY,
+            cellWidth,
+            cellHeight,
+            buttonRadius,
+            buttonRadius,
+            "FD"
+          )
+          .setFont(fontName, fontStyle)
+          .setFontSize(fontSize)
+          .setTextColor(textColor.red, textColor.green, textColor.blue);
+
+        if (currentButton.image_id !== undefined) {
+          const image = board.images.find(
+            (x) => x.id === currentButton.image_id
+          );
+
+          if (image === undefined) {
+            throw new Error(
+              `Image referenced in Button but not defined ('${currentButton.image_id}')`
+            );
           }
-        );
+
+          const isUrl = validateUrl(image.url);
+          const imageData = isUrl
+            ? await getImageFromNetwork(image.url)
+            : getImageFromFile(boardToPdfOptions.rootToImages, image.url);
+
+          const imageProperties = doc.getImageProperties(imageData);
+
+          // The content will max be n% wide or tall
+          const CONTENT_PERCENTAGE = 0.8;
+          const fontHeightInMm = doc.getFontSize() * POINT_TO_MM;
+          const fontImageGap = fontHeightInMm * 0.2;
+
+          const widthToHeightRatio =
+            imageProperties.height / imageProperties.width;
+          const heightToWidthRatio =
+            imageProperties.width / imageProperties.height;
+
+          let contentWidth = cellWidth * CONTENT_PERCENTAGE;
+          let contentHeight =
+            contentWidth * widthToHeightRatio + fontHeightInMm + fontImageGap;
+
+          const maxHeight = cellHeight * CONTENT_PERCENTAGE;
+
+          if (contentHeight > maxHeight) {
+            contentHeight = cellHeight * CONTENT_PERCENTAGE;
+            let imageHeight = contentHeight - fontHeightInMm - fontImageGap;
+            contentWidth = imageHeight * heightToWidthRatio;
+          }
+
+          let imageHeight = contentHeight - fontHeightInMm - fontImageGap;
+
+          let imageX = currentX + (cellWidth - contentWidth) / 2;
+          let imageY = currentY + (cellHeight - contentHeight) / 2;
+
+          let topPadding = (cellHeight - contentHeight) / 2;
+          let textX = currentX + cellWidth / 2;
+          let textY = currentY + topPadding + imageHeight + fontImageGap;
+
+          doc
+            .addImage(
+              imageData,
+              imageProperties.fileType,
+              imageX,
+              imageY,
+              contentWidth,
+              imageHeight,
+              image.url,
+              "MEDIUM",
+              0
+            )
+            .text(labelText, textX, textY, {
+              baseline: "top",
+              align: "center",
+            });
+        } else {
+          doc.text(
+            labelText,
+            currentX + cellWidth / 2,
+            currentY + cellHeight / 2,
+            {
+              baseline: "middle",
+              align: "center",
+            }
+          );
+        }
       }
     }
   }
