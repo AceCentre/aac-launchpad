@@ -96,9 +96,14 @@ export const simpleChoice: Template = {
     },
   ],
 
-  grid: {
-    rows: 1,
-    columns: 2,
-    order: [["left", "right"]],
-  },
+  pages: [
+    {
+      id: "first",
+      grid: {
+        rows: 1,
+        columns: 2,
+        order: [["left", "right"]],
+      },
+    },
+  ],
 };

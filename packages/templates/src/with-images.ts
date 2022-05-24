@@ -63,10 +63,15 @@ export const withImages: Template = {
       url: { type: "TemplateItem", id: "rightImage" },
     },
   ],
+  pages: [
+    {
+      id: "first",
 
-  grid: {
-    rows: 1,
-    columns: 2,
-    order: [["left", "right"]],
-  },
+      grid: {
+        rows: 1,
+        columns: 2,
+        order: [["left", "right"]],
+      },
+    },
+  ],
 };

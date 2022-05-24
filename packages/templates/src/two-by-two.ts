@@ -41,12 +41,17 @@ export const twoByTwo: Template = {
     },
   ],
   images: [],
-  grid: {
-    rows: 2,
-    columns: 2,
-    order: [
-      ["first", "second"],
-      ["third", "fourth"],
-    ],
-  },
+  pages: [
+    {
+      id: "first",
+      grid: {
+        rows: 2,
+        columns: 2,
+        order: [
+          ["first", "second"],
+          ["third", "fourth"],
+        ],
+      },
+    },
+  ],
 };

@@ -71,13 +71,18 @@ export const threeByThree: Template = {
     },
   ],
   images: [],
-  grid: {
-    rows: 3,
-    columns: 3,
-    order: [
-      ["first", "second", "fifth"],
-      ["third", "fourth", "sixth"],
-      ["seventh", "eighth", "ninth"],
-    ],
-  },
+  pages: [
+    {
+      id: "first",
+      grid: {
+        rows: 3,
+        columns: 3,
+        order: [
+          ["first", "second", "fifth"],
+          ["third", "fourth", "sixth"],
+          ["seventh", "eighth", "ninth"],
+        ],
+      },
+    },
+  ],
 };

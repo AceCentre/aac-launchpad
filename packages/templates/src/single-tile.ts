@@ -22,9 +22,15 @@ export const simpleSingleTile: Template = {
       background_color: "rgb(255, 0, 0)",
     },
   ],
-  grid: {
-    rows: 1,
-    columns: 1,
-    order: [["main"]],
-  },
+
+  pages: [
+    {
+      id: "first",
+      grid: {
+        rows: 1,
+        columns: 1,
+        order: [["main"]],
+      },
+    },
+  ],
 };

@@ -33,9 +33,14 @@ export const fontPicker: Template = {
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
   ],
-  grid: {
-    rows: 1,
-    columns: 1,
-    order: [["main"]],
-  },
+  pages: [
+    {
+      id: "first",
+      grid: {
+        rows: 1,
+        columns: 1,
+        order: [["main"]],
+      },
+    },
+  ],
 };

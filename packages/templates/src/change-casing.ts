@@ -35,9 +35,14 @@ export const changeCasing: Template = {
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
     },
   ],
-  grid: {
-    rows: 1,
-    columns: 1,
-    order: [["main"]],
-  },
+  pages: [
+    {
+      id: "first",
+      grid: {
+        rows: 1,
+        columns: 1,
+        order: [["main"]],
+      },
+    },
+  ],
 };

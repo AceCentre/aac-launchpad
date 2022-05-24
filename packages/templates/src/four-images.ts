@@ -76,13 +76,18 @@ export const fourImages: Template = {
       url: "./right.png",
     },
   ],
+  pages: [
+    {
+      id: "first",
 
-  grid: {
-    rows: 2,
-    columns: 2,
-    order: [
-      ["left", "down"],
-      ["up", "right"],
-    ],
-  },
+      grid: {
+        rows: 2,
+        columns: 2,
+        order: [
+          ["left", "down"],
+          ["up", "right"],
+        ],
+      },
+    },
+  ],
 };

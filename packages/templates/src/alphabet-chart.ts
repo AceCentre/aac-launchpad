@@ -432,26 +432,31 @@ export const alphabetChart: Template = {
     },
   ],
   images: [],
-  grid: {
-    rows: 5,
-    columns: 10,
-    order: [
-      ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
-      ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"],
-      ["k", "l", "m", "n", "o", "p", "q", "r", "s", "t"],
-      ["u", "v", "w", "x", "y", "z", ".", "?", ":", "%"],
-      [
-        "delete",
-        "delete",
-        "delete",
-        "null",
-        "space",
-        "space",
-        "null",
-        "start-again",
-        "start-again",
-        "start-again",
-      ],
-    ],
-  },
+  pages: [
+    {
+      id: "first",
+      grid: {
+        rows: 5,
+        columns: 10,
+        order: [
+          ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+          ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"],
+          ["k", "l", "m", "n", "o", "p", "q", "r", "s", "t"],
+          ["u", "v", "w", "x", "y", "z", ".", "?", ":", "%"],
+          [
+            "delete",
+            "delete",
+            "delete",
+            "null",
+            "space",
+            "space",
+            "null",
+            "start-again",
+            "start-again",
+            "start-again",
+          ],
+        ],
+      },
+    },
+  ],
 };
