@@ -8,6 +8,8 @@ import {
   Result,
   Image,
   Casing,
+  GridWithTemplateItems,
+  Page,
 } from "types";
 
 const getExtLaunchpadOptions = (
@@ -241,11 +243,11 @@ const getButtons = (
   });
 };
 
-const getGrid = (template: Template, results: Array<Result>): Grid => {
+const getGrid = (grid: GridWithTemplateItems, results: Array<Result>): Grid => {
   return {
-    rows: getNumberFromTemplateItem(template.grid.rows, results),
-    columns: getNumberFromTemplateItem(template.grid.columns, results),
-    order: template.grid.order.map((x) =>
+    rows: getNumberFromTemplateItem(grid.rows, results),
+    columns: getNumberFromTemplateItem(grid.columns, results),
+    order: grid.order.map((x) =>
       x.map((z) => getNullableStringFromTemplateItem(z, results))
     ),
   };
@@ -261,6 +263,13 @@ const getImages = (
   });
 };
 
+const getPages = (template: Template, results: Array<Result>): Array<Page> => {
+  return template.pages.map((page) => {
+    const grid = getGrid(page.grid, results);
+    return { grid, id: page.id };
+  });
+};
+
 const templateToBoard = (template: Template, results: Array<Result>): Board => {
   const format = getStringFromTemplateItem(template.format, results);
   const id = getStringFromTemplateItem(template.id, results);
@@ -273,7 +282,7 @@ const templateToBoard = (template: Template, results: Array<Result>): Board => {
   );
   const ext_launchpad_options = getExtLaunchpadOptions(template, results);
   const buttons = getButtons(template, results);
-  const grid = getGrid(template, results);
+  const pages = getPages(template, results);
   const images = getImages(template, results);
 
   return {
@@ -285,7 +294,7 @@ const templateToBoard = (template: Template, results: Array<Result>): Board => {
     ext_launchpad_options,
     name,
     buttons,
-    grid,
+    pages,
     images,
   };
 };
