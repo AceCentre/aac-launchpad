@@ -47,7 +47,7 @@ export type Grid = {
   order: Array<Array<ButtonID | null>>;
 };
 
-type GridWithTemplateItems = {
+export type GridWithTemplateItems = {
   rows: number | TemplateItem;
   columns: number | TemplateItem;
   order: Array<Array<ButtonID | null | TemplateItem>>;
@@ -132,7 +132,7 @@ export type Template = {
   ext_launchpad_options: LaunchpadOptionsWithTemplateItems;
   description_html: string | TemplateItem;
   buttons: Array<ButtonWithTemplateItems>;
-  grid: GridWithTemplateItems;
+  pages: Array<PageWithTemplateItems>;
 
   images: Array<ImageWithTemplateItems>;
 };
@@ -140,6 +140,16 @@ export type Template = {
 type ImageWithTemplateItems = {
   id: string;
   url: string | TemplateItem;
+};
+
+export type Page = {
+  id: string;
+  grid: Grid;
+};
+
+type PageWithTemplateItems = {
+  id: string;
+  grid: GridWithTemplateItems;
 };
 
 export type Board = {
@@ -158,7 +168,10 @@ export type Board = {
   description_html: string;
 
   buttons: Button[];
-  grid: Grid;
 
+  // This isn't standard complaint. The standard is mainly focused on linking boards via button presses
+  // which makes sense for digital boards but not for paper resources. Sometime we can switch to the standard
+  // but for now lets stick to the convient way rather than perfect complaince
+  pages: Array<Page>;
   images: Array<Image>;
 };
