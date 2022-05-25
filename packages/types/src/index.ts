@@ -73,6 +73,7 @@ export interface TemplateVariable {
   type: string;
   name: string;
   defaultValue: string;
+  hidden?: boolean;
 }
 
 export type Option = {
@@ -105,6 +106,24 @@ interface ImageUrlVariable extends TemplateVariable {
   type: "imageUrl";
 }
 
+export type PresetVariableValues = Array<{ id: string; value: string }>;
+
+type Preset = {
+  value: string;
+  label: string;
+  description: string;
+  variableValues: PresetVariableValues;
+};
+
+// The engine will ignore these variables, it will be up to the interface to update
+// the derived variables and send them down. This will allow easy override by the user
+// Each variable should only be dependent on one preset otherwise it will get messy.
+export interface PresetVariable extends TemplateVariable {
+  type: "preset";
+  presets: Array<Preset>;
+  hidden?: false;
+}
+
 export type TemplateItem = {
   id: string;
   type: "TemplateItem";
@@ -115,7 +134,8 @@ export type AllTemplateVariable =
   | FreeTextTemplateVariable
   | NumberTemplateVariable
   | ColorTemplateVariable
-  | ImageUrlVariable;
+  | ImageUrlVariable
+  | PresetVariable;
 
 export type Template = {
   templateVariables: Array<AllTemplateVariable>;
