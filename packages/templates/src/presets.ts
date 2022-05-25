@@ -31,7 +31,7 @@ export const presetExample: Template = {
       id: "borderColor",
       description: "The color of the border",
       type: "color",
-      name: "Text Color",
+      name: "Border Color",
       defaultValue: "rgb(255,0,0)",
     },
     {
