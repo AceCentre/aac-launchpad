@@ -1,0 +1,58 @@
+{
+  "format": "open-board-0.1",
+  "id": "presets-example",
+  "locale": "en-GB",
+  "description_html": "Create simple board using presets",
+  "ext_launchpad_options": {},
+  "name": "Presets Example",
+  "buttons": [
+    {
+      "id": "first",
+      "label": "First tile",
+      "border_color": "rgb(255,255,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,255,0)"
+    },
+    {
+      "id": "second",
+      "label": "Second",
+      "border_color": "rgb(255,255,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,255,0)"
+    },
+    {
+      "id": "third",
+      "label": "Third",
+      "border_color": "rgb(255,255,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,255,0)"
+    },
+    {
+      "id": "fourth",
+      "label": "Fourth",
+      "border_color": "rgb(255,255,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,255,0)"
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 2,
+        "columns": 2,
+        "order": [
+          [
+            "first",
+            "second"
+          ],
+          [
+            "third",
+            "fourth"
+          ]
+        ]
+      },
+      "id": "first"
+    }
+  ],
+  "images": []
+}
