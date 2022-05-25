@@ -7,6 +7,7 @@ export const typeDefs = gql`
     type: String!
     name: String!
     defaultValue: String!
+    hidden: Boolean
   }
 
   type Option {
@@ -22,6 +23,29 @@ export const typeDefs = gql`
     type: String!
     options: [Option]!
     defaultValue: String!
+    hidden: Boolean
+  }
+
+  type PresetVariableValue {
+    id: String!
+    value: String!
+  }
+
+  type Preset {
+    value: String!
+    label: String!
+    description: String!
+    variableValues: [PresetVariableValue!]!
+  }
+
+  type PresetTemplateVariable implements TemplateVariable {
+    id: String!
+    description: String!
+    type: String!
+    name: String!
+    defaultValue: String!
+    hidden: Boolean
+    presets: [Preset!]!
   }
 
   type FreeTextTemplateVariable implements TemplateVariable {
@@ -31,6 +55,7 @@ export const typeDefs = gql`
     type: String!
     maxLength: Int!
     defaultValue: String!
+    hidden: Boolean
   }
 
   type ImageUrlTemplateVariable implements TemplateVariable {
@@ -39,6 +64,7 @@ export const typeDefs = gql`
     description: String!
     type: String!
     defaultValue: String!
+    hidden: Boolean
   }
 
   type NumberTemplateVariable implements TemplateVariable {
@@ -49,6 +75,7 @@ export const typeDefs = gql`
     min: Int!
     max: Int!
     defaultValue: String!
+    hidden: Boolean
   }
 
   type ColorTemplateVariable implements TemplateVariable {
@@ -57,6 +84,7 @@ export const typeDefs = gql`
     description: String!
     type: String!
     defaultValue: String!
+    hidden: Boolean
   }
 
   union TemplateVariableType =
@@ -65,6 +93,7 @@ export const typeDefs = gql`
     | NumberTemplateVariable
     | ColorTemplateVariable
     | ImageUrlTemplateVariable
+    | PresetTemplateVariable
 
   type Template {
     templateName: String!
