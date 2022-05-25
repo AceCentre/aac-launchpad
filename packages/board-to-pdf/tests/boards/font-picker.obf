@@ -1,0 +1,32 @@
+{
+  "format": "open-board-0.1",
+  "id": "font-picker",
+  "locale": "en-GB",
+  "description_html": "A board with a single tile in the centre",
+  "ext_launchpad_options": {},
+  "name": "Font Picker Example",
+  "buttons": [
+    {
+      "id": "main",
+      "label": "Long text 9996666 in open dyslexic",
+      "border_color": "rgb(0, 0, 55)",
+      "background_color": "rgb(255, 0, 0)",
+      "ext_launchpad_label_font": "Atkinson-Hyperlegible"
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 1,
+        "columns": 1,
+        "order": [
+          [
+            "main"
+          ]
+        ]
+      },
+      "id": "first"
+    }
+  ],
+  "images": []
+}

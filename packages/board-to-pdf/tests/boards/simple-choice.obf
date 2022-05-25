@@ -1,0 +1,44 @@
+{
+  "format": "open-board-0.1",
+  "id": "simple-choice",
+  "locale": "en-GB",
+  "description_html": "A board that allows you to choose between two options",
+  "ext_launchpad_options": {},
+  "name": "Choice between two options",
+  "buttons": [
+    {
+      "id": "left",
+      "label": "Left",
+      "border_color": "rgb(255,0,0)",
+      "background_color": "rgb(0,255,0)",
+      "ext_launchpad_label_color": "rgb(0,0,255)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "right",
+      "label": "Right",
+      "border_color": "rgb(255,255,0)",
+      "background_color": "rgb(0,255,255)",
+      "ext_launchpad_label_color": "rgb(255,255,255)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 1,
+        "columns": 2,
+        "order": [
+          [
+            "left",
+            "right"
+          ]
+        ]
+      },
+      "id": "first"
+    }
+  ],
+  "images": []
+}

@@ -1,0 +1,55 @@
+{
+  "format": "open-board-0.1",
+  "id": "with-images",
+  "locale": "en-GB",
+  "description_html": "A board that allows you to choose between two options",
+  "ext_launchpad_options": {},
+  "name": "Create a board with images",
+  "buttons": [
+    {
+      "image_id": "leftImage",
+      "id": "left",
+      "label": "Left",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "image_id": "rightImage",
+      "id": "right",
+      "label": "Right",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 1,
+        "columns": 2,
+        "order": [
+          [
+            "left",
+            "right"
+          ]
+        ]
+      },
+      "id": "first"
+    }
+  ],
+  "images": [
+    {
+      "id": "leftImage",
+      "url": "./right.png"
+    },
+    {
+      "id": "rightImage",
+      "url": "./left.png"
+    }
+  ]
+}

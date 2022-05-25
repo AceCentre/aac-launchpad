@@ -1,0 +1,49 @@
+{
+  "format": "open-board-0.1",
+  "id": "multiple-pages",
+  "locale": "en-GB",
+  "description_html": "A board with multiple pages",
+  "ext_launchpad_options": {},
+  "name": "Multiple Pages",
+  "buttons": [
+    {
+      "id": "first",
+      "label": "Page One",
+      "border_color": "rgb(0, 0, 55)",
+      "background_color": "rgb(255, 0, 0)"
+    },
+    {
+      "id": "second",
+      "label": "Page Two",
+      "border_color": "rgb(0, 0, 55)",
+      "background_color": "rgb(255, 0, 0)"
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 1,
+        "columns": 1,
+        "order": [
+          [
+            "first"
+          ]
+        ]
+      },
+      "id": "first"
+    },
+    {
+      "grid": {
+        "rows": 1,
+        "columns": 1,
+        "order": [
+          [
+            "second"
+          ]
+        ]
+      },
+      "id": "second"
+    }
+  ],
+  "images": []
+}

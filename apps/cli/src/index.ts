@@ -8,8 +8,14 @@ import { ALL_TEMPLATES } from "templates";
 
 import inquirer from "inquirer";
 import { writeFileSync } from "fs";
+import { generateTestScreenshots } from "./generate-test-screenshots";
 
 const main = async () => {
+  if (process.argv.includes("--generate-test-screenshots")) {
+    await generateTestScreenshots();
+    return;
+  }
+
   const templateAnswer: { template: string } = await inquirer.prompt([
     {
       type: "list",

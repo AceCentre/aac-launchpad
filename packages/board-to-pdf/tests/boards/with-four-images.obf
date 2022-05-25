@@ -1,0 +1,87 @@
+{
+  "format": "open-board-0.1",
+  "id": "with-four-images",
+  "locale": "en-GB",
+  "description_html": "A board that allows you to choose between four options",
+  "ext_launchpad_options": {},
+  "name": "Create a board with images",
+  "buttons": [
+    {
+      "image_id": "upImage",
+      "id": "up",
+      "label": "Up",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "image_id": "downImage",
+      "id": "down",
+      "label": "Down",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "image_id": "leftImage",
+      "id": "left",
+      "label": "Left",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "image_id": "rightImage",
+      "id": "right",
+      "label": "Right",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 2,
+        "columns": 2,
+        "order": [
+          [
+            "left",
+            "down"
+          ],
+          [
+            "up",
+            "right"
+          ]
+        ]
+      },
+      "id": "first"
+    }
+  ],
+  "images": [
+    {
+      "id": "upImage",
+      "url": "https://www.pinclipart.com/picdir/big/111-1115959_up-arrow-image-up-arrow-with-transparent-background.png"
+    },
+    {
+      "id": "downImage",
+      "url": "https://toppng.com/uploads/preview/down-arrow-black-arrow-down-11562910488ntpji5lifi.png"
+    },
+    {
+      "id": "leftImage",
+      "url": "./left.png"
+    },
+    {
+      "id": "rightImage",
+      "url": "./right.png"
+    }
+  ]
+}
