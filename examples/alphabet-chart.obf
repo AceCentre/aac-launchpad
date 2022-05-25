@@ -1,0 +1,483 @@
+{
+  "format": "open-board-0.1",
+  "id": "alphabet-chart",
+  "locale": "en-GB",
+  "description_html": "Alphabet board to allow individuals to spell",
+  "ext_launchpad_options": {
+    "padding": 10,
+    "gap": 0,
+    "button_border_width": 0,
+    "button_radius": 0
+  },
+  "name": "Alphabet Chart",
+  "buttons": [
+    {
+      "id": "null",
+      "label": "",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 20
+    },
+    {
+      "id": "1",
+      "label": "1",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "2",
+      "label": "2",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "3",
+      "label": "3",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "4",
+      "label": "4",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "5",
+      "label": "5",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "6",
+      "label": "6",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "7",
+      "label": "7",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "8",
+      "label": "8",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "9",
+      "label": "9",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "0",
+      "label": "0",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "a",
+      "label": "A",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "b",
+      "label": "B",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "c",
+      "label": "C",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "d",
+      "label": "D",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "e",
+      "label": "E",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "f",
+      "label": "F",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "g",
+      "label": "G",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "h",
+      "label": "H",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "i",
+      "label": "I",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "j",
+      "label": "j",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "k",
+      "label": "K",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "l",
+      "label": "L",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "m",
+      "label": "M",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "n",
+      "label": "N",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "o",
+      "label": "O",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "p",
+      "label": "P",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "q",
+      "label": "Q",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "r",
+      "label": "R",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "s",
+      "label": "S",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "t",
+      "label": "T",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "u",
+      "label": "U",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "v",
+      "label": "V",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "w",
+      "label": "W",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "x",
+      "label": "X",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "y",
+      "label": "Y",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "z",
+      "label": "Z",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": ".",
+      "label": ".",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "?",
+      "label": "?",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": ":",
+      "label": ":",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "%",
+      "label": "%",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "id": "delete",
+      "label": "DELETE",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 20
+    },
+    {
+      "id": "space",
+      "label": "SPACE",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 20
+    },
+    {
+      "id": "start-again",
+      "label": "START AGAIN",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(0,0,0)",
+      "ext_launchpad_label_color": "rgb(255,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 20
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 5,
+        "columns": 10,
+        "order": [
+          [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "0"
+          ],
+          [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+            "g",
+            "h",
+            "i",
+            "j"
+          ],
+          [
+            "k",
+            "l",
+            "m",
+            "n",
+            "o",
+            "p",
+            "q",
+            "r",
+            "s",
+            "t"
+          ],
+          [
+            "u",
+            "v",
+            "w",
+            "x",
+            "y",
+            "z",
+            ".",
+            "?",
+            ":",
+            "%"
+          ],
+          [
+            "delete",
+            "delete",
+            "delete",
+            "null",
+            "space",
+            "space",
+            "null",
+            "start-again",
+            "start-again",
+            "start-again"
+          ]
+        ]
+      },
+      "id": "first"
+    }
+  ],
+  "images": []
+}

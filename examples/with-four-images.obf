@@ -47,20 +47,25 @@
       "ext_launchpad_label_font_size": 30
     }
   ],
-  "grid": {
-    "rows": 2,
-    "columns": 2,
-    "order": [
-      [
-        "left",
-        "down"
-      ],
-      [
-        "up",
-        "right"
-      ]
-    ]
-  },
+  "pages": [
+    {
+      "grid": {
+        "rows": 2,
+        "columns": 2,
+        "order": [
+          [
+            "left",
+            "down"
+          ],
+          [
+            "up",
+            "right"
+          ]
+        ]
+      },
+      "id": "first"
+    }
+  ],
   "images": [
     {
       "id": "upImage",

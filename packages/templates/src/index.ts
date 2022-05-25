@@ -7,8 +7,23 @@ import { fontPicker } from "./font-picker";
 import { changeCasing } from "./change-casing";
 import { multiplePages } from "./multiple-pages";
 import { presetExample } from "./presets";
+import { simpleSingleTile } from "./single-tile";
+import { threeByThree } from "./three-by-three";
+import { twoByTwo } from "./two-by-two";
 
-export { alphabetChart, simpleChoice, withImages };
+export {
+  alphabetChart,
+  simpleChoice,
+  withImages,
+  fourImages,
+  fontPicker,
+  changeCasing,
+  multiplePages,
+  presetExample,
+  simpleSingleTile,
+  threeByThree,
+  twoByTwo,
+};
 
 export const ALL_TEMPLATES: Array<Template> = [
   alphabetChart,
@@ -19,4 +34,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   changeCasing,
   multiplePages,
   presetExample,
+  simpleSingleTile,
+  threeByThree,
+  twoByTwo,
 ];
