@@ -6,6 +6,7 @@ import { fourImages } from "./four-images";
 import { fontPicker } from "./font-picker";
 import { changeCasing } from "./change-casing";
 import { multiplePages } from "./multiple-pages";
+import { presetExample } from "./presets";
 
 export { alphabetChart, simpleChoice, withImages };
 
@@ -17,4 +18,5 @@ export const ALL_TEMPLATES: Array<Template> = [
   fontPicker,
   changeCasing,
   multiplePages,
+  presetExample,
 ];
