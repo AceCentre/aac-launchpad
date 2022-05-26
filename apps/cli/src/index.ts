@@ -91,6 +91,27 @@ const main = async () => {
           };
         }
 
+        if (variable.type === "boolean") {
+          return {
+            type: "list",
+            name: variable.id,
+            message: variable.description,
+            default: presetOverrides[variable.id],
+            choices: [
+              {
+                name: variable.trueLabel,
+                value: "true",
+                short: variable.trueLabel,
+              },
+              {
+                name: variable.falseLabel,
+                value: "false",
+                short: variable.falseLabel,
+              },
+            ],
+          };
+        }
+
         if (variable.type === "freeText") {
           return {
             type: "input",
