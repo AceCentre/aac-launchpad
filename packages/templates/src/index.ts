@@ -10,6 +10,7 @@ import { presetExample } from "./presets";
 import { simpleSingleTile } from "./single-tile";
 import { threeByThree } from "./three-by-three";
 import { twoByTwo } from "./two-by-two";
+import { labelsBelow } from "./labels-below";
 
 export {
   alphabetChart,
@@ -37,4 +38,5 @@ export const ALL_TEMPLATES: Array<Template> = [
   simpleSingleTile,
   threeByThree,
   twoByTwo,
+  labelsBelow,
 ];
