@@ -8,6 +8,8 @@ import { rmSync, mkdirSync } from "fs";
 
 expect.extend({ toMatchImage });
 
+jest.setTimeout(10000);
+
 beforeAll(() => {
   try {
     rmSync(path.join(__dirname, "./temp"), { recursive: true });
@@ -294,6 +296,41 @@ it("with-four-images", async () => {
   );
   const result = readFileSync(
     path.join(__dirname, "./temp/with-four-images.1.png")
+  );
+
+  expect(source).toMatchImage(result, {
+    diffPath: `./${rawBoard.id}-diff.png`,
+  });
+});
+
+it("labels-below", async () => {
+  const rawBoard: Board = JSON.parse(
+    readFileSync(path.join(__dirname, "./boards/labels-below.obf")).toString()
+  );
+
+  const pdf = await boardToPdf(rawBoard, {
+    rootToImages: path.join(__dirname, "./images"),
+  });
+
+  const output = Buffer.from(pdf.output("arraybuffer"));
+  const prep = fromBuffer(output, {
+    density: 500,
+    saveFilename: rawBoard.id,
+    savePath: path.join(__dirname, "./temp"),
+    format: "png",
+    width: 3508,
+    height: 2480,
+  });
+  if (prep.bulk === undefined) {
+    throw new Error(`Failed to get screenshot for: ${rawBoard.id}`);
+  }
+  await prep.bulk([1]);
+
+  const source = readFileSync(
+    path.join(__dirname, "./screenshots/labels-below.1.png")
+  );
+  const result = readFileSync(
+    path.join(__dirname, "./temp/labels-below.1.png")
   );
 
   expect(source).toMatchImage(result, {

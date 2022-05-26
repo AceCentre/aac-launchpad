@@ -1,0 +1,139 @@
+{
+  "format": "open-board-0.1",
+  "id": "labels-below",
+  "locale": "en-GB",
+  "description_html": "Create a board that uses images and has some labels below the cell",
+  "ext_launchpad_options": {},
+  "name": "Labels Below",
+  "buttons": [
+    {
+      "image_id": "leftImage",
+      "id": "first",
+      "label": "Left",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30,
+      "ext_launchpad_label_below": false
+    },
+    {
+      "id": "second",
+      "label": "Right",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30,
+      "ext_launchpad_label_below": true
+    },
+    {
+      "image_id": "leftImage",
+      "id": "third",
+      "label": "Left",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "image_id": "rightImage",
+      "id": "fourth",
+      "label": "Right",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "image_id": "leftImage",
+      "id": "fifth",
+      "label": "Left",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30,
+      "ext_launchpad_label_below": true
+    },
+    {
+      "image_id": "rightImage",
+      "id": "sixth",
+      "label": "Right",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "image_id": "leftImage",
+      "id": "seventh",
+      "label": "Left",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    },
+    {
+      "image_id": "rightImage",
+      "id": "eighth",
+      "label": "Right",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 10,
+      "ext_launchpad_label_below": true
+    },
+    {
+      "image_id": "leftImage",
+      "id": "ninth",
+      "label": "Left",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font_size": 30
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 3,
+        "columns": 3,
+        "order": [
+          [
+            "first",
+            "second",
+            "third"
+          ],
+          [
+            "fourth",
+            "fifth",
+            "sixth"
+          ],
+          [
+            "seventh",
+            "eighth",
+            "ninth"
+          ]
+        ]
+      },
+      "id": "first"
+    }
+  ],
+  "images": [
+    {
+      "id": "leftImage",
+      "url": "./left.png"
+    },
+    {
+      "id": "rightImage",
+      "url": "./right.png"
+    }
+  ]
+}
