@@ -58,6 +58,17 @@ export const typeDefs = gql`
     hidden: Boolean
   }
 
+  type BooleanTemplateVariable implements TemplateVariable {
+    id: String!
+    name: String!
+    description: String!
+    type: String!
+    defaultValue: String!
+    trueLabel: String!
+    falseLabel: String!
+    hidden: Boolean
+  }
+
   type ImageUrlTemplateVariable implements TemplateVariable {
     id: String!
     name: String!
@@ -94,6 +105,7 @@ export const typeDefs = gql`
     | ColorTemplateVariable
     | ImageUrlTemplateVariable
     | PresetTemplateVariable
+    | BooleanTemplateVariable
 
   type Template {
     templateName: String!

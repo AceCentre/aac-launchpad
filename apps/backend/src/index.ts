@@ -20,6 +20,7 @@ const templateMap: any = {
   color: "ColorTemplateVariable",
   imageUrl: "ImageUrlTemplateVariable",
   preset: "PresetTemplateVariable",
+  boolean: "BooleanTemplateVariable",
 };
 
 const addTypenameToTemplate = (template: Template): any => {
