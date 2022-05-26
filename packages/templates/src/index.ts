@@ -11,6 +11,7 @@ import { simpleSingleTile } from "./single-tile";
 import { threeByThree } from "./three-by-three";
 import { twoByTwo } from "./two-by-two";
 import { labelsBelow } from "./labels-below";
+import { variableGroup } from "./variable-group";
 
 export {
   alphabetChart,
@@ -24,6 +25,8 @@ export {
   simpleSingleTile,
   threeByThree,
   twoByTwo,
+  labelsBelow,
+  variableGroup,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -39,4 +42,5 @@ export const ALL_TEMPLATES: Array<Template> = [
   threeByThree,
   twoByTwo,
   labelsBelow,
+  variableGroup,
 ];
