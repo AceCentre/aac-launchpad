@@ -10,4 +10,6 @@ module.exports = {
     "<rootDir>/dist",
   ],
   preset: "ts-jest",
+  browser: false,
+  testEnvironment: "node",
 };
