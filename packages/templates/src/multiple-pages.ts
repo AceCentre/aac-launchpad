@@ -6,6 +6,7 @@ export const multiplePages: Template = {
   templateName: "Multiple Pages",
   templateId: "multiple-pages",
   templateImageUrl: "single-tile.png",
+  templateVariableGroups: [],
 
   format: "open-board-0.1",
   id: "multiple-pages",

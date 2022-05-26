@@ -12,6 +12,8 @@ export const fontPicker: Template = {
       options: FONT_OPTIONS,
     },
   ],
+  templateVariableGroups: [],
+
   templateDescription: "Create a single tile board with your chosen font",
   templateName: "Font Picker Example",
   templateId: "font-picker",

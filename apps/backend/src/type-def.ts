@@ -107,10 +107,18 @@ export const typeDefs = gql`
     | PresetTemplateVariable
     | BooleanTemplateVariable
 
+  type TemplateVariableGroup {
+    id: String!
+    variables: [String!]
+    name: String!
+    description: String!
+  }
+
   type Template {
     templateName: String!
     templateDescription: String!
     templateVariables: [TemplateVariableType]!
+    templateVariableGroups: [TemplateVariableGroup]!
     templateId: String!
     templateImageUrl: String!
   }

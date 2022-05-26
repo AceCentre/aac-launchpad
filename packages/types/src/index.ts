@@ -146,8 +146,16 @@ export type AllTemplateVariable =
   | PresetVariable
   | BooleanVariable;
 
+type TemplateVariableGroup = {
+  id: string;
+  variables: Array<string>;
+  name: string;
+  description: string;
+};
+
 export type Template = {
   templateVariables: Array<AllTemplateVariable>;
+  templateVariableGroups: Array<TemplateVariableGroup>;
   templateName: string;
   templateDescription: string;
   templateId: string;

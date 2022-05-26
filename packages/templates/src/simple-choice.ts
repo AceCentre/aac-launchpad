@@ -66,6 +66,7 @@ export const simpleChoice: Template = {
       defaultValue: "rgb(255,255,255)",
     },
   ],
+  templateVariableGroups: [],
 
   format: "open-board-0.1",
   id: "simple-choice",

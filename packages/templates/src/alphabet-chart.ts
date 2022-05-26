@@ -17,6 +17,7 @@ export const alphabetChart: Template = {
       defaultValue: "rgb(255,0,0)",
     },
   ],
+  templateVariableGroups: [],
   templateId: "alphabet-chart",
   templateDescription: "Create an alphabet chart with custom colors",
   templateName: "Alphabet Chart Template",

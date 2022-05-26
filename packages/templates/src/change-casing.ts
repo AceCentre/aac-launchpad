@@ -12,6 +12,8 @@ export const changeCasing: Template = {
       options: CASING_OPTIONS,
     },
   ],
+  templateVariableGroups: [],
+
   templateDescription:
     "Create a single tile board that allows you to change casing",
   templateName: "Change Casing",

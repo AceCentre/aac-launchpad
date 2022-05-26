@@ -21,6 +21,7 @@ export const withImages: Template = {
       description: "URL or path for image on the left hand side",
     },
   ],
+  templateVariableGroups: [],
 
   format: "open-board-0.1",
   id: "with-images",

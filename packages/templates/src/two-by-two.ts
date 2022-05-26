@@ -6,6 +6,7 @@ export const twoByTwo: Template = {
   templateName: "Two by Two",
   templateId: "two-by-two",
   templateImageUrl: "two-by-two.png",
+  templateVariableGroups: [],
 
   format: "open-board-0.1",
   id: "two-by-two",

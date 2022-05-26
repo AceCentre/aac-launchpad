@@ -6,6 +6,7 @@ export const simpleSingleTile: Template = {
   templateName: "Simple Single Tile",
   templateId: "single-tile",
   templateImageUrl: "single-tile.png",
+  templateVariableGroups: [],
 
   format: "open-board-0.1",
   id: "single-tile",

@@ -64,6 +64,8 @@ export const presetExample: Template = {
       ],
     },
   ],
+  templateVariableGroups: [],
+
   templateDescription: "Create simple board using presets",
   templateName: "Presets Example",
   templateId: "preset-example",

@@ -6,6 +6,7 @@ export const fourImages: Template = {
   templateDescription: "Create a board that uses images",
   templateImageUrl: "choice.png",
   templateVariables: [],
+  templateVariableGroups: [],
 
   format: "open-board-0.1",
   id: "with-four-images",

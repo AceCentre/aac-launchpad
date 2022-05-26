@@ -6,6 +6,7 @@ export const threeByThree: Template = {
   templateName: "Three by Three",
   templateId: "three-by-three",
   templateImageUrl: "three-by-three.png",
+  templateVariableGroups: [],
 
   format: "open-board-0.1",
   id: "three-by-three",

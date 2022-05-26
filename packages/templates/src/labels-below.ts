@@ -17,6 +17,7 @@ export const labelsBelow: Template = {
       falseLabel: "Label in cell",
     },
   ],
+  templateVariableGroups: [],
 
   format: "open-board-0.1",
   id: "labels-below",
