@@ -19,6 +19,7 @@ export type Button = {
   ext_launchpad_label_font_style?: string;
   ext_launchpad_label_font?: string;
   ext_launchpad_label_casing?: Casing;
+  ext_launchpad_label_below?: boolean;
   image_id?: string;
 };
 
@@ -38,6 +39,7 @@ type ButtonWithTemplateItems = {
   ext_launchpad_label_font_style?: string | TemplateItem;
   ext_launchpad_label_font?: string | TemplateItem;
   ext_launchpad_label_casing?: Casing | TemplateItem;
+  ext_launchpad_label_below?: boolean | TemplateItem;
   image_id?: string;
 };
 
@@ -106,6 +108,12 @@ interface ImageUrlVariable extends TemplateVariable {
   type: "imageUrl";
 }
 
+interface BooleanVariable extends TemplateVariable {
+  type: "boolean";
+  trueLabel: string;
+  falseLabel: string;
+}
+
 export type PresetVariableValues = Array<{ id: string; value: string }>;
 
 type Preset = {
@@ -135,7 +143,8 @@ export type AllTemplateVariable =
   | NumberTemplateVariable
   | ColorTemplateVariable
   | ImageUrlVariable
-  | PresetVariable;
+  | PresetVariable
+  | BooleanVariable;
 
 export type Template = {
   templateVariables: Array<AllTemplateVariable>;
