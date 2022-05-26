@@ -26,6 +26,7 @@ const DEFAULT_BUTTON_BORDER_WIDTH = 2;
 const DEFAULT_LABEL_COLOR = "rgb(0, 0, 0)";
 const DEFAULT_LABEL_FONT_SIZE = 18;
 const DEFAULT_LABEL_CASING = "no-change";
+const DEFAULT_LABEL_BELOW = false;
 
 const DEFAULT_LABEL_FONT_STYLE = "normal";
 const DEFAULT_LABEL_FONT = "helvetica";
@@ -259,6 +260,8 @@ const boardToPdf = async (
           currentButton.ext_launchpad_label_font ?? DEFAULT_LABEL_FONT;
         const labelCasing =
           currentButton.ext_launchpad_label_casing ?? DEFAULT_LABEL_CASING;
+        const labelBelow =
+          currentButton.ext_launchpad_label_below ?? DEFAULT_LABEL_BELOW;
 
         const labelText = alterCasing(currentButton.label, labelCasing);
 
@@ -279,6 +282,15 @@ const boardToPdf = async (
           buttonDimensions.width * buttonsWide + gap * (buttonsWide - 1);
         const cellHeight = buttonDimensions.height;
 
+        let rectHeight = cellHeight;
+
+        if (labelBelow) {
+          const labelHeight = fontSize * POINT_TO_MM;
+          const gapBetweenBoxAndLabel = Math.max(labelHeight * 0.2, 2);
+
+          rectHeight = cellHeight - labelHeight - gapBetweenBoxAndLabel;
+        }
+
         // Skip over the extra buttons
         columnCount += buttonsWide - 1;
 
@@ -294,7 +306,7 @@ const boardToPdf = async (
             currentX,
             currentY,
             cellWidth,
-            cellHeight,
+            rectHeight,
             buttonRadius,
             buttonRadius,
             "FD"
@@ -335,49 +347,79 @@ const boardToPdf = async (
           let contentHeight =
             contentWidth * widthToHeightRatio + fontHeightInMm + fontImageGap;
 
+          if (labelBelow) {
+            contentHeight = contentWidth * widthToHeightRatio;
+          }
+
           const maxHeight = cellHeight * CONTENT_PERCENTAGE;
 
           if (contentHeight > maxHeight) {
             contentHeight = cellHeight * CONTENT_PERCENTAGE;
             let imageHeight = contentHeight - fontHeightInMm - fontImageGap;
+            if (labelBelow) {
+              imageHeight = contentHeight;
+            }
             contentWidth = imageHeight * heightToWidthRatio;
           }
 
           let imageHeight = contentHeight - fontHeightInMm - fontImageGap;
 
+          if (labelBelow) {
+            imageHeight = contentHeight;
+          }
+
           let imageX = currentX + (cellWidth - contentWidth) / 2;
-          let imageY = currentY + (cellHeight - contentHeight) / 2;
+          let imageY = currentY + (rectHeight - contentHeight) / 2;
 
           let topPadding = (cellHeight - contentHeight) / 2;
           let textX = currentX + cellWidth / 2;
           let textY = currentY + topPadding + imageHeight + fontImageGap;
 
-          doc
-            .addImage(
-              imageData,
-              imageProperties.fileType,
-              imageX,
-              imageY,
-              contentWidth,
-              imageHeight,
-              image.url,
-              "MEDIUM",
-              0
-            )
-            .text(labelText, textX, textY, {
+          doc.addImage(
+            imageData,
+            imageProperties.fileType,
+            imageX,
+            imageY,
+            contentWidth,
+            imageHeight,
+            image.url,
+            "MEDIUM",
+            0
+          );
+
+          if (labelBelow) {
+            doc.text(labelText, textX, currentY + cellHeight, {
+              baseline: "bottom",
+              align: "center",
+            });
+          } else {
+            doc.text(labelText, textX, textY, {
               baseline: "top",
               align: "center",
             });
+          }
         } else {
-          doc.text(
-            labelText,
-            currentX + cellWidth / 2,
-            currentY + cellHeight / 2,
-            {
-              baseline: "middle",
-              align: "center",
-            }
-          );
+          if (labelBelow) {
+            doc.text(
+              labelText,
+              currentX + cellWidth / 2,
+              currentY + cellHeight,
+              {
+                baseline: "bottom",
+                align: "center",
+              }
+            );
+          } else {
+            doc.text(
+              labelText,
+              currentX + cellWidth / 2,
+              currentY + cellHeight / 2,
+              {
+                baseline: "middle",
+                align: "center",
+              }
+            );
+          }
         }
       }
     }
