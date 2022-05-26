@@ -112,6 +112,7 @@ export const typeDefs = gql`
     variables: [String!]
     name: String!
     description: String!
+    openByDefault: Boolean!
   }
 
   type Template {

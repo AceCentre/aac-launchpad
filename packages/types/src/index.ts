@@ -151,6 +151,7 @@ type TemplateVariableGroup = {
   variables: Array<string>;
   name: string;
   description: string;
+  openByDefault: boolean;
 };
 
 export type Template = {
