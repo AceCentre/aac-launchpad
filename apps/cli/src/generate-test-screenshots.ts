@@ -21,15 +21,15 @@ export const generateTestScreenshots = async () => {
 
   const screenshotFolder = path.join(
     process.cwd(),
-    "./packages/board-to-pdf/tests/screenshots"
+    "./packages/board-to-pdf/src/tests/screenshots"
   );
   const boardsFolder = path.join(
     process.cwd(),
-    "./packages/board-to-pdf/tests/boards"
+    "./packages/board-to-pdf/src/tests/boards"
   );
   const imagesFolder = path.join(
     process.cwd(),
-    "./packages/board-to-pdf/tests/images"
+    "./packages/board-to-pdf/src/tests/images"
   );
 
   try {
