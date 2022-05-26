@@ -239,6 +239,10 @@ const getButtons = (
           results
         )
       ),
+      ext_launchpad_label_below: getOptionalBooleanFromTemplateItem(
+        current.ext_launchpad_label_below,
+        results
+      ),
     };
   });
 };
