@@ -153,14 +153,15 @@ const COOKIE_NAME = "launchpad-session";
 const customSessionMiddleware = (req: any, res: any, next: any) => {
   console.log("customSessionMiddlewar All cookies", req.cookies);
   if (req.cookies[COOKIE_NAME]) {
-    console.log("skipping setting a cookie");
+    req[COOKIE_NAME] = req.cookies[COOKIE_NAME];
     next();
   } else {
-    console.log("setting a cookie");
-    res.cookie(COOKIE_NAME, crypto.randomUUID(), {
+    const uuid = crypto.randomUUID();
+    res.cookie(COOKIE_NAME, uuid, {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365,
     });
+    req[COOKIE_NAME] = uuid;
     next();
   }
 };
@@ -207,12 +208,8 @@ async function setupServer() {
     typeDefs,
     resolvers,
     introspection: true,
-    context: ({ req }) => {
-      console.log("Setting a context of:", {
-        distinctId: req.cookies[COOKIE_NAME],
-      });
-
-      return { distinctId: req.cookies[COOKIE_NAME] };
+    context: ({ req }: { req: any }) => {
+      return { distinctId: req[COOKIE_NAME] };
     },
     plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
   });
