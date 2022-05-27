@@ -70,6 +70,7 @@ const resolvers = {
       context: any
     ) => {
       console.log({
+        context,
         captured: process.env["COLLECT_ANALYTICS"] === "true",
         distinctId: context.distinctId,
         event: "generate-board",
@@ -150,9 +151,12 @@ const COOKIE_NAME = "launchpad-session";
 // This should only be used for analytics which are totally anon so it doesn't
 // really matter if a user is spoofed.
 const customSessionMiddleware = (req: any, res: any, next: any) => {
+  console.log("customSessionMiddlewar All cookies", req.cookies);
   if (req.cookies[COOKIE_NAME]) {
+    console.log("skipping setting a cookie");
     next();
   } else {
+    console.log("setting a cookie");
     res.cookie(COOKIE_NAME, crypto.randomUUID(), {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365,
@@ -203,7 +207,13 @@ async function setupServer() {
     typeDefs,
     resolvers,
     introspection: true,
-    context: ({ req }) => ({ distinctId: req.cookies[COOKIE_NAME] }),
+    context: ({ req }) => {
+      console.log("Setting a context of:", {
+        distinctId: req.cookies[COOKIE_NAME],
+      });
+
+      return { distinctId: req.cookies[COOKIE_NAME] };
+    },
     plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
   });
   await server.start();
