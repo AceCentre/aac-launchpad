@@ -12,6 +12,15 @@ import path from "path";
 import fs from "fs";
 import multer from "multer";
 import cors from "cors";
+import cookieParser from "cookie-parser";
+import PostHog from "posthog-node";
+import { onShutdown } from "node-graceful-shutdown";
+
+const client = new PostHog("phc_Nlj20BgEB3vtw36wCPHFpTTVqpmvEzfD3IrG5zw7B2h");
+
+onShutdown(async () => {
+  client.shutdown();
+});
 
 const templateMap: any = {
   option: "OptionTemplateVariable",
@@ -55,7 +64,28 @@ const resolvers = {
   },
 
   Mutation: {
-    generateBoard: async (_: undefined, input: GenerateBoardInput) => {
+    generateBoard: async (
+      _: undefined,
+      input: GenerateBoardInput,
+      context: any
+    ) => {
+      console.log({
+        captured: process.env["COLLECT_ANALYTICS"] === "true",
+        distinctId: context.distinctId,
+        event: "generate-board",
+        properties: {
+          board: input.templateId,
+        },
+      });
+      if (process.env["COLLECT_ANALYTICS"] === "true")
+        client.capture({
+          distinctId: context.distinctId,
+          event: "generate-board",
+          properties: {
+            board: input.templateId,
+          },
+        });
+
       const template = ALL_TEMPLATES.find(
         (x) => x.templateId === input.templateId
       );
@@ -114,14 +144,34 @@ const fileFilter = (
   }
 };
 
+const COOKIE_NAME = "launchpad-session";
+
+// This is NOT secure, so don't do anything important based on this session token
+// This should only be used for analytics which are totally anon so it doesn't
+// really matter if a user is spoofed.
+const customSessionMiddleware = (req: any, res: any, next: any) => {
+  if (req.cookies[COOKIE_NAME]) {
+    next();
+  } else {
+    res.cookie(COOKIE_NAME, crypto.randomUUID(), {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24 * 365,
+    });
+    next();
+  }
+};
+
 async function setupServer() {
   const app = express();
 
   const upload = multer({ dest: "private/", fileFilter });
 
+  app.use(cookieParser());
   app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
+
+  app.use(customSessionMiddleware);
 
   app.post("/image-upload", upload.single("image"), (req, res) => {
     if (!req.file) {
@@ -153,6 +203,7 @@ async function setupServer() {
     typeDefs,
     resolvers,
     introspection: true,
+    context: ({ req }) => ({ distinctId: req.cookies[COOKIE_NAME] }),
     plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
   });
   await server.start();
