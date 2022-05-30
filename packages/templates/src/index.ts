@@ -47,3 +47,5 @@ export const ALL_TEMPLATES: Array<Template> = [
   variableGroup,
   prependPdf,
 ];
+
+export const WEB_TEMPLATES: Array<Template> = [];

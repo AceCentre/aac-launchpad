@@ -1,7 +1,7 @@
 import { ApolloServer } from "apollo-server-express";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import { typeDefs } from "./type-def";
-import { ALL_TEMPLATES } from "templates";
+import { WEB_TEMPLATES } from "templates";
 import express, { Request } from "express";
 import http from "http";
 import { Template, AllTemplateVariable } from "types";
@@ -59,7 +59,7 @@ const resolvers = {
   },
   Query: {
     templates: () => {
-      return ALL_TEMPLATES.map(addTypenameToTemplate);
+      return WEB_TEMPLATES.map(addTypenameToTemplate);
     },
   },
 
@@ -87,7 +87,7 @@ const resolvers = {
           },
         });
 
-      const template = ALL_TEMPLATES.find(
+      const template = WEB_TEMPLATES.find(
         (x) => x.templateId === input.templateId
       );
 
