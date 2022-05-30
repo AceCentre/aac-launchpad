@@ -151,7 +151,6 @@ const COOKIE_NAME = "launchpad-session";
 // This should only be used for analytics which are totally anon so it doesn't
 // really matter if a user is spoofed.
 const customSessionMiddleware = (req: any, res: any, next: any) => {
-  console.log("customSessionMiddlewar All cookies", req.cookies);
   if (req.cookies[COOKIE_NAME]) {
     req[COOKIE_NAME] = req.cookies[COOKIE_NAME];
     next();
@@ -171,8 +170,10 @@ async function setupServer() {
 
   const upload = multer({ dest: "private/", fileFilter });
 
+  app.use(
+    cors({ credentials: true, origin: ["*", "https://acecentre.org.uk/"] })
+  );
   app.use(cookieParser());
-  app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
