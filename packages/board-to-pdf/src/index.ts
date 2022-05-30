@@ -5,6 +5,7 @@ import fs from "fs";
 import { URL } from "url";
 import axios from "axios";
 import { initialiseFonts, FONT_OPTIONS } from "./fonts/fonts";
+import { PDFDocument } from "pdf-lib";
 
 type ButtonDimensions = {
   width: number;
@@ -150,6 +151,19 @@ const getImageFromFile = (imageRoot: string, url: string) => {
   }
 };
 
+const getPdfFromFile = (pdfRoot: string, url: string) => {
+  try {
+    const imagePath = path.join(pdfRoot, url);
+    return fs.readFileSync(imagePath);
+  } catch (error: any) {
+    if (error && error.code && error.code === "ENOENT") {
+      throw Error(`PDF URL '${url}' does not exist as a path or as a URL`);
+    } else {
+      throw error;
+    }
+  }
+};
+
 const VALID_RESPONSE_TYPES = ["image/png", "image/jpeg"];
 
 const getImageFromNetwork = async (url: string): Promise<Buffer> => {
@@ -168,16 +182,18 @@ const POINT_TO_MM = 0.3514;
 
 type BoardToPdfOptions = {
   rootToImages: string;
+  rootToPdfs: string;
 };
 
 const DEFAULT_BOARD_TO_PDF_OPTIONS: BoardToPdfOptions = {
   rootToImages: process.cwd(),
+  rootToPdfs: process.cwd(),
 };
 
 const boardToPdf = async (
   board: Board,
   boardToPdfOptions: BoardToPdfOptions = DEFAULT_BOARD_TO_PDF_OPTIONS
-): Promise<jsPDF> => {
+): Promise<{ pdf: ArrayBuffer; numberOfPages: number }> => {
   initialiseFonts();
 
   // Default export is a4 paper, portrait, using millimeters for units
@@ -425,7 +441,38 @@ const boardToPdf = async (
     }
   }
 
-  return doc;
+  if (board.ext_launchpad_options.ext_launchpad_prepend_pdf) {
+    const pdfDoc = await PDFDocument.create();
+
+    const pdf = getPdfFromFile(
+      boardToPdfOptions.rootToPdfs,
+      board.ext_launchpad_options.ext_launchpad_prepend_pdf
+    );
+
+    const newPdf = await PDFDocument.load(doc.output("arraybuffer"));
+    const prependPdf = await PDFDocument.load(pdf);
+
+    const pagesCopyA = await pdfDoc.copyPages(
+      prependPdf,
+      prependPdf.getPageIndices()
+    );
+    pagesCopyA.forEach((page) => pdfDoc.addPage(page));
+
+    const pagesCopyB = await pdfDoc.copyPages(newPdf, newPdf.getPageIndices());
+    pagesCopyB.forEach((page) => pdfDoc.addPage(page));
+
+    const output = await pdfDoc.save();
+
+    return {
+      numberOfPages: pdfDoc.getPageCount(),
+      pdf: Buffer.from(output),
+    };
+  }
+
+  return {
+    pdf: doc.output("arraybuffer"),
+    numberOfPages: doc.getNumberOfPages(),
+  };
 };
 
 export default boardToPdf;
