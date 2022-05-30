@@ -32,6 +32,7 @@ const getExtLaunchpadOptions = (
       launchpadOptions.button_radius,
       results
     ),
+    ext_launchpad_prepend_pdf: launchpadOptions.ext_launchpad_prepend_pdf,
   };
 };
 
