@@ -31,6 +31,10 @@ export const generateTestScreenshots = async () => {
     process.cwd(),
     "./packages/board-to-pdf/src/tests/images"
   );
+  const pdfsFolder = path.join(
+    process.cwd(),
+    "./packages/board-to-pdf/src/tests/pdfs"
+  );
 
   try {
     rmSync(screenshotFolder, { recursive: true });
@@ -56,9 +60,12 @@ export const generateTestScreenshots = async () => {
       readFileSync(path.join(boardsFolder, boardName)).toString()
     );
 
-    const pdf = await boardToPdf(rawBoard, { rootToImages: imagesFolder });
+    const { pdf, numberOfPages } = await boardToPdf(rawBoard, {
+      rootToImages: imagesFolder,
+      rootToPdfs: pdfsFolder,
+    });
 
-    const output = Buffer.from(pdf.output("arraybuffer"));
+    const output = Buffer.from(pdf);
 
     const prep = fromBuffer(output, {
       density: 500,
@@ -74,7 +81,7 @@ export const generateTestScreenshots = async () => {
     }
 
     let pages = [];
-    let noOfPages = pdf.getNumberOfPages();
+    let noOfPages = numberOfPages;
     for (let i = 1; i <= noOfPages; i++) {
       pages.push(i);
     }

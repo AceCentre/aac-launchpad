@@ -98,14 +98,18 @@ const resolvers = {
       const board = templateToBoard(template, input.answers);
 
       const rootToImages = path.join(__dirname, "../private");
-      const pdf = await boardToPdf(board, { rootToImages });
+      const rootToPdfs = path.join(__dirname, "../private");
+      const { pdf } = await boardToPdf(board, { rootToImages, rootToPdfs });
 
       const fileHash = crypto
         .createHash("sha256")
         .update(JSON.stringify(input))
         .digest("hex");
 
-      pdf.save(path.join("./public/boards", `${fileHash}.pdf`));
+      fs.writeFileSync(
+        path.join("./public/boards", `${fileHash}.pdf`),
+        Buffer.from(pdf)
+      );
 
       const fileLocation = new URL(
         `/boards/${fileHash}.pdf`,
@@ -253,6 +257,7 @@ setInterval(async () => {
   for (const file of filesToDelete) {
     if (file.includes("left.png")) continue;
     if (file.includes("right.png")) continue;
+    if (file.includes("front-page.pdf")) continue;
 
     const filePath = path.join("./private", file);
     fs.unlinkSync(filePath);
