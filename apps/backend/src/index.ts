@@ -170,9 +170,7 @@ async function setupServer() {
 
   const upload = multer({ dest: "private/", fileFilter });
 
-  app.use(
-    cors({ credentials: true, origin: ["*", "https://acecentre.org.uk"] })
-  );
+  app.use(cors({ credentials: true, origin: ["https://acecentre.org.uk"] }));
   app.use(cookieParser());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
