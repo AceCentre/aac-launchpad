@@ -35,10 +35,11 @@ it("alphabet-chart", async () => {
   const rawBoard: Board = JSON.parse(
     readFileSync(path.join(__dirname, "./boards/alphabet-chart.obf")).toString()
   );
-  const pdf = await boardToPdf(rawBoard, {
+  const { pdf } = await boardToPdf(rawBoard, {
     rootToImages: path.join(__dirname, "./images"),
+    rootToPdfs: path.join(__dirname, "./pdfs"),
   });
-  const output = Buffer.from(pdf.output("arraybuffer"));
+  const output = Buffer.from(pdf);
   const prep = fromBuffer(output, {
     density: 500,
     saveFilename: rawBoard.id,
@@ -68,10 +69,11 @@ it("change-casing", async () => {
   const rawBoard: Board = JSON.parse(
     readFileSync(path.join(__dirname, "./boards/change-casing.obf")).toString()
   );
-  const pdf = await boardToPdf(rawBoard, {
+  const { pdf } = await boardToPdf(rawBoard, {
     rootToImages: path.join(__dirname, "./images"),
+    rootToPdfs: path.join(__dirname, "./pdfs"),
   });
-  const output = Buffer.from(pdf.output("arraybuffer"));
+  const output = Buffer.from(pdf);
   const prep = fromBuffer(output, {
     density: 500,
     saveFilename: rawBoard.id,
@@ -101,10 +103,11 @@ it("font-picker", async () => {
   const rawBoard: Board = JSON.parse(
     readFileSync(path.join(__dirname, "./boards/font-picker.obf")).toString()
   );
-  const pdf = await boardToPdf(rawBoard, {
+  const { pdf } = await boardToPdf(rawBoard, {
     rootToImages: path.join(__dirname, "./images"),
+    rootToPdfs: path.join(__dirname, "./pdfs"),
   });
-  const output = Buffer.from(pdf.output("arraybuffer"));
+  const output = Buffer.from(pdf);
   const prep = fromBuffer(output, {
     density: 500,
     saveFilename: rawBoard.id,
@@ -132,10 +135,11 @@ it("multiple-pages", async () => {
   const rawBoard: Board = JSON.parse(
     readFileSync(path.join(__dirname, "./boards/multiple-pages.obf")).toString()
   );
-  const pdf = await boardToPdf(rawBoard, {
+  const { pdf } = await boardToPdf(rawBoard, {
     rootToImages: path.join(__dirname, "./images"),
+    rootToPdfs: path.join(__dirname, "./pdfs"),
   });
-  const output = Buffer.from(pdf.output("arraybuffer"));
+  const output = Buffer.from(pdf);
   const prep = fromBuffer(output, {
     density: 500,
     saveFilename: rawBoard.id,
@@ -173,10 +177,11 @@ it("presets-example", async () => {
       path.join(__dirname, "./boards/presets-example.obf")
     ).toString()
   );
-  const pdf = await boardToPdf(rawBoard, {
+  const { pdf } = await boardToPdf(rawBoard, {
     rootToImages: path.join(__dirname, "./images"),
+    rootToPdfs: path.join(__dirname, "./pdfs"),
   });
-  const output = Buffer.from(pdf.output("arraybuffer"));
+  const output = Buffer.from(pdf);
   const prep = fromBuffer(output, {
     density: 500,
     saveFilename: rawBoard.id,
@@ -206,10 +211,11 @@ it("simple-choice", async () => {
   const rawBoard: Board = JSON.parse(
     readFileSync(path.join(__dirname, "./boards/simple-choice.obf")).toString()
   );
-  const pdf = await boardToPdf(rawBoard, {
+  const { pdf } = await boardToPdf(rawBoard, {
     rootToImages: path.join(__dirname, "./images"),
+    rootToPdfs: path.join(__dirname, "./pdfs"),
   });
-  const output = Buffer.from(pdf.output("arraybuffer"));
+  const output = Buffer.from(pdf);
   const prep = fromBuffer(output, {
     density: 500,
     saveFilename: rawBoard.id,
@@ -239,10 +245,11 @@ it("with-images", async () => {
   const rawBoard: Board = JSON.parse(
     readFileSync(path.join(__dirname, "./boards/with-images.obf")).toString()
   );
-  const pdf = await boardToPdf(rawBoard, {
+  const { pdf } = await boardToPdf(rawBoard, {
     rootToImages: path.join(__dirname, "./images"),
+    rootToPdfs: path.join(__dirname, "./pdfs"),
   });
-  const output = Buffer.from(pdf.output("arraybuffer"));
+  const output = Buffer.from(pdf);
   const prep = fromBuffer(output, {
     density: 500,
     saveFilename: rawBoard.id,
@@ -273,11 +280,12 @@ it("with-four-images", async () => {
     ).toString()
   );
 
-  const pdf = await boardToPdf(rawBoard, {
+  const { pdf } = await boardToPdf(rawBoard, {
     rootToImages: path.join(__dirname, "./images"),
+    rootToPdfs: path.join(__dirname, "./pdfs"),
   });
 
-  const output = Buffer.from(pdf.output("arraybuffer"));
+  const output = Buffer.from(pdf);
   const prep = fromBuffer(output, {
     density: 500,
     saveFilename: rawBoard.id,
@@ -308,11 +316,12 @@ it("labels-below", async () => {
     readFileSync(path.join(__dirname, "./boards/labels-below.obf")).toString()
   );
 
-  const pdf = await boardToPdf(rawBoard, {
+  const { pdf } = await boardToPdf(rawBoard, {
     rootToImages: path.join(__dirname, "./images"),
+    rootToPdfs: path.join(__dirname, "./pdfs"),
   });
 
-  const output = Buffer.from(pdf.output("arraybuffer"));
+  const output = Buffer.from(pdf);
   const prep = fromBuffer(output, {
     density: 500,
     saveFilename: rawBoard.id,
@@ -336,4 +345,44 @@ it("labels-below", async () => {
   expect(source).toMatchImage(result, {
     diffPath: `./${rawBoard.id}-diff.png`,
   });
+});
+
+it("prepend-pdf", async () => {
+  const rawBoard: Board = JSON.parse(
+    readFileSync(path.join(__dirname, "./boards/prepend-pdf.obf")).toString()
+  );
+  const { pdf } = await boardToPdf(rawBoard, {
+    rootToImages: path.join(__dirname, "./images"),
+    rootToPdfs: path.join(__dirname, "./pdfs"),
+  });
+  const output = Buffer.from(pdf);
+  const prep = fromBuffer(output, {
+    density: 500,
+    saveFilename: rawBoard.id,
+    savePath: path.join(__dirname, "./temp"),
+    format: "png",
+    width: 3508,
+    height: 2480,
+  });
+  if (prep.bulk === undefined) {
+    throw new Error(`Failed to get screenshot for: ${rawBoard.id}`);
+  }
+  await prep.bulk([1, 2]);
+
+  const sourceFirst = readFileSync(
+    path.join(__dirname, "./screenshots/prepend-pdf.1.png")
+  );
+  const resultFirst = readFileSync(
+    path.join(__dirname, "./temp/prepend-pdf.1.png")
+  );
+
+  const sourceSecond = readFileSync(
+    path.join(__dirname, "./screenshots/prepend-pdf.2.png")
+  );
+  const resultSecond = readFileSync(
+    path.join(__dirname, "./temp/prepend-pdf.2.png")
+  );
+
+  expect(sourceFirst).toMatchImage(resultFirst);
+  expect(sourceSecond).toMatchImage(resultSecond);
 });
