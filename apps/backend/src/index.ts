@@ -159,7 +159,6 @@ const customSessionMiddleware = (req: any, res: any, next: any) => {
     res.cookie(COOKIE_NAME, uuid, {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365,
-      sameSite: "none",
       domain: "aac-launchpad-2mtuk.ondigitalocean.app",
     });
     req[COOKIE_NAME] = uuid;
