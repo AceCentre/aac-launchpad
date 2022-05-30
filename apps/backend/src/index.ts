@@ -161,6 +161,7 @@ const customSessionMiddleware = (req: any, res: any, next: any) => {
       maxAge: 1000 * 60 * 60 * 24 * 365,
       sameSite: "None",
       domain: "aac-launchpad-2mtuk.ondigitalocean.app",
+      secure: true,
     });
     req[COOKIE_NAME] = uuid;
     next();
