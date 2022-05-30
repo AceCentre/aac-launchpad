@@ -60,6 +60,7 @@ export type LaunchpadOptions = {
   gap?: number;
   button_radius?: number;
   button_border_width?: number;
+  ext_launchpad_prepend_pdf?: string;
 };
 
 type LaunchpadOptionsWithTemplateItems = {
@@ -67,6 +68,7 @@ type LaunchpadOptionsWithTemplateItems = {
   gap?: number | TemplateItem;
   button_radius?: number | TemplateItem;
   button_border_width?: number | TemplateItem;
+  ext_launchpad_prepend_pdf?: string;
 };
 
 export interface TemplateVariable {
@@ -171,7 +173,6 @@ export type Template = {
   description_html: string | TemplateItem;
   buttons: Array<ButtonWithTemplateItems>;
   pages: Array<PageWithTemplateItems>;
-
   images: Array<ImageWithTemplateItems>;
 };
 
