@@ -3,13 +3,12 @@ import { rmSync, mkdirSync, writeFileSync } from "fs";
 import path from "path";
 import "dotenv/config";
 
-// Function to turn the file's body into a string.
 const streamToString = (stream: any) => {
-  const chunks: any[] = [];
   return new Promise((resolve, reject) => {
-    stream.on("data", (chunk: any) => chunks.push(Buffer.from(chunk)));
-    stream.on("error", (err: any) => reject(err));
-    stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
+    const chunks: any = [];
+    stream.on("data", (chunk: any) => chunks.push(chunk));
+    stream.on("error", reject);
+    stream.on("end", () => resolve(Buffer.concat(chunks)));
   });
 };
 
@@ -58,6 +57,11 @@ const streamToString = (stream: any) => {
       const response = await s3Client.send(
         new GetObjectCommand({ Bucket: "launchpad-symbols", Key: content.Key })
       );
+
+      // console.log(response.Body);
+
+      // return;
+
       const data: any = await streamToString(response.Body);
       writeFileSync(path.join(symbolsFolder, content.Key), data);
     }
