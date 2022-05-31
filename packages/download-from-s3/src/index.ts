@@ -58,10 +58,6 @@ const streamToString = (stream: any) => {
         new GetObjectCommand({ Bucket: "launchpad-symbols", Key: content.Key })
       );
 
-      // console.log(response.Body);
-
-      // return;
-
       const data: any = await streamToString(response.Body);
       writeFileSync(path.join(symbolsFolder, content.Key), data);
     }
