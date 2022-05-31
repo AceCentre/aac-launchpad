@@ -9,91 +9,84 @@
     {
       "image_id": "more",
       "id": "more",
-      "label": "more, again",
+      "label": "plus encore",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)"
     },
     {
       "image_id": "help",
       "id": "help",
-      "label": "help",
+      "label": "aider",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)"
     },
     {
       "image_id": "want",
       "id": "want",
-      "label": "want",
+      "label": "vouloir",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)"
     },
     {
       "image_id": "like",
       "id": "like",
-      "label": "like",
+      "label": "comme",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)"
     },
     {
       "image_id": "queen-elizabeth",
       "id": "queen-elizabeth",
-      "label": "Queen Elizabeth",
+      "label": "Reine Elizabeth",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)"
     },
     {
       "image_id": "stop",
       "id": "stop",
-      "label": "stop",
+      "label": "arrêt",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)"
     },
     {
       "image_id": "different",
       "id": "different",
-      "label": "different",
+      "label": "différent",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)"
     },
     {
       "image_id": "look",
       "id": "look",
-      "label": "look",
+      "label": "voir",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)"
     },
     {
       "image_id": "dont-like",
       "id": "dont-like",
-      "label": "don't like",
+      "label": "n'aime pas",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)"
     },
     {
       "image_id": "jubilee",
       "id": "jubilee",
-      "label": "Jubilee",
+      "label": "Jubilé",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)"
     },
     {
       "image_id": "celebrate",
       "id": "celebrate",
-      "label": "celebrate",
+      "label": "célébrer",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)"
     },
     {
       "image_id": "street-party",
       "id": "street-party",
-      "label": "street party",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255, 255, 255)"
-    },
-    {
-      "image_id": "street-party",
-      "id": "street-party",
-      "label": "street party",
+      "label": "fête de rue",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)"
     },
@@ -114,7 +107,7 @@
     {
       "image_id": "palace",
       "id": "palace",
-      "label": "palace",
+      "label": "palais",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)"
     }
