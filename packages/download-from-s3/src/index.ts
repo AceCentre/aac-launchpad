@@ -27,8 +27,10 @@ const streamToString = (stream: any) => {
   }
 
   mkdirSync(symbolsFolder);
-  mkdirSync(path.join(symbolsFolder, "./widgit"));
-  mkdirSync(path.join(symbolsFolder, "./pcs"));
+  mkdirSync(path.join(symbolsFolder, "./uncompressed-widgit"));
+  mkdirSync(path.join(symbolsFolder, "./uncompressed-pcs"));
+  mkdirSync(path.join(symbolsFolder, "./uncompressed-widgit"));
+  mkdirSync(path.join(symbolsFolder, "./uncompressed-pcs"));
 
   const s3Client = new S3({
     endpoint: "https://fra1.digitaloceanspaces.com/",
