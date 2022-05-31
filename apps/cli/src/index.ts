@@ -7,8 +7,24 @@ import { PresetVariable, PresetVariableValues, Result } from "types";
 import { ALL_TEMPLATES } from "templates";
 
 import inquirer from "inquirer";
-import { writeFileSync } from "fs";
+import { writeFileSync, statSync } from "fs";
 import { generateTestScreenshots } from "./generate-test-screenshots";
+
+const convertBytes = function (bytes: number) {
+  const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
+
+  if (bytes === 0) {
+    return "n/a";
+  }
+
+  const i = Math.floor(Math.log(bytes) / Math.log(1024));
+
+  if (i === 0) {
+    return bytes + " " + sizes[i];
+  }
+
+  return (bytes / Math.pow(1024, i)).toFixed(1) + " " + sizes[i];
+};
 
 const main = async () => {
   if (process.argv.includes("--generate-test-screenshots")) {
@@ -237,14 +253,18 @@ const main = async () => {
 
   writeFileSync(obfPath, JSON.stringify(board, null, 2));
 
-  const { pdf } = await boardToPdf(board);
+  const { pdf, totalSeconds, totalNanoSeconds } = await boardToPdf(board);
   writeFileSync(pdfPath, Buffer.from(pdf));
 
+  const pdfStats = statSync(pdfPath);
+
   console.log("");
-  console.log("✨✨✨✨✨ Successfully created a new board ✨✨✨✨✨");
+  console.log(
+    `✨✨✨✨✨ Successfully created a new board (${totalSeconds}.${totalNanoSeconds}s) ✨✨✨✨✨`
+  );
   console.log("");
-  console.log("PDF saved to:", pdfPath);
-  console.log("OBF saved to:", obfPath);
+  console.log(`PDF saved to: ${pdfPath} (${convertBytes(pdfStats.size)})`);
+  console.log(`OBF saved to: ${obfPath}`);
   console.log("");
 };
 

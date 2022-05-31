@@ -99,16 +99,29 @@ const resolvers = {
 
       const rootToImages = path.join(__dirname, "../private");
       const rootToPdfs = path.join(__dirname, "../private");
-      const { pdf } = await boardToPdf(board, { rootToImages, rootToPdfs });
+      const { pdf, totalNanoSeconds, totalSeconds } = await boardToPdf(board, {
+        rootToImages,
+        rootToPdfs,
+      });
+
+      console.log(
+        `Board generation took (${board.id}) ${totalSeconds}.${totalNanoSeconds}s`
+      );
 
       const fileHash = crypto
         .createHash("sha256")
         .update(JSON.stringify(input))
         .digest("hex");
 
+      const writeStartTime = process.hrtime();
       fs.writeFileSync(
         path.join("./public/boards", `${fileHash}.pdf`),
         Buffer.from(pdf)
+      );
+      const [writeSeconds, writeNanoSeconds] = process.hrtime(writeStartTime);
+
+      console.log(
+        `Board saving took (${board.id}) ${writeSeconds}.${writeNanoSeconds}s`
       );
 
       const fileLocation = new URL(

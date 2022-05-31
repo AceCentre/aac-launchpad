@@ -154,63 +154,63 @@
   "images": [
     {
       "id": "more",
-      "url": "./symbols/pcs/more.png"
+      "url": "./symbols/widgit/more.png"
     },
     {
       "id": "help",
-      "url": "./symbols/pcs/help.png"
+      "url": "./symbols/widgit/help.png"
     },
     {
       "id": "want",
-      "url": "./symbols/pcs/want.png"
+      "url": "./symbols/widgit/want.png"
     },
     {
       "id": "like",
-      "url": "./symbols/pcs/like.png"
+      "url": "./symbols/widgit/like.png"
     },
     {
       "id": "queen-elizabeth",
-      "url": "./symbols/pcs/queen-elizabeth.png"
+      "url": "./symbols/widgit/queen-elizabeth.png"
     },
     {
       "id": "stop",
-      "url": "./symbols/pcs/stop.png"
+      "url": "./symbols/widgit/stop.png"
     },
     {
       "id": "different",
-      "url": "./symbols/pcs/different.png"
+      "url": "./symbols/widgit/different.png"
     },
     {
       "id": "look",
-      "url": "./symbols/pcs/look.png"
+      "url": "./symbols/widgit/look.png"
     },
     {
       "id": "dont-like",
-      "url": "./symbols/pcs/dont-like.png"
+      "url": "./symbols/widgit/dont-like.png"
     },
     {
       "id": "jubilee",
-      "url": "./symbols/pcs/jubilee.png"
+      "url": "./symbols/widgit/jubilee.png"
     },
     {
       "id": "celebrate",
-      "url": "./symbols/pcs/celebrate.png"
+      "url": "./symbols/widgit/celebrate.png"
     },
     {
       "id": "street-party",
-      "url": "./symbols/pcs/street-party.png"
+      "url": "./symbols/widgit/street-party.png"
     },
     {
       "id": "concert",
-      "url": "./symbols/pcs/concert.png"
+      "url": "./symbols/widgit/concert.png"
     },
     {
       "id": "parade",
-      "url": "./symbols/pcs/parade.png"
+      "url": "./symbols/widgit/parade.png"
     },
     {
       "id": "palace",
-      "url": "./symbols/pcs/palace.png"
+      "url": "./symbols/widgit/palace.png"
     }
   ]
 }

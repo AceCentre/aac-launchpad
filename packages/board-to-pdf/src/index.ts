@@ -193,7 +193,13 @@ const DEFAULT_BOARD_TO_PDF_OPTIONS: BoardToPdfOptions = {
 const boardToPdf = async (
   board: Board,
   boardToPdfOptions: BoardToPdfOptions = DEFAULT_BOARD_TO_PDF_OPTIONS
-): Promise<{ pdf: ArrayBuffer; numberOfPages: number }> => {
+): Promise<{
+  pdf: ArrayBuffer;
+  numberOfPages: number;
+  totalSeconds: number;
+  totalNanoSeconds: number;
+}> => {
+  const startTime = process.hrtime();
   initialiseFonts();
 
   // Default export is a4 paper, portrait, using millimeters for units
@@ -463,15 +469,23 @@ const boardToPdf = async (
 
     const output = await pdfDoc.save();
 
+    const [totalSeconds, totalNanoSeconds] = process.hrtime(startTime);
+
     return {
       numberOfPages: pdfDoc.getPageCount(),
       pdf: Buffer.from(output),
+      totalSeconds,
+      totalNanoSeconds,
     };
   }
+
+  const [totalSeconds, totalNanoSeconds] = process.hrtime(startTime);
 
   return {
     pdf: doc.output("arraybuffer"),
     numberOfPages: doc.getNumberOfPages(),
+    totalSeconds,
+    totalNanoSeconds,
   };
 };
 
