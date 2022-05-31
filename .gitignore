@@ -2,7 +2,7 @@
 test-files
 apps/backend/public/boards
 apps/backend/private
-
+symbols
 
 # Logs
 logs
