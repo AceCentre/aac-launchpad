@@ -7,6 +7,7 @@
   ],
   "scripts": {
     "start": "yarn --cwd apps/backend start",
+    "download-images": "yarn --cwd packages/download-from-s3 download-images",
     "build": "turbo run build",
     "dev": "turbo run dev --no-cache --parallel --continue",
     "lint": "turbo run lint",
