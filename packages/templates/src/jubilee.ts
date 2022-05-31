@@ -342,13 +342,6 @@ export const jubilee: Template = {
       image_id: "street-party",
     },
     {
-      id: "street-party",
-      label: "street party",
-      border_color: "rgb(0, 0, 0)",
-      background_color: "rgb(255, 255, 255)",
-      image_id: "street-party",
-    },
-    {
       id: "concert",
       label: "concert",
       border_color: "rgb(0, 0, 0)",

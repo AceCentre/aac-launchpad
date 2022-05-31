@@ -1,3 +1,50 @@
 {
-  "demo": "demo"
+  "jubilee": {
+    "more": {
+      "translation": "more, again"
+    },
+
+    "help": {
+      "translation": "help"
+    },
+    "want": {
+      "translation": "want"
+    },
+    "like": {
+      "translation": "like"
+    },
+    "queen-elizabeth": {
+      "translation": "Queen Elizabeth"
+    },
+    "stop": {
+      "translation": "stop"
+    },
+    "different": {
+      "translation": "different"
+    },
+    "look": {
+      "translation": "look"
+    },
+    "dont-like": {
+      "translation": "don't like"
+    },
+    "jubilee": {
+      "translation": "Jubilee"
+    },
+    "celebrate": {
+      "translation": "celebrate"
+    },
+    "street-party": {
+      "translation": "street party"
+    },
+    "concert": {
+      "translation": "concert"
+    },
+    "parade": {
+      "translation": "parade"
+    },
+    "palace": {
+      "translation": "palace"
+    }
+  }
 }
