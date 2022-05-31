@@ -1,0 +1,37 @@
+{
+  "format": "open-board-0.1",
+  "id": "jubilee",
+  "locale": "en-GB",
+  "description_html": "A board with about the Queen's Jubilee",
+  "ext_launchpad_options": {},
+  "name": "Jubilee Chart",
+  "buttons": [
+    {
+      "image_id": "more",
+      "id": "more",
+      "label": "more, again",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 1,
+        "columns": 1,
+        "order": [
+          [
+            "more"
+          ]
+        ]
+      },
+      "id": "first"
+    }
+  ],
+  "images": [
+    {
+      "id": "more",
+      "url": "./symbols/pcs/more.png"
+    }
+  ]
+}

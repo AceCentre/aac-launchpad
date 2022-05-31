@@ -13,6 +13,7 @@ import { twoByTwo } from "./two-by-two";
 import { labelsBelow } from "./labels-below";
 import { variableGroup } from "./variable-group";
 import { prependPdf } from "./prepend-pdf";
+import { jubilee } from "./jubilee";
 
 export {
   alphabetChart,
@@ -29,6 +30,7 @@ export {
   labelsBelow,
   variableGroup,
   prependPdf,
+  jubilee,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -46,6 +48,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   labelsBelow,
   variableGroup,
   prependPdf,
+  jubilee,
 ];
 
-export const WEB_TEMPLATES: Array<Template> = [];
+export const WEB_TEMPLATES: Array<Template> = [jubilee];
