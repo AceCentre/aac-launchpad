@@ -258,6 +258,7 @@ setInterval(async () => {
     if (file.includes("left.png")) continue;
     if (file.includes("right.png")) continue;
     if (file.includes("front-page.pdf")) continue;
+    if (file.includes("symbols")) continue;
 
     const filePath = path.join("./private", file);
     fs.unlinkSync(filePath);
