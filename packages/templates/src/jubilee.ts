@@ -1,3 +1,4 @@
+import { FONT_OPTIONS } from "board-to-pdf";
 import { Template } from "types";
 
 export const jubilee: Template = {
@@ -465,6 +466,14 @@ export const jubilee: Template = {
       description: "palace",
       hidden: true,
     },
+    {
+      type: "option",
+      id: "font",
+      description: "Choose the font used in the chart",
+      name: "Font",
+      defaultValue: "helvetica",
+      options: FONT_OPTIONS,
+    },
   ],
 
   format: "open-board-0.1",
@@ -542,6 +551,7 @@ export const jubilee: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       image_id: "more",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "help",
@@ -549,6 +559,7 @@ export const jubilee: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       image_id: "help",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "want",
@@ -556,6 +567,7 @@ export const jubilee: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       image_id: "want",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "like",
@@ -563,6 +575,7 @@ export const jubilee: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       image_id: "like",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "queen-elizabeth",
@@ -570,6 +583,7 @@ export const jubilee: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       image_id: "queen-elizabeth",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "stop",
@@ -577,6 +591,7 @@ export const jubilee: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       image_id: "stop",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "different",
@@ -584,6 +599,7 @@ export const jubilee: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       image_id: "different",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "look",
@@ -591,6 +607,7 @@ export const jubilee: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       image_id: "look",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "dont-like",
@@ -598,6 +615,7 @@ export const jubilee: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       image_id: "dont-like",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "jubilee",
@@ -605,6 +623,7 @@ export const jubilee: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       image_id: "jubilee",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "celebrate",
@@ -612,6 +631,7 @@ export const jubilee: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       image_id: "celebrate",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "street-party",
@@ -619,6 +639,7 @@ export const jubilee: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       image_id: "street-party",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "concert",
@@ -626,6 +647,7 @@ export const jubilee: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       image_id: "concert",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "parade",
@@ -633,6 +655,7 @@ export const jubilee: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       image_id: "parade",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "palace",
@@ -640,6 +663,7 @@ export const jubilee: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       image_id: "palace",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
   ],
 
