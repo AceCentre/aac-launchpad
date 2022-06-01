@@ -7,7 +7,7 @@ export const jubilee: Template = {
       id: "advanced",
       variables: ["backgroundColor", "labelColor", "borderColor"],
       name: "Advanced",
-      description: "More advanced options, fine tine the colors",
+      description: "More advanced options, fine tune the colors",
       openByDefault: false,
     },
   ],
