@@ -517,15 +517,15 @@ export const jubilee: Template = {
           variableValues: [
             {
               id: "backgroundColor",
-              value: "rgb(0,0,0)",
+              value: "rgb(255,255,255)",
             },
             {
               id: "borderColor",
-              value: "rgb(255,255,255)",
+              value: "rgb(0,0,0)",
             },
             {
               id: "labelColor",
-              value: "rgb(255,255,255)",
+              value: "rgb(0,0,0)",
             },
           ],
         },
@@ -541,11 +541,11 @@ export const jubilee: Template = {
             },
             {
               id: "borderColor",
-              value: "rgb(255,255,255)",
+              value: "rgb(0,0,0)",
             },
             {
               id: "labelColor",
-              value: "rgb(255,255,255)",
+              value: "rgb(0,0,0)",
             },
           ],
         },
