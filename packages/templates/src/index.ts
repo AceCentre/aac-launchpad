@@ -15,6 +15,7 @@ import { variableGroup } from "./variable-group";
 import { prependPdf } from "./prepend-pdf";
 import { jubilee } from "./jubilee";
 import { gridOptions } from "./grid-options";
+import { core } from "./core";
 
 export {
   alphabetChart,
@@ -52,6 +53,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   prependPdf,
   jubilee,
   gridOptions,
+  core,
 ];
 
-export const WEB_TEMPLATES: Array<Template> = [jubilee];
+export const WEB_TEMPLATES: Array<Template> = [core];
