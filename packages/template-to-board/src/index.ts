@@ -10,6 +10,7 @@ import {
   Casing,
   GridWithTemplateItems,
   Page,
+  ButtonID,
 } from "types";
 
 const getExtLaunchpadOptions = (
@@ -249,13 +250,49 @@ const getButtons = (
 };
 
 const getGrid = (grid: GridWithTemplateItems, results: Array<Result>): Grid => {
-  return {
-    rows: getNumberFromTemplateItem(grid.rows, results),
-    columns: getNumberFromTemplateItem(grid.columns, results),
-    order: grid.order.map((x) =>
-      x.map((z) => getNullableStringFromTemplateItem(z, results))
-    ),
-  };
+  const orderTemplateItem = grid.order as TemplateItem;
+  if (orderTemplateItem && orderTemplateItem.type === "TemplateItem") {
+    const result = getStringFromTemplateItem(orderTemplateItem, results);
+    const parsed = JSON.parse(result);
+
+    let order: Array<Array<ButtonID | null>> = [];
+
+    if (!Array.isArray(parsed)) {
+      throw new Error(`Please provide a valid grid: '${result}'`);
+    }
+
+    for (const current of parsed) {
+      if (!Array.isArray(current)) {
+        throw new Error(`Please provide a valid grid: '${result}'`);
+      }
+
+      let temp: Array<ButtonID | null> = [];
+
+      for (const element of current) {
+        if (element === null) {
+          temp.push(element);
+        } else if (typeof element === "string") {
+          temp.push(element);
+        } else {
+          throw new Error(`Please provide a valid grid: '${result}'`);
+        }
+      }
+
+      order.push(temp);
+    }
+
+    return {
+      rows: getNumberFromTemplateItem(grid.rows, results),
+      columns: getNumberFromTemplateItem(grid.columns, results),
+      order,
+    };
+  } else {
+    return {
+      rows: getNumberFromTemplateItem(grid.rows, results),
+      columns: getNumberFromTemplateItem(grid.columns, results),
+      order: grid.order as Array<Array<ButtonID | null>>,
+    };
+  }
 };
 
 const getImages = (

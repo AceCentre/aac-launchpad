@@ -1,0 +1,38 @@
+{
+  "format": "open-board-0.1",
+  "id": "grid-options",
+  "locale": "en-GB",
+  "description_html": "Choose grid options",
+  "ext_launchpad_options": {},
+  "name": "Grid Options",
+  "buttons": [
+    {
+      "id": "left",
+      "label": "left",
+      "border_color": "rgb(0, 0, 55)",
+      "background_color": "rgb(255, 0, 0)"
+    },
+    {
+      "id": "right",
+      "label": "right",
+      "border_color": "rgb(0, 0, 55)",
+      "background_color": "rgb(255, 0, 0)"
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 1,
+        "columns": 2,
+        "order": [
+          [
+            "left",
+            "right"
+          ]
+        ]
+      },
+      "id": "first"
+    }
+  ],
+  "images": []
+}

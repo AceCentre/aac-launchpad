@@ -1,5 +1,5 @@
 type BoardID = string;
-type ButtonID = string;
+export type ButtonID = string;
 export type Result = { id: string; value: string };
 
 /**
@@ -52,7 +52,7 @@ export type Grid = {
 export type GridWithTemplateItems = {
   rows: number | TemplateItem;
   columns: number | TemplateItem;
-  order: Array<Array<ButtonID | null | TemplateItem>>;
+  order: Array<Array<ButtonID | null>> | TemplateItem;
 };
 
 export type LaunchpadOptions = {
