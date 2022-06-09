@@ -131,8 +131,11 @@ export const core: Template = {
       ],
     },
   ],
-  templateDescription:
-    "Core words are a set of words that we use across huge numbers of different situations.",
+  templateDescription: `
+    <p>Core words are a set of words that we use across huge numbers of different situations. These are words like 'help', 'look', 'more', 'stop', etc.  Core words are the sort of words that young children start using very early on, and therefore are the sort of words that we want to get started with straight away.</p>
+    <p>A great way to get started with low tech AAC is to simply print off a communication chart of core vocabulary and use it whilst chatting in whatever situation you find yourself.</p>
+    <p>You can incorporate the words into so many activities - e.g. for talking about watching "more" television or observing that someone is bored and wants to “stop”.  As the charts get more extensive, you will have access to words that enable you to describe what’s going on or how the child might be feeling, offer help, ask a question, and so on.</p>
+    `,
   templateName: "Core",
   templateId: "core",
   templateImageUrl: "core.png",
