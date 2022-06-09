@@ -221,14 +221,44 @@
   "pages": [
     {
       "grid": {
-        "rows": 1,
-        "columns": 2,
+        "rows": 4,
+        "columns": 7,
         "order": [
           [
             "more",
-            "stop",
+            "help",
             "want",
-            "like"
+            "have",
+            "like",
+            "good",
+            "no"
+          ],
+          [
+            "stop",
+            "different",
+            "look",
+            "make",
+            "wow",
+            "bad",
+            "this"
+          ],
+          [
+            "me",
+            "you",
+            "go",
+            "play",
+            "uh-oh",
+            "big",
+            "can"
+          ],
+          [
+            "he",
+            "she",
+            "we",
+            "they",
+            "turn",
+            "little",
+            "question"
           ]
         ]
       },
@@ -238,119 +268,119 @@
   "images": [
     {
       "id": "dont-like",
-      "url": "./symbols/widgit/dont-like.png"
+      "url": "./symbols/pcs/dont-like.png"
     },
     {
       "id": "more",
-      "url": "./symbols/widgit/more.png"
+      "url": "./symbols/pcs/more.png"
     },
     {
       "id": "help",
-      "url": "./symbols/widgit/help.png"
+      "url": "./symbols/pcs/help.png"
     },
     {
       "id": "want",
-      "url": "./symbols/widgit/want.png"
+      "url": "./symbols/pcs/want.png"
     },
     {
       "id": "have",
-      "url": "./symbols/widgit/have.png"
+      "url": "./symbols/pcs/have.png"
     },
     {
       "id": "like",
-      "url": "./symbols/widgit/like.png"
+      "url": "./symbols/pcs/like.png"
     },
     {
       "id": "good",
-      "url": "./symbols/widgit/good.png"
+      "url": "./symbols/pcs/good.png"
     },
     {
       "id": "no",
-      "url": "./symbols/widgit/no.png"
+      "url": "./symbols/pcs/no.png"
     },
     {
       "id": "stop",
-      "url": "./symbols/widgit/stop.png"
+      "url": "./symbols/pcs/stop.png"
     },
     {
       "id": "different",
-      "url": "./symbols/widgit/different.png"
+      "url": "./symbols/pcs/different.png"
     },
     {
       "id": "look",
-      "url": "./symbols/widgit/look.png"
+      "url": "./symbols/pcs/look.png"
     },
     {
       "id": "make",
-      "url": "./symbols/widgit/make.png"
+      "url": "./symbols/pcs/make.png"
     },
     {
       "id": "wow",
-      "url": "./symbols/widgit/wow.png"
+      "url": "./symbols/pcs/wow.png"
     },
     {
       "id": "bad",
-      "url": "./symbols/widgit/bad.png"
+      "url": "./symbols/pcs/bad.png"
     },
     {
       "id": "this",
-      "url": "./symbols/widgit/this.png"
+      "url": "./symbols/pcs/this.png"
     },
     {
       "id": "me",
-      "url": "./symbols/widgit/me.png"
+      "url": "./symbols/pcs/me.png"
     },
     {
       "id": "you",
-      "url": "./symbols/widgit/you.png"
+      "url": "./symbols/pcs/you.png"
     },
     {
       "id": "go",
-      "url": "./symbols/widgit/go.png"
+      "url": "./symbols/pcs/go.png"
     },
     {
       "id": "play",
-      "url": "./symbols/widgit/play.png"
+      "url": "./symbols/pcs/play.png"
     },
     {
       "id": "uh-oh",
-      "url": "./symbols/widgit/uh-oh.png"
+      "url": "./symbols/pcs/uh-oh.png"
     },
     {
       "id": "big",
-      "url": "./symbols/widgit/big.png"
+      "url": "./symbols/pcs/big.png"
     },
     {
       "id": "can",
-      "url": "./symbols/widgit/can.png"
+      "url": "./symbols/pcs/can.png"
     },
     {
       "id": "he",
-      "url": "./symbols/widgit/he.png"
+      "url": "./symbols/pcs/he.png"
     },
     {
       "id": "she",
-      "url": "./symbols/widgit/she.png"
+      "url": "./symbols/pcs/she.png"
     },
     {
       "id": "we",
-      "url": "./symbols/widgit/we.png"
+      "url": "./symbols/pcs/we.png"
     },
     {
       "id": "they",
-      "url": "./symbols/widgit/they.png"
+      "url": "./symbols/pcs/they.png"
     },
     {
       "id": "turn",
-      "url": "./symbols/widgit/turn.png"
+      "url": "./symbols/pcs/turn.png"
     },
     {
       "id": "little",
-      "url": "./symbols/widgit/little.png"
+      "url": "./symbols/pcs/little.png"
     },
     {
       "id": "question",
-      "url": "./symbols/widgit/question.png"
+      "url": "./symbols/pcs/question.png"
     }
   ]
 }

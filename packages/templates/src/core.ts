@@ -39,6 +39,157 @@ export const core: Template = {
       description: "The symbol system to use for the chart",
       presets: [
         {
+          label: "PCS",
+          value: "pcs",
+          description: "PCS Symbols",
+          variableValues: [
+            {
+              id: "dont-like",
+              value: "./symbols/pcs/dont-like.png",
+            },
+
+            {
+              id: "more",
+              value: "./symbols/pcs/more.png",
+            },
+
+            {
+              id: "help",
+              value: "./symbols/pcs/help.png",
+            },
+
+            {
+              id: "want",
+              value: "./symbols/pcs/want.png",
+            },
+
+            {
+              id: "have",
+              value: "./symbols/pcs/have.png",
+            },
+
+            {
+              id: "like",
+              value: "./symbols/pcs/like.png",
+            },
+
+            {
+              id: "good",
+              value: "./symbols/pcs/good.png",
+            },
+
+            {
+              id: "no",
+              value: "./symbols/pcs/no.png",
+            },
+
+            {
+              id: "stop",
+              value: "./symbols/pcs/stop.png",
+            },
+
+            {
+              id: "different",
+              value: "./symbols/pcs/different.png",
+            },
+
+            {
+              id: "look",
+              value: "./symbols/pcs/look.png",
+            },
+
+            {
+              id: "make",
+              value: "./symbols/pcs/make.png",
+            },
+
+            {
+              id: "wow",
+              value: "./symbols/pcs/wow.png",
+            },
+
+            {
+              id: "bad",
+              value: "./symbols/pcs/bad.png",
+            },
+
+            {
+              id: "this",
+              value: "./symbols/pcs/this.png",
+            },
+
+            {
+              id: "me",
+              value: "./symbols/pcs/me.png",
+            },
+
+            {
+              id: "you",
+              value: "./symbols/pcs/you.png",
+            },
+
+            {
+              id: "go",
+              value: "./symbols/pcs/go.png",
+            },
+
+            {
+              id: "play",
+              value: "./symbols/pcs/play.png",
+            },
+
+            {
+              id: "uh-oh",
+              value: "./symbols/pcs/uh-oh.png",
+            },
+
+            {
+              id: "big",
+              value: "./symbols/pcs/big.png",
+            },
+
+            {
+              id: "can",
+              value: "./symbols/pcs/can.png",
+            },
+
+            {
+              id: "he",
+              value: "./symbols/pcs/he.png",
+            },
+
+            {
+              id: "she",
+              value: "./symbols/pcs/she.png",
+            },
+
+            {
+              id: "we",
+              value: "./symbols/pcs/we.png",
+            },
+
+            {
+              id: "they",
+              value: "./symbols/pcs/they.png",
+            },
+
+            {
+              id: "turn",
+              value: "./symbols/pcs/turn.png",
+            },
+
+            {
+              id: "little",
+              value: "./symbols/pcs/little.png",
+            },
+
+            {
+              id: "question",
+              value: "./symbols/pcs/question.png",
+            },
+          ],
+        },
+        {
           label: "Widgit",
           value: "widgit",
           description: "Widgit Symbols",
