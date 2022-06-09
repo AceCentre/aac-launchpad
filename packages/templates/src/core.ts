@@ -32,6 +32,166 @@ export const core: Template = {
       hidden: true,
     },
     {
+      id: "symbol-system",
+      type: "preset",
+      name: "Symbol System",
+      defaultValue: "widgit",
+      description: "The symbol system to use for the chart",
+      presets: [
+        {
+          label: "Widgit",
+          value: "widgit",
+          description: "Widgit Symbols",
+          variableValues: [
+            {
+              id: "dont-like",
+              value: "./symbols/widgit/dont-like.png",
+            },
+
+            {
+              id: "more",
+              value: "./symbols/widgit/more.png",
+            },
+
+            {
+              id: "help",
+              value: "./symbols/widgit/help.png",
+            },
+
+            {
+              id: "want",
+              value: "./symbols/widgit/want.png",
+            },
+
+            {
+              id: "have",
+              value: "./symbols/widgit/have.png",
+            },
+
+            {
+              id: "like",
+              value: "./symbols/widgit/like.png",
+            },
+
+            {
+              id: "good",
+              value: "./symbols/widgit/good.png",
+            },
+
+            {
+              id: "no",
+              value: "./symbols/widgit/no.png",
+            },
+
+            {
+              id: "stop",
+              value: "./symbols/widgit/stop.png",
+            },
+
+            {
+              id: "different",
+              value: "./symbols/widgit/different.png",
+            },
+
+            {
+              id: "look",
+              value: "./symbols/widgit/look.png",
+            },
+
+            {
+              id: "make",
+              value: "./symbols/widgit/make.png",
+            },
+
+            {
+              id: "wow",
+              value: "./symbols/widgit/wow.png",
+            },
+
+            {
+              id: "bad",
+              value: "./symbols/widgit/bad.png",
+            },
+
+            {
+              id: "this",
+              value: "./symbols/widgit/this.png",
+            },
+
+            {
+              id: "me",
+              value: "./symbols/widgit/me.png",
+            },
+
+            {
+              id: "you",
+              value: "./symbols/widgit/you.png",
+            },
+
+            {
+              id: "go",
+              value: "./symbols/widgit/go.png",
+            },
+
+            {
+              id: "play",
+              value: "./symbols/widgit/play.png",
+            },
+
+            {
+              id: "uh-oh",
+              value: "./symbols/widgit/uh-oh.png",
+            },
+
+            {
+              id: "big",
+              value: "./symbols/widgit/big.png",
+            },
+
+            {
+              id: "can",
+              value: "./symbols/widgit/can.png",
+            },
+
+            {
+              id: "he",
+              value: "./symbols/widgit/he.png",
+            },
+
+            {
+              id: "she",
+              value: "./symbols/widgit/she.png",
+            },
+
+            {
+              id: "we",
+              value: "./symbols/widgit/we.png",
+            },
+
+            {
+              id: "they",
+              value: "./symbols/widgit/they.png",
+            },
+
+            {
+              id: "turn",
+              value: "./symbols/widgit/turn.png",
+            },
+
+            {
+              id: "little",
+              value: "./symbols/widgit/little.png",
+            },
+
+            {
+              id: "question",
+              value: "./symbols/widgit/question.png",
+            },
+          ],
+        },
+      ],
+    },
+    {
       id: "grid",
       type: "preset",
       description: "The number of items shown on the board",
@@ -130,6 +290,265 @@ export const core: Template = {
         },
       ],
     },
+    {
+      type: "imageUrl",
+      name: "dont-like",
+      id: "dont-like",
+      description: "dont-like",
+      hidden: true,
+      defaultValue: "./symbols/widgit/dont-like.png",
+    },
+    {
+      type: "imageUrl",
+      name: "more",
+      id: "more",
+      description: "more",
+      hidden: true,
+      defaultValue: "./symbols/widgit/more.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "help",
+      id: "help",
+      description: "help",
+      hidden: true,
+      defaultValue: "./symbols/widgit/help.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "want",
+      id: "want",
+      description: "want",
+      hidden: true,
+      defaultValue: "./symbols/widgit/want.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "have",
+      id: "have",
+      description: "have",
+      hidden: true,
+      defaultValue: "./symbols/widgit/have.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "like",
+      id: "like",
+      description: "like",
+      hidden: true,
+      defaultValue: "./symbols/widgit/like.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "good",
+      id: "good",
+      description: "good",
+      hidden: true,
+      defaultValue: "./symbols/widgit/good.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "no",
+      id: "no",
+      description: "no",
+      hidden: true,
+      defaultValue: "./symbols/widgit/no.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "stop",
+      id: "stop",
+      description: "stop",
+      hidden: true,
+      defaultValue: "./symbols/widgit/stop.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "different",
+      id: "different",
+      description: "different",
+      hidden: true,
+      defaultValue: "./symbols/widgit/different.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "look",
+      id: "look",
+      description: "look",
+      hidden: true,
+      defaultValue: "./symbols/widgit/look.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "make",
+      id: "make",
+      description: "make",
+      hidden: true,
+      defaultValue: "./symbols/widgit/make.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "wow",
+      id: "wow",
+      description: "wow",
+      hidden: true,
+      defaultValue: "./symbols/widgit/wow.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "bad",
+      id: "bad",
+      description: "bad",
+      hidden: true,
+      defaultValue: "./symbols/widgit/bad.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "this",
+      id: "this",
+      description: "this",
+      hidden: true,
+      defaultValue: "./symbols/widgit/this.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "me",
+      id: "me",
+      description: "me",
+      hidden: true,
+      defaultValue: "./symbols/widgit/me.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "you",
+      id: "you",
+      description: "you",
+      hidden: true,
+      defaultValue: "./symbols/widgit/you.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "go",
+      id: "go",
+      description: "go",
+      hidden: true,
+      defaultValue: "./symbols/widgit/go.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "play",
+      id: "play",
+      description: "play",
+      hidden: true,
+      defaultValue: "./symbols/widgit/play.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "uh-oh",
+      id: "uh-oh",
+      description: "uh-oh",
+      hidden: true,
+      defaultValue: "./symbols/widgit/uh-oh.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "big",
+      id: "big",
+      description: "big",
+      hidden: true,
+      defaultValue: "./symbols/widgit/big.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "can",
+      id: "can",
+      description: "can",
+      hidden: true,
+      defaultValue: "./symbols/widgit/can.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "he",
+      id: "he",
+      description: "he",
+      hidden: true,
+      defaultValue: "./symbols/widgit/he.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "she",
+      id: "she",
+      description: "she",
+      hidden: true,
+      defaultValue: "./symbols/widgit/she.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "we",
+      id: "we",
+      description: "we",
+      hidden: true,
+      defaultValue: "./symbols/widgit/we.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "they",
+      id: "they",
+      description: "they",
+      hidden: true,
+      defaultValue: "./symbols/widgit/they.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "turn",
+      id: "turn",
+      description: "turn",
+      hidden: true,
+      defaultValue: "./symbols/widgit/turn.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "little",
+      id: "little",
+      description: "little",
+      hidden: true,
+      defaultValue: "./symbols/widgit/little.png",
+    },
+
+    {
+      type: "imageUrl",
+      name: "question",
+      id: "question",
+      description: "question",
+      hidden: true,
+      defaultValue: "./symbols/widgit/question.png",
+    },
   ],
   templateDescription: `
     <p>Core words are a set of words that we use across huge numbers of different situations. These are words like 'help', 'look', 'more', 'stop', etc.  Core words are the sort of words that young children start using very early on, and therefore are the sort of words that we want to get started with straight away.</p>
@@ -151,58 +570,212 @@ export const core: Template = {
     gap: 3,
     button_border_width: 1,
   },
-  images: [],
+  images: [
+    {
+      id: "dont-like",
+      url: { type: "TemplateItem", id: "dont-like" },
+    },
+
+    {
+      id: "more",
+      url: { type: "TemplateItem", id: "more" },
+    },
+
+    {
+      id: "help",
+      url: { type: "TemplateItem", id: "help" },
+    },
+
+    {
+      id: "want",
+      url: { type: "TemplateItem", id: "want" },
+    },
+
+    {
+      id: "have",
+      url: { type: "TemplateItem", id: "have" },
+    },
+
+    {
+      id: "like",
+      url: { type: "TemplateItem", id: "like" },
+    },
+
+    {
+      id: "good",
+      url: { type: "TemplateItem", id: "good" },
+    },
+
+    {
+      id: "no",
+      url: { type: "TemplateItem", id: "no" },
+    },
+
+    {
+      id: "stop",
+      url: { type: "TemplateItem", id: "stop" },
+    },
+
+    {
+      id: "different",
+      url: { type: "TemplateItem", id: "different" },
+    },
+
+    {
+      id: "look",
+      url: { type: "TemplateItem", id: "look" },
+    },
+
+    {
+      id: "make",
+      url: { type: "TemplateItem", id: "make" },
+    },
+
+    {
+      id: "wow",
+      url: { type: "TemplateItem", id: "wow" },
+    },
+
+    {
+      id: "bad",
+      url: { type: "TemplateItem", id: "bad" },
+    },
+
+    {
+      id: "this",
+      url: { type: "TemplateItem", id: "this" },
+    },
+
+    {
+      id: "me",
+      url: { type: "TemplateItem", id: "me" },
+    },
+
+    {
+      id: "you",
+      url: { type: "TemplateItem", id: "you" },
+    },
+
+    {
+      id: "go",
+      url: { type: "TemplateItem", id: "go" },
+    },
+
+    {
+      id: "play",
+      url: { type: "TemplateItem", id: "play" },
+    },
+
+    {
+      id: "uh-oh",
+      url: { type: "TemplateItem", id: "uh-oh" },
+    },
+
+    {
+      id: "big",
+      url: { type: "TemplateItem", id: "big" },
+    },
+
+    {
+      id: "can",
+      url: { type: "TemplateItem", id: "can" },
+    },
+
+    {
+      id: "he",
+      url: { type: "TemplateItem", id: "he" },
+    },
+
+    {
+      id: "she",
+      url: { type: "TemplateItem", id: "she" },
+    },
+
+    {
+      id: "we",
+      url: { type: "TemplateItem", id: "we" },
+    },
+
+    {
+      id: "they",
+      url: { type: "TemplateItem", id: "they" },
+    },
+
+    {
+      id: "turn",
+      url: { type: "TemplateItem", id: "turn" },
+    },
+
+    {
+      id: "little",
+      url: { type: "TemplateItem", id: "little" },
+    },
+
+    {
+      id: "question",
+      url: { type: "TemplateItem", id: "question" },
+    },
+  ],
   buttons: [
     {
       id: "dont-like",
+      image_id: "dont-like",
       label: "don't like",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "more",
+      image_id: "more",
       label: "more, again",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "help",
+      image_id: "help",
       label: "help",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "want",
+      image_id: "want",
       label: "want",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "have",
+      image_id: "have",
       label: "have",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "like",
+      image_id: "like",
       label: "like",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "good",
+      image_id: "good",
       label: "good",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "no",
+      image_id: "no",
       label: "no, not",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "stop",
+      image_id: "stop",
       label: "stop, finished",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
@@ -210,36 +783,42 @@ export const core: Template = {
     },
     {
       id: "different",
+      image_id: "different",
       label: "different",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "look",
+      image_id: "look",
       label: "look",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "make",
+      image_id: "make",
       label: "make",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "wow",
+      image_id: "wow",
       label: "wow",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "bad",
+      image_id: "bad",
       label: "bad, yucky",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "this",
+      image_id: "this",
       label: "this, that there",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
@@ -247,6 +826,7 @@ export const core: Template = {
     },
     {
       id: "me",
+      image_id: "me",
       label: "I, me, my, mine",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
@@ -254,54 +834,63 @@ export const core: Template = {
     },
     {
       id: "you",
+      image_id: "you",
       label: "you, your(s)",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "go",
+      image_id: "go",
       label: "go",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "play",
+      image_id: "play",
       label: "play",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "uh-oh",
+      image_id: "uh-oh",
       label: "uh oh",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "big",
+      image_id: "big",
       label: "big",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "can",
+      image_id: "can",
       label: "Can I...",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "he",
+      image_id: "he",
       label: "he, his",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "she",
+      image_id: "she",
       label: "she, her(s)",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "we",
+      image_id: "we",
       label: "we, our, us",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
@@ -309,6 +898,7 @@ export const core: Template = {
     },
     {
       id: "they",
+      image_id: "they",
       label: "they, their, them",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
@@ -316,18 +906,21 @@ export const core: Template = {
     },
     {
       id: "turn",
+      image_id: "turn",
       label: "turn",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "little",
+      image_id: "little",
       label: "little",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
     },
     {
       id: "question",
+      image_id: "question",
       label: "question",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
