@@ -1,0 +1,390 @@
+{
+  "format": "open-board-0.1",
+  "id": "core-28-ss",
+  "locale": "en-GB",
+  "description_html": "Core words are a set of words that we use across huge numbers of different situations.",
+  "ext_launchpad_options": {
+    "gap": 3,
+    "button_border_width": 1,
+    "title_shown_on_board": "Core Vocabulary / Commenting Chart",
+    "full_background_color": "rgb(185,255,185)",
+    "copyright_notice": "(c) SymbolStix 2022 LLC",
+    "invert_symbol_and_label": true
+  },
+  "name": "Core",
+  "buttons": [
+    {
+      "image_id": "dont-like",
+      "id": "dont-like",
+      "label": "don't like",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "more",
+      "id": "more",
+      "label": "more, again",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "help",
+      "id": "help",
+      "label": "help",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "want",
+      "id": "want",
+      "label": "want",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "have",
+      "id": "have",
+      "label": "have",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "like",
+      "id": "like",
+      "label": "like",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "good",
+      "id": "good",
+      "label": "good",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "no",
+      "id": "no",
+      "label": "no, not",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "stop",
+      "id": "stop",
+      "label": "stop, finished",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)",
+      "ext_launchpad_label_font_size": 14
+    },
+    {
+      "image_id": "different",
+      "id": "different",
+      "label": "different",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "look",
+      "id": "look",
+      "label": "look",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "make",
+      "id": "make",
+      "label": "make",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "wow",
+      "id": "wow",
+      "label": "wow",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "bad",
+      "id": "bad",
+      "label": "bad, yucky",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "this",
+      "id": "this",
+      "label": "this, that there",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)",
+      "ext_launchpad_label_font_size": 14
+    },
+    {
+      "image_id": "me",
+      "id": "me",
+      "label": "I, me, my, mine",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)",
+      "ext_launchpad_label_font_size": 14
+    },
+    {
+      "image_id": "you",
+      "id": "you",
+      "label": "you, your(s)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "go",
+      "id": "go",
+      "label": "go",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "play",
+      "id": "play",
+      "label": "play",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "uh-oh",
+      "id": "uh-oh",
+      "label": "uh oh",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "big",
+      "id": "big",
+      "label": "big",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "can",
+      "id": "can",
+      "label": "Can I...",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "he",
+      "id": "he",
+      "label": "he, his",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "she",
+      "id": "she",
+      "label": "she, her(s)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "we",
+      "id": "we",
+      "label": "we, our, us",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)",
+      "ext_launchpad_label_font_size": 16
+    },
+    {
+      "image_id": "they",
+      "id": "they",
+      "label": "they, their, them",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)",
+      "ext_launchpad_label_font_size": 14
+    },
+    {
+      "image_id": "turn",
+      "id": "turn",
+      "label": "turn",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "little",
+      "id": "little",
+      "label": "little",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    },
+    {
+      "image_id": "question",
+      "id": "question",
+      "label": "question",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)"
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 4,
+        "columns": 7,
+        "order": [
+          [
+            "more",
+            "help",
+            "want",
+            "have",
+            "like",
+            "good",
+            "no"
+          ],
+          [
+            "stop",
+            "different",
+            "look",
+            "make",
+            "wow",
+            "bad",
+            "this"
+          ],
+          [
+            "me",
+            "you",
+            "go",
+            "play",
+            "uh-oh",
+            "big",
+            "can"
+          ],
+          [
+            "he",
+            "she",
+            "we",
+            "they",
+            "turn",
+            "little",
+            "question"
+          ]
+        ]
+      },
+      "id": "first"
+    }
+  ],
+  "images": [
+    {
+      "id": "dont-like",
+      "url": "./symbols/ss/dont-like.png"
+    },
+    {
+      "id": "more",
+      "url": "./symbols/ss/more.png"
+    },
+    {
+      "id": "help",
+      "url": "./symbols/ss/help.png"
+    },
+    {
+      "id": "want",
+      "url": "./symbols/ss/want.png"
+    },
+    {
+      "id": "have",
+      "url": "./symbols/ss/have.png"
+    },
+    {
+      "id": "like",
+      "url": "./symbols/ss/like.png"
+    },
+    {
+      "id": "good",
+      "url": "./symbols/ss/good.png"
+    },
+    {
+      "id": "no",
+      "url": "./symbols/ss/no.png"
+    },
+    {
+      "id": "stop",
+      "url": "./symbols/ss/stop.png"
+    },
+    {
+      "id": "different",
+      "url": "./symbols/ss/different.png"
+    },
+    {
+      "id": "look",
+      "url": "./symbols/ss/look.png"
+    },
+    {
+      "id": "make",
+      "url": "./symbols/ss/make.png"
+    },
+    {
+      "id": "wow",
+      "url": "./symbols/ss/wow.png"
+    },
+    {
+      "id": "bad",
+      "url": "./symbols/ss/bad.png"
+    },
+    {
+      "id": "this",
+      "url": "./symbols/ss/this.png"
+    },
+    {
+      "id": "me",
+      "url": "./symbols/ss/me.png"
+    },
+    {
+      "id": "you",
+      "url": "./symbols/ss/you.png"
+    },
+    {
+      "id": "go",
+      "url": "./symbols/ss/go.png"
+    },
+    {
+      "id": "play",
+      "url": "./symbols/ss/play.png"
+    },
+    {
+      "id": "uh-oh",
+      "url": "./symbols/ss/uh-oh.png"
+    },
+    {
+      "id": "big",
+      "url": "./symbols/ss/big.png"
+    },
+    {
+      "id": "can",
+      "url": "./symbols/ss/can.png"
+    },
+    {
+      "id": "he",
+      "url": "./symbols/ss/he.png"
+    },
+    {
+      "id": "she",
+      "url": "./symbols/ss/she.png"
+    },
+    {
+      "id": "we",
+      "url": "./symbols/ss/we.png"
+    },
+    {
+      "id": "they",
+      "url": "./symbols/ss/they.png"
+    },
+    {
+      "id": "turn",
+      "url": "./symbols/ss/turn.png"
+    },
+    {
+      "id": "little",
+      "url": "./symbols/ss/little.png"
+    },
+    {
+      "id": "question",
+      "url": "./symbols/ss/question.png"
+    }
+  ]
+}
