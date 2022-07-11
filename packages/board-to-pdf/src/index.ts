@@ -214,6 +214,8 @@ const boardToPdf = async (
   const buttonBorderWidth =
     options.button_border_width ?? DEFAULT_BUTTON_BORDER_WIDTH;
 
+  const labelAboveSymbol = options.invert_symbol_and_label ?? false;
+
   let firstPage = true;
   for (const page of board.pages) {
     // The first page doesn't need added as its there by default.
@@ -223,9 +225,48 @@ const boardToPdf = async (
       doc.addPage();
     }
 
+    let documentHeight = HEIGHT;
+    let extraTopPadding = 0;
+
+    if (options.full_background_color) {
+      const fullBackgroundColor = getRGB(options.full_background_color);
+
+      doc
+        .setFillColor(
+          fullBackgroundColor.red,
+          fullBackgroundColor.green,
+          fullBackgroundColor.blue
+        )
+        .rect(0, 0, WIDTH, HEIGHT, "F");
+    }
+
+    if (options.title_shown_on_board) {
+      const titleHeight = doc.getFontSize() * POINT_TO_MM;
+
+      doc.text(options.title_shown_on_board, WIDTH / 2, 10, {
+        baseline: "top",
+        align: "center",
+      });
+
+      documentHeight = documentHeight - padding - titleHeight;
+      extraTopPadding += 10 + titleHeight;
+    }
+
+    if (options.copyright_notice) {
+      doc
+        .setFontSize(10)
+        .text(options.copyright_notice, WIDTH - padding, HEIGHT - padding, {
+          baseline: "bottom",
+          align: "right",
+        });
+
+      const noticeHeight = doc.getFontSize() * POINT_TO_MM;
+      documentHeight = documentHeight - 2 - noticeHeight;
+    }
+
     const buttonDimensions = calculateButtonSize(
       WIDTH,
-      HEIGHT,
+      documentHeight,
       padding,
       gap,
       page.grid.rows,
@@ -298,7 +339,10 @@ const boardToPdf = async (
         }
 
         const currentX = columnCount * (buttonDimensions.width + gap) + padding;
-        const currentY = rowCount * (buttonDimensions.height + gap) + padding;
+        const currentY =
+          rowCount * (buttonDimensions.height + gap) +
+          padding +
+          extraTopPadding;
 
         const cellWidth =
           buttonDimensions.width * buttonsWide + gap * (buttonsWide - 1);
@@ -396,6 +440,11 @@ const boardToPdf = async (
           let topPadding = (cellHeight - contentHeight) / 2;
           let textX = currentX + cellWidth / 2;
           let textY = currentY + topPadding + imageHeight + fontImageGap;
+
+          if (labelAboveSymbol) {
+            textY = imageY;
+            imageY = textY + fontHeightInMm + fontImageGap;
+          }
 
           doc.addImage(
             imageData,
