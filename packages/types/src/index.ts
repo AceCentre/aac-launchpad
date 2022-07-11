@@ -61,6 +61,10 @@ export type LaunchpadOptions = {
   button_radius?: number;
   button_border_width?: number;
   ext_launchpad_prepend_pdf?: string;
+  title_shown_on_board?: string;
+  full_background_color?: Color;
+  copyright_notice?: string;
+  invert_symbol_and_label?: boolean;
 };
 
 type LaunchpadOptionsWithTemplateItems = {
@@ -68,6 +72,10 @@ type LaunchpadOptionsWithTemplateItems = {
   gap?: number | TemplateItem;
   button_radius?: number | TemplateItem;
   button_border_width?: number | TemplateItem;
+  title_shown_on_board?: string | TemplateItem;
+  full_background_color?: Color | TemplateItem;
+  copyright_notice?: string | TemplateItem;
+  invert_symbol_and_label?: boolean | TemplateItem;
   ext_launchpad_prepend_pdf?: string;
 };
 
