@@ -3,6 +3,16 @@ import { Template } from "types";
 export const core: Template = {
   templateVariables: [
     {
+      id: "copyright-notice",
+      name: "Copyright Notice",
+      description: "Copyright notice",
+      type: "freeText",
+      maxLength: 600,
+      defaultValue:
+        "Widgit Symbols © Widgit Software 2002 - 2022 www.widgit.com",
+      hidden: true,
+    },
+    {
       id: "rows",
       type: "number",
       min: 1,
@@ -43,6 +53,11 @@ export const core: Template = {
           value: "pcs",
           description: "PCS Symbols",
           variableValues: [
+            {
+              id: "copyright-notice",
+              value:
+                "The Picture Communication Symbols © 1981 - 2022 DynaVox Mayer-Johnson are used under contractual agreement. All rights reserved worldwide.",
+            },
             {
               id: "dont-like",
               value: "./symbols/pcs/dont-like.png",
@@ -195,6 +210,10 @@ export const core: Template = {
           description: "SymbolStix Symbols",
           variableValues: [
             {
+              id: "copyright-notice",
+              value: "(c) SymbolStix 2022 LLC",
+            },
+            {
               id: "dont-like",
               value: "./symbols/ss/dont-like.png",
             },
@@ -345,6 +364,11 @@ export const core: Template = {
           value: "widgit",
           description: "Widgit Symbols",
           variableValues: [
+            {
+              id: "copyright-notice",
+              value:
+                "Widgit Symbols © Widgit Software 2002 - 2022 www.widgit.com",
+            },
             {
               id: "dont-like",
               value: "./symbols/widgit/dont-like.png",
@@ -871,6 +895,10 @@ export const core: Template = {
   ext_launchpad_options: {
     gap: 3,
     button_border_width: 1,
+    title_shown_on_board: "Core Vocabulary / Commenting Chart",
+    full_background_color: "rgb(185,255,185)",
+    copyright_notice: { type: "TemplateItem", id: "copyright-notice" },
+    invert_symbol_and_label: true,
   },
   images: [
     {
