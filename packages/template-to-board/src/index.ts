@@ -33,6 +33,22 @@ const getExtLaunchpadOptions = (
       launchpadOptions.button_radius,
       results
     ),
+    title_shown_on_board: getOptionalStringFromTemplateItem(
+      launchpadOptions.title_shown_on_board,
+      results
+    ),
+    full_background_color: getOptionalStringFromTemplateItem(
+      launchpadOptions.full_background_color,
+      results
+    ),
+    copyright_notice: getOptionalStringFromTemplateItem(
+      launchpadOptions.copyright_notice,
+      results
+    ),
+    invert_symbol_and_label: getOptionalBooleanFromTemplateItem(
+      launchpadOptions.invert_symbol_and_label,
+      results
+    ),
     ext_launchpad_prepend_pdf: launchpadOptions.ext_launchpad_prepend_pdf,
   };
 };
