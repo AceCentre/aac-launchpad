@@ -386,3 +386,107 @@ it("prepend-pdf", async () => {
   expect(sourceFirst).toMatchImage(resultFirst);
   expect(sourceSecond).toMatchImage(resultSecond);
 });
+
+it("core-28-pcs", async () => {
+  const rawBoard: Board = JSON.parse(
+    readFileSync(path.join(__dirname, "./boards/core-28-pcs.obf")).toString()
+  );
+
+  const { pdf } = await boardToPdf(rawBoard, {
+    rootToImages: path.join(__dirname, "./images"),
+    rootToPdfs: path.join(__dirname, "./pdfs"),
+  });
+
+  const output = Buffer.from(pdf);
+  const prep = fromBuffer(output, {
+    density: 500,
+    saveFilename: rawBoard.id,
+    savePath: path.join(__dirname, "./temp"),
+    format: "png",
+    width: 3508,
+    height: 2480,
+  });
+  if (prep.bulk === undefined) {
+    throw new Error(`Failed to get screenshot for: ${rawBoard.id}`);
+  }
+  await prep.bulk([1]);
+
+  const source = readFileSync(
+    path.join(__dirname, "./screenshots/core-28-pcs.1.png")
+  );
+  const result = readFileSync(path.join(__dirname, "./temp/core-28-pcs.1.png"));
+
+  expect(source).toMatchImage(result, {
+    diffPath: `./${rawBoard.id}-diff.png`,
+  });
+});
+
+it("core-28-widgit", async () => {
+  const rawBoard: Board = JSON.parse(
+    readFileSync(path.join(__dirname, "./boards/core-28-widgit.obf")).toString()
+  );
+
+  const { pdf } = await boardToPdf(rawBoard, {
+    rootToImages: path.join(__dirname, "./images"),
+    rootToPdfs: path.join(__dirname, "./pdfs"),
+  });
+
+  const output = Buffer.from(pdf);
+  const prep = fromBuffer(output, {
+    density: 500,
+    saveFilename: rawBoard.id,
+    savePath: path.join(__dirname, "./temp"),
+    format: "png",
+    width: 3508,
+    height: 2480,
+  });
+  if (prep.bulk === undefined) {
+    throw new Error(`Failed to get screenshot for: ${rawBoard.id}`);
+  }
+  await prep.bulk([1]);
+
+  const source = readFileSync(
+    path.join(__dirname, "./screenshots/core-28-widgit.1.png")
+  );
+  const result = readFileSync(
+    path.join(__dirname, "./temp/core-28-widgit.1.png")
+  );
+
+  expect(source).toMatchImage(result, {
+    diffPath: `./${rawBoard.id}-diff.png`,
+  });
+});
+
+it("core-28-ss", async () => {
+  const rawBoard: Board = JSON.parse(
+    readFileSync(path.join(__dirname, "./boards/core-28-ss.obf")).toString()
+  );
+
+  const { pdf } = await boardToPdf(rawBoard, {
+    rootToImages: path.join(__dirname, "./images"),
+    rootToPdfs: path.join(__dirname, "./pdfs"),
+  });
+
+  const output = Buffer.from(pdf);
+  const prep = fromBuffer(output, {
+    density: 500,
+    saveFilename: rawBoard.id,
+    savePath: path.join(__dirname, "./temp"),
+    format: "png",
+    width: 3508,
+    height: 2480,
+  });
+  if (prep.bulk === undefined) {
+    throw new Error(`Failed to get screenshot for: ${rawBoard.id}`);
+  }
+  await prep.bulk([1]);
+
+  const source = readFileSync(
+    path.join(__dirname, "./screenshots/core-28-ss.1.png")
+  );
+  const result = readFileSync(path.join(__dirname, "./temp/core-28-ss.1.png"));
+
+  expect(source).toMatchImage(result, {
+    diffPath: `./${rawBoard.id}-diff.png`,
+  });
+});
