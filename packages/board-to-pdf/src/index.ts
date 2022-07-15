@@ -361,7 +361,7 @@ const boardToPdf = async (
         // Skip over the extra buttons
         columnCount += buttonsWide - 1;
 
-        doc.setFont(fontName, fontStyle);
+        doc.setFont(fontName, fontStyle).setFontSize(fontSize);
 
         if (autoFitLabels) {
           let textAreaWidth = cellWidth - buttonRadius - 2;
