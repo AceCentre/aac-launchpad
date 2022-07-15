@@ -49,6 +49,10 @@ const getExtLaunchpadOptions = (
       launchpadOptions.invert_symbol_and_label,
       results
     ),
+    autofit_label_text: getOptionalBooleanFromTemplateItem(
+      launchpadOptions.autofit_label_text,
+      results
+    ),
     ext_launchpad_prepend_pdf: launchpadOptions.ext_launchpad_prepend_pdf,
   };
 };
