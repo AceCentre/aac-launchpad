@@ -490,3 +490,41 @@ it("core-28-ss", async () => {
     diffPath: `./${rawBoard.id}-diff.png`,
   });
 });
+
+it("core-autofit-large-font", async () => {
+  const rawBoard: Board = JSON.parse(
+    readFileSync(
+      path.join(__dirname, "./boards/core-autofit-large-font.obf")
+    ).toString()
+  );
+
+  const { pdf } = await boardToPdf(rawBoard, {
+    rootToImages: path.join(__dirname, "./images"),
+    rootToPdfs: path.join(__dirname, "./pdfs"),
+  });
+
+  const output = Buffer.from(pdf);
+  const prep = fromBuffer(output, {
+    density: 500,
+    saveFilename: rawBoard.id,
+    savePath: path.join(__dirname, "./temp"),
+    format: "png",
+    width: 3508,
+    height: 2480,
+  });
+  if (prep.bulk === undefined) {
+    throw new Error(`Failed to get screenshot for: ${rawBoard.id}`);
+  }
+  await prep.bulk([1]);
+
+  const source = readFileSync(
+    path.join(__dirname, "./screenshots/core-autofit-large-font.1.png")
+  );
+  const result = readFileSync(
+    path.join(__dirname, "./temp/core-autofit-large-font.1.png")
+  );
+
+  expect(source).toMatchImage(result, {
+    diffPath: `./${rawBoard.id}-diff.png`,
+  });
+});
