@@ -1,7 +1,16 @@
+import { FONT_OPTIONS } from "board-to-pdf";
 import { Template } from "types";
 
 export const core: Template = {
   templateVariables: [
+    {
+      type: "option",
+      id: "font",
+      description: "Choose the font used in the file",
+      name: "Font",
+      defaultValue: "helvetica",
+      options: FONT_OPTIONS,
+    },
     {
       id: "copyright-notice",
       name: "Copyright Notice",
@@ -899,6 +908,7 @@ export const core: Template = {
     full_background_color: "rgb(185,255,185)",
     copyright_notice: { type: "TemplateItem", id: "copyright-notice" },
     invert_symbol_and_label: true,
+    autofit_label_text: true,
   },
   images: [
     {
@@ -1053,6 +1063,7 @@ export const core: Template = {
       label: "don't like",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "more",
@@ -1060,6 +1071,7 @@ export const core: Template = {
       label: "more, again",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "help",
@@ -1067,6 +1079,7 @@ export const core: Template = {
       label: "help",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "want",
@@ -1074,6 +1087,7 @@ export const core: Template = {
       label: "want",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "have",
@@ -1081,6 +1095,7 @@ export const core: Template = {
       label: "have",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "like",
@@ -1088,6 +1103,7 @@ export const core: Template = {
       label: "like",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "good",
@@ -1095,6 +1111,7 @@ export const core: Template = {
       label: "good",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "no",
@@ -1102,6 +1119,7 @@ export const core: Template = {
       label: "no, not",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "stop",
@@ -1109,7 +1127,7 @@ export const core: Template = {
       label: "stop, finished",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
-      ext_launchpad_label_font_size: 14,
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "different",
@@ -1117,6 +1135,7 @@ export const core: Template = {
       label: "different",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "look",
@@ -1124,6 +1143,7 @@ export const core: Template = {
       label: "look",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "make",
@@ -1131,6 +1151,7 @@ export const core: Template = {
       label: "make",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "wow",
@@ -1138,6 +1159,7 @@ export const core: Template = {
       label: "wow",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "bad",
@@ -1145,6 +1167,7 @@ export const core: Template = {
       label: "bad, yucky",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "this",
@@ -1152,7 +1175,7 @@ export const core: Template = {
       label: "this, that there",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
-      ext_launchpad_label_font_size: 14,
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "me",
@@ -1160,7 +1183,7 @@ export const core: Template = {
       label: "I, me, my, mine",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
-      ext_launchpad_label_font_size: 14,
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "you",
@@ -1168,6 +1191,7 @@ export const core: Template = {
       label: "you, your(s)",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "go",
@@ -1175,6 +1199,7 @@ export const core: Template = {
       label: "go",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "play",
@@ -1182,6 +1207,7 @@ export const core: Template = {
       label: "play",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "uh-oh",
@@ -1189,6 +1215,7 @@ export const core: Template = {
       label: "uh oh",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "big",
@@ -1196,6 +1223,7 @@ export const core: Template = {
       label: "big",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "can",
@@ -1203,6 +1231,7 @@ export const core: Template = {
       label: "Can I...",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "he",
@@ -1210,6 +1239,7 @@ export const core: Template = {
       label: "he, his",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "she",
@@ -1217,6 +1247,7 @@ export const core: Template = {
       label: "she, her(s)",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "we",
@@ -1224,7 +1255,7 @@ export const core: Template = {
       label: "we, our, us",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
-      ext_launchpad_label_font_size: 16,
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "they",
@@ -1232,7 +1263,7 @@ export const core: Template = {
       label: "they, their, them",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
-      ext_launchpad_label_font_size: 14,
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "turn",
@@ -1240,6 +1271,7 @@ export const core: Template = {
       label: "turn",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "little",
@@ -1247,6 +1279,7 @@ export const core: Template = {
       label: "little",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "question",
@@ -1254,6 +1287,7 @@ export const core: Template = {
       label: "question",
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
   ],
 
