@@ -215,6 +215,7 @@ const boardToPdf = async (
     options.button_border_width ?? DEFAULT_BUTTON_BORDER_WIDTH;
 
   const labelAboveSymbol = options.invert_symbol_and_label ?? false;
+  const autoFitLabels = options.autofit_label_text ?? false;
 
   let firstPage = true;
   for (const page of board.pages) {
@@ -313,7 +314,7 @@ const boardToPdf = async (
           currentButton.ext_launchpad_label_color ?? DEFAULT_LABEL_COLOR
         );
 
-        const fontSize =
+        let fontSize =
           currentButton.ext_launchpad_label_font_size ??
           DEFAULT_LABEL_FONT_SIZE;
         const fontStyle =
@@ -360,6 +361,22 @@ const boardToPdf = async (
         // Skip over the extra buttons
         columnCount += buttonsWide - 1;
 
+        doc.setFont(fontName, fontStyle);
+
+        if (autoFitLabels) {
+          let textAreaWidth = cellWidth - buttonRadius - 2;
+          let textDimensions = doc.getTextDimensions(labelText);
+
+          for (let i = fontSize; i > 1; i--) {
+            doc.setFontSize(i);
+            textDimensions = doc.getTextDimensions(labelText);
+
+            if (textDimensions.w < textAreaWidth) {
+              break;
+            }
+          }
+        }
+
         doc
           .setLineWidth(buttonBorderWidth)
           .setDrawColor(borderColor.red, borderColor.green, borderColor.blue)
@@ -377,8 +394,6 @@ const boardToPdf = async (
             buttonRadius,
             "FD"
           )
-          .setFont(fontName, fontStyle)
-          .setFontSize(fontSize)
           .setTextColor(textColor.red, textColor.green, textColor.blue);
 
         if (currentButton.image_id !== undefined) {
