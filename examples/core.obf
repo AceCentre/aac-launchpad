@@ -20,7 +20,7 @@
       "label": "don't like",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "more",
@@ -28,7 +28,7 @@
       "label": "more, again",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "help",
@@ -36,7 +36,7 @@
       "label": "help",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "want",
@@ -44,7 +44,7 @@
       "label": "want",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "have",
@@ -52,7 +52,7 @@
       "label": "have",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "like",
@@ -60,7 +60,7 @@
       "label": "like",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "good",
@@ -68,7 +68,7 @@
       "label": "good",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "no",
@@ -76,7 +76,7 @@
       "label": "no, not",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "stop",
@@ -84,7 +84,7 @@
       "label": "stop, finished",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "different",
@@ -92,7 +92,7 @@
       "label": "different",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "look",
@@ -100,7 +100,7 @@
       "label": "look",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "make",
@@ -108,7 +108,7 @@
       "label": "make",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "wow",
@@ -116,7 +116,7 @@
       "label": "wow",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "bad",
@@ -124,7 +124,7 @@
       "label": "bad, yucky",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "this",
@@ -132,7 +132,7 @@
       "label": "this, that there",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "me",
@@ -140,7 +140,7 @@
       "label": "I, me, my, mine",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "you",
@@ -148,7 +148,7 @@
       "label": "you, your(s)",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "go",
@@ -156,7 +156,7 @@
       "label": "go",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "play",
@@ -164,7 +164,7 @@
       "label": "play",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "uh-oh",
@@ -172,7 +172,7 @@
       "label": "uh oh",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "big",
@@ -180,7 +180,7 @@
       "label": "big",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "can",
@@ -188,7 +188,7 @@
       "label": "Can I...",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "he",
@@ -196,7 +196,7 @@
       "label": "he, his",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "she",
@@ -204,7 +204,7 @@
       "label": "she, her(s)",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "we",
@@ -212,7 +212,7 @@
       "label": "we, our, us",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "they",
@@ -220,7 +220,7 @@
       "label": "they, their, them",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "turn",
@@ -228,7 +228,7 @@
       "label": "turn",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "little",
@@ -236,7 +236,7 @@
       "label": "little",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     },
     {
       "image_id": "question",
@@ -244,7 +244,7 @@
       "label": "question",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255, 255, 255)",
-      "ext_launchpad_label_font": "helvetica"
+      "ext_launchpad_label_font": "OpenDyslexic"
     }
   ],
   "pages": [
