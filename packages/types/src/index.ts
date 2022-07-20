@@ -169,6 +169,7 @@ type TemplateVariableGroup = {
 export type Template = {
   templateVariables: Array<AllTemplateVariable>;
   templateVariableGroups: Array<TemplateVariableGroup>;
+  templateDateCreated: string;
   templateName: string;
   templateDescription: string;
   templateId: string;

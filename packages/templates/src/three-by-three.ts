@@ -1,6 +1,7 @@
 import { Template } from "types";
 
 export const threeByThree: Template = {
+  templateDateCreated: "2022-07-20T12:00:00+01:00",
   templateVariables: [],
   templateDescription: "Create a nine tile board with no variables",
   templateName: "Three by Three",

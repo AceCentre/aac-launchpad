@@ -1,6 +1,7 @@
 import { Template } from "types";
 
 export const presetExample: Template = {
+  templateDateCreated: "2022-07-20T12:00:00+01:00",
   templateVariables: [
     {
       id: "firstLabel",

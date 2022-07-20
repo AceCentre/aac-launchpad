@@ -1,6 +1,7 @@
 import { Template } from "types";
 
 export const prependPdf: Template = {
+  templateDateCreated: "2022-07-20T12:00:00+01:00",
   templateVariables: [],
   templateDescription: "Prepends a simple pdf",
   templateName: "Prepend PDF",

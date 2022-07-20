@@ -1,6 +1,7 @@
 import { Template } from "types";
 
 export const simpleSingleTile: Template = {
+  templateDateCreated: "2022-07-20T12:00:00+01:00",
   templateVariables: [],
   templateDescription: "Create a single tile board with no variables",
   templateName: "Simple Single Tile",

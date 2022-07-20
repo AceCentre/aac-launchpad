@@ -2,6 +2,7 @@ import { Template } from "types";
 
 export const simpleChoice: Template = {
   templateId: "simple-choice",
+  templateDateCreated: "2022-07-20T12:00:00+01:00",
   templateName: "Choice between two options",
   templateDescription:
     "Create a board that allows you to choose between two custom options",

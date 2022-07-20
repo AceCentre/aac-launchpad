@@ -1,6 +1,7 @@
 import { Template } from "types";
 
 export const variableGroup: Template = {
+  templateDateCreated: "2022-07-20T12:00:00+01:00",
   templateVariables: [
     {
       type: "freeText",

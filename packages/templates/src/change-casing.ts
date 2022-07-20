@@ -13,6 +13,7 @@ export const changeCasing: Template = {
     },
   ],
   templateVariableGroups: [],
+  templateDateCreated: "2022-07-20T12:00:00+01:00",
 
   templateDescription:
     "Create a single tile board that allows you to change casing",

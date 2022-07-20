@@ -19,6 +19,7 @@ export const alphabetChart: Template = {
   ],
   templateVariableGroups: [],
   templateId: "alphabet-chart",
+  templateDateCreated: "2022-07-20T12:00:00+01:00",
   templateDescription: "Create an alphabet chart with custom colors",
   templateName: "Alphabet Chart Template",
   templateImageUrl: "alphabet-chart.png",
