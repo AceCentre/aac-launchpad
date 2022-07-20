@@ -167,6 +167,8 @@ type TemplateVariableGroup = {
 };
 
 export type Template = {
+  templateFeatured: boolean;
+  templateCategory: string;
   templateVariables: Array<AllTemplateVariable>;
   templateVariableGroups: Array<TemplateVariableGroup>;
   templateDateCreated: string;

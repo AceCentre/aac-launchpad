@@ -1,6 +1,9 @@
 import { Template } from "types";
 
 export const simpleChoice: Template = {
+  templateCategory: "Symbol Charts",
+  templateFeatured: false,
+
   templateId: "simple-choice",
   templateDateCreated: "2022-07-20T12:00:00+01:00",
   templateName: "Choice between two options",

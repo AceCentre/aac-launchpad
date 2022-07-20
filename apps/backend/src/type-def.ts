@@ -119,6 +119,7 @@ export const typeDefs = gql`
     templateName: String!
     templateDescription: String!
     templateDateCreated: String!
+    templateFeatured: Boolean!
     templateVariables: [TemplateVariableType]!
     templateVariableGroups: [TemplateVariableGroup]!
     templateId: String!

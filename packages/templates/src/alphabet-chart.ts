@@ -1,6 +1,8 @@
 import { Template } from "types";
 
 export const alphabetChart: Template = {
+  templateFeatured: false,
+  templateCategory: "Symbol Charts",
   templateVariables: [
     {
       id: "backgroundColor",

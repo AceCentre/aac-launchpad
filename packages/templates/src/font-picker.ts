@@ -3,6 +3,8 @@ import { FONT_OPTIONS } from "board-to-pdf";
 
 export const fontPicker: Template = {
   templateDateCreated: "2022-07-20T12:00:00+01:00",
+  templateCategory: "Symbol Charts",
+  templateFeatured: false,
 
   templateVariables: [
     {

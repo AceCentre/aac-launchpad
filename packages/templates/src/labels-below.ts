@@ -1,6 +1,9 @@
 import { Template } from "types";
 
 export const labelsBelow: Template = {
+  templateCategory: "Symbol Charts",
+  templateFeatured: false,
+
   templateDateCreated: "2022-07-20T12:00:00+01:00",
   templateId: "labels-below",
   templateName: "Labels Below",

@@ -1,6 +1,9 @@
 import { Template } from "types";
 
 export const twoByTwo: Template = {
+  templateCategory: "Symbol Charts",
+  templateFeatured: false,
+
   templateDateCreated: "2022-07-20T12:00:00+01:00",
   templateVariables: [],
   templateDescription: "Create a four tile board with no variables",

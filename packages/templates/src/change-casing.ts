@@ -2,6 +2,9 @@ import { CASING_OPTIONS } from "board-to-pdf";
 import { Template } from "types";
 
 export const changeCasing: Template = {
+  templateCategory: "Symbol Charts",
+  templateFeatured: false,
+
   templateVariables: [
     {
       id: "casing",

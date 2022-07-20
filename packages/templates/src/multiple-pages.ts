@@ -1,6 +1,9 @@
 import { Template } from "types";
 
 export const multiplePages: Template = {
+  templateCategory: "Symbol Charts",
+  templateFeatured: false,
+
   templateDateCreated: "2022-07-20T12:00:00+01:00",
   templateVariables: [],
   templateDescription: "Create a multiple pages board with no variables",
