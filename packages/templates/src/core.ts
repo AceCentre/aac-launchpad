@@ -6,14 +6,6 @@ export const core: Template = {
 
   templateVariables: [
     {
-      type: "option",
-      id: "font",
-      description: "Choose the font used in the file",
-      name: "Font",
-      defaultValue: "helvetica",
-      options: FONT_OPTIONS,
-    },
-    {
       id: "copyright-notice",
       name: "Copyright Notice",
       description: "Copyright notice",
@@ -1477,6 +1469,14 @@ export const core: Template = {
       hidden: true,
       defaultValue: "Core Vocabulary / Commenting Chart",
       maxLength: 100,
+    },
+    {
+      type: "option",
+      id: "font",
+      description: "Choose the font used in the file",
+      name: "Font",
+      defaultValue: "helvetica",
+      options: FONT_OPTIONS,
     },
   ],
   templateDescription: `
