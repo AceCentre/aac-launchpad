@@ -183,11 +183,13 @@ const POINT_TO_MM = 0.3514;
 type BoardToPdfOptions = {
   rootToImages: string;
   rootToPdfs: string;
+  verboseTimingLogs?: boolean;
 };
 
 const DEFAULT_BOARD_TO_PDF_OPTIONS: BoardToPdfOptions = {
   rootToImages: process.cwd(),
   rootToPdfs: process.cwd(),
+  verboseTimingLogs: false,
 };
 
 const boardToPdf = async (
@@ -219,6 +221,7 @@ const boardToPdf = async (
 
   let firstPage = true;
   for (const page of board.pages) {
+    const pageStartTime = process.hrtime();
     // The first page doesn't need added as its there by default.
     if (firstPage) {
       firstPage = false;
@@ -280,6 +283,8 @@ const boardToPdf = async (
         columnCount < page.grid.columns;
         columnCount++
       ) {
+        const buttonStartTime = process.hrtime();
+
         const currentButtonId = page.grid.order[rowCount][columnCount];
 
         if (currentButtonId === null) {
@@ -507,7 +512,25 @@ const boardToPdf = async (
             );
           }
         }
+
+        const [buttonTotalSeconds, buttonTotalNanoSeconds] =
+          process.hrtime(buttonStartTime);
+
+        if (boardToPdfOptions.verboseTimingLogs) {
+          console.log(
+            `Button generation (${board.id} - ${page.id} - ${currentButton.id}) ${buttonTotalSeconds}.${buttonTotalNanoSeconds}s`
+          );
+        }
       }
+    }
+
+    const [pageTotalSeconds, pageTotalNanoSeconds] =
+      process.hrtime(pageStartTime);
+
+    if (boardToPdfOptions.verboseTimingLogs) {
+      console.log(
+        `Page generation (${board.id} - ${page.id}) ${pageTotalSeconds}.${pageTotalNanoSeconds}s`
+      );
     }
   }
 

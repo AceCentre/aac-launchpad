@@ -114,10 +114,11 @@ const resolvers = {
       const { pdf, totalNanoSeconds, totalSeconds } = await boardToPdf(board, {
         rootToImages,
         rootToPdfs,
+        verboseTimingLogs: true,
       });
 
       console.log(
-        `Board generation took (${board.id}) ${totalSeconds}.${totalNanoSeconds}s`
+        `Board generation (${board.id}) ${totalSeconds}.${totalNanoSeconds}s`
       );
 
       const fileHash = crypto
