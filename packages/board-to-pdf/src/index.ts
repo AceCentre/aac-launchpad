@@ -412,12 +412,21 @@ const boardToPdf = async (
             );
           }
 
+          const loadImageStartTime = process.hrtime();
           const isUrl = validateUrl(image.url);
           const imageData = isUrl
             ? await getImageFromNetwork(image.url)
             : getImageFromFile(boardToPdfOptions.rootToImages, image.url);
 
           const imageProperties = doc.getImageProperties(imageData);
+          const [loadImageTotalSeconds, loadImageTotalNanoSeconds] =
+            process.hrtime(loadImageStartTime);
+
+          if (boardToPdfOptions.verboseTimingLogs) {
+            console.log(
+              `Load Image (${board.id} - ${page.id} - ${currentButton.id} - ${image.id}) ${loadImageTotalSeconds}.${loadImageTotalNanoSeconds}s`
+            );
+          }
 
           // The content will max be n% wide or tall
           const CONTENT_PERCENTAGE = 0.8;
@@ -466,6 +475,8 @@ const boardToPdf = async (
             imageY = textY + fontHeightInMm + fontImageGap;
           }
 
+          const addImageStartTime = process.hrtime();
+
           doc.addImage(
             imageData,
             imageProperties.fileType,
@@ -477,6 +488,15 @@ const boardToPdf = async (
             "MEDIUM",
             0
           );
+
+          const [addImageTotalSeconds, addImageTotalNanoSeconds] =
+            process.hrtime(addImageStartTime);
+
+          if (boardToPdfOptions.verboseTimingLogs) {
+            console.log(
+              `Add Image (${board.id} - ${page.id} - ${currentButton.id} - ${image.id}) ${addImageTotalSeconds}.${addImageTotalNanoSeconds}s`
+            );
+          }
 
           if (labelBelow) {
             doc.text(labelText, textX, currentY + cellHeight, {
