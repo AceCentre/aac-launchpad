@@ -51,6 +51,327 @@ export const core: Template = {
       hidden: true,
     },
     {
+      id: "language",
+      type: "preset",
+      name: "Language",
+      defaultValue: "english",
+      description: "The language on the board",
+      presets: [
+        {
+          label: "English",
+          value: "english",
+          description: "English",
+          variableValues: [
+            {
+              id: "title-text",
+              value: "Core Vocabulary / Commenting Chart",
+            },
+
+            {
+              id: "dont-like-label",
+              value: "don't like",
+            },
+
+            {
+              id: "more-label",
+              value: "more, again",
+            },
+
+            {
+              id: "help-label",
+              value: "help",
+            },
+
+            {
+              id: "want-label",
+              value: "want",
+            },
+
+            {
+              id: "have-label",
+              value: "have",
+            },
+
+            {
+              id: "like-label",
+              value: "like",
+            },
+
+            {
+              id: "good-label",
+              value: "good",
+            },
+
+            {
+              id: "no-label",
+              value: "no, not",
+            },
+
+            {
+              id: "stop-label",
+              value: "stop, finished",
+            },
+
+            {
+              id: "different-label",
+              value: "different",
+            },
+
+            {
+              id: "look-label",
+              value: "look",
+            },
+
+            {
+              id: "make-label",
+              value: "make",
+            },
+
+            {
+              id: "wow-label",
+              value: "wow",
+            },
+
+            {
+              id: "bad-label",
+              value: "bad, yucky",
+            },
+
+            {
+              id: "this-label",
+              value: "this, that, there",
+            },
+
+            {
+              id: "me-label",
+              value: "I, me, my, mine",
+            },
+
+            {
+              id: "you-label",
+              value: "you, your(s)",
+            },
+
+            {
+              id: "go-label",
+              value: "go",
+            },
+
+            {
+              id: "play-label",
+              value: "play",
+            },
+
+            {
+              id: "uh-oh-label",
+              value: "uh oh",
+            },
+
+            {
+              id: "big-label",
+              value: "big",
+            },
+
+            {
+              id: "can-label",
+              value: "Can I...",
+            },
+
+            {
+              id: "he-label",
+              value: "he, his",
+            },
+
+            {
+              id: "she-label",
+              value: "she, her(s)",
+            },
+
+            {
+              id: "we-label",
+              value: "we, our, us",
+            },
+
+            {
+              id: "they-label",
+              value: "they, their, them",
+            },
+
+            {
+              id: "turn-label",
+              value: "turn",
+            },
+
+            {
+              id: "little-label",
+              value: "little",
+            },
+
+            {
+              id: "question-label",
+              value: "question",
+            },
+          ],
+        },
+        {
+          label: "French",
+          value: "french",
+          description: "French",
+          variableValues: [
+            {
+              id: "title-text",
+              value: "Vocabulaire de base / Tableau de commentaires",
+            },
+
+            {
+              id: "dont-like-label",
+              value: "n'aime pas",
+            },
+
+            {
+              id: "more-label",
+              value: "plus encore",
+            },
+
+            {
+              id: "help-label",
+              value: "aider",
+            },
+
+            {
+              id: "want-label",
+              value: "vouloir",
+            },
+
+            {
+              id: "have-label",
+              value: "ont",
+            },
+
+            {
+              id: "like-label",
+              value: "aimer",
+            },
+
+            {
+              id: "good-label",
+              value: "bien",
+            },
+
+            {
+              id: "no-label",
+              value: "non, pas",
+            },
+
+            {
+              id: "stop-label",
+              value: "arrête, fini",
+            },
+
+            {
+              id: "different-label",
+              value: "différent",
+            },
+
+            {
+              id: "look-label",
+              value: "voir",
+            },
+
+            {
+              id: "make-label",
+              value: "Fabriquer",
+            },
+
+            {
+              id: "wow-label",
+              value: "wow",
+            },
+
+            {
+              id: "bad-label",
+              value: "mauvais, dégueulasse",
+            },
+
+            {
+              id: "this-label",
+              value: "ceci, cela, là",
+            },
+
+            {
+              id: "me-label",
+              value: "Je, moi, mon, mien",
+            },
+
+            {
+              id: "you-label",
+              value: "toi, le tien",
+            },
+
+            {
+              id: "go-label",
+              value: "aller",
+            },
+
+            {
+              id: "play-label",
+              value: "jouer",
+            },
+
+            {
+              id: "uh-oh-label",
+              value: "euh oh",
+            },
+
+            {
+              id: "big-label",
+              value: "gros",
+            },
+
+            {
+              id: "can-label",
+              value: "est-ce-que je peux...",
+            },
+
+            {
+              id: "he-label",
+              value: "lui, son",
+            },
+
+            {
+              id: "she-label",
+              value: "elle, le sien",
+            },
+
+            {
+              id: "we-label",
+              value: "nous, notre, nous",
+            },
+
+            {
+              id: "they-label",
+              value: "ils, leur, eux",
+            },
+
+            {
+              id: "turn-label",
+              value: "tour",
+            },
+
+            {
+              id: "little-label",
+              value: "peu",
+            },
+
+            {
+              id: "question-label",
+              value: "question",
+            },
+          ],
+        },
+      ],
+    },
+    {
       id: "symbol-system",
       type: "preset",
       name: "Symbol System",
@@ -884,6 +1205,277 @@ export const core: Template = {
       hidden: true,
       defaultValue: "./symbols/widgit/question.png",
     },
+    {
+      type: "freeText",
+      name: "dont-like",
+      id: "dont-like-label",
+      description: "dont-like",
+      hidden: true,
+      defaultValue: "don't like",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "more",
+      id: "more-label",
+      description: "more",
+      hidden: true,
+      defaultValue: "more, again",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "help",
+      id: "help-label",
+      description: "help",
+      hidden: true,
+      defaultValue: "help",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "want",
+      id: "want-label",
+      description: "want",
+      hidden: true,
+      defaultValue: "want",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "have",
+      id: "have-label",
+      description: "have",
+      hidden: true,
+      defaultValue: "have",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "like",
+      id: "like-label",
+      description: "like",
+      hidden: true,
+      defaultValue: "like",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "good",
+      id: "good-label",
+      description: "good",
+      hidden: true,
+      defaultValue: "good",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "no",
+      id: "no-label",
+      description: "no",
+      hidden: true,
+      defaultValue: "no, not",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "stop",
+      id: "stop-label",
+      description: "stop",
+      hidden: true,
+      defaultValue: "stop, finished",
+      maxLength: 100,
+    },
+
+    {
+      type: "freeText",
+      name: "different",
+      id: "different-label",
+      description: "different",
+      hidden: true,
+      defaultValue: "different",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "look",
+      id: "look-label",
+      description: "look",
+      hidden: true,
+      defaultValue: "look",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "make",
+      id: "make-label",
+      description: "make",
+      hidden: true,
+      defaultValue: "make",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "wow",
+      id: "wow-label",
+      description: "wow",
+      hidden: true,
+      defaultValue: "wow",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "bad",
+      id: "bad-label",
+      description: "bad",
+      hidden: true,
+      defaultValue: "bad, yucky",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "this",
+      id: "this-label",
+      description: "this",
+      hidden: true,
+      defaultValue: "this, that, there",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "me",
+      id: "me-label",
+      description: "me",
+      hidden: true,
+      defaultValue: "I, me, my, mine",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "you",
+      id: "you-label",
+      description: "you",
+      hidden: true,
+      defaultValue: "you, your(s)",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "go",
+      id: "go-label",
+      description: "go",
+      hidden: true,
+      defaultValue: "go",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "play",
+      id: "play-label",
+      description: "play",
+      hidden: true,
+      defaultValue: "play",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "uh-oh",
+      id: "uh-oh-label",
+      description: "uh-oh",
+      hidden: true,
+      defaultValue: "uh oh",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "big",
+      id: "big-label",
+      description: "big",
+      hidden: true,
+      defaultValue: "big",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "can",
+      id: "can-label",
+      description: "can",
+      hidden: true,
+      defaultValue: "Can I...",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "he",
+      id: "he-label",
+      description: "he",
+      hidden: true,
+      defaultValue: "he, his",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "she",
+      id: "she-label",
+      description: "she",
+      hidden: true,
+      defaultValue: "she, her(s)",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "we",
+      id: "we-label",
+      description: "we",
+      hidden: true,
+      defaultValue: "we, our, us",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "they",
+      id: "they-label",
+      description: "they",
+      hidden: true,
+      defaultValue: "they, their, them",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "turn",
+      id: "turn-label",
+      description: "turn",
+      hidden: true,
+      defaultValue: "turn",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "little",
+      id: "little-label",
+      description: "little",
+      hidden: true,
+      defaultValue: "little",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "question",
+      id: "question-label",
+      description: "question",
+      hidden: true,
+      defaultValue: "question",
+      maxLength: 100,
+    },
+    {
+      type: "freeText",
+      name: "title",
+      id: "title-text",
+      description: "title",
+      hidden: true,
+      defaultValue: "Core Vocabulary / Commenting Chart",
+      maxLength: 100,
+    },
   ],
   templateDescription: `
     <p>Core words are a set of words that we use across huge numbers of different situations. These are words like 'help', 'look', 'more', 'stop', etc.  Core words are the sort of words that young children start using very early on, and therefore are the sort of words that we want to get started with straight away.</p>
@@ -904,7 +1496,7 @@ export const core: Template = {
   ext_launchpad_options: {
     gap: 3,
     button_border_width: 1,
-    title_shown_on_board: "Core Vocabulary / Commenting Chart",
+    title_shown_on_board: { type: "TemplateItem", id: "title-text" },
     full_background_color: "rgb(185,255,185)",
     copyright_notice: { type: "TemplateItem", id: "copyright-notice" },
     invert_symbol_and_label: true,
@@ -1060,7 +1652,7 @@ export const core: Template = {
     {
       id: "dont-like",
       image_id: "dont-like",
-      label: "don't like",
+      label: { type: "TemplateItem", id: "dont-like-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1068,7 +1660,7 @@ export const core: Template = {
     {
       id: "more",
       image_id: "more",
-      label: "more, again",
+      label: { type: "TemplateItem", id: "more-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1076,7 +1668,7 @@ export const core: Template = {
     {
       id: "help",
       image_id: "help",
-      label: "help",
+      label: { type: "TemplateItem", id: "help-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1084,7 +1676,7 @@ export const core: Template = {
     {
       id: "want",
       image_id: "want",
-      label: "want",
+      label: { type: "TemplateItem", id: "want-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1092,7 +1684,7 @@ export const core: Template = {
     {
       id: "have",
       image_id: "have",
-      label: "have",
+      label: { type: "TemplateItem", id: "have-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1100,7 +1692,7 @@ export const core: Template = {
     {
       id: "like",
       image_id: "like",
-      label: "like",
+      label: { type: "TemplateItem", id: "like-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1108,7 +1700,7 @@ export const core: Template = {
     {
       id: "good",
       image_id: "good",
-      label: "good",
+      label: { type: "TemplateItem", id: "good-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1116,7 +1708,7 @@ export const core: Template = {
     {
       id: "no",
       image_id: "no",
-      label: "no, not",
+      label: { type: "TemplateItem", id: "no-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1124,7 +1716,7 @@ export const core: Template = {
     {
       id: "stop",
       image_id: "stop",
-      label: "stop, finished",
+      label: { type: "TemplateItem", id: "stop-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1132,7 +1724,7 @@ export const core: Template = {
     {
       id: "different",
       image_id: "different",
-      label: "different",
+      label: { type: "TemplateItem", id: "different-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1140,7 +1732,7 @@ export const core: Template = {
     {
       id: "look",
       image_id: "look",
-      label: "look",
+      label: { type: "TemplateItem", id: "look-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1148,7 +1740,8 @@ export const core: Template = {
     {
       id: "make",
       image_id: "make",
-      label: "make",
+      label: { type: "TemplateItem", id: "make-label" },
+
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1156,7 +1749,7 @@ export const core: Template = {
     {
       id: "wow",
       image_id: "wow",
-      label: "wow",
+      label: { type: "TemplateItem", id: "wow-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1164,7 +1757,7 @@ export const core: Template = {
     {
       id: "bad",
       image_id: "bad",
-      label: "bad, yucky",
+      label: { type: "TemplateItem", id: "bad-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1172,7 +1765,7 @@ export const core: Template = {
     {
       id: "this",
       image_id: "this",
-      label: "this, that there",
+      label: { type: "TemplateItem", id: "this-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1180,7 +1773,7 @@ export const core: Template = {
     {
       id: "me",
       image_id: "me",
-      label: "I, me, my, mine",
+      label: { type: "TemplateItem", id: "me-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1188,7 +1781,7 @@ export const core: Template = {
     {
       id: "you",
       image_id: "you",
-      label: "you, your(s)",
+      label: { type: "TemplateItem", id: "you-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1196,7 +1789,7 @@ export const core: Template = {
     {
       id: "go",
       image_id: "go",
-      label: "go",
+      label: { type: "TemplateItem", id: "go-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1204,7 +1797,7 @@ export const core: Template = {
     {
       id: "play",
       image_id: "play",
-      label: "play",
+      label: { type: "TemplateItem", id: "go-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1212,7 +1805,7 @@ export const core: Template = {
     {
       id: "uh-oh",
       image_id: "uh-oh",
-      label: "uh oh",
+      label: { type: "TemplateItem", id: "uh-oh-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1220,7 +1813,7 @@ export const core: Template = {
     {
       id: "big",
       image_id: "big",
-      label: "big",
+      label: { type: "TemplateItem", id: "big-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1228,7 +1821,7 @@ export const core: Template = {
     {
       id: "can",
       image_id: "can",
-      label: "Can I...",
+      label: { type: "TemplateItem", id: "can-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1236,7 +1829,7 @@ export const core: Template = {
     {
       id: "he",
       image_id: "he",
-      label: "he, his",
+      label: { type: "TemplateItem", id: "he-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1244,7 +1837,7 @@ export const core: Template = {
     {
       id: "she",
       image_id: "she",
-      label: "she, her(s)",
+      label: { type: "TemplateItem", id: "she-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1252,7 +1845,7 @@ export const core: Template = {
     {
       id: "we",
       image_id: "we",
-      label: "we, our, us",
+      label: { type: "TemplateItem", id: "we-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1260,7 +1853,7 @@ export const core: Template = {
     {
       id: "they",
       image_id: "they",
-      label: "they, their, them",
+      label: { type: "TemplateItem", id: "they-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1268,7 +1861,7 @@ export const core: Template = {
     {
       id: "turn",
       image_id: "turn",
-      label: "turn",
+      label: { type: "TemplateItem", id: "turn-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1276,7 +1869,7 @@ export const core: Template = {
     {
       id: "little",
       image_id: "little",
-      label: "little",
+      label: { type: "TemplateItem", id: "little-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
@@ -1284,7 +1877,7 @@ export const core: Template = {
     {
       id: "question",
       image_id: "question",
-      label: "question",
+      label: { type: "TemplateItem", id: "question-label" },
       border_color: "rgb(0, 0, 0)",
       background_color: "rgb(255, 255, 255)",
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
