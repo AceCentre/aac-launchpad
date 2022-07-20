@@ -49,7 +49,9 @@ This Turborepo includes the following packages and apps:
 
 We do collect some basic analytics to help us improve the platform. We only collect metrics on the `generateBoard` GraphQL mutation. We use Posthog to handle our metrics collecting and visualization.
 
-Every user is given a unique ID, assigned in a cookie called `launchpad-session`. This is so we know how many unique users we have generating boards. The only other data we collect is the id of the board that was generated, no variables, images or result is collected.
+Every user is given a unique ID, assigned in a cookie called `launchpad-session`. This is so we know how many unique users we have generating boards. The only other data we collect is the id of the board that was generated, and a small whitelist of variables. Currently only language and symbol-system is collected.
+
+No images or result is collected for analytics purposes, they are stored for a short time in order to generate the board but the boards and images are deleted at regular intervals.
 
 All of our analytics are publicly available on Posthog. [Check them out here.](https://app.posthog.com/shared_dashboard/GW9gUv-u2PzoqWofm8O5gVUlx0PoQQ).
 

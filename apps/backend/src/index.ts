@@ -69,6 +69,15 @@ const resolvers = {
       input: GenerateBoardInput,
       context: any
     ) => {
+      let analyticsProperties: { [key: string]: string } = {};
+      const keysToCollect = ["language", "symbol-system"];
+
+      for (const currentAnswer of input.answers) {
+        if (keysToCollect.includes(currentAnswer.id)) {
+          analyticsProperties[currentAnswer.id] = currentAnswer.value;
+        }
+      }
+
       console.log({
         context,
         captured: process.env["COLLECT_ANALYTICS"] === "true",
@@ -76,14 +85,17 @@ const resolvers = {
         event: "generate-board",
         properties: {
           board: input.templateId,
+          ...analyticsProperties,
         },
       });
+
       if (process.env["COLLECT_ANALYTICS"] === "true")
         client.capture({
           distinctId: context.distinctId,
           event: "generate-board",
           properties: {
             board: input.templateId,
+            ...analyticsProperties,
           },
         });
 
