@@ -29,6 +29,35 @@ export const core: Template = {
       type: "color",
     },
     {
+      id: "gap",
+      name: "Cell spacing",
+      description:
+        "The space between the cells. This will also affect the size of the cells.",
+      type: "number",
+      min: 0,
+      max: 100,
+      defaultValue: "3",
+    },
+    {
+      id: "padding",
+      name: "Page spacing",
+      description:
+        "The space on the outside edges of the page. This will also affect the size of the cells.",
+      type: "number",
+      min: 0,
+      max: 100,
+      defaultValue: "10",
+    },
+    {
+      id: "invert-text",
+      name: "Label position",
+      description: "Show text above symbol",
+      type: "boolean",
+      defaultValue: "true",
+      trueLabel: "Show label above symbol",
+      falseLabel: "Show label below symbol",
+    },
+    {
       id: "copyright-notice",
       name: "Copyright Notice",
       description: "Copyright notice",
@@ -1513,7 +1542,14 @@ export const core: Template = {
   templateVariableGroups: [
     {
       id: "advanced-options",
-      variables: ["background-colour", "cell-colour", "label-colour"],
+      variables: [
+        "background-colour",
+        "cell-colour",
+        "label-colour",
+        "gap",
+        "padding",
+        "invert-text",
+      ],
       name: "Advanced options",
       description: "Edit advanced options about the board",
       openByDefault: false,
@@ -1527,12 +1563,13 @@ export const core: Template = {
   description_html:
     "Core words are a set of words that we use across huge numbers of different situations.",
   ext_launchpad_options: {
-    gap: 3,
+    gap: { type: "TemplateItem", id: "gap" },
+    padding: { type: "TemplateItem", id: "padding" },
     button_border_width: 1,
     title_shown_on_board: { type: "TemplateItem", id: "title-text" },
     full_background_color: { type: "TemplateItem", id: "background-colour" },
     copyright_notice: { type: "TemplateItem", id: "copyright-notice" },
-    invert_symbol_and_label: true,
+    invert_symbol_and_label: { type: "TemplateItem", id: "invert-text" },
     autofit_label_text: true,
   },
   images: [
