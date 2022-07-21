@@ -277,6 +277,8 @@ const boardToPdf = async (
       page.grid.columns
     );
 
+    let addImageArray = [];
+
     for (let rowCount = 0; rowCount < page.grid.rows; rowCount++) {
       for (
         let columnCount = 0;
@@ -475,28 +477,15 @@ const boardToPdf = async (
             imageY = textY + fontHeightInMm + fontImageGap;
           }
 
-          const addImageStartTime = process.hrtime();
-
-          doc.addImage(
+          addImageArray.push({
             imageData,
-            imageProperties.fileType,
+            fileType: imageProperties.fileType,
             imageX,
             imageY,
             contentWidth,
             imageHeight,
-            image.url,
-            "MEDIUM",
-            0
-          );
-
-          const [addImageTotalSeconds, addImageTotalNanoSeconds] =
-            process.hrtime(addImageStartTime);
-
-          if (boardToPdfOptions.verboseTimingLogs) {
-            console.log(
-              `Add Image (${board.id} - ${page.id} - ${currentButton.id} - ${image.id}) ${addImageTotalSeconds}.${addImageTotalNanoSeconds}s`
-            );
-          }
+            url: image.url,
+          });
 
           if (labelBelow) {
             doc.text(labelText, textX, currentY + cellHeight, {
@@ -542,6 +531,33 @@ const boardToPdf = async (
           );
         }
       }
+    }
+
+    const addImageStartTime = process.hrtime();
+
+    const addImagePromises = addImageArray.map(async (options) => {
+      doc.addImage(
+        options.imageData,
+        options.fileType,
+        options.imageX,
+        options.imageY,
+        options.contentWidth,
+        options.imageHeight,
+        options.url,
+        "MEDIUM",
+        0
+      );
+    });
+
+    await Promise.all(addImagePromises);
+
+    const [addImageTotalSeconds, addImageTotalNanoSeconds] =
+      process.hrtime(addImageStartTime);
+
+    if (boardToPdfOptions.verboseTimingLogs) {
+      console.log(
+        `Add Image (${board.id} - ${page.id}) ${addImageTotalSeconds}.${addImageTotalNanoSeconds}s`
+      );
     }
 
     const [pageTotalSeconds, pageTotalNanoSeconds] =
