@@ -1,5 +1,6 @@
-import { Board, Casing, Option } from "types";
-import { jsPDF } from "jspdf";
+/* eslint-disable no-loop-func */
+import { Board, Casing, Image, Option } from "types";
+import { ImageProperties, jsPDF } from "jspdf";
 import path from "path";
 import fs from "fs";
 import { URL } from "url";
@@ -278,6 +279,75 @@ const boardToPdf = async (
     );
 
     let addImageArray = [];
+    let loadImagesPromises = [];
+    let loadedImages: {
+      [key: string]: {
+        imageData: Buffer;
+        imageProperties: ImageProperties;
+        image: Image;
+      };
+    } = {};
+
+    // Go through the grid to find all images used to load them all at the same time
+    const loadImagesStartTime = process.hrtime();
+    for (let rowCount = 0; rowCount < page.grid.rows; rowCount++) {
+      for (
+        let columnCount = 0;
+        columnCount < page.grid.columns;
+        columnCount++
+      ) {
+        loadImagesPromises.push(
+          (async () => {
+            const currentButtonId = page.grid.order[rowCount][columnCount];
+            if (currentButtonId === null) {
+              return;
+            }
+
+            const currentButton = board.buttons.find(
+              (x) => x.id === currentButtonId
+            );
+
+            if (currentButton === undefined) {
+              throw new Error(
+                `Button referenced in Grid but not defined ('${currentButtonId}')`
+              );
+            }
+
+            if (currentButton.image_id !== undefined) {
+              const image = board.images.find(
+                (x) => x.id === currentButton.image_id
+              );
+              if (image === undefined) {
+                throw new Error(
+                  `Image referenced in Button but not defined ('${currentButton.image_id}')`
+                );
+              }
+              const isUrl = validateUrl(image.url);
+              const imageData = isUrl
+                ? await getImageFromNetwork(image.url)
+                : getImageFromFile(boardToPdfOptions.rootToImages, image.url);
+              const imageProperties = doc.getImageProperties(imageData);
+              loadedImages[currentButtonId] = {
+                imageData,
+                imageProperties,
+                image,
+              };
+            }
+          })()
+        );
+      }
+    }
+
+    await Promise.all(loadImagesPromises);
+
+    const [loadImagesTotalSeconds, loadImagesTotalNanoSeconds] =
+      process.hrtime(loadImagesStartTime);
+
+    if (boardToPdfOptions.verboseTimingLogs) {
+      console.log(
+        `Load Image (${board.id} - ${page.id}) ${loadImagesTotalSeconds}.${loadImagesTotalNanoSeconds}s`
+      );
+    }
 
     for (let rowCount = 0; rowCount < page.grid.rows; rowCount++) {
       for (
@@ -404,31 +474,7 @@ const boardToPdf = async (
           .setTextColor(textColor.red, textColor.green, textColor.blue);
 
         if (currentButton.image_id !== undefined) {
-          const image = board.images.find(
-            (x) => x.id === currentButton.image_id
-          );
-
-          if (image === undefined) {
-            throw new Error(
-              `Image referenced in Button but not defined ('${currentButton.image_id}')`
-            );
-          }
-
-          const loadImageStartTime = process.hrtime();
-          const isUrl = validateUrl(image.url);
-          const imageData = isUrl
-            ? await getImageFromNetwork(image.url)
-            : getImageFromFile(boardToPdfOptions.rootToImages, image.url);
-
-          const imageProperties = doc.getImageProperties(imageData);
-          const [loadImageTotalSeconds, loadImageTotalNanoSeconds] =
-            process.hrtime(loadImageStartTime);
-
-          if (boardToPdfOptions.verboseTimingLogs) {
-            console.log(
-              `Load Image (${board.id} - ${page.id} - ${currentButton.id} - ${image.id}) ${loadImageTotalSeconds}.${loadImageTotalNanoSeconds}s`
-            );
-          }
+          const currentImage = loadedImages[currentButtonId];
 
           // The content will max be n% wide or tall
           const CONTENT_PERCENTAGE = 0.8;
@@ -436,9 +482,11 @@ const boardToPdf = async (
           const fontImageGap = fontHeightInMm * 0.2;
 
           const widthToHeightRatio =
-            imageProperties.height / imageProperties.width;
+            currentImage.imageProperties.height /
+            currentImage.imageProperties.width;
           const heightToWidthRatio =
-            imageProperties.width / imageProperties.height;
+            currentImage.imageProperties.width /
+            currentImage.imageProperties.height;
 
           let contentWidth = cellWidth * CONTENT_PERCENTAGE;
           let contentHeight =
@@ -478,13 +526,13 @@ const boardToPdf = async (
           }
 
           addImageArray.push({
-            imageData,
-            fileType: imageProperties.fileType,
+            imageData: currentImage.imageData,
+            fileType: currentImage.imageProperties.fileType,
             imageX,
             imageY,
             contentWidth,
             imageHeight,
-            url: image.url,
+            url: currentImage.image.url,
           });
 
           if (labelBelow) {
