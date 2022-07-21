@@ -544,7 +544,7 @@ const boardToPdf = async (
         options.contentWidth,
         options.imageHeight,
         options.url,
-        "MEDIUM",
+        "FAST",
         0
       );
     });
