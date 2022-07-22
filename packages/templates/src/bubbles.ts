@@ -648,7 +648,7 @@ export const bubbles: Template = {
       id: "grid",
       type: "preset",
       description: "The number of items shown on the board",
-      defaultValue: "28",
+      defaultValue: "20",
       name: "Layout",
       presets: [
         {
