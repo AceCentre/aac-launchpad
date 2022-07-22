@@ -16,6 +16,7 @@ import { prependPdf } from "./prepend-pdf";
 import { jubilee } from "./jubilee";
 import { gridOptions } from "./grid-options";
 import { core } from "./core";
+import { bubbles } from "./bubbles";
 
 export {
   alphabetChart,
@@ -34,6 +35,7 @@ export {
   prependPdf,
   jubilee,
   gridOptions,
+  bubbles,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -54,6 +56,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   jubilee,
   gridOptions,
   core,
+  bubbles,
 ];
 
-export const WEB_TEMPLATES: Array<Template> = [core];
+export const WEB_TEMPLATES: Array<Template> = [core, bubbles];
