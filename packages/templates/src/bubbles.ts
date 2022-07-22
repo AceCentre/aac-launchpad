@@ -216,7 +216,7 @@ export const bubbles: Template = {
           variableValues: [
             {
               id: "title-text",
-              value: "X",
+              value: "Graphique à bulles",
             },
 
             {
