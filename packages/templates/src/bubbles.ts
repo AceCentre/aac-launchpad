@@ -11,7 +11,7 @@ export const bubbles: Template = {
       id: "background-colour",
       name: "Background Colour",
       description: "Change the background colour of the board.",
-      defaultValue: "rgb(185,255,185)",
+      defaultValue: "rgb(255,255,179)",
       type: "color",
     },
     {
