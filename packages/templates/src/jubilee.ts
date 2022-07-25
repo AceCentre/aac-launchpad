@@ -3,6 +3,8 @@ import { Template } from "types";
 
 export const jubilee: Template = {
   templateCategory: "Symbol Charts",
+  templateSubcategory: "Symbol Charts",
+
   templateFeatured: false,
 
   templateDateCreated: "2022-07-20T12:00:00+01:00",

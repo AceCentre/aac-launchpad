@@ -4,6 +4,7 @@ import { Template } from "types";
 export const bubbles: Template = {
   templateDateCreated: "2022-07-21T12:00:00+01:00",
   templateCategory: "Symbol Charts",
+  templateSubcategory: "Symbol charts for playing with toys",
   templateFeatured: false,
 
   templateVariables: [

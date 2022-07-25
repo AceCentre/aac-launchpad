@@ -2,6 +2,7 @@ import { Template } from "types";
 
 export const simpleChoice: Template = {
   templateCategory: "Symbol Charts",
+  templateSubcategory: "Symbol Charts",
   templateFeatured: false,
 
   templateId: "simple-choice",

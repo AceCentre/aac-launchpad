@@ -3,6 +3,7 @@ import { Template } from "types";
 export const alphabetChart: Template = {
   templateFeatured: false,
   templateCategory: "Symbol Charts",
+  templateSubcategory: "Symbol Charts",
   templateVariables: [
     {
       id: "backgroundColor",

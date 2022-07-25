@@ -4,6 +4,7 @@ import { Template } from "types";
 export const changeCasing: Template = {
   templateCategory: "Symbol Charts",
   templateFeatured: false,
+  templateSubcategory: "Symbol Charts",
 
   templateVariables: [
     {
