@@ -1082,7 +1082,7 @@ export const bubbles: Template = {
   ],
   templateDescription: "",
   templateName: "Bubbles",
-  templateId: "bubbles",
+  templateId: "bubbles-launchpad",
   templateImageUrl: "bubbles.png",
   templateVariableGroups: [
     {
@@ -1102,7 +1102,7 @@ export const bubbles: Template = {
   ],
 
   format: "open-board-0.1",
-  id: "bubbles",
+  id: "bubbles-launchpad",
   locale: "en-GB",
   name: "Bubbles",
   description_html: "",

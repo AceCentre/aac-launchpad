@@ -1538,7 +1538,7 @@ export const core: Template = {
     <p>You can incorporate the words into so many activities - e.g. for talking about watching "more" television or observing that someone is bored and wants to “stop”.  As the charts get more extensive, you will have access to words that enable you to describe what’s going on or how the child might be feeling, offer help, ask a question, and so on.</p>
     `,
   templateName: "Core",
-  templateId: "core",
+  templateId: "core-launchpad",
   templateImageUrl: "core.png",
   templateVariableGroups: [
     {
@@ -1558,7 +1558,7 @@ export const core: Template = {
   ],
 
   format: "open-board-0.1",
-  id: "core",
+  id: "core-launchpad",
   locale: "en-GB",
   name: "Core",
   description_html:
