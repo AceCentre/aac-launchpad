@@ -6,6 +6,8 @@ export const bubbles: Template = {
   templateCategory: "Symbol Charts",
   templateSubcategory: "Symbol charts for playing with toys",
   templateFeatured: false,
+  templateShortDescription:
+    "The bubbles board includes core words as well as words to support playing with bubbles. Customise the bubbles board to your needs, including the font and symbol set.",
 
   templateVariables: [
     {

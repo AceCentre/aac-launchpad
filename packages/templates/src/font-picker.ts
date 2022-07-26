@@ -6,6 +6,7 @@ export const fontPicker: Template = {
   templateCategory: "Symbol Charts",
   templateFeatured: false,
   templateSubcategory: "Symbol Charts",
+  templateShortDescription: "",
 
   templateVariables: [
     {

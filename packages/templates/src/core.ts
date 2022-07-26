@@ -6,6 +6,8 @@ export const core: Template = {
   templateCategory: "Symbol Charts",
   templateSubcategory: "Symbol charts with core vocabulary",
   templateFeatured: false,
+  templateShortDescription:
+    "Core words are a set of words that we use across huge numbers of different situations. Customise the core board to your needs, including the font and symbol set.",
 
   templateVariables: [
     {

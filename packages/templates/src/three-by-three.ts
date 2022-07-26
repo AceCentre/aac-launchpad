@@ -3,6 +3,7 @@ import { Template } from "types";
 export const threeByThree: Template = {
   templateCategory: "Symbol Charts",
   templateSubcategory: "Symbol Charts",
+  templateShortDescription: "",
 
   templateFeatured: false,
 

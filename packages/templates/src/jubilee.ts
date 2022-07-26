@@ -4,6 +4,7 @@ import { Template } from "types";
 export const jubilee: Template = {
   templateCategory: "Symbol Charts",
   templateSubcategory: "Symbol Charts",
+  templateShortDescription: "",
 
   templateFeatured: false,
 

@@ -125,6 +125,7 @@ export const typeDefs = gql`
     templateVariables: [TemplateVariableType]!
     templateVariableGroups: [TemplateVariableGroup]!
     templateId: String!
+    templateShortDescription: String!
     templateImageUrl: String!
   }
 

@@ -3,6 +3,7 @@ import { Template } from "types";
 export const prependPdf: Template = {
   templateCategory: "Symbol Charts",
   templateSubcategory: "Symbol Charts",
+  templateShortDescription: "",
 
   templateFeatured: false,
 

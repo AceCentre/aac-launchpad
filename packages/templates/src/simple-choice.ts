@@ -4,6 +4,7 @@ export const simpleChoice: Template = {
   templateCategory: "Symbol Charts",
   templateSubcategory: "Symbol Charts",
   templateFeatured: false,
+  templateShortDescription: "",
 
   templateId: "simple-choice",
   templateDateCreated: "2022-07-20T12:00:00+01:00",

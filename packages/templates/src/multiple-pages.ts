@@ -3,6 +3,7 @@ import { Template } from "types";
 export const multiplePages: Template = {
   templateCategory: "Symbol Charts",
   templateSubcategory: "Symbol Charts",
+  templateShortDescription: "",
 
   templateFeatured: false,
 

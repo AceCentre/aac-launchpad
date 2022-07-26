@@ -177,6 +177,7 @@ export type Template = {
   templateDescription: string;
   templateId: string;
   templateImageUrl: string;
+  templateShortDescription: string;
 
   format: string | TemplateItem;
   id: BoardID | TemplateItem;

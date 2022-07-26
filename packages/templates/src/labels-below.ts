@@ -4,6 +4,8 @@ export const labelsBelow: Template = {
   templateCategory: "Symbol Charts",
   templateSubcategory: "Symbol Charts",
 
+  templateShortDescription: "",
+
   templateFeatured: false,
 
   templateDateCreated: "2022-07-20T12:00:00+01:00",

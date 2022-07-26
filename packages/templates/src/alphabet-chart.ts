@@ -4,6 +4,8 @@ export const alphabetChart: Template = {
   templateFeatured: false,
   templateCategory: "Symbol Charts",
   templateSubcategory: "Symbol Charts",
+  templateShortDescription: "",
+
   templateVariables: [
     {
       id: "backgroundColor",

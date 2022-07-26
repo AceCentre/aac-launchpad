@@ -4,6 +4,7 @@ export const presetExample: Template = {
   templateCategory: "Symbol Charts",
   templateSubcategory: "Symbol Charts",
   templateFeatured: false,
+  templateShortDescription: "",
 
   templateDateCreated: "2022-07-20T12:00:00+01:00",
   templateVariables: [
