@@ -16,6 +16,7 @@ export type Button = {
   background_color: Color;
   ext_launchpad_label_color?: Color;
   ext_launchpad_label_font_size?: number;
+  ext_button_border_width?: number;
   ext_launchpad_label_font_style?: string;
   ext_launchpad_label_font?: string;
   ext_launchpad_label_casing?: Casing;
@@ -40,6 +41,7 @@ type ButtonWithTemplateItems = {
   ext_launchpad_label_font?: string | TemplateItem;
   ext_launchpad_label_casing?: Casing | TemplateItem;
   ext_launchpad_label_below?: boolean | TemplateItem;
+  ext_button_border_width?: number | TemplateItem;
   image_id?: string;
 };
 

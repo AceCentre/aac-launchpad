@@ -255,6 +255,10 @@ const getButtons = (
         current.ext_launchpad_label_font_size,
         results
       ),
+      ext_button_border_width: getOptionalNumberFromTemplateItem(
+        current.ext_button_border_width,
+        results
+      ),
       ext_launchpad_label_casing: castToCasing(
         getOptionalStringFromTemplateItem(
           current.ext_launchpad_label_casing,

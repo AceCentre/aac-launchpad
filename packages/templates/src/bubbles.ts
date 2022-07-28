@@ -1223,6 +1223,7 @@ export const bubbles: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+      ext_button_border_width: 2,
     },
     {
       id: "help",
@@ -1232,6 +1233,7 @@ export const bubbles: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+      ext_button_border_width: 2,
     },
     {
       id: "want",
@@ -1241,6 +1243,7 @@ export const bubbles: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+      ext_button_border_width: 2,
     },
 
     {
@@ -1251,6 +1254,7 @@ export const bubbles: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+      ext_button_border_width: 2,
     },
 
     {
@@ -1261,6 +1265,7 @@ export const bubbles: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+      ext_button_border_width: 2,
     },
     {
       id: "stop",
@@ -1270,6 +1275,7 @@ export const bubbles: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+      ext_button_border_width: 2,
     },
     {
       id: "different",
@@ -1279,6 +1285,7 @@ export const bubbles: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+      ext_button_border_width: 2,
     },
     {
       id: "look",
@@ -1288,6 +1295,7 @@ export const bubbles: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+      ext_button_border_width: 2,
     },
 
     {
@@ -1298,6 +1306,7 @@ export const bubbles: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+      ext_button_border_width: 2,
     },
 
     {
@@ -1308,6 +1317,7 @@ export const bubbles: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+      ext_button_border_width: 2,
     },
     {
       id: "me",
@@ -1317,6 +1327,7 @@ export const bubbles: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+      ext_button_border_width: 2,
     },
     {
       id: "you",
@@ -1326,6 +1337,7 @@ export const bubbles: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+      ext_button_border_width: 2,
     },
     {
       id: "go",
@@ -1335,6 +1347,7 @@ export const bubbles: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+      ext_button_border_width: 2,
     },
 
     {
@@ -1345,6 +1358,7 @@ export const bubbles: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+      ext_button_border_width: 2,
     },
 
     {
@@ -1355,6 +1369,7 @@ export const bubbles: Template = {
       border_color: "rgb(0, 0, 0)",
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+      ext_button_border_width: 2,
     },
     {
       id: "bubbles",

@@ -214,7 +214,7 @@ const boardToPdf = async (
   const padding = options.padding ?? DEFAULT_PADDING;
   const gap = options.gap ?? DEFAULT_GAP;
   const buttonRadius = options.button_radius ?? DEFAULT_BUTTON_RADIUS;
-  const buttonBorderWidth =
+  const documentButtonBorderWidth =
     options.button_border_width ?? DEFAULT_BUTTON_BORDER_WIDTH;
 
   const labelAboveSymbol = options.invert_symbol_and_label ?? false;
@@ -403,6 +403,8 @@ const boardToPdf = async (
           currentButton.ext_launchpad_label_casing ?? DEFAULT_LABEL_CASING;
         const labelBelow =
           currentButton.ext_launchpad_label_below ?? DEFAULT_LABEL_BELOW;
+        const buttonBorderWidth =
+          currentButton.ext_button_border_width ?? documentButtonBorderWidth;
 
         const labelText = alterCasing(currentButton.label, labelCasing);
 
