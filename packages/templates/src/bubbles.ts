@@ -7,13 +7,13 @@ export const bubbles: Template = {
   templateSubcategory: "Symbol charts for playing with toys",
   templateFeatured: false,
   templateShortDescription:
-    "The bubbles board includes core words as well as words to support playing with bubbles. Customise the bubbles board to your needs, including the font and symbol set.",
+    "The bubbles chart includes core words as well as words to support playing with bubbles. Customise the bubbles chart to your needs, including the font and symbol set.",
 
   templateVariables: [
     {
       id: "background-colour",
       name: "Background Colour",
-      description: "Change the background colour of the board.",
+      description: "Change the background colour of the chart.",
       defaultValue: "rgb(255,255,179)",
       type: "color",
     },
@@ -104,7 +104,7 @@ export const bubbles: Template = {
       type: "preset",
       name: "Language",
       defaultValue: "english",
-      description: "The language on the board",
+      description: "The language on the chart",
       presets: [
         {
           label: "English",
@@ -650,7 +650,7 @@ export const bubbles: Template = {
     {
       id: "grid",
       type: "preset",
-      description: "The number of items shown on the board",
+      description: "The number of items shown on the chart",
       defaultValue: "20",
       name: "Layout",
       presets: [
@@ -1358,7 +1358,7 @@ export const bubbles: Template = {
         "invert-text",
       ],
       name: "Advanced options",
-      description: "Edit advanced options about the board",
+      description: "Edit advanced options about the chart",
       openByDefault: false,
     },
   ],

@@ -7,13 +7,13 @@ export const core: Template = {
   templateSubcategory: "Symbol charts with core vocabulary",
   templateFeatured: false,
   templateShortDescription:
-    "Core words are a set of words that we use across huge numbers of different situations. Customise the core board to your needs, including the font and symbol set.",
+    "Core words are a set of words that we use across huge numbers of different situations. Customise the core chart to your needs, including the font and symbol set.",
 
   templateVariables: [
     {
       id: "background-colour",
       name: "Background Colour",
-      description: "Change the background colour of the board.",
+      description: "Change the background colour of the chart.",
       defaultValue: "rgb(185,255,185)",
       type: "color",
     },
@@ -104,7 +104,7 @@ export const core: Template = {
       type: "preset",
       name: "Language",
       defaultValue: "english",
-      description: "The language on the board",
+      description: "The language on the chart",
       presets: [
         {
           label: "English",
@@ -899,7 +899,7 @@ export const core: Template = {
     {
       id: "grid",
       type: "preset",
-      description: "The number of items shown on the board",
+      description: "The number of items shown on the chart",
       defaultValue: "28",
       name: "Layout",
       presets: [
@@ -1554,7 +1554,7 @@ export const core: Template = {
         "invert-text",
       ],
       name: "Advanced options",
-      description: "Edit advanced options about the board",
+      description: "Edit advanced options about the chart",
       openByDefault: false,
     },
   ],
