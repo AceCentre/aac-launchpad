@@ -13,7 +13,8 @@ export const bubbles: Template = {
     {
       id: "background-colour",
       name: "Background Colour",
-      description: "Change the background colour of the chart.",
+      description:
+        "Change the background colour of the chart. Select white to save printer ink.",
       defaultValue: "rgb(255,255,179)",
       type: "color",
     },
