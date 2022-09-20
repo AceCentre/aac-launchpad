@@ -20,7 +20,7 @@ export const bubbles: Template = {
     {
       id: "cell-colour",
       name: "Cell colour",
-      description: "Change the colour of each cell.",
+      description: "Change the colour of all the cells.",
       defaultValue: "rgb(255,255,255)",
       type: "color",
     },
