@@ -30,10 +30,13 @@ export const initialise = () => {
 4. Then once you have created the 4 font TS files you import them into `font.ts` and call the import function.
 5. Add an extra entry to the `FONT_OPTIONS` list in `font.ts` so that users can select the new font
 6. Add an attribution to the font in the main [README.md](../../../../README.md)
+7. Add font license in the `fonts` directory
 
 ## Licensing
 
 When suggesting a new font make sure its available under an Open License. If the font you want is not available under an Open License, check out Google Fonts for an alternative as they often have Open Source 'reinterpretations' of popular fonts. For example, we don't use Comic Sans, instead we use Comic Neue from Google Fonts.
+
+You can see the license for each font in this folder named `<FONT NAME>-LICENSE`
 
 ## Pitfalls
 
