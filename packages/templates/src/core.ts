@@ -100,327 +100,327 @@ export const core: Template = {
       name: "orders",
       hidden: true,
     },
-    {
-      id: "language",
-      type: "preset",
-      name: "Language",
-      defaultValue: "english",
-      description: "The language on the chart",
-      presets: [
-        {
-          label: "English",
-          value: "english",
-          description: "English",
-          variableValues: [
-            {
-              id: "title-text",
-              value: "Core Vocabulary / Commenting Chart",
-            },
+    // {
+    //   id: "language",
+    //   type: "preset",
+    //   name: "Language",
+    //   defaultValue: "english",
+    //   description: "The language on the chart",
+    //   presets: [
+    //     {
+    //       label: "English",
+    //       value: "english",
+    //       description: "English",
+    //       variableValues: [
+    //         {
+    //           id: "title-text",
+    //           value: "Core Vocabulary / Commenting Chart",
+    //         },
 
-            {
-              id: "dont-like-label",
-              value: "don't like",
-            },
+    //         {
+    //           id: "dont-like-label",
+    //           value: "don't like",
+    //         },
 
-            {
-              id: "more-label",
-              value: "more, again",
-            },
+    //         {
+    //           id: "more-label",
+    //           value: "more, again",
+    //         },
 
-            {
-              id: "help-label",
-              value: "help",
-            },
+    //         {
+    //           id: "help-label",
+    //           value: "help",
+    //         },
 
-            {
-              id: "want-label",
-              value: "want",
-            },
+    //         {
+    //           id: "want-label",
+    //           value: "want",
+    //         },
 
-            {
-              id: "have-label",
-              value: "have",
-            },
+    //         {
+    //           id: "have-label",
+    //           value: "have",
+    //         },
 
-            {
-              id: "like-label",
-              value: "like",
-            },
+    //         {
+    //           id: "like-label",
+    //           value: "like",
+    //         },
 
-            {
-              id: "good-label",
-              value: "good",
-            },
+    //         {
+    //           id: "good-label",
+    //           value: "good",
+    //         },
 
-            {
-              id: "no-label",
-              value: "no, not",
-            },
+    //         {
+    //           id: "no-label",
+    //           value: "no, not",
+    //         },
 
-            {
-              id: "stop-label",
-              value: "stop, finished",
-            },
+    //         {
+    //           id: "stop-label",
+    //           value: "stop, finished",
+    //         },
 
-            {
-              id: "different-label",
-              value: "different",
-            },
+    //         {
+    //           id: "different-label",
+    //           value: "different",
+    //         },
 
-            {
-              id: "look-label",
-              value: "look",
-            },
+    //         {
+    //           id: "look-label",
+    //           value: "look",
+    //         },
 
-            {
-              id: "make-label",
-              value: "make",
-            },
+    //         {
+    //           id: "make-label",
+    //           value: "make",
+    //         },
 
-            {
-              id: "wow-label",
-              value: "wow",
-            },
+    //         {
+    //           id: "wow-label",
+    //           value: "wow",
+    //         },
 
-            {
-              id: "bad-label",
-              value: "bad, yucky",
-            },
+    //         {
+    //           id: "bad-label",
+    //           value: "bad, yucky",
+    //         },
 
-            {
-              id: "this-label",
-              value: "this, that, there",
-            },
+    //         {
+    //           id: "this-label",
+    //           value: "this, that, there",
+    //         },
 
-            {
-              id: "me-label",
-              value: "I, me, my, mine",
-            },
+    //         {
+    //           id: "me-label",
+    //           value: "I, me, my, mine",
+    //         },
 
-            {
-              id: "you-label",
-              value: "you, your(s)",
-            },
+    //         {
+    //           id: "you-label",
+    //           value: "you, your(s)",
+    //         },
 
-            {
-              id: "go-label",
-              value: "go",
-            },
+    //         {
+    //           id: "go-label",
+    //           value: "go",
+    //         },
 
-            {
-              id: "play-label",
-              value: "play",
-            },
+    //         {
+    //           id: "play-label",
+    //           value: "play",
+    //         },
 
-            {
-              id: "uh-oh-label",
-              value: "uh oh",
-            },
+    //         {
+    //           id: "uh-oh-label",
+    //           value: "uh oh",
+    //         },
 
-            {
-              id: "big-label",
-              value: "big",
-            },
+    //         {
+    //           id: "big-label",
+    //           value: "big",
+    //         },
 
-            {
-              id: "can-label",
-              value: "Can I...",
-            },
+    //         {
+    //           id: "can-label",
+    //           value: "Can I...",
+    //         },
 
-            {
-              id: "he-label",
-              value: "he, his",
-            },
+    //         {
+    //           id: "he-label",
+    //           value: "he, his",
+    //         },
 
-            {
-              id: "she-label",
-              value: "she, her(s)",
-            },
+    //         {
+    //           id: "she-label",
+    //           value: "she, her(s)",
+    //         },
 
-            {
-              id: "we-label",
-              value: "we, our, us",
-            },
+    //         {
+    //           id: "we-label",
+    //           value: "we, our, us",
+    //         },
 
-            {
-              id: "they-label",
-              value: "they, their, them",
-            },
+    //         {
+    //           id: "they-label",
+    //           value: "they, their, them",
+    //         },
 
-            {
-              id: "turn-label",
-              value: "turn",
-            },
+    //         {
+    //           id: "turn-label",
+    //           value: "turn",
+    //         },
 
-            {
-              id: "little-label",
-              value: "little",
-            },
+    //         {
+    //           id: "little-label",
+    //           value: "little",
+    //         },
 
-            {
-              id: "question-label",
-              value: "question",
-            },
-          ],
-        },
-        {
-          label: "French",
-          value: "french",
-          description: "French",
-          variableValues: [
-            {
-              id: "title-text",
-              value: "Vocabulaire de base / Tableau de commentaires",
-            },
+    //         {
+    //           id: "question-label",
+    //           value: "question",
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       label: "French",
+    //       value: "french",
+    //       description: "French",
+    //       variableValues: [
+    //         {
+    //           id: "title-text",
+    //           value: "Vocabulaire de base / Tableau de commentaires",
+    //         },
 
-            {
-              id: "dont-like-label",
-              value: "n'aime pas",
-            },
+    //         {
+    //           id: "dont-like-label",
+    //           value: "n'aime pas",
+    //         },
 
-            {
-              id: "more-label",
-              value: "plus encore",
-            },
+    //         {
+    //           id: "more-label",
+    //           value: "plus encore",
+    //         },
 
-            {
-              id: "help-label",
-              value: "aider",
-            },
+    //         {
+    //           id: "help-label",
+    //           value: "aider",
+    //         },
 
-            {
-              id: "want-label",
-              value: "vouloir",
-            },
+    //         {
+    //           id: "want-label",
+    //           value: "vouloir",
+    //         },
 
-            {
-              id: "have-label",
-              value: "ont",
-            },
+    //         {
+    //           id: "have-label",
+    //           value: "ont",
+    //         },
 
-            {
-              id: "like-label",
-              value: "aimer",
-            },
+    //         {
+    //           id: "like-label",
+    //           value: "aimer",
+    //         },
 
-            {
-              id: "good-label",
-              value: "bien",
-            },
+    //         {
+    //           id: "good-label",
+    //           value: "bien",
+    //         },
 
-            {
-              id: "no-label",
-              value: "non, pas",
-            },
+    //         {
+    //           id: "no-label",
+    //           value: "non, pas",
+    //         },
 
-            {
-              id: "stop-label",
-              value: "arrête, fini",
-            },
+    //         {
+    //           id: "stop-label",
+    //           value: "arrête, fini",
+    //         },
 
-            {
-              id: "different-label",
-              value: "différent",
-            },
+    //         {
+    //           id: "different-label",
+    //           value: "différent",
+    //         },
 
-            {
-              id: "look-label",
-              value: "voir",
-            },
+    //         {
+    //           id: "look-label",
+    //           value: "voir",
+    //         },
 
-            {
-              id: "make-label",
-              value: "Fabriquer",
-            },
+    //         {
+    //           id: "make-label",
+    //           value: "Fabriquer",
+    //         },
 
-            {
-              id: "wow-label",
-              value: "wow",
-            },
+    //         {
+    //           id: "wow-label",
+    //           value: "wow",
+    //         },
 
-            {
-              id: "bad-label",
-              value: "mauvais, dégueulasse",
-            },
+    //         {
+    //           id: "bad-label",
+    //           value: "mauvais, dégueulasse",
+    //         },
 
-            {
-              id: "this-label",
-              value: "ceci, cela, là",
-            },
+    //         {
+    //           id: "this-label",
+    //           value: "ceci, cela, là",
+    //         },
 
-            {
-              id: "me-label",
-              value: "Je, moi, mon, mien",
-            },
+    //         {
+    //           id: "me-label",
+    //           value: "Je, moi, mon, mien",
+    //         },
 
-            {
-              id: "you-label",
-              value: "toi, le tien",
-            },
+    //         {
+    //           id: "you-label",
+    //           value: "toi, le tien",
+    //         },
 
-            {
-              id: "go-label",
-              value: "aller",
-            },
+    //         {
+    //           id: "go-label",
+    //           value: "aller",
+    //         },
 
-            {
-              id: "play-label",
-              value: "jouer",
-            },
+    //         {
+    //           id: "play-label",
+    //           value: "jouer",
+    //         },
 
-            {
-              id: "uh-oh-label",
-              value: "euh oh",
-            },
+    //         {
+    //           id: "uh-oh-label",
+    //           value: "euh oh",
+    //         },
 
-            {
-              id: "big-label",
-              value: "gros",
-            },
+    //         {
+    //           id: "big-label",
+    //           value: "gros",
+    //         },
 
-            {
-              id: "can-label",
-              value: "est-ce-que je peux...",
-            },
+    //         {
+    //           id: "can-label",
+    //           value: "est-ce-que je peux...",
+    //         },
 
-            {
-              id: "he-label",
-              value: "lui, son",
-            },
+    //         {
+    //           id: "he-label",
+    //           value: "lui, son",
+    //         },
 
-            {
-              id: "she-label",
-              value: "elle, le sien",
-            },
+    //         {
+    //           id: "she-label",
+    //           value: "elle, le sien",
+    //         },
 
-            {
-              id: "we-label",
-              value: "nous, notre, nous",
-            },
+    //         {
+    //           id: "we-label",
+    //           value: "nous, notre, nous",
+    //         },
 
-            {
-              id: "they-label",
-              value: "ils, leur, eux",
-            },
+    //         {
+    //           id: "they-label",
+    //           value: "ils, leur, eux",
+    //         },
 
-            {
-              id: "turn-label",
-              value: "tour",
-            },
+    //         {
+    //           id: "turn-label",
+    //           value: "tour",
+    //         },
 
-            {
-              id: "little-label",
-              value: "peu",
-            },
+    //         {
+    //           id: "little-label",
+    //           value: "peu",
+    //         },
 
-            {
-              id: "question-label",
-              value: "question",
-            },
-          ],
-        },
-      ],
-    },
+    //         {
+    //           id: "question-label",
+    //           value: "question",
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
     {
       id: "symbol-system",
       type: "preset",

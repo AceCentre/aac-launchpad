@@ -100,228 +100,229 @@ export const bubbles: Template = {
       name: "orders",
       hidden: true,
     },
-    {
-      id: "language",
-      type: "preset",
-      name: "Language",
-      defaultValue: "english",
-      description: "The language on the chart",
-      presets: [
-        {
-          label: "English",
-          value: "english",
-          description: "English",
-          variableValues: [
-            {
-              id: "title-text",
-              value: "Bubbles Chart",
-            },
-            {
-              id: "more-label",
-              value: "more, again",
-            },
+    // {
+    //   id: "language",
+    //   type: "preset",
+    //   name: "Language",
+    //   defaultValue: "english",
+    //   hidden: true,
+    //   description: "The language on the chart",
+    //   presets: [
+    //     {
+    //       label: "English",
+    //       value: "english",
+    //       description: "English",
+    //       variableValues: [
+    //         {
+    //           id: "title-text",
+    //           value: "Bubbles Chart",
+    //         },
+    //         {
+    //           id: "more-label",
+    //           value: "more, again",
+    //         },
 
-            {
-              id: "help-label",
-              value: "help",
-            },
+    //         {
+    //           id: "help-label",
+    //           value: "help",
+    //         },
 
-            {
-              id: "want-label",
-              value: "want",
-            },
+    //         {
+    //           id: "want-label",
+    //           value: "want",
+    //         },
 
-            {
-              id: "like-label",
-              value: "like",
-            },
+    //         {
+    //           id: "like-label",
+    //           value: "like",
+    //         },
 
-            {
-              id: "no-label",
-              value: "no, not",
-            },
+    //         {
+    //           id: "no-label",
+    //           value: "no, not",
+    //         },
 
-            {
-              id: "stop-label",
-              value: "stop, finished",
-            },
+    //         {
+    //           id: "stop-label",
+    //           value: "stop, finished",
+    //         },
 
-            {
-              id: "different-label",
-              value: "different",
-            },
+    //         {
+    //           id: "different-label",
+    //           value: "different",
+    //         },
 
-            {
-              id: "look-label",
-              value: "look",
-            },
+    //         {
+    //           id: "look-label",
+    //           value: "look",
+    //         },
 
-            {
-              id: "wow-label",
-              value: "wow",
-            },
+    //         {
+    //           id: "wow-label",
+    //           value: "wow",
+    //         },
 
-            {
-              id: "this-label",
-              value: "this, that, there",
-            },
+    //         {
+    //           id: "this-label",
+    //           value: "this, that, there",
+    //         },
 
-            {
-              id: "me-label",
-              value: "I, me, my, mine",
-            },
+    //         {
+    //           id: "me-label",
+    //           value: "I, me, my, mine",
+    //         },
 
-            {
-              id: "you-label",
-              value: "you, your(s)",
-            },
+    //         {
+    //           id: "you-label",
+    //           value: "you, your(s)",
+    //         },
 
-            {
-              id: "go-label",
-              value: "go",
-            },
+    //         {
+    //           id: "go-label",
+    //           value: "go",
+    //         },
 
-            {
-              id: "uh-oh-label",
-              value: "uh oh",
-            },
+    //         {
+    //           id: "uh-oh-label",
+    //           value: "uh oh",
+    //         },
 
-            {
-              id: "question-label",
-              value: "question",
-            },
+    //         {
+    //           id: "question-label",
+    //           value: "question",
+    //         },
 
-            {
-              id: "bubbles-label",
-              value: "bubbles",
-            },
-            {
-              id: "blow-label",
-              value: "blow",
-            },
-            {
-              id: "catch-label",
-              value: "catch",
-            },
-            {
-              id: "pop-label",
-              value: "pop",
-            },
-            {
-              id: "lots-label",
-              value: "lots",
-            },
-          ],
-        },
-        {
-          label: "French",
-          value: "french",
-          description: "French",
-          variableValues: [
-            {
-              id: "title-text",
-              value: "Graphique à bulles",
-            },
+    //         {
+    //           id: "bubbles-label",
+    //           value: "bubbles",
+    //         },
+    //         {
+    //           id: "blow-label",
+    //           value: "blow",
+    //         },
+    //         {
+    //           id: "catch-label",
+    //           value: "catch",
+    //         },
+    //         {
+    //           id: "pop-label",
+    //           value: "pop",
+    //         },
+    //         {
+    //           id: "lots-label",
+    //           value: "lots",
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       label: "French",
+    //       value: "french",
+    //       description: "French",
+    //       variableValues: [
+    //         {
+    //           id: "title-text",
+    //           value: "Graphique à bulles",
+    //         },
 
-            {
-              id: "more-label",
-              value: "plus encore",
-            },
+    //         {
+    //           id: "more-label",
+    //           value: "plus encore",
+    //         },
 
-            {
-              id: "help-label",
-              value: "aider",
-            },
+    //         {
+    //           id: "help-label",
+    //           value: "aider",
+    //         },
 
-            {
-              id: "want-label",
-              value: "vouloir",
-            },
+    //         {
+    //           id: "want-label",
+    //           value: "vouloir",
+    //         },
 
-            {
-              id: "like-label",
-              value: "aimer",
-            },
+    //         {
+    //           id: "like-label",
+    //           value: "aimer",
+    //         },
 
-            {
-              id: "no-label",
-              value: "non, pas",
-            },
+    //         {
+    //           id: "no-label",
+    //           value: "non, pas",
+    //         },
 
-            {
-              id: "stop-label",
-              value: "arrête, fini",
-            },
+    //         {
+    //           id: "stop-label",
+    //           value: "arrête, fini",
+    //         },
 
-            {
-              id: "different-label",
-              value: "différent",
-            },
+    //         {
+    //           id: "different-label",
+    //           value: "différent",
+    //         },
 
-            {
-              id: "look-label",
-              value: "voir",
-            },
+    //         {
+    //           id: "look-label",
+    //           value: "voir",
+    //         },
 
-            {
-              id: "wow-label",
-              value: "wow",
-            },
+    //         {
+    //           id: "wow-label",
+    //           value: "wow",
+    //         },
 
-            {
-              id: "this-label",
-              value: "ceci, cela, là",
-            },
+    //         {
+    //           id: "this-label",
+    //           value: "ceci, cela, là",
+    //         },
 
-            {
-              id: "me-label",
-              value: "Je, moi, mon, mien",
-            },
+    //         {
+    //           id: "me-label",
+    //           value: "Je, moi, mon, mien",
+    //         },
 
-            {
-              id: "you-label",
-              value: "toi, le tien",
-            },
+    //         {
+    //           id: "you-label",
+    //           value: "toi, le tien",
+    //         },
 
-            {
-              id: "go-label",
-              value: "aller",
-            },
+    //         {
+    //           id: "go-label",
+    //           value: "aller",
+    //         },
 
-            {
-              id: "uh-oh-label",
-              value: "euh oh",
-            },
+    //         {
+    //           id: "uh-oh-label",
+    //           value: "euh oh",
+    //         },
 
-            {
-              id: "question-label",
-              value: "question",
-            },
+    //         {
+    //           id: "question-label",
+    //           value: "question",
+    //         },
 
-            {
-              id: "bubbles-label",
-              value: "bulles",
-            },
-            {
-              id: "blow-label",
-              value: "souffler",
-            },
-            {
-              id: "catch-label",
-              value: "attraper",
-            },
-            {
-              id: "pop-label",
-              value: "pop",
-            },
-            {
-              id: "lots-label",
-              value: "lots",
-            },
-          ],
-        },
-      ],
-    },
+    //         {
+    //           id: "bubbles-label",
+    //           value: "bulles",
+    //         },
+    //         {
+    //           id: "blow-label",
+    //           value: "souffler",
+    //         },
+    //         {
+    //           id: "catch-label",
+    //           value: "attraper",
+    //         },
+    //         {
+    //           id: "pop-label",
+    //           value: "pop",
+    //         },
+    //         {
+    //           id: "lots-label",
+    //           value: "lots",
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
     {
       id: "symbol-system",
       type: "preset",
