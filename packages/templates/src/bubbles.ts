@@ -434,111 +434,111 @@ export const bubbles: Template = {
             },
           ],
         },
-        {
-          label: "SymbolStix",
-          value: "ss",
-          description: "SymbolStix Symbols",
-          variableValues: [
-            {
-              id: "copyright-notice",
-              value: "(c) SymbolStix 2022 LLC",
-            },
+        // {
+        //   label: "SymbolStix",
+        //   value: "ss",
+        //   description: "SymbolStix Symbols",
+        //   variableValues: [
+        //     {
+        //       id: "copyright-notice",
+        //       value: "(c) SymbolStix 2022 LLC",
+        //     },
 
-            {
-              id: "more",
-              value: "./symbols/ss/more.png",
-            },
+        //     {
+        //       id: "more",
+        //       value: "./symbols/ss/more.png",
+        //     },
 
-            {
-              id: "help",
-              value: "./symbols/ss/help.png",
-            },
+        //     {
+        //       id: "help",
+        //       value: "./symbols/ss/help.png",
+        //     },
 
-            {
-              id: "want",
-              value: "./symbols/ss/want.png",
-            },
+        //     {
+        //       id: "want",
+        //       value: "./symbols/ss/want.png",
+        //     },
 
-            {
-              id: "like",
-              value: "./symbols/ss/like.png",
-            },
+        //     {
+        //       id: "like",
+        //       value: "./symbols/ss/like.png",
+        //     },
 
-            {
-              id: "no",
-              value: "./symbols/ss/no.png",
-            },
+        //     {
+        //       id: "no",
+        //       value: "./symbols/ss/no.png",
+        //     },
 
-            {
-              id: "stop",
-              value: "./symbols/ss/stop.png",
-            },
+        //     {
+        //       id: "stop",
+        //       value: "./symbols/ss/stop.png",
+        //     },
 
-            {
-              id: "different",
-              value: "./symbols/ss/different.png",
-            },
+        //     {
+        //       id: "different",
+        //       value: "./symbols/ss/different.png",
+        //     },
 
-            {
-              id: "look",
-              value: "./symbols/ss/look.png",
-            },
+        //     {
+        //       id: "look",
+        //       value: "./symbols/ss/look.png",
+        //     },
 
-            {
-              id: "wow",
-              value: "./symbols/ss/wow.png",
-            },
+        //     {
+        //       id: "wow",
+        //       value: "./symbols/ss/wow.png",
+        //     },
 
-            {
-              id: "this",
-              value: "./symbols/ss/this.png",
-            },
+        //     {
+        //       id: "this",
+        //       value: "./symbols/ss/this.png",
+        //     },
 
-            {
-              id: "me",
-              value: "./symbols/ss/me.png",
-            },
+        //     {
+        //       id: "me",
+        //       value: "./symbols/ss/me.png",
+        //     },
 
-            {
-              id: "you",
-              value: "./symbols/ss/you.png",
-            },
+        //     {
+        //       id: "you",
+        //       value: "./symbols/ss/you.png",
+        //     },
 
-            {
-              id: "go",
-              value: "./symbols/ss/go.png",
-            },
+        //     {
+        //       id: "go",
+        //       value: "./symbols/ss/go.png",
+        //     },
 
-            {
-              id: "uh-oh",
-              value: "./symbols/ss/uh-oh.png",
-            },
-            {
-              id: "question",
-              value: "./symbols/ss/question.png",
-            },
-            {
-              id: "bubbles",
-              value: "./symbols/ss/bubbles.png",
-            },
-            {
-              id: "blow",
-              value: "./symbols/ss/blow.png",
-            },
-            {
-              id: "catch",
-              value: "./symbols/ss/catch.png",
-            },
-            {
-              id: "pop",
-              value: "./symbols/ss/pop.png",
-            },
-            {
-              id: "lots",
-              value: "./symbols/ss/lots.png",
-            },
-          ],
-        },
+        //     {
+        //       id: "uh-oh",
+        //       value: "./symbols/ss/uh-oh.png",
+        //     },
+        //     {
+        //       id: "question",
+        //       value: "./symbols/ss/question.png",
+        //     },
+        //     {
+        //       id: "bubbles",
+        //       value: "./symbols/ss/bubbles.png",
+        //     },
+        //     {
+        //       id: "blow",
+        //       value: "./symbols/ss/blow.png",
+        //     },
+        //     {
+        //       id: "catch",
+        //       value: "./symbols/ss/catch.png",
+        //     },
+        //     {
+        //       id: "pop",
+        //       value: "./symbols/ss/pop.png",
+        //     },
+        //     {
+        //       id: "lots",
+        //       value: "./symbols/ss/lots.png",
+        //     },
+        //   ],
+        // },
         {
           label: "Widgit",
           value: "widgit",

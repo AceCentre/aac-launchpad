@@ -584,161 +584,161 @@ export const core: Template = {
             },
           ],
         },
-        {
-          label: "SymbolStix",
-          value: "ss",
-          description: "SymbolStix Symbols",
-          variableValues: [
-            {
-              id: "copyright-notice",
-              value: "(c) SymbolStix 2022 LLC",
-            },
-            {
-              id: "dont-like",
-              value: "./symbols/ss/dont-like.png",
-            },
+        // {
+        //   label: "SymbolStix",
+        //   value: "ss",
+        //   description: "SymbolStix Symbols",
+        //   variableValues: [
+        //     {
+        //       id: "copyright-notice",
+        //       value: "(c) SymbolStix 2022 LLC",
+        //     },
+        //     {
+        //       id: "dont-like",
+        //       value: "./symbols/ss/dont-like.png",
+        //     },
 
-            {
-              id: "more",
-              value: "./symbols/ss/more.png",
-            },
+        //     {
+        //       id: "more",
+        //       value: "./symbols/ss/more.png",
+        //     },
 
-            {
-              id: "help",
-              value: "./symbols/ss/help.png",
-            },
+        //     {
+        //       id: "help",
+        //       value: "./symbols/ss/help.png",
+        //     },
 
-            {
-              id: "want",
-              value: "./symbols/ss/want.png",
-            },
+        //     {
+        //       id: "want",
+        //       value: "./symbols/ss/want.png",
+        //     },
 
-            {
-              id: "have",
-              value: "./symbols/ss/have.png",
-            },
+        //     {
+        //       id: "have",
+        //       value: "./symbols/ss/have.png",
+        //     },
 
-            {
-              id: "like",
-              value: "./symbols/ss/like.png",
-            },
+        //     {
+        //       id: "like",
+        //       value: "./symbols/ss/like.png",
+        //     },
 
-            {
-              id: "good",
-              value: "./symbols/ss/good.png",
-            },
+        //     {
+        //       id: "good",
+        //       value: "./symbols/ss/good.png",
+        //     },
 
-            {
-              id: "no",
-              value: "./symbols/ss/no.png",
-            },
+        //     {
+        //       id: "no",
+        //       value: "./symbols/ss/no.png",
+        //     },
 
-            {
-              id: "stop",
-              value: "./symbols/ss/stop.png",
-            },
+        //     {
+        //       id: "stop",
+        //       value: "./symbols/ss/stop.png",
+        //     },
 
-            {
-              id: "different",
-              value: "./symbols/ss/different.png",
-            },
+        //     {
+        //       id: "different",
+        //       value: "./symbols/ss/different.png",
+        //     },
 
-            {
-              id: "look",
-              value: "./symbols/ss/look.png",
-            },
+        //     {
+        //       id: "look",
+        //       value: "./symbols/ss/look.png",
+        //     },
 
-            {
-              id: "make",
-              value: "./symbols/ss/make.png",
-            },
+        //     {
+        //       id: "make",
+        //       value: "./symbols/ss/make.png",
+        //     },
 
-            {
-              id: "wow",
-              value: "./symbols/ss/wow.png",
-            },
+        //     {
+        //       id: "wow",
+        //       value: "./symbols/ss/wow.png",
+        //     },
 
-            {
-              id: "bad",
-              value: "./symbols/ss/bad.png",
-            },
+        //     {
+        //       id: "bad",
+        //       value: "./symbols/ss/bad.png",
+        //     },
 
-            {
-              id: "this",
-              value: "./symbols/ss/this.png",
-            },
+        //     {
+        //       id: "this",
+        //       value: "./symbols/ss/this.png",
+        //     },
 
-            {
-              id: "me",
-              value: "./symbols/ss/me.png",
-            },
+        //     {
+        //       id: "me",
+        //       value: "./symbols/ss/me.png",
+        //     },
 
-            {
-              id: "you",
-              value: "./symbols/ss/you.png",
-            },
+        //     {
+        //       id: "you",
+        //       value: "./symbols/ss/you.png",
+        //     },
 
-            {
-              id: "go",
-              value: "./symbols/ss/go.png",
-            },
+        //     {
+        //       id: "go",
+        //       value: "./symbols/ss/go.png",
+        //     },
 
-            {
-              id: "play",
-              value: "./symbols/ss/play.png",
-            },
+        //     {
+        //       id: "play",
+        //       value: "./symbols/ss/play.png",
+        //     },
 
-            {
-              id: "uh-oh",
-              value: "./symbols/ss/uh-oh.png",
-            },
+        //     {
+        //       id: "uh-oh",
+        //       value: "./symbols/ss/uh-oh.png",
+        //     },
 
-            {
-              id: "big",
-              value: "./symbols/ss/big.png",
-            },
+        //     {
+        //       id: "big",
+        //       value: "./symbols/ss/big.png",
+        //     },
 
-            {
-              id: "can",
-              value: "./symbols/ss/can.png",
-            },
+        //     {
+        //       id: "can",
+        //       value: "./symbols/ss/can.png",
+        //     },
 
-            {
-              id: "he",
-              value: "./symbols/ss/he.png",
-            },
+        //     {
+        //       id: "he",
+        //       value: "./symbols/ss/he.png",
+        //     },
 
-            {
-              id: "she",
-              value: "./symbols/ss/she.png",
-            },
+        //     {
+        //       id: "she",
+        //       value: "./symbols/ss/she.png",
+        //     },
 
-            {
-              id: "we",
-              value: "./symbols/ss/we.png",
-            },
+        //     {
+        //       id: "we",
+        //       value: "./symbols/ss/we.png",
+        //     },
 
-            {
-              id: "they",
-              value: "./symbols/ss/they.png",
-            },
+        //     {
+        //       id: "they",
+        //       value: "./symbols/ss/they.png",
+        //     },
 
-            {
-              id: "turn",
-              value: "./symbols/ss/turn.png",
-            },
+        //     {
+        //       id: "turn",
+        //       value: "./symbols/ss/turn.png",
+        //     },
 
-            {
-              id: "little",
-              value: "./symbols/ss/little.png",
-            },
+        //     {
+        //       id: "little",
+        //       value: "./symbols/ss/little.png",
+        //     },
 
-            {
-              id: "question",
-              value: "./symbols/ss/question.png",
-            },
-          ],
-        },
+        //     {
+        //       id: "question",
+        //       value: "./symbols/ss/question.png",
+        //     },
+        //   ],
+        // },
         {
           label: "Widgit",
           value: "widgit",
