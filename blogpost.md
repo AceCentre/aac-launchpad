@@ -1,6 +1,6 @@
 # Launchpad
 
-Ace Centre has been offering free symbols based resources on our website for a number of years. We see a lot of people regularly downloading our resources which is why we try and add new ones when we can.
+Ace Centre offers a variety of symbols based resources on our website for a free. We see a lot of people regularly downloading our resources which is why we try and add new ones when we can.
 
 However, we wanted to be able to provide you with more options when downloading your symbol based resources. We wanted you to be able to chose your symbol set, the language you wanted
 
