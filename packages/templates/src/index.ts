@@ -17,6 +17,7 @@ import { jubilee } from "./jubilee";
 import { gridOptions } from "./grid-options";
 import { core } from "./core";
 import { bubbles } from "./bubbles";
+import { reading } from "./reading";
 
 export {
   alphabetChart,
@@ -59,4 +60,4 @@ export const ALL_TEMPLATES: Array<Template> = [
   bubbles,
 ];
 
-export const WEB_TEMPLATES: Array<Template> = [core, bubbles];
+export const WEB_TEMPLATES: Array<Template> = [core, bubbles, reading];
