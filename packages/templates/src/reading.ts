@@ -549,105 +549,6 @@ export const reading: Template = {
       ],
     },
     {
-      id: "grid",
-      type: "preset",
-      description: "The number of items shown on the chart",
-      defaultValue: "28",
-      name: "Layout",
-      presets: [
-        {
-          value: "28",
-          label: "28",
-          description: "28 Cells",
-          variableValues: [
-            {
-              id: "rows",
-              value: "4",
-            },
-            {
-              id: "columns",
-              value: "7",
-            },
-            {
-              id: "order",
-              value: `[
-                ["more", "help", "want", "have", "like", "good", "no"],
-                ["stop", "different", "look", "make", "wow", "bad", "this"],
-                ["me", "you", "go", "play", "uh-oh", "big", "can"],
-                ["he", "she", "we", "they", "turn", "little", "question"]
-              ]`,
-            },
-          ],
-        },
-        {
-          value: "15",
-          label: "15",
-          description: "15 Cells",
-          variableValues: [
-            {
-              id: "rows",
-              value: "3",
-            },
-            {
-              id: "columns",
-              value: "5",
-            },
-            {
-              id: "order",
-              value: `[
-                ["more", "help", "want", "like", "no"],
-                ["stop", "different", "look", "wow", "this"],
-                ["me", "you", "go", "uh-oh", "question"]
-              ]`,
-            },
-          ],
-        },
-        {
-          value: "8",
-          label: "8",
-          description: "8 Cells",
-          variableValues: [
-            {
-              id: "rows",
-              value: "2",
-            },
-            {
-              id: "columns",
-              value: "4",
-            },
-            {
-              id: "order",
-              value: `[
-                ["more", "help", "want", "like"],
-                ["stop", "different", "look", "dont-like"]
-              ]`,
-            },
-          ],
-        },
-        {
-          value: "2",
-          label: "2",
-          description: "2 Cells",
-          variableValues: [
-            {
-              id: "rows",
-              value: "1",
-            },
-            {
-              id: "columns",
-              value: "2",
-            },
-            {
-              id: "order",
-              value: `[
-                ["more", "stop", "want", "like"]
-              ]`,
-            },
-          ],
-        },
-      ],
-    },
-    {
       type: "imageUrl",
       name: "dont-like",
       id: "dont-like",
@@ -1641,9 +1542,8 @@ export const reading: Template = {
         columns: 5,
         order: [
           ["more", "help", "want", "have", "like"],
-          ["stop", "different", "look", "make"],
+          ["stop", "different", "look", "make", "he"],
           ["me", "you", "go", "play", "uh-oh"],
-          ["he", "she", "we", "they", "turn"],
         ],
       },
     },

@@ -58,6 +58,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   gridOptions,
   core,
   bubbles,
+  reading,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [core, bubbles, reading];
