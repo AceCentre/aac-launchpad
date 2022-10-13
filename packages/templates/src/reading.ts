@@ -15,7 +15,7 @@ export const reading: Template = {
       name: "Background Colour",
       description:
         "Change the background colour of the chart. Select white to save printer ink.",
-      defaultValue: "rgb(185,255,185)",
+      defaultValue: "rgb(253,240,189)",
       type: "color",
     },
     {
@@ -235,161 +235,6 @@ export const reading: Template = {
             },
           ],
         },
-        // {
-        //   label: "SymbolStix",
-        //   value: "ss",
-        //   description: "SymbolStix Symbols",
-        //   variableValues: [
-        //     {
-        //       id: "copyright-notice",
-        //       value: "(c) SymbolStix 2022 LLC",
-        //     },
-        //     {
-        //       id: "dont-like",
-        //       value: "./symbols/ss/dont-like.png",
-        //     },
-
-        //     {
-        //       id: "more",
-        //       value: "./symbols/ss/more.png",
-        //     },
-
-        //     {
-        //       id: "help",
-        //       value: "./symbols/ss/help.png",
-        //     },
-
-        //     {
-        //       id: "want",
-        //       value: "./symbols/ss/want.png",
-        //     },
-
-        //     {
-        //       id: "have",
-        //       value: "./symbols/ss/have.png",
-        //     },
-
-        //     {
-        //       id: "like",
-        //       value: "./symbols/ss/like.png",
-        //     },
-
-        //     {
-        //       id: "good",
-        //       value: "./symbols/ss/good.png",
-        //     },
-
-        //     {
-        //       id: "no",
-        //       value: "./symbols/ss/no.png",
-        //     },
-
-        //     {
-        //       id: "stop",
-        //       value: "./symbols/ss/stop.png",
-        //     },
-
-        //     {
-        //       id: "different",
-        //       value: "./symbols/ss/different.png",
-        //     },
-
-        //     {
-        //       id: "look",
-        //       value: "./symbols/ss/look.png",
-        //     },
-
-        //     {
-        //       id: "make",
-        //       value: "./symbols/ss/make.png",
-        //     },
-
-        //     {
-        //       id: "wow",
-        //       value: "./symbols/ss/wow.png",
-        //     },
-
-        //     {
-        //       id: "bad",
-        //       value: "./symbols/ss/bad.png",
-        //     },
-
-        //     {
-        //       id: "this",
-        //       value: "./symbols/ss/this.png",
-        //     },
-
-        //     {
-        //       id: "me",
-        //       value: "./symbols/ss/me.png",
-        //     },
-
-        //     {
-        //       id: "you",
-        //       value: "./symbols/ss/you.png",
-        //     },
-
-        //     {
-        //       id: "go",
-        //       value: "./symbols/ss/go.png",
-        //     },
-
-        //     {
-        //       id: "play",
-        //       value: "./symbols/ss/play.png",
-        //     },
-
-        //     {
-        //       id: "uh-oh",
-        //       value: "./symbols/ss/uh-oh.png",
-        //     },
-
-        //     {
-        //       id: "big",
-        //       value: "./symbols/ss/big.png",
-        //     },
-
-        //     {
-        //       id: "can",
-        //       value: "./symbols/ss/can.png",
-        //     },
-
-        //     {
-        //       id: "he",
-        //       value: "./symbols/ss/he.png",
-        //     },
-
-        //     {
-        //       id: "she",
-        //       value: "./symbols/ss/she.png",
-        //     },
-
-        //     {
-        //       id: "we",
-        //       value: "./symbols/ss/we.png",
-        //     },
-
-        //     {
-        //       id: "they",
-        //       value: "./symbols/ss/they.png",
-        //     },
-
-        //     {
-        //       id: "turn",
-        //       value: "./symbols/ss/turn.png",
-        //     },
-
-        //     {
-        //       id: "little",
-        //       value: "./symbols/ss/little.png",
-        //     },
-
-        //     {
-        //       id: "question",
-        //       value: "./symbols/ss/question.png",
-        //     },
-        //   ],
-        // },
         {
           label: "Widgit",
           value: "widgit",
@@ -1276,6 +1121,7 @@ export const reading: Template = {
       label: { type: "TemplateItem", id: "dont-like-label" },
       ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
       border_color: "rgb(0, 0, 0)",
+      ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
@@ -1285,6 +1131,7 @@ export const reading: Template = {
       ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
       label: { type: "TemplateItem", id: "more-label" },
       border_color: "rgb(0, 0, 0)",
+      ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
@@ -1294,6 +1141,7 @@ export const reading: Template = {
       ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
       label: { type: "TemplateItem", id: "help-label" },
       border_color: "rgb(0, 0, 0)",
+      ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
@@ -1303,6 +1151,7 @@ export const reading: Template = {
       ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
       label: { type: "TemplateItem", id: "want-label" },
       border_color: "rgb(0, 0, 0)",
+      ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
@@ -1321,6 +1170,7 @@ export const reading: Template = {
       ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
       label: { type: "TemplateItem", id: "like-label" },
       border_color: "rgb(0, 0, 0)",
+      ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
@@ -1348,6 +1198,7 @@ export const reading: Template = {
       ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
       label: { type: "TemplateItem", id: "stop-label" },
       border_color: "rgb(0, 0, 0)",
+      ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
@@ -1357,6 +1208,7 @@ export const reading: Template = {
       ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
       label: { type: "TemplateItem", id: "different-label" },
       border_color: "rgb(0, 0, 0)",
+      ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
@@ -1366,6 +1218,7 @@ export const reading: Template = {
       ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
       label: { type: "TemplateItem", id: "look-label" },
       border_color: "rgb(0, 0, 0)",
+      ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
