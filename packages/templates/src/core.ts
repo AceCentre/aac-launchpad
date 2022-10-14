@@ -1554,7 +1554,7 @@ export const core: Template = {
         "padding",
         "invert-text",
       ],
-      name: "Advanced options",
+      name: "More options",
       description: "Edit advanced options about the chart",
       openByDefault: false,
     },
