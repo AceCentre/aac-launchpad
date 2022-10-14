@@ -483,6 +483,15 @@ export const reading: Template = {
       maxLength: 100,
     },
     {
+      type: "freeText",
+      name: "title",
+      id: "title-text",
+      description: "title",
+      hidden: true,
+      defaultValue: "Reading chart",
+      maxLength: 100,
+    },
+    {
       type: "option",
       id: "font",
       description: "Choose the font used in the file",
