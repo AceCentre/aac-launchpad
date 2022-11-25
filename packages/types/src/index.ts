@@ -198,13 +198,17 @@ type ImageWithTemplateItems = {
   url: string | TemplateItem;
 };
 
+export type Orientation = "portrait" | "landscape";
+
 export type Page = {
   id: string;
+  orientation: Orientation;
   grid: Grid;
 };
 
-type PageWithTemplateItems = {
+export type PageWithTemplateItems = {
   id: string;
+  orientation?: string | TemplateItem;
   grid: GridWithTemplateItems;
 };
 
