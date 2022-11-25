@@ -213,7 +213,7 @@ const boardToPdf = async (
 
   // Default export is a4 paper, portrait, using millimeters for units
   const doc = new jsPDF({
-    orientation: initialPage.orientation,
+    orientation: initialPage.orientation ?? "landscape",
   });
 
   const options = board.ext_launchpad_options;
@@ -228,15 +228,18 @@ const boardToPdf = async (
 
   let firstPage = true;
   for (const page of board.pages) {
-    const currentPageWidth = page.orientation === "landscape" ? WIDTH : HEIGHT;
-    const currentPageHeight = page.orientation === "landscape" ? HEIGHT : WIDTH;
+    const currentPageOrientation = page.orientation ?? "landscape";
+    const currentPageWidth =
+      currentPageOrientation === "landscape" ? WIDTH : HEIGHT;
+    const currentPageHeight =
+      currentPageOrientation === "landscape" ? HEIGHT : WIDTH;
 
     const pageStartTime = process.hrtime();
     // The first page doesn't need added as its there by default.
     if (firstPage) {
       firstPage = false;
     } else {
-      doc.addPage("a4", page.orientation);
+      doc.addPage("a4", currentPageOrientation);
     }
 
     let documentHeight = currentPageHeight;
