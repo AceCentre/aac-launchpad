@@ -11,6 +11,8 @@ import {
   GridWithTemplateItems,
   Page,
   ButtonID,
+  Orientation,
+  PageWithTemplateItems,
 } from "types";
 
 const getExtLaunchpadOptions = (
@@ -329,10 +331,36 @@ const getImages = (
   });
 };
 
+const getOrientationFromTemplateItem = (
+  page: PageWithTemplateItems,
+  results: Array<Result>
+): Orientation => {
+  const orientation = getOptionalStringFromTemplateItem(
+    page.orientation,
+    results
+  );
+
+  if (orientation === undefined) {
+    return "landscape";
+  }
+
+  if (orientation !== "landscape" && orientation !== "portrait") {
+    throw new Error(
+      `You provided '${orientation}' as an orientation for page '${page.id}, which is invalid'`
+    );
+  }
+
+  return orientation;
+};
+
 const getPages = (template: Template, results: Array<Result>): Array<Page> => {
   return template.pages.map((page) => {
     const grid = getGrid(page.grid, results);
-    return { grid, id: page.id };
+    return {
+      grid,
+      id: page.id,
+      orientation: getOrientationFromTemplateItem(page, results),
+    };
   });
 };
 
