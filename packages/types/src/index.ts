@@ -202,7 +202,7 @@ export type Orientation = "portrait" | "landscape";
 
 export type Page = {
   id: string;
-  orientation: Orientation;
+  orientation?: Orientation;
   grid: Grid;
 };
 
