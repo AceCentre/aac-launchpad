@@ -67,7 +67,7 @@ export const generateTestScreenshots = async () => {
 
     const output = Buffer.from(pdf);
 
-    const prep = fromBuffer(output, {
+    const landscapePrep = fromBuffer(output, {
       density: 500,
       saveFilename: rawBoard.id,
       savePath: screenshotFolder,
@@ -76,17 +76,51 @@ export const generateTestScreenshots = async () => {
       height: 2480,
     });
 
-    if (prep.bulk === undefined) {
+    const portraitPrep = fromBuffer(output, {
+      density: 500,
+      saveFilename: rawBoard.id,
+      savePath: screenshotFolder,
+      format: "png",
+      height: 3508,
+      width: 2480,
+    });
+
+    if (landscapePrep.bulk === undefined || portraitPrep.bulk === undefined) {
       throw new Error(`Failed to get screenshot for: ${rawBoard.id}`);
     }
 
-    let pages = [];
-    let noOfPages = numberOfPages;
-    for (let i = 1; i <= noOfPages; i++) {
-      pages.push(i);
+    const numberOfGeneratedPages = numberOfPages;
+    const numberOfDefinedPages = rawBoard.pages.length;
+    const numberOfPrependedPages =
+      numberOfGeneratedPages - numberOfDefinedPages;
+
+    let landscapePages = [];
+    let portraitPages = [];
+    for (let i = 1; i <= numberOfGeneratedPages; i++) {
+      const currentArrayPageNo = i - 1 - numberOfPrependedPages;
+
+      if (i <= numberOfPrependedPages) {
+        landscapePages.push(i);
+        continue;
+      }
+
+      let currentPage = rawBoard.pages[currentArrayPageNo];
+
+      if (currentPage.orientation === "portrait") {
+        portraitPages.push(i);
+        continue;
+      }
+
+      landscapePages.push(i);
     }
 
-    await prep.bulk(pages, false);
+    if (landscapePages.length > 0) {
+      await landscapePrep.bulk(landscapePages, false);
+    }
+
+    if (portraitPages.length > 0) {
+      await portraitPrep.bulk(portraitPages, false);
+    }
 
     console.log(`3.${count} Saved screenshots for ${rawBoard.id}`);
   }
