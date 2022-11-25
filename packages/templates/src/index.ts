@@ -18,6 +18,7 @@ import { gridOptions } from "./grid-options";
 import { core } from "./core";
 import { bubbles } from "./bubbles";
 import { reading } from "./reading";
+import { portrait } from "./portrait";
 
 export {
   alphabetChart,
@@ -36,10 +37,12 @@ export {
   prependPdf,
   jubilee,
   gridOptions,
+  portrait,
   bubbles,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
+  portrait,
   alphabetChart,
   simpleChoice,
   withImages,
