@@ -205,9 +205,15 @@ const boardToPdf = async (
   const startTime = process.hrtime();
   initialiseFonts();
 
+  if (board.pages.length === 0) {
+    throw new Error("You must have at least one page");
+  }
+
+  const initialPage = board.pages[0];
+
   // Default export is a4 paper, portrait, using millimeters for units
   const doc = new jsPDF({
-    orientation: "landscape",
+    orientation: initialPage.orientation,
   });
 
   const options = board.ext_launchpad_options;
@@ -222,15 +228,18 @@ const boardToPdf = async (
 
   let firstPage = true;
   for (const page of board.pages) {
+    const currentPageWidth = page.orientation === "landscape" ? WIDTH : HEIGHT;
+    const currentPageHeight = page.orientation === "landscape" ? HEIGHT : WIDTH;
+
     const pageStartTime = process.hrtime();
     // The first page doesn't need added as its there by default.
     if (firstPage) {
       firstPage = false;
     } else {
-      doc.addPage();
+      doc.addPage("a4", page.orientation);
     }
 
-    let documentHeight = HEIGHT;
+    let documentHeight = currentPageHeight;
     let extraTopPadding = 0;
 
     if (options.full_background_color) {
@@ -242,13 +251,13 @@ const boardToPdf = async (
           fullBackgroundColor.green,
           fullBackgroundColor.blue
         )
-        .rect(0, 0, WIDTH, HEIGHT, "F");
+        .rect(0, 0, currentPageWidth, currentPageHeight, "F");
     }
 
     if (options.title_shown_on_board) {
       const titleHeight = doc.getFontSize() * POINT_TO_MM;
 
-      doc.text(options.title_shown_on_board, WIDTH / 2, 10, {
+      doc.text(options.title_shown_on_board, currentPageWidth / 2, 10, {
         baseline: "top",
         align: "center",
       });
@@ -260,17 +269,22 @@ const boardToPdf = async (
     if (options.copyright_notice) {
       doc
         .setFontSize(10)
-        .text(options.copyright_notice, WIDTH - padding, HEIGHT - padding, {
-          baseline: "bottom",
-          align: "right",
-        });
+        .text(
+          options.copyright_notice,
+          currentPageWidth - padding,
+          currentPageHeight - padding,
+          {
+            baseline: "bottom",
+            align: "right",
+          }
+        );
 
       const noticeHeight = doc.getFontSize() * POINT_TO_MM;
       documentHeight = documentHeight - 2 - noticeHeight;
     }
 
     const buttonDimensions = calculateButtonSize(
-      WIDTH,
+      currentPageWidth,
       documentHeight,
       padding,
       gap,
