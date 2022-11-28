@@ -33,13 +33,16 @@ const DEFAULT_LABEL_BELOW = false;
 const DEFAULT_LABEL_FONT_STYLE = "normal";
 const DEFAULT_LABEL_FONT = "helvetica";
 
+const SPACE_RESERVED_FOR_ROW_LABEL = 24;
+
 const calculateButtonSize = (
   pageWidth: number,
   pageHeight: number,
   padding: number,
   gap: number,
   rows: number,
-  columns: number
+  columns: number,
+  withRowLabels: boolean
 ): ButtonDimensions => {
   const widthLostToPadding = padding * 2;
   const widthDistanceLostToGap = (columns - 1) * gap;
@@ -52,7 +55,15 @@ const calculateButtonSize = (
   const totalButtonHeight = pageHeight - heightLostToGap - heightLostToPadding;
   const buttonHeight = totalButtonHeight / rows;
 
-  return { width: buttonWidth, height: buttonHeight };
+  if (withRowLabels) {
+    const spacePerButton = SPACE_RESERVED_FOR_ROW_LABEL / columns;
+    return {
+      width: buttonWidth - spacePerButton,
+      height: buttonHeight,
+    };
+  } else {
+    return { width: buttonWidth, height: buttonHeight };
+  }
 };
 
 export const CASING_OPTIONS: Array<Option> = [
@@ -229,6 +240,7 @@ const boardToPdf = async (
   let firstPage = true;
   for (const page of board.pages) {
     const currentPageOrientation = page.orientation ?? "landscape";
+    const withRowLabels = page.ext_launchpad_with_row_labels ?? false;
     const currentPageWidth =
       currentPageOrientation === "landscape" ? WIDTH : HEIGHT;
     const currentPageHeight =
@@ -292,7 +304,8 @@ const boardToPdf = async (
       padding,
       gap,
       page.grid.rows,
-      page.grid.columns
+      page.grid.columns,
+      withRowLabels
     );
 
     let addImageArray = [];
@@ -367,6 +380,32 @@ const boardToPdf = async (
     }
 
     for (let rowCount = 0; rowCount < page.grid.rows; rowCount++) {
+      // Draw the row label for this row
+      if (withRowLabels) {
+        const label = rowCount + 1;
+
+        const currentX = padding + SPACE_RESERVED_FOR_ROW_LABEL / 2;
+
+        const currentY =
+          rowCount * (buttonDimensions.height + gap) +
+          padding +
+          extraTopPadding;
+
+        doc
+          .setFont(DEFAULT_LABEL_FONT, DEFAULT_LABEL_FONT_STYLE)
+          .setFontSize(30);
+
+        doc.text(
+          String(label),
+          currentX,
+          currentY + buttonDimensions.height / 2,
+          {
+            baseline: "middle",
+            align: "center",
+          }
+        );
+      }
+
       for (
         let columnCount = 0;
         columnCount < page.grid.columns;
@@ -435,7 +474,12 @@ const boardToPdf = async (
           );
         }
 
-        const currentX = columnCount * (buttonDimensions.width + gap) + padding;
+        const spaceForLabels = withRowLabels ? SPACE_RESERVED_FOR_ROW_LABEL : 0;
+
+        const currentX =
+          columnCount * (buttonDimensions.width + gap) +
+          padding +
+          spaceForLabels;
         const currentY =
           rowCount * (buttonDimensions.height + gap) +
           padding +

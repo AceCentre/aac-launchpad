@@ -360,6 +360,10 @@ const getPages = (template: Template, results: Array<Result>): Array<Page> => {
       grid,
       id: page.id,
       orientation: getOrientationFromTemplateItem(page, results),
+      ext_launchpad_with_row_labels: getOptionalBooleanFromTemplateItem(
+        page.ext_launchpad_with_row_labels,
+        results
+      ),
     };
   });
 };

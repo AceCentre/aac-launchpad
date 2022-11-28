@@ -203,6 +203,7 @@ export type Orientation = "portrait" | "landscape";
 export type Page = {
   id: string;
   orientation?: Orientation;
+  ext_launchpad_with_row_labels?: boolean;
   grid: Grid;
 };
 
@@ -210,6 +211,7 @@ export type PageWithTemplateItems = {
   id: string;
   orientation?: string | TemplateItem;
   grid: GridWithTemplateItems;
+  ext_launchpad_with_row_labels?: boolean | TemplateItem;
 };
 
 export type Board = {
