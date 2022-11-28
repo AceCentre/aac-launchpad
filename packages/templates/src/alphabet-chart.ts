@@ -248,7 +248,7 @@ export const alphabetChart: Template = {
     },
     {
       id: "j",
-      label: "j",
+      label: "J",
       border_color: { id: "borderColor", type: "TemplateItem" },
       background_color: { id: "backgroundColor", type: "TemplateItem" },
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
