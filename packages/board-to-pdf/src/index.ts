@@ -213,6 +213,10 @@ const boardToPdf = async (
   totalSeconds: number;
   totalNanoSeconds: number;
 }> => {
+  console.log("=====================");
+
+  console.log("THIS IS RUNNING");
+
   const startTime = process.hrtime();
   initialiseFonts();
 
@@ -621,15 +625,44 @@ const boardToPdf = async (
               }
             );
           } else {
-            doc.text(
-              labelText,
-              currentX + cellWidth / 2,
-              currentY + cellHeight / 2,
-              {
-                baseline: "middle",
-                align: "center",
-              }
-            );
+            console.log("This is ran");
+
+            if (labelText.split("\n").length === 1) {
+              doc.text(
+                labelText,
+                currentX + cellWidth / 2,
+                currentY + cellHeight / 2,
+                {
+                  baseline: "middle",
+                  align: "center",
+                }
+              );
+            } else if (labelText.split("\n").length === 2) {
+              const [firstLine, secondLine] = labelText.split("\n");
+
+              doc.text(
+                firstLine.trim(),
+                currentX + cellWidth / 2,
+                currentY + cellHeight / 2,
+                {
+                  baseline: "bottom",
+                  align: "center",
+                }
+              );
+              doc.text(
+                secondLine.trim(),
+                currentX + cellWidth / 2,
+                currentY + cellHeight / 2,
+                {
+                  baseline: "top",
+                  align: "center",
+                }
+              );
+            } else {
+              throw new Error(
+                `Strings can currently only have one new line ${labelText}`
+              );
+            }
           }
         }
 
@@ -714,6 +747,8 @@ const boardToPdf = async (
   }
 
   const [totalSeconds, totalNanoSeconds] = process.hrtime(startTime);
+
+  console.log("=====================");
 
   return {
     pdf: doc.output("arraybuffer"),
