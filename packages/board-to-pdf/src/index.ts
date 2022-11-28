@@ -213,10 +213,6 @@ const boardToPdf = async (
   totalSeconds: number;
   totalNanoSeconds: number;
 }> => {
-  console.log("=====================");
-
-  console.log("THIS IS RUNNING");
-
   const startTime = process.hrtime();
   initialiseFonts();
 
@@ -625,8 +621,6 @@ const boardToPdf = async (
               }
             );
           } else {
-            console.log("This is ran");
-
             if (labelText.split("\n").length === 1) {
               doc.text(
                 labelText,
@@ -747,8 +741,6 @@ const boardToPdf = async (
   }
 
   const [totalSeconds, totalNanoSeconds] = process.hrtime(startTime);
-
-  console.log("=====================");
 
   return {
     pdf: doc.output("arraybuffer"),
