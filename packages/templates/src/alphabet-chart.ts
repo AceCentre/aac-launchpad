@@ -7,21 +7,6 @@ export const alphabetChart: Template = {
   templateShortDescription: "",
 
   templateVariables: [
-    // {
-    //   id: "layout",
-    //   name: "Layout",
-    //   description: "The layout of the letters on the alphabet chart",
-    //   type: "preset",
-    //   defaultValue: "abc-with-digits",
-    //   presets: [
-    //     {
-    //       value: "abc-with-digits",
-    //       label: "ABC (with digits)",
-    //       description: "Alphabetical order, including a row of digits.",
-    //       variableValues: [],
-    //     },
-    //   ],
-    // },
     {
       id: "backgroundColor",
       description: "The color of the background",
@@ -522,6 +507,7 @@ export const alphabetChart: Template = {
   pages: [
     {
       id: "abc-with-numbers",
+      ext_launchpad_title_shown_on_board: "ABC (with numbers)",
       grid: {
         rows: 5,
         columns: 10,
@@ -547,6 +533,8 @@ export const alphabetChart: Template = {
     },
     {
       id: "abc-no-numbers",
+      ext_launchpad_title_shown_on_board: "ABC",
+
       grid: {
         rows: 4,
         columns: 10,
@@ -571,6 +559,7 @@ export const alphabetChart: Template = {
     },
     {
       id: "abc-with-numbers-and-spaces",
+      ext_launchpad_title_shown_on_board: "ABC (with numbers + spaces)",
       grid: {
         rows: 6,
         columns: 10,
@@ -608,6 +597,8 @@ export const alphabetChart: Template = {
     },
     {
       id: "abc-no-numbers-and-spaces",
+      ext_launchpad_title_shown_on_board: "ABC (with spaces)",
+
       grid: {
         rows: 5,
         columns: 10,
@@ -642,44 +633,11 @@ export const alphabetChart: Template = {
         ],
       },
     },
-    {
-      id: "abc-no-numbers-and-spaces",
-      grid: {
-        rows: 5,
-        columns: 10,
-        order: [
-          ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"],
-          ["k", "l", "m", "n", "o", "p", "q", "r", "s", "t"],
-          ["u", "v", "w", "x", "y", "z", ",", ".", "?", "!"],
-          [
-            "delete",
-            "delete",
-            "delete",
-            "space",
-            "space",
-            "space",
-            "space",
-            "start-again",
-            "start-again",
-            "start-again",
-          ],
-          [
-            "empty-cell-one",
-            "empty-cell-one",
-            "empty-cell-one",
-            "empty-cell-one",
-            "empty-cell-one",
-            "empty-cell-two",
-            "empty-cell-two",
-            "empty-cell-two",
-            "empty-cell-two",
-            "empty-cell-two",
-          ],
-        ],
-      },
-    },
+
     {
       id: "abc-portrait-no-space",
+      ext_launchpad_title_shown_on_board: "ABC",
+
       orientation: "portrait",
       grid: {
         rows: 8,
@@ -698,6 +656,8 @@ export const alphabetChart: Template = {
     },
     {
       id: "abc-portrait-with-space",
+      ext_launchpad_title_shown_on_board: "ABC (with space)",
+
       orientation: "portrait",
       grid: {
         rows: 9,
@@ -722,6 +682,8 @@ export const alphabetChart: Template = {
     },
     {
       id: "qwerty-with-numbers",
+      ext_launchpad_title_shown_on_board: "QWERTY (with numbers)",
+
       grid: {
         rows: 5,
         columns: 10,
@@ -747,6 +709,8 @@ export const alphabetChart: Template = {
     },
     {
       id: "qwerty-no-numbers",
+      ext_launchpad_title_shown_on_board: "QWERTY",
+
       grid: {
         rows: 4,
         columns: 10,
@@ -771,6 +735,8 @@ export const alphabetChart: Template = {
     },
     {
       id: "qwerty-no-numbers-and-spaces",
+      ext_launchpad_title_shown_on_board: "QWERTY (with spaces)",
+
       grid: {
         rows: 5,
         columns: 10,
@@ -807,6 +773,8 @@ export const alphabetChart: Template = {
     },
     {
       id: "qwerty-with-numbers-and-spaces",
+      ext_launchpad_title_shown_on_board: "QWERTY (with spaces + numbers)",
+
       grid: {
         rows: 6,
         columns: 10,
@@ -844,6 +812,8 @@ export const alphabetChart: Template = {
     },
     {
       id: "frequency",
+      ext_launchpad_title_shown_on_board: "FREQUENCY",
+
       grid: {
         rows: 6,
         columns: 6,
@@ -867,6 +837,8 @@ export const alphabetChart: Template = {
     },
     {
       id: "frequency-with-row-labels",
+      ext_launchpad_title_shown_on_board: "FREQUENCY (number encoded)",
+
       ext_launchpad_with_row_labels: true,
       grid: {
         rows: 6,
