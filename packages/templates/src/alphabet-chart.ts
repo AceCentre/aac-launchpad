@@ -1,3 +1,4 @@
+import { CASING_OPTIONS, FONT_OPTIONS } from "board-to-pdf";
 import { Template } from "types";
 
 export const alphabetChart: Template = {
@@ -8,12 +9,19 @@ export const alphabetChart: Template = {
 
   templateVariables: [
     {
+      id: "casing",
+      description: "Change the casing of the label",
+      name: "Label casing",
+      defaultValue: "capital",
+      type: "option",
+      options: CASING_OPTIONS,
+    },
+    {
       id: "backgroundColor",
       description: "The color of the background",
       type: "color",
       name: "Background Color",
       defaultValue: "rgb(255,255,255)",
-      hidden: true,
     },
     {
       id: "textColor",
@@ -21,7 +29,6 @@ export const alphabetChart: Template = {
       type: "color",
       name: "Text Color",
       defaultValue: "rgb(0,0,0)",
-      hidden: true,
     },
     {
       id: "borderColor",
@@ -29,7 +36,23 @@ export const alphabetChart: Template = {
       type: "color",
       name: "Border Color",
       defaultValue: "rgb(0,0,0)",
-      hidden: true,
+    },
+    {
+      id: "gap",
+      description: "The gap between cells",
+      type: "number",
+      name: "Spacing",
+      defaultValue: "2",
+      max: 10,
+      min: 0,
+    },
+    {
+      type: "option",
+      id: "font",
+      description: "Choose the font used in the file",
+      name: "Font",
+      defaultValue: "helvetica",
+      options: FONT_OPTIONS,
     },
   ],
   templateVariableGroups: [],
@@ -46,7 +69,7 @@ export const alphabetChart: Template = {
   description_html: "Alphabet board to allow individuals to spell",
   ext_launchpad_options: {
     padding: 10,
-    gap: 0,
+    gap: { id: "gap", type: "TemplateItem" },
     button_radius: 0,
     button_border_width: 1,
   },
@@ -59,6 +82,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "1",
@@ -68,6 +93,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "2",
@@ -77,6 +104,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "3",
@@ -86,6 +115,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "4",
@@ -95,6 +126,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "5",
@@ -104,6 +137,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "6",
@@ -113,6 +148,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "7",
@@ -122,6 +159,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "8",
@@ -131,6 +170,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "9",
@@ -140,6 +181,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "0",
@@ -149,6 +192,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "a",
@@ -158,6 +203,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "b",
@@ -167,6 +214,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "c",
@@ -176,6 +225,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "d",
@@ -185,6 +236,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "e",
@@ -194,6 +247,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "f",
@@ -203,6 +258,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "g",
@@ -212,6 +269,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "h",
@@ -221,6 +280,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "i",
@@ -230,6 +291,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "j",
@@ -239,6 +302,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "k",
@@ -248,6 +313,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "l",
@@ -257,6 +324,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "m",
@@ -266,6 +335,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "n",
@@ -275,6 +346,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "o",
@@ -284,6 +357,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "p",
@@ -293,6 +368,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "q",
@@ -302,6 +379,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "r",
@@ -311,6 +390,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "s",
@@ -320,6 +401,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "t",
@@ -329,6 +412,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "u",
@@ -338,6 +423,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "v",
@@ -347,6 +434,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "w",
@@ -356,6 +445,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "x",
@@ -365,6 +456,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "y",
@@ -374,6 +467,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "z",
@@ -383,6 +478,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: ",",
@@ -392,6 +489,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: ".",
@@ -401,6 +500,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "?",
@@ -410,6 +511,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "!",
@@ -419,6 +522,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "delete",
@@ -428,6 +533,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "delete-letter",
@@ -437,6 +544,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "space",
@@ -446,6 +555,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "start-again",
@@ -455,6 +566,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "start-again-new-line",
@@ -464,6 +577,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
 
     {
@@ -474,6 +589,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "empty-cell-two",
@@ -483,6 +600,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "empty-cell-three",
@@ -492,6 +611,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
       id: "empty-cell-four",
@@ -501,6 +622,8 @@ export const alphabetChart: Template = {
       ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
   ],
   images: [],
