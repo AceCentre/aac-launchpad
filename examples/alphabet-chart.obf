@@ -531,7 +531,8 @@
         ]
       },
       "id": "abc-with-numbers",
-      "orientation": "landscape"
+      "orientation": "landscape",
+      "ext_launchpad_title_shown_on_board": "ABC (with numbers)"
     },
     {
       "grid": {
@@ -589,7 +590,8 @@
         ]
       },
       "id": "abc-no-numbers",
-      "orientation": "landscape"
+      "orientation": "landscape",
+      "ext_launchpad_title_shown_on_board": "ABC"
     },
     {
       "grid": {
@@ -671,7 +673,8 @@
         ]
       },
       "id": "abc-with-numbers-and-spaces",
-      "orientation": "landscape"
+      "orientation": "landscape",
+      "ext_launchpad_title_shown_on_board": "ABC (with numbers + spaces)"
     },
     {
       "grid": {
@@ -741,77 +744,8 @@
         ]
       },
       "id": "abc-no-numbers-and-spaces",
-      "orientation": "landscape"
-    },
-    {
-      "grid": {
-        "rows": 5,
-        "columns": 10,
-        "order": [
-          [
-            "a",
-            "b",
-            "c",
-            "d",
-            "e",
-            "f",
-            "g",
-            "h",
-            "i",
-            "j"
-          ],
-          [
-            "k",
-            "l",
-            "m",
-            "n",
-            "o",
-            "p",
-            "q",
-            "r",
-            "s",
-            "t"
-          ],
-          [
-            "u",
-            "v",
-            "w",
-            "x",
-            "y",
-            "z",
-            ",",
-            ".",
-            "?",
-            "!"
-          ],
-          [
-            "delete",
-            "delete",
-            "delete",
-            "space",
-            "space",
-            "space",
-            "space",
-            "start-again",
-            "start-again",
-            "start-again"
-          ],
-          [
-            "empty-cell-one",
-            "empty-cell-one",
-            "empty-cell-one",
-            "empty-cell-one",
-            "empty-cell-one",
-            "empty-cell-two",
-            "empty-cell-two",
-            "empty-cell-two",
-            "empty-cell-two",
-            "empty-cell-two"
-          ]
-        ]
-      },
-      "id": "abc-no-numbers-and-spaces",
-      "orientation": "landscape"
+      "orientation": "landscape",
+      "ext_launchpad_title_shown_on_board": "ABC (with spaces)"
     },
     {
       "grid": {
@@ -869,7 +803,8 @@
         ]
       },
       "id": "abc-portrait-no-space",
-      "orientation": "portrait"
+      "orientation": "portrait",
+      "ext_launchpad_title_shown_on_board": "ABC"
     },
     {
       "grid": {
@@ -933,7 +868,8 @@
         ]
       },
       "id": "abc-portrait-with-space",
-      "orientation": "portrait"
+      "orientation": "portrait",
+      "ext_launchpad_title_shown_on_board": "ABC (with space)"
     },
     {
       "grid": {
@@ -1003,7 +939,8 @@
         ]
       },
       "id": "qwerty-with-numbers",
-      "orientation": "landscape"
+      "orientation": "landscape",
+      "ext_launchpad_title_shown_on_board": "QWERTY (with numbers)"
     },
     {
       "grid": {
@@ -1061,7 +998,8 @@
         ]
       },
       "id": "qwerty-no-numbers",
-      "orientation": "landscape"
+      "orientation": "landscape",
+      "ext_launchpad_title_shown_on_board": "QWERTY"
     },
     {
       "grid": {
@@ -1131,7 +1069,8 @@
         ]
       },
       "id": "qwerty-no-numbers-and-spaces",
-      "orientation": "landscape"
+      "orientation": "landscape",
+      "ext_launchpad_title_shown_on_board": "QWERTY (with spaces)"
     },
     {
       "grid": {
@@ -1213,7 +1152,8 @@
         ]
       },
       "id": "qwerty-with-numbers-and-spaces",
-      "orientation": "landscape"
+      "orientation": "landscape",
+      "ext_launchpad_title_shown_on_board": "QWERTY (with spaces + numbers)"
     },
     {
       "grid": {
@@ -1272,7 +1212,8 @@
         ]
       },
       "id": "frequency",
-      "orientation": "landscape"
+      "orientation": "landscape",
+      "ext_launchpad_title_shown_on_board": "FREQUENCY"
     },
     {
       "grid": {
@@ -1332,6 +1273,7 @@
       },
       "id": "frequency-with-row-labels",
       "orientation": "landscape",
+      "ext_launchpad_title_shown_on_board": "FREQUENCY (number encoded)",
       "ext_launchpad_with_row_labels": true
     }
   ],
