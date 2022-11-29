@@ -2,9 +2,9 @@ import { Template } from "types";
 
 export const alphabetChart: Template = {
   templateFeatured: false,
-  templateCategory: "Symbol Charts",
-  templateSubcategory: "Symbol Charts",
-  templateShortDescription: "",
+  templateCategory: "Alphabet Charts",
+  templateSubcategory: "Alphabet Charts",
+  templateShortDescription: "Create an alphabet chart with custom colors",
 
   templateVariables: [
     {
