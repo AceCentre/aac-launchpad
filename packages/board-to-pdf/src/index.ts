@@ -269,7 +269,26 @@ const boardToPdf = async (
         .rect(0, 0, currentPageWidth, currentPageHeight, "F");
     }
 
-    if (options.title_shown_on_board) {
+    if (page.ext_launchpad_title_shown_on_board) {
+      doc.setFont(DEFAULT_LABEL_FONT, DEFAULT_LABEL_FONT_STYLE);
+
+      const titleHeight = doc.getFontSize() * POINT_TO_MM;
+
+      doc.text(
+        page.ext_launchpad_title_shown_on_board,
+        currentPageWidth / 2,
+        10,
+        {
+          baseline: "top",
+          align: "center",
+        }
+      );
+
+      documentHeight = documentHeight - padding - titleHeight;
+      extraTopPadding += 10 + titleHeight;
+    } else if (options.title_shown_on_board) {
+      doc.setFont(DEFAULT_LABEL_FONT, DEFAULT_LABEL_FONT_STYLE);
+
       const titleHeight = doc.getFontSize() * POINT_TO_MM;
 
       doc.text(options.title_shown_on_board, currentPageWidth / 2, 10, {

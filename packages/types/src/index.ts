@@ -204,6 +204,7 @@ export type Page = {
   id: string;
   orientation?: Orientation;
   ext_launchpad_with_row_labels?: boolean;
+  ext_launchpad_title_shown_on_board?: string;
   grid: Grid;
 };
 
@@ -212,6 +213,7 @@ export type PageWithTemplateItems = {
   orientation?: string | TemplateItem;
   grid: GridWithTemplateItems;
   ext_launchpad_with_row_labels?: boolean | TemplateItem;
+  ext_launchpad_title_shown_on_board?: string | TemplateItem;
 };
 
 export type Board = {
