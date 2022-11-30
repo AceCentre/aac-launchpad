@@ -89,7 +89,7 @@ export const CASING_OPTIONS: Array<Option> = [
   },
 ];
 
-const alterCasing = (rawLabel: string, casingType: Casing): string => {
+export const alterCasing = (rawLabel: string, casingType: Casing): string => {
   if (casingType === "no-change") {
     return rawLabel;
   }
@@ -107,6 +107,8 @@ const alterCasing = (rawLabel: string, casingType: Casing): string => {
       .toLowerCase()
       .split(" ")
       .map(function (word) {
+        if (word === "") return "";
+
         return word.replace(word[0], word[0].toUpperCase());
       })
       .join(" ");
