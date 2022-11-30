@@ -53,3 +53,15 @@ it("no-change case empty string", () => {
 
   expect(result).toBe("");
 });
+
+it("capital case a string with a new line", () => {
+  const result = alterCasing("random\nwords", "capital");
+
+  expect(result).toBe("Random\nWords");
+});
+
+it("capital case a string with a new line and space", () => {
+  const result = alterCasing("more random\nwords", "capital");
+
+  expect(result).toBe("More Random\nWords");
+});
