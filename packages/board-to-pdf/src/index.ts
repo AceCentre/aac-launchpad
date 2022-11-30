@@ -103,15 +103,20 @@ export const alterCasing = (rawLabel: string, casingType: Casing): string => {
   }
 
   if (casingType === "capital") {
+    const capitalCaseWord = (word: string): string => {
+      if (word === "") return "";
+
+      return word.replace(word[0], word[0].toUpperCase());
+    };
+
     return rawLabel
       .toLowerCase()
       .split(" ")
-      .map(function (word) {
-        if (word === "") return "";
-
-        return word.replace(word[0], word[0].toUpperCase());
-      })
-      .join(" ");
+      .map(capitalCaseWord)
+      .join(" ")
+      .split("\n")
+      .map(capitalCaseWord)
+      .join("\n");
   }
 
   throw new Error(`You gave an invalid casing type: ${casingType}`);
@@ -276,6 +281,15 @@ const boardToPdf = async (
 
       const titleHeight = doc.getFontSize() * POINT_TO_MM;
 
+      if (options.text_color_on_background) {
+        const textColourOnBackground = getRGB(options.text_color_on_background);
+        doc.setTextColor(
+          textColourOnBackground.red,
+          textColourOnBackground.green,
+          textColourOnBackground.blue
+        );
+      }
+
       doc.text(
         page.ext_launchpad_title_shown_on_board,
         currentPageWidth / 2,
@@ -292,6 +306,15 @@ const boardToPdf = async (
       doc.setFont(DEFAULT_LABEL_FONT, DEFAULT_LABEL_FONT_STYLE);
 
       const titleHeight = doc.getFontSize() * POINT_TO_MM;
+
+      if (options.text_color_on_background) {
+        const textColourOnBackground = getRGB(options.text_color_on_background);
+        doc.setTextColor(
+          textColourOnBackground.red,
+          textColourOnBackground.green,
+          textColourOnBackground.blue
+        );
+      }
 
       doc.text(options.title_shown_on_board, currentPageWidth / 2, 10, {
         baseline: "top",
@@ -415,6 +438,17 @@ const boardToPdf = async (
         doc
           .setFont(DEFAULT_LABEL_FONT, DEFAULT_LABEL_FONT_STYLE)
           .setFontSize(30);
+
+        if (options.text_color_on_background) {
+          const textColourOnBackground = getRGB(
+            options.text_color_on_background
+          );
+          doc.setTextColor(
+            textColourOnBackground.red,
+            textColourOnBackground.green,
+            textColourOnBackground.blue
+          );
+        }
 
         doc.text(
           String(label),

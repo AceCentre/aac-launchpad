@@ -68,6 +68,7 @@ export type LaunchpadOptions = {
   copyright_notice?: string;
   invert_symbol_and_label?: boolean;
   autofit_label_text?: boolean;
+  text_color_on_background?: Color;
 };
 
 type LaunchpadOptionsWithTemplateItems = {
@@ -76,6 +77,7 @@ type LaunchpadOptionsWithTemplateItems = {
   button_radius?: number | TemplateItem;
   button_border_width?: number | TemplateItem;
   title_shown_on_board?: string | TemplateItem;
+  text_color_on_background?: Color | TemplateItem;
   full_background_color?: Color | TemplateItem;
   copyright_notice?: string | TemplateItem;
   invert_symbol_and_label?: boolean | TemplateItem;

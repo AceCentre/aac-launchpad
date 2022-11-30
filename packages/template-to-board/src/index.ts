@@ -56,6 +56,10 @@ const getExtLaunchpadOptions = (
       results
     ),
     ext_launchpad_prepend_pdf: launchpadOptions.ext_launchpad_prepend_pdf,
+    text_color_on_background: getOptionalStringFromTemplateItem(
+      launchpadOptions.text_color_on_background,
+      results
+    ),
   };
 };
 
@@ -360,7 +364,10 @@ const getPages = (template: Template, results: Array<Result>): Array<Page> => {
       grid,
       id: page.id,
       orientation: getOrientationFromTemplateItem(page, results),
-      ext_launchpad_title_shown_on_board: getOptionalStringFromTemplateItem(page.ext_launchpad_title_shown_on_board, results)
+      ext_launchpad_title_shown_on_board: getOptionalStringFromTemplateItem(
+        page.ext_launchpad_title_shown_on_board,
+        results
+      ),
       ext_launchpad_with_row_labels: getOptionalBooleanFromTemplateItem(
         page.ext_launchpad_with_row_labels,
         results
