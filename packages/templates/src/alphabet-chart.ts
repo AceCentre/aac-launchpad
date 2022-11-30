@@ -9,6 +9,362 @@ export const alphabetChart: Template = {
 
   templateVariables: [
     {
+      id: "colorScheme",
+      description: "Colour scheme",
+      defaultValue: "basic",
+      name: "Colour Scheme",
+      type: "preset",
+      presets: [
+        {
+          value: "basic",
+          description: "Basic",
+          label: "Basic",
+          variableValues: [
+            { id: "textColorOnBackground", value: "rgb(0,0,0)" },
+            {
+              id: "fullBackgroundColor",
+              value: "rgb(255,255,255)",
+            },
+            {
+              id: "numberBackgroundColor",
+              value: "rgb(255,255,255)",
+            },
+            {
+              id: "consonantBackgroundColor",
+              value: "rgb(255,255,255)",
+            },
+            {
+              id: "vowelBackgroundColor",
+              value: "rgb(255,255,255)",
+            },
+            {
+              id: "punctuationBackgroundColor",
+              value: "rgb(255,255,255)",
+            },
+            {
+              id: "commandBackgroundColor",
+              value: "rgb(255,255,255)",
+            },
+            {
+              id: "emptySpaceBackgroundColor",
+              value: "rgb(255,255,255)",
+            },
+
+            {
+              id: "numberTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "consonantTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "vowelTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "punctuationTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "commandTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "emptySpaceTextColor",
+              value: "rgb(0,0,0)",
+            },
+
+            {
+              id: "numberBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "consonantBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "vowelBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "punctuationBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "commandBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "emptySpaceBorderColor",
+              value: "rgb(0,0,0)",
+            },
+          ],
+        },
+        {
+          value: "green-with-highlights",
+          description: "Green with highlights",
+          label: "Green with highlights",
+          variableValues: [
+            { id: "textColorOnBackground", value: "rgb(255,255,255)" },
+
+            {
+              id: "fullBackgroundColor",
+              value: "rgb(55,126,34)",
+            },
+            {
+              id: "numberBackgroundColor",
+              value: "rgb(232,240,215)",
+            },
+            {
+              id: "consonantBackgroundColor",
+              value: "rgb(255,255,255)",
+            },
+            {
+              id: "vowelBackgroundColor",
+              value: "rgb(189,211,136)",
+            },
+            {
+              id: "punctuationBackgroundColor",
+              value: "rgb(232,240,215)",
+            },
+            {
+              id: "commandBackgroundColor",
+              value: "rgb(232,240,215)",
+            },
+            {
+              id: "emptySpaceBackgroundColor",
+              value: "rgb(255,255,255)",
+            },
+
+            {
+              id: "numberTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "consonantTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "vowelTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "punctuationTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "commandTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "emptySpaceTextColor",
+              value: "rgb(0,0,0)",
+            },
+
+            {
+              id: "numberBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "consonantBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "vowelBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "punctuationBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "commandBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "emptySpaceBorderColor",
+              value: "rgb(0,0,0)",
+            },
+          ],
+        },
+        {
+          value: "purple-with-highlights",
+          description: "Purple with highlights",
+          label: "Purple with highlights",
+          variableValues: [
+            { id: "textColorOnBackground", value: "rgb(255,255,255)" },
+
+            {
+              id: "fullBackgroundColor",
+              value: "rgb(68,8,125)",
+            },
+            {
+              id: "numberBackgroundColor",
+              value: "rgb(249,219,253)",
+            },
+            {
+              id: "consonantBackgroundColor",
+              value: "rgb(255,255,255)",
+            },
+            {
+              id: "vowelBackgroundColor",
+              value: "rgb(244,181,250)",
+            },
+            {
+              id: "punctuationBackgroundColor",
+              value: "rgb(249,219,253)",
+            },
+            {
+              id: "commandBackgroundColor",
+              value: "rgb(249,219,253)",
+            },
+            {
+              id: "emptySpaceBackgroundColor",
+              value: "rgb(255,255,255)",
+            },
+
+            {
+              id: "numberTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "consonantTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "vowelTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "punctuationTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "commandTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "emptySpaceTextColor",
+              value: "rgb(0,0,0)",
+            },
+
+            {
+              id: "numberBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "consonantBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "vowelBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "punctuationBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "commandBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "emptySpaceBorderColor",
+              value: "rgb(0,0,0)",
+            },
+          ],
+        },
+        {
+          value: "blue-with-highlights",
+          description: "Blue with highlights",
+          label: "Blue with highlights",
+          variableValues: [
+            { id: "textColorOnBackground", value: "rgb(255,255,255)" },
+
+            {
+              id: "fullBackgroundColor",
+              value: "rgb(60,70,108)",
+            },
+            {
+              id: "numberBackgroundColor",
+              value: "rgb(216,220,233)",
+            },
+            {
+              id: "consonantBackgroundColor",
+              value: "rgb(255,255,255)",
+            },
+            {
+              id: "vowelBackgroundColor",
+              value: "rgb(178,185,212)",
+            },
+            {
+              id: "punctuationBackgroundColor",
+              value: "rgb(216,220,233)",
+            },
+            {
+              id: "commandBackgroundColor",
+              value: "rgb(216,220,233)",
+            },
+            {
+              id: "emptySpaceBackgroundColor",
+              value: "rgb(255,255,255)",
+            },
+
+            {
+              id: "numberTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "consonantTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "vowelTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "punctuationTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "commandTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "emptySpaceTextColor",
+              value: "rgb(0,0,0)",
+            },
+
+            {
+              id: "numberBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "consonantBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "vowelBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "punctuationBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "commandBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "emptySpaceBorderColor",
+              value: "rgb(0,0,0)",
+            },
+          ],
+        },
+      ],
+    },
+    {
       id: "casing",
       description: "Change the casing of the label",
       name: "Label casing",
@@ -17,26 +373,142 @@ export const alphabetChart: Template = {
       options: CASING_OPTIONS,
     },
     {
-      id: "backgroundColor",
+      id: "fullBackgroundColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+
+    {
+      id: "numberBackgroundColor",
       description: "The color of the background",
       type: "color",
       name: "Background Color",
       defaultValue: "rgb(255,255,255)",
     },
     {
-      id: "textColor",
-      description: "The color of the text",
+      id: "consonantBackgroundColor",
+      description: "The color of the background",
       type: "color",
-      name: "Text Color",
-      defaultValue: "rgb(0,0,0)",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
     },
     {
-      id: "borderColor",
-      description: "The color of the border",
+      id: "vowelBackgroundColor",
+      description: "The color of the background",
       type: "color",
-      name: "Border Color",
-      defaultValue: "rgb(0,0,0)",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
     },
+    {
+      id: "punctuationBackgroundColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+    {
+      id: "commandBackgroundColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+    {
+      id: "emptySpaceBackgroundColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+
+    {
+      id: "numberTextColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+    {
+      id: "consonantTextColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+    {
+      id: "vowelTextColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+    {
+      id: "punctuationTextColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+    {
+      id: "commandTextColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+    {
+      id: "emptySpaceTextColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+
+    {
+      id: "numberBorderColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+    {
+      id: "consonantBorderColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+    {
+      id: "vowelBorderColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+    {
+      id: "punctuationBorderColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+    {
+      id: "commandBorderColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+    {
+      id: "emptySpaceBorderColor",
+      description: "The color of the background",
+      type: "color",
+      name: "Background Color",
+      defaultValue: "rgb(255,255,255)",
+    },
+
     {
       id: "gap",
       description: "The gap between cells",
@@ -54,16 +526,23 @@ export const alphabetChart: Template = {
       defaultValue: "helvetica",
       options: FONT_OPTIONS,
     },
+    {
+      type: "color",
+      id: "textColorOnBackground",
+      description: "textColorOnBackground",
+      name: "textColorOnBackground",
+      defaultValue: "rgb(0,0,0)",
+    },
   ],
   templateVariableGroups: [],
-  templateId: "alphabet-chart",
+  templateId: "alphabet-chart-launchpad",
   templateDateCreated: "2022-07-20T12:00:00+01:00",
   templateDescription: "Create an alphabet chart with custom colors",
   templateName: "Alphabet Chart Template",
   templateImageUrl: "alphabet-chart.png",
 
   format: "open-board-0.1",
-  id: "alphabet-chart",
+  id: "alphabet-chart-launchpad",
   locale: "en-GB",
   name: "Alphabet Chart",
   description_html: "Alphabet board to allow individuals to spell",
@@ -72,25 +551,22 @@ export const alphabetChart: Template = {
     gap: { id: "gap", type: "TemplateItem" },
     button_radius: 0,
     button_border_width: 1,
+    text_color_on_background: {
+      id: "textColorOnBackground",
+      type: "TemplateItem",
+    },
+    full_background_color: { id: "fullBackgroundColor", type: "TemplateItem" },
   },
   buttons: [
     {
-      id: "null",
-      label: "",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
-      ext_launchpad_label_font_size: 20,
-      ext_launchpad_label_font_style: "bold",
-      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
       id: "1",
       label: "1",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "numberBorderColor", type: "TemplateItem" },
+      background_color: { id: "numberBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: {
+        id: "numberTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -99,9 +575,12 @@ export const alphabetChart: Template = {
     {
       id: "2",
       label: "2",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "numberBorderColor", type: "TemplateItem" },
+      background_color: { id: "numberBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: {
+        id: "numberTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -110,9 +589,12 @@ export const alphabetChart: Template = {
     {
       id: "3",
       label: "3",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "numberBorderColor", type: "TemplateItem" },
+      background_color: { id: "numberBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: {
+        id: "numberTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -121,9 +603,12 @@ export const alphabetChart: Template = {
     {
       id: "4",
       label: "4",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "numberBorderColor", type: "TemplateItem" },
+      background_color: { id: "numberBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: {
+        id: "numberTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -132,9 +617,12 @@ export const alphabetChart: Template = {
     {
       id: "5",
       label: "5",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "numberBorderColor", type: "TemplateItem" },
+      background_color: { id: "numberBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: {
+        id: "numberTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -143,9 +631,12 @@ export const alphabetChart: Template = {
     {
       id: "6",
       label: "6",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "numberBorderColor", type: "TemplateItem" },
+      background_color: { id: "numberBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: {
+        id: "numberTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -154,9 +645,12 @@ export const alphabetChart: Template = {
     {
       id: "7",
       label: "7",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "numberBorderColor", type: "TemplateItem" },
+      background_color: { id: "numberBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: {
+        id: "numberTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -165,9 +659,12 @@ export const alphabetChart: Template = {
     {
       id: "8",
       label: "8",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "numberBorderColor", type: "TemplateItem" },
+      background_color: { id: "numberBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: {
+        id: "numberTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -176,9 +673,12 @@ export const alphabetChart: Template = {
     {
       id: "9",
       label: "9",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "numberBorderColor", type: "TemplateItem" },
+      background_color: { id: "numberBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: {
+        id: "numberTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -187,9 +687,12 @@ export const alphabetChart: Template = {
     {
       id: "0",
       label: "0",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "numberBorderColor", type: "TemplateItem" },
+      background_color: { id: "numberBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: {
+        id: "numberTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -198,9 +701,9 @@ export const alphabetChart: Template = {
     {
       id: "a",
       label: "A",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "vowelBorderColor", type: "TemplateItem" },
+      background_color: { id: "vowelBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: { id: "vowelTextColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -209,9 +712,15 @@ export const alphabetChart: Template = {
     {
       id: "b",
       label: "B",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -220,9 +729,15 @@ export const alphabetChart: Template = {
     {
       id: "c",
       label: "C",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -231,9 +746,15 @@ export const alphabetChart: Template = {
     {
       id: "d",
       label: "D",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -242,9 +763,9 @@ export const alphabetChart: Template = {
     {
       id: "e",
       label: "E",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "vowelBorderColor", type: "TemplateItem" },
+      background_color: { id: "vowelBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: { id: "vowelTextColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -253,9 +774,15 @@ export const alphabetChart: Template = {
     {
       id: "f",
       label: "F",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -264,9 +791,15 @@ export const alphabetChart: Template = {
     {
       id: "g",
       label: "G",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -275,9 +808,15 @@ export const alphabetChart: Template = {
     {
       id: "h",
       label: "H",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -286,9 +825,9 @@ export const alphabetChart: Template = {
     {
       id: "i",
       label: "I",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "vowelBorderColor", type: "TemplateItem" },
+      background_color: { id: "vowelBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: { id: "vowelTextColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -297,9 +836,15 @@ export const alphabetChart: Template = {
     {
       id: "j",
       label: "J",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -308,9 +853,15 @@ export const alphabetChart: Template = {
     {
       id: "k",
       label: "K",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -319,9 +870,15 @@ export const alphabetChart: Template = {
     {
       id: "l",
       label: "L",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -330,9 +887,15 @@ export const alphabetChart: Template = {
     {
       id: "m",
       label: "M",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -341,9 +904,15 @@ export const alphabetChart: Template = {
     {
       id: "n",
       label: "N",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -352,9 +921,9 @@ export const alphabetChart: Template = {
     {
       id: "o",
       label: "O",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "vowelBorderColor", type: "TemplateItem" },
+      background_color: { id: "vowelBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: { id: "vowelTextColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -363,9 +932,15 @@ export const alphabetChart: Template = {
     {
       id: "p",
       label: "P",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -374,9 +949,15 @@ export const alphabetChart: Template = {
     {
       id: "q",
       label: "Q",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -385,9 +966,15 @@ export const alphabetChart: Template = {
     {
       id: "r",
       label: "R",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -396,9 +983,15 @@ export const alphabetChart: Template = {
     {
       id: "s",
       label: "S",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -407,9 +1000,15 @@ export const alphabetChart: Template = {
     {
       id: "t",
       label: "T",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -418,9 +1017,9 @@ export const alphabetChart: Template = {
     {
       id: "u",
       label: "U",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "vowelBorderColor", type: "TemplateItem" },
+      background_color: { id: "vowelBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: { id: "vowelTextColor", type: "TemplateItem" },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -429,9 +1028,15 @@ export const alphabetChart: Template = {
     {
       id: "v",
       label: "V",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -440,9 +1045,15 @@ export const alphabetChart: Template = {
     {
       id: "w",
       label: "W",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -451,9 +1062,15 @@ export const alphabetChart: Template = {
     {
       id: "x",
       label: "X",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -462,9 +1079,15 @@ export const alphabetChart: Template = {
     {
       id: "y",
       label: "Y",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -473,9 +1096,15 @@ export const alphabetChart: Template = {
     {
       id: "z",
       label: "Z",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "consonantBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "consonantBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "consonantTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -484,9 +1113,15 @@ export const alphabetChart: Template = {
     {
       id: ",",
       label: ",",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "punctuationBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "punctuationBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "punctuationTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -495,9 +1130,15 @@ export const alphabetChart: Template = {
     {
       id: ".",
       label: ".",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "punctuationBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "punctuationBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "punctuationTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -506,9 +1147,15 @@ export const alphabetChart: Template = {
     {
       id: "?",
       label: "?",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "punctuationBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "punctuationBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "punctuationTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -517,9 +1164,15 @@ export const alphabetChart: Template = {
     {
       id: "!",
       label: "!",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "punctuationBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "punctuationBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "punctuationTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 30,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -528,9 +1181,12 @@ export const alphabetChart: Template = {
     {
       id: "delete",
       label: "DELETE",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "commandBorderColor", type: "TemplateItem" },
+      background_color: { id: "commandBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: {
+        id: "commandTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -539,9 +1195,12 @@ export const alphabetChart: Template = {
     {
       id: "delete-letter",
       label: "DELETE\nLETTER",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "commandBorderColor", type: "TemplateItem" },
+      background_color: { id: "commandBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: {
+        id: "commandTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -550,9 +1209,12 @@ export const alphabetChart: Template = {
     {
       id: "space",
       label: "SPACE",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "commandBorderColor", type: "TemplateItem" },
+      background_color: { id: "commandBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: {
+        id: "commandTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -561,9 +1223,12 @@ export const alphabetChart: Template = {
     {
       id: "start-again",
       label: "START AGAIN",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "commandBorderColor", type: "TemplateItem" },
+      background_color: { id: "commandBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: {
+        id: "commandTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -572,9 +1237,12 @@ export const alphabetChart: Template = {
     {
       id: "start-again-new-line",
       label: "START\nAGAIN",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "commandBorderColor", type: "TemplateItem" },
+      background_color: { id: "commandBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: {
+        id: "commandTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -584,9 +1252,15 @@ export const alphabetChart: Template = {
     {
       id: "empty-cell-one",
       label: "",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "emptySpaceBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "emptySpaceBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "emptySpaceTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -595,9 +1269,15 @@ export const alphabetChart: Template = {
     {
       id: "empty-cell-two",
       label: "",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "emptySpaceBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "emptySpaceBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "emptySpaceTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -606,9 +1286,15 @@ export const alphabetChart: Template = {
     {
       id: "empty-cell-three",
       label: "",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "emptySpaceBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "emptySpaceBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "emptySpaceTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
@@ -617,9 +1303,15 @@ export const alphabetChart: Template = {
     {
       id: "empty-cell-four",
       label: "",
-      border_color: { id: "borderColor", type: "TemplateItem" },
-      background_color: { id: "backgroundColor", type: "TemplateItem" },
-      ext_launchpad_label_color: { id: "textColor", type: "TemplateItem" },
+      border_color: { id: "emptySpaceBorderColor", type: "TemplateItem" },
+      background_color: {
+        id: "emptySpaceBackgroundColor",
+        type: "TemplateItem",
+      },
+      ext_launchpad_label_color: {
+        id: "emptySpaceTextColor",
+        type: "TemplateItem",
+      },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
       ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
