@@ -19,6 +19,7 @@ import { core } from "./core";
 import { bubbles } from "./bubbles";
 import { reading } from "./reading";
 import { portrait } from "./portrait";
+import { blocks } from "./blocks";
 
 export {
   alphabetChart,
@@ -62,6 +63,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   core,
   bubbles,
   reading,
+  blocks,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -69,4 +71,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   bubbles,
   reading,
   alphabetChart,
+  blocks,
 ];
