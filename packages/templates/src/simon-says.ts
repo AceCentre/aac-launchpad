@@ -411,7 +411,8 @@ export const simonSays: Template = {
         rows: 2,
         columns: 4,
         order: [
-          ["more", "run", "jump", "like", "stop", "fall-over", "look", "uh-oh"],
+          ["more", "run", "jump", "like"],
+          ["stop", "fall-over", "look", "uh-oh"],
         ],
       },
     },
