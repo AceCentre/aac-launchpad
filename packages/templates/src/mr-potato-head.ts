@@ -327,9 +327,9 @@ export const mrPotatoHead: Template = {
     },
   ],
   templateDescription: ``,
-  templateName: "Simon Says",
-  templateId: "simon-says-launchpad",
-  templateImageUrl: "simon-says.png",
+  templateName: "Symbol Charts",
+  templateId: "mr-potato-head-launchpad",
+  templateImageUrl: "mr-potato-head.png",
   templateVariableGroups: [
     {
       id: "advanced-options",
@@ -348,15 +348,15 @@ export const mrPotatoHead: Template = {
   ],
 
   format: "open-board-0.1",
-  id: "simon-says-launchpad",
+  id: "mr-potato-head-launchpad",
   locale: "en-GB",
-  name: "Simon Says",
+  name: "Mr Potato Head",
   description_html: "",
   ext_launchpad_options: {
     gap: { type: "TemplateItem", id: "gap" },
     padding: { type: "TemplateItem", id: "padding" },
     button_border_width: 1,
-    title_shown_on_board: "Simon Says Chart",
+    title_shown_on_board: "Mr Potato Head Chart",
     full_background_color: { type: "TemplateItem", id: "background-colour" },
     copyright_notice: { type: "TemplateItem", id: "copyright-notice" },
     invert_symbol_and_label: { type: "TemplateItem", id: "invert-text" },
