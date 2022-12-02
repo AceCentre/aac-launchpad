@@ -21,6 +21,7 @@ import { reading } from "./reading";
 import { portrait } from "./portrait";
 import { blocks } from "./blocks";
 import { simonSays } from "./simon-says";
+import { mrPotatoHead } from "./mr-potato-head";
 
 export {
   alphabetChart,
@@ -66,6 +67,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   reading,
   blocks,
   simonSays,
+  mrPotatoHead,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -75,4 +77,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   alphabetChart,
   blocks,
   simonSays,
+  mrPotatoHead,
 ];
