@@ -30,7 +30,7 @@ export type Image = {
   url: string;
 };
 
-type ButtonWithTemplateItems = {
+export type ButtonWithTemplateItems = {
   id: ButtonID | TemplateItem;
   label: string | TemplateItem;
   border_color: Color | TemplateItem;
@@ -195,7 +195,7 @@ export type Template = {
   images: Array<ImageWithTemplateItems>;
 };
 
-type ImageWithTemplateItems = {
+export type ImageWithTemplateItems = {
   id: string;
   url: string | TemplateItem;
 };
