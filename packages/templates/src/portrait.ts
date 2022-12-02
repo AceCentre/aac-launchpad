@@ -1,7 +1,7 @@
 import { Template } from "types";
 
 export const portrait: Template = {
-  templateCategory: "Portrait",
+  templateCategory: "Symbol Charts",
   templateSubcategory: "Portrait",
   templateShortDescription: "",
 

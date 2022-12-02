@@ -180,7 +180,7 @@ const generateButtons = (
 
 export const music: Template = {
   templateDateCreated: "2022-10-12T12:00:00+01:00",
-  templateCategory: "Listen to Music",
+  templateCategory: "Symbol Charts",
   templateSubcategory:
     "Symbol charts for reading, looking at photos & telling stories",
   templateFeatured: false,
