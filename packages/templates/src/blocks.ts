@@ -191,7 +191,7 @@ export const blocks: Template = {
             },
             {
               id: "no",
-              value: "./symbols/pcs/no-not.png",
+              value: "./symbols/pcs/no.png",
             },
             {
               id: "red",
@@ -299,7 +299,7 @@ export const blocks: Template = {
             },
             {
               id: "no",
-              value: "./symbols/widgit/no-not.png",
+              value: "./symbols/widgit/no.png",
             },
             {
               id: "red",
@@ -420,7 +420,7 @@ export const blocks: Template = {
       id: "no",
       description: "no",
       hidden: true,
-      defaultValue: "./symbols/widgit/no-not.png",
+      defaultValue: "./symbols/widgit/no.png",
     },
 
     {

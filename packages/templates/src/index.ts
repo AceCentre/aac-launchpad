@@ -75,10 +75,10 @@ export const ALL_TEMPLATES: Array<Template> = [
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
-  core,
-  bubbles,
-  reading,
-  alphabetChart,
+  core, // Downloadable
+  bubbles, // Downloadable
+  reading, // Downloadable
+  alphabetChart, // Downloadable
   blocks,
   simonSays,
   mrPotatoHead,
