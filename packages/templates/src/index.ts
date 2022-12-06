@@ -83,5 +83,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   simonSays, // Downloadable
   mrPotatoHead, // Downloadable
   chatAboutTv, // Downloadable
-  music,
+  music, // Downloadable
 ];
