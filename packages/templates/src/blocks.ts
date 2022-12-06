@@ -931,7 +931,7 @@ export const blocks: Template = {
       ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
       border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
+      ext_button_border_width: 1,
       background_color: { type: "TemplateItem", id: "cell-colour" },
       label: "make",
     },

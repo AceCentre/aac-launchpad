@@ -79,9 +79,9 @@ export const WEB_TEMPLATES: Array<Template> = [
   bubbles, // Downloadable
   reading, // Downloadable
   alphabetChart, // Downloadable
-  blocks,
-  simonSays,
-  mrPotatoHead,
-  chatAboutTv,
+  blocks, // Downloadable
+  simonSays, // Downloadable
+  mrPotatoHead, // Downloadable
+  chatAboutTv, // Downloadable
   music,
 ];

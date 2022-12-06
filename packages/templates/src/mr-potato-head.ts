@@ -327,7 +327,7 @@ export const mrPotatoHead: Template = {
     },
   ],
   templateDescription: ``,
-  templateName: "Symbol Charts",
+  templateName: "Mr Potato Head",
   templateId: "mr-potato-head-launchpad",
   templateImageUrl: "mr-potato-head.png",
   templateVariableGroups: [
