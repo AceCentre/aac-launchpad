@@ -719,6 +719,10 @@ export const blocks: Template = {
       id: "yellow",
       url: { type: "TemplateItem", id: "yellow" },
     },
+    {
+      id: "big",
+      url: { type: "TemplateItem", id: "big" },
+    },
   ],
   buttons: [
     {

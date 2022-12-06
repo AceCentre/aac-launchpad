@@ -393,7 +393,7 @@ const boardToPdf = async (
               );
               if (image === undefined) {
                 throw new Error(
-                  `Image referenced in Button but not defined ('${currentButton.image_id}')`
+                  `Image referenced in Button but not defined (image: '${currentButton.image_id}', button: ${currentButtonId}, row: ${rowCount}, column: ${columnCount})`
                 );
               }
               const isUrl = validateUrl(image.url);
