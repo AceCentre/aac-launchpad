@@ -1,4 +1,10 @@
-import { CASING_OPTIONS, FONT_OPTIONS } from "board-to-pdf";
+import {
+  CAPITAL_CASE_OPTION,
+  CASING_OPTIONS,
+  FONT_OPTIONS,
+  LOWER_CASE_OPTION,
+  UPPER_CASE_OPTION,
+} from "board-to-pdf";
 import { Template } from "types";
 
 export const alphabetChart: Template = {
@@ -18,7 +24,7 @@ export const alphabetChart: Template = {
       presets: [
         {
           value: "basic",
-          description: "Basic",
+          description: "Black and White",
           label: "Basic",
           variableValues: [
             { id: "textColorOnBackground", value: "rgb(0,0,0)" },
@@ -104,8 +110,8 @@ export const alphabetChart: Template = {
         },
         {
           value: "green-with-highlights",
-          description: "Green with highlights",
-          label: "Green with highlights",
+          description: "Green",
+          label: "Green",
           variableValues: [
             { id: "textColorOnBackground", value: "rgb(255,255,255)" },
 
@@ -123,7 +129,7 @@ export const alphabetChart: Template = {
             },
             {
               id: "vowelBackgroundColor",
-              value: "rgb(189,211,136)",
+              value: "rgb(255,255,255)",
             },
             {
               id: "punctuationBackgroundColor",
@@ -191,8 +197,8 @@ export const alphabetChart: Template = {
         },
         {
           value: "purple-with-highlights",
-          description: "Purple with highlights",
-          label: "Purple with highlights",
+          description: "Purple",
+          label: "Purple",
           variableValues: [
             { id: "textColorOnBackground", value: "rgb(255,255,255)" },
 
@@ -210,7 +216,7 @@ export const alphabetChart: Template = {
             },
             {
               id: "vowelBackgroundColor",
-              value: "rgb(244,181,250)",
+              value: "rgb(255,255,255)",
             },
             {
               id: "punctuationBackgroundColor",
@@ -278,8 +284,8 @@ export const alphabetChart: Template = {
         },
         {
           value: "blue-with-highlights",
-          description: "Blue with highlights",
-          label: "Blue with highlights",
+          description: "Blue",
+          label: "Blue",
           variableValues: [
             { id: "textColorOnBackground", value: "rgb(255,255,255)" },
 
@@ -297,7 +303,7 @@ export const alphabetChart: Template = {
             },
             {
               id: "vowelBackgroundColor",
-              value: "rgb(178,185,212)",
+              value: "rgb(255,255,255)",
             },
             {
               id: "punctuationBackgroundColor",
@@ -372,8 +378,18 @@ export const alphabetChart: Template = {
       name: "Label Casing",
       defaultValue: "capital",
       type: "option",
-      options: CASING_OPTIONS,
+      options: [UPPER_CASE_OPTION, LOWER_CASE_OPTION],
     },
+    {
+      id: "command-casing",
+      description:
+        "Pick if you want the commands to appear in upper or lower case.",
+      name: "Command Casing",
+      defaultValue: "capital",
+      type: "option",
+      options: [CAPITAL_CASE_OPTION, UPPER_CASE_OPTION, LOWER_CASE_OPTION],
+    },
+
     {
       id: "fullBackgroundColor",
       description: "Pick the background colour used behind the chart.",
@@ -381,7 +397,6 @@ export const alphabetChart: Template = {
       name: "Background Color",
       defaultValue: "rgb(255,255,255)",
     },
-
     {
       id: "numberBackgroundColor",
       description: "Pick the background colour used on cells with numbers",
@@ -522,6 +537,16 @@ export const alphabetChart: Template = {
       min: 0,
     },
     {
+      id: "border-width",
+      description: "The thickness of the border",
+      type: "number",
+      name: "Border Thickness",
+      defaultValue: "1",
+      max: 10,
+      min: 1,
+    },
+
+    {
       type: "option",
       id: "font",
       description: "Choose the font used in the file",
@@ -540,7 +565,7 @@ export const alphabetChart: Template = {
   templateVariableGroups: [
     {
       id: "advanced-options",
-      variables: ["gap"],
+      variables: ["gap", "command-casing", "border-width"],
       name: "More options",
       description: "Edit advanced options about the chart",
       openByDefault: false,
@@ -605,7 +630,7 @@ export const alphabetChart: Template = {
     padding: 10,
     gap: { id: "gap", type: "TemplateItem" },
     button_radius: 0,
-    button_border_width: 1,
+    button_border_width: { id: "border-width", type: "TemplateItem" },
     text_color_on_background: {
       id: "textColorOnBackground",
       type: "TemplateItem",
@@ -1244,7 +1269,10 @@ export const alphabetChart: Template = {
       },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
-      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_casing: {
+        type: "TemplateItem",
+        id: "command-casing",
+      },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
@@ -1258,7 +1286,10 @@ export const alphabetChart: Template = {
       },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
-      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_casing: {
+        type: "TemplateItem",
+        id: "command-casing",
+      },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
@@ -1272,7 +1303,10 @@ export const alphabetChart: Template = {
       },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
-      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_casing: {
+        type: "TemplateItem",
+        id: "command-casing",
+      },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
@@ -1286,7 +1320,10 @@ export const alphabetChart: Template = {
       },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
-      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_casing: {
+        type: "TemplateItem",
+        id: "command-casing",
+      },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
     {
@@ -1300,7 +1337,10 @@ export const alphabetChart: Template = {
       },
       ext_launchpad_label_font_size: 20,
       ext_launchpad_label_font_style: "bold",
-      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_casing: {
+        type: "TemplateItem",
+        id: "command-casing",
+      },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     },
 
@@ -1429,7 +1469,8 @@ export const alphabetChart: Template = {
     },
     {
       id: "abc-with-numbers-and-spaces",
-      ext_launchpad_title_shown_on_board: "ABC (with numbers + spaces)",
+      ext_launchpad_title_shown_on_board:
+        "ABC (with space for your own messages and numbers)",
       grid: {
         rows: 6,
         columns: 10,
@@ -1467,7 +1508,8 @@ export const alphabetChart: Template = {
     },
     {
       id: "abc-no-numbers-and-spaces",
-      ext_launchpad_title_shown_on_board: "ABC (with spaces)",
+      ext_launchpad_title_shown_on_board:
+        "ABC (with space for your own messages)",
 
       grid: {
         rows: 5,
@@ -1526,7 +1568,8 @@ export const alphabetChart: Template = {
     },
     {
       id: "abc-portrait-with-space",
-      ext_launchpad_title_shown_on_board: "ABC (with space)",
+      ext_launchpad_title_shown_on_board:
+        "ABC (with space for your own messages)",
 
       orientation: "portrait",
       grid: {
@@ -1605,7 +1648,8 @@ export const alphabetChart: Template = {
     },
     {
       id: "qwerty-no-numbers-and-spaces",
-      ext_launchpad_title_shown_on_board: "QWERTY (with spaces)",
+      ext_launchpad_title_shown_on_board:
+        "QWERTY (with space for your own messages)",
 
       grid: {
         rows: 5,
@@ -1643,7 +1687,8 @@ export const alphabetChart: Template = {
     },
     {
       id: "qwerty-with-numbers-and-spaces",
-      ext_launchpad_title_shown_on_board: "QWERTY (with spaces + numbers)",
+      ext_launchpad_title_shown_on_board:
+        "QWERTY (with space for your own messages and numbers)",
 
       grid: {
         rows: 6,

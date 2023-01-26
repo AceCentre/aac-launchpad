@@ -66,27 +66,33 @@ const calculateButtonSize = (
   }
 };
 
+export const LOWER_CASE_OPTION = {
+  label: "Lowercase",
+  value: "lower",
+  description: "Convert the text to all lowercase",
+};
+
+export const UPPER_CASE_OPTION = {
+  label: "Uppercase",
+  value: "upper",
+  description: "Convert the text to all uppercase",
+};
+
+export const CAPITAL_CASE_OPTION = {
+  label: "Capital Case",
+  value: "capital",
+  description: "Uppercase the first letter of each word",
+};
+
 export const CASING_OPTIONS: Array<Option> = [
   {
     label: "No change",
     value: "no-change",
     description: "Use the default casing",
   },
-  {
-    label: "Uppercase",
-    value: "upper",
-    description: "Convert the text to all uppercase",
-  },
-  {
-    label: "Lowercase",
-    value: "lower",
-    description: "Convert the text to all lowercase",
-  },
-  {
-    label: "Capital Case",
-    value: "capital",
-    description: "Uppercase the first letter of each word",
-  },
+  UPPER_CASE_OPTION,
+  LOWER_CASE_OPTION,
+  CAPITAL_CASE_OPTION,
 ];
 
 export const alterCasing = (rawLabel: string, casingType: Casing): string => {
