@@ -152,6 +152,78 @@ export const reading: Template = {
           ],
         },
         {
+          label: "High Contrast PCS",
+          value: "high-contrast-pcs",
+          description: "High Contrast version of PCS Symbols",
+          variableValues: [
+            {
+              id: "copyright-notice",
+              value:
+                "The Picture Communication Symbols © 1981 - 2022 DynaVox Mayer-Johnson are used under contractual agreement. All rights reserved worldwide.",
+            },
+            {
+              id: "more",
+              value: "./symbols/high-contrast-pcs/more.png",
+            },
+            {
+              id: "help",
+              value: "./symbols/high-contrast-pcs/help.png",
+            },
+            {
+              id: "want",
+              value: "./symbols/high-contrast-pcs/want.png",
+            },
+            {
+              id: "like",
+              value: "./symbols/high-contrast-pcs/like.png",
+            },
+            {
+              id: "read",
+              value: "./symbols/high-contrast-pcs/read.png",
+            },
+            {
+              id: "stop",
+              value: "./symbols/high-contrast-pcs/stop.png",
+            },
+            {
+              id: "different",
+              value: "./symbols/high-contrast-pcs/different.png",
+            },
+            {
+              id: "look",
+              value: "./symbols/high-contrast-pcs/look.png",
+            },
+            {
+              id: "dont-like",
+              value: "./symbols/high-contrast-pcs/dont-like.png",
+            },
+            {
+              id: "story-book",
+              value: "./symbols/high-contrast-pcs/story-book.png",
+            },
+            {
+              id: "me",
+              value: "./symbols/high-contrast-pcs/me.png",
+            },
+            {
+              id: "you",
+              value: "./symbols/high-contrast-pcs/you.png",
+            },
+            {
+              id: "turn-page",
+              value: "./symbols/high-contrast-pcs/turn-page.png",
+            },
+            {
+              id: "wow",
+              value: "./symbols/high-contrast-pcs/wow.png",
+            },
+            {
+              id: "uh-oh",
+              value: "./symbols/high-contrast-pcs/uh-oh.png",
+            },
+          ],
+        },
+        {
           label: "Widgit",
           value: "widgit",
           description: "Widgit Symbols",

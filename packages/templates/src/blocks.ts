@@ -272,6 +272,114 @@ export const blocks: Template = {
           ],
         },
         {
+          label: "High Contrast PCS",
+          value: "high-contrast-pcs",
+          description: "High Contrast version of PCS Symbols",
+          variableValues: [
+            {
+              id: "copyright-notice",
+              value:
+                "The Picture Communication Symbols © 1981 - 2022 DynaVox Mayer-Johnson are used under contractual agreement. All rights reserved worldwide.",
+            },
+            {
+              id: "more",
+              value: "./symbols/high-contrast-pcs/more.png",
+            },
+            {
+              id: "help",
+              value: "./symbols/high-contrast-pcs/help.png",
+            },
+            {
+              id: "want",
+              value: "./symbols/high-contrast-pcs/want.png",
+            },
+            {
+              id: "like",
+              value: "./symbols/high-contrast-pcs/like.png",
+            },
+            {
+              id: "no",
+              value: "./symbols/high-contrast-pcs/no.png",
+            },
+            {
+              id: "red",
+              value: "./symbols/high-contrast-pcs/red.png",
+            },
+            {
+              id: "stop",
+              value: "./symbols/high-contrast-pcs/stop.png",
+            },
+            {
+              id: "different",
+              value: "./symbols/high-contrast-pcs/different.png",
+            },
+            {
+              id: "look",
+              value: "./symbols/high-contrast-pcs/look.png",
+            },
+            {
+              id: "wow",
+              value: "./symbols/high-contrast-pcs/wow.png",
+            },
+            {
+              id: "this",
+              value: "./symbols/high-contrast-pcs/this.png",
+            },
+            {
+              id: "green",
+              value: "./symbols/high-contrast-pcs/green.png",
+            },
+            {
+              id: "me",
+              value: "./symbols/high-contrast-pcs/me.png",
+            },
+            {
+              id: "you",
+              value: "./symbols/high-contrast-pcs/you.png",
+            },
+            {
+              id: "go",
+              value: "./symbols/high-contrast-pcs/go.png",
+            },
+            {
+              id: "uh-oh",
+              value: "./symbols/high-contrast-pcs/uh-oh.png",
+            },
+            {
+              id: "question",
+              value: "./symbols/high-contrast-pcs/question.png",
+            },
+            {
+              id: "blue",
+              value: "./symbols/high-contrast-pcs/blue.png",
+            },
+            {
+              id: "block",
+              value: "./symbols/high-contrast-pcs/block.png",
+            },
+            {
+              id: "tower",
+              value: "./symbols/high-contrast-pcs/tower.png",
+            },
+            {
+              id: "make",
+              value: "./symbols/high-contrast-pcs/make.png",
+            },
+            {
+              id: "big",
+              value: "./symbols/high-contrast-pcs/big.png",
+            },
+            {
+              id: "knock-it-down",
+              value: "./symbols/high-contrast-pcs/knock-it-down.png",
+            },
+            {
+              id: "yellow",
+              value: "./symbols/high-contrast-pcs/yellow.png",
+            },
+          ],
+        },
+        {
           label: "Widgit",
           value: "widgit",
           description: "Widgit Symbols",

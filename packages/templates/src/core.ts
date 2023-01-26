@@ -584,6 +584,162 @@ export const core: Template = {
             },
           ],
         },
+        {
+          label: "High Contrast PCS",
+          value: "high-contrast-pcs",
+          description: "High Contrast version of PCS Symbols",
+          variableValues: [
+            {
+              id: "copyright-notice",
+              value:
+                "The Picture Communication Symbols © 1981 - 2022 DynaVox Mayer-Johnson are used under contractual agreement. All rights reserved worldwide.",
+            },
+            {
+              id: "dont-like",
+              value: "./symbols/high-contrast-pcs/dont-like.png",
+            },
+
+            {
+              id: "more",
+              value: "./symbols/high-contrast-pcs/more.png",
+            },
+
+            {
+              id: "help",
+              value: "./symbols/high-contrast-pcs/help.png",
+            },
+
+            {
+              id: "want",
+              value: "./symbols/high-contrast-pcs/want.png",
+            },
+
+            {
+              id: "have",
+              value: "./symbols/high-contrast-pcs/have.png",
+            },
+
+            {
+              id: "like",
+              value: "./symbols/high-contrast-pcs/like.png",
+            },
+
+            {
+              id: "good",
+              value: "./symbols/high-contrast-pcs/good.png",
+            },
+
+            {
+              id: "no",
+              value: "./symbols/high-contrast-pcs/no.png",
+            },
+
+            {
+              id: "stop",
+              value: "./symbols/high-contrast-pcs/stop.png",
+            },
+
+            {
+              id: "different",
+              value: "./symbols/high-contrast-pcs/different.png",
+            },
+
+            {
+              id: "look",
+              value: "./symbols/high-contrast-pcs/look.png",
+            },
+
+            {
+              id: "make",
+              value: "./symbols/high-contrast-pcs/make.png",
+            },
+
+            {
+              id: "wow",
+              value: "./symbols/high-contrast-pcs/wow.png",
+            },
+
+            {
+              id: "bad",
+              value: "./symbols/high-contrast-pcs/bad.png",
+            },
+
+            {
+              id: "this",
+              value: "./symbols/high-contrast-pcs/this.png",
+            },
+
+            {
+              id: "me",
+              value: "./symbols/high-contrast-pcs/me.png",
+            },
+
+            {
+              id: "you",
+              value: "./symbols/high-contrast-pcs/you.png",
+            },
+
+            {
+              id: "go",
+              value: "./symbols/high-contrast-pcs/go.png",
+            },
+
+            {
+              id: "play",
+              value: "./symbols/high-contrast-pcs/play.png",
+            },
+
+            {
+              id: "uh-oh",
+              value: "./symbols/high-contrast-pcs/uh-oh.png",
+            },
+
+            {
+              id: "big",
+              value: "./symbols/high-contrast-pcs/big.png",
+            },
+
+            {
+              id: "can",
+              value: "./symbols/high-contrast-pcs/can.png",
+            },
+
+            {
+              id: "he",
+              value: "./symbols/high-contrast-pcs/he.png",
+            },
+
+            {
+              id: "she",
+              value: "./symbols/high-contrast-pcs/she.png",
+            },
+
+            {
+              id: "we",
+              value: "./symbols/high-contrast-pcs/we.png",
+            },
+
+            {
+              id: "they",
+              value: "./symbols/high-contrast-pcs/they.png",
+            },
+
+            {
+              id: "turn",
+              value: "./symbols/high-contrast-pcs/turn.png",
+            },
+
+            {
+              id: "little",
+              value: "./symbols/high-contrast-pcs/little.png",
+            },
+
+            {
+              id: "question",
+              value: "./symbols/high-contrast-pcs/question.png",
+            },
+          ],
+        },
         // {
         //   label: "SymbolStix",
         //   value: "ss",

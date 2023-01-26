@@ -225,6 +225,19 @@ export const chatAboutTv: Template = {
           ],
         },
         {
+          label: "High Contrast PCS",
+          value: "high-contrast-pcs",
+          description: "High Contrast version of PCS Symbols",
+          variableValues: [
+            {
+              id: "copyright-notice",
+              value:
+                "The Picture Communication Symbols © 1981 - 2022 DynaVox Mayer-Johnson are used under contractual agreement. All rights reserved worldwide.",
+            },
+            ...generateSymbolPreset(TILES, "high-contrast-pcs"),
+          ],
+        },
+        {
           label: "Widgit",
           value: "widgit",
           description: "Widgit Symbols",

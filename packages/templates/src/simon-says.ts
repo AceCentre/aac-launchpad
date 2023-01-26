@@ -124,6 +124,50 @@ export const simonSays: Template = {
           ],
         },
         {
+          label: "High Contrast PCS",
+          value: "high-contrast-pcs",
+          description: "High Contrast version of PCS Symbols",
+          variableValues: [
+            {
+              id: "copyright-notice",
+              value:
+                "The Picture Communication Symbols © 1981 - 2022 DynaVox Mayer-Johnson are used under contractual agreement. All rights reserved worldwide.",
+            },
+            {
+              id: "more",
+              value: "./symbols/high-contrast-pcs/more.png",
+            },
+            {
+              id: "run",
+              value: "./symbols/high-contrast-pcs/run.png",
+            },
+            {
+              id: "jump",
+              value: "./symbols/high-contrast-pcs/jump.png",
+            },
+            {
+              id: "like",
+              value: "./symbols/high-contrast-pcs/like.png",
+            },
+            {
+              id: "stop",
+              value: "./symbols/high-contrast-pcs/stop.png",
+            },
+            {
+              id: "fall-over",
+              value: "./symbols/high-contrast-pcs/fall-over.png",
+            },
+            {
+              id: "look",
+              value: "./symbols/high-contrast-pcs/look.png",
+            },
+            {
+              id: "uh-oh",
+              value: "./symbols/high-contrast-pcs/uh-oh.png",
+            },
+          ],
+        },
+        {
           label: "Widgit",
           value: "widgit",
           description: "Widgit Symbols",

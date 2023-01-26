@@ -29,6 +29,7 @@ const streamToString = (stream: any) => {
   mkdirSync(symbolsFolder);
   mkdirSync(path.join(symbolsFolder, "./widgit"));
   mkdirSync(path.join(symbolsFolder, "./pcs"));
+  mkdirSync(path.join(symbolsFolder, "./high-contrast-pcs"));
   mkdirSync(path.join(symbolsFolder, "./ss"));
   mkdirSync(path.join(symbolsFolder, "./uncompressed_widgit"));
   mkdirSync(path.join(symbolsFolder, "./uncompressed_pcs"));
