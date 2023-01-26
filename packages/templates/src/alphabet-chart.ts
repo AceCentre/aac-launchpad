@@ -1839,54 +1839,5 @@ export const alphabetChart: Template = {
         ],
       },
     },
-    {
-      id: "frequency",
-      ext_launchpad_title_shown_on_board: "FREQUENCY",
-
-      grid: {
-        rows: 6,
-        columns: 6,
-        order: [
-          ["space", "e", "a", "r", "d", "u"],
-          ["t", "o", "i", "l", "g", "v"],
-          ["n", "s", "f", "y", "x", "."],
-          ["h", "c", "p", "k", "j", ","],
-          ["m", "b", "w", "q", "z", "?"],
-          [
-            "delete-letter",
-            "start-again-new-line",
-            "delete",
-            "empty-cell-one",
-            "empty-cell-two",
-            "empty-cell-three",
-          ],
-        ],
-      },
-    },
-    {
-      id: "frequency-with-row-labels",
-      ext_launchpad_title_shown_on_board: "FREQUENCY (number encoded)",
-
-      ext_launchpad_with_row_labels: true,
-      grid: {
-        rows: 6,
-        columns: 6,
-        order: [
-          ["space", "e", "a", "r", "d", "u"],
-          ["t", "o", "i", "l", "g", "v"],
-          ["n", "s", "f", "y", "x", "."],
-          ["h", "c", "p", "k", "j", ","],
-          ["m", "b", "w", "q", "z", "?"],
-          [
-            "delete-letter",
-            "start-again-new-line",
-            "delete",
-            "empty-cell-one",
-            "empty-cell-two",
-            "empty-cell-three",
-          ],
-        ],
-      },
-    },
   ],
 };
