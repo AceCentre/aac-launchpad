@@ -372,6 +372,24 @@ export const alphabetChart: Template = {
       ],
     },
     {
+      id: "empty-cell-one-text",
+      description:
+        "This is the text that will appear in the first empty space on any chart. Leave blank to fill in on the printed version",
+      name: "First Empty Space Label",
+      defaultValue: "",
+      type: "freeText",
+      maxLength: 100,
+    },
+    {
+      id: "empty-cell-two-text",
+      description:
+        "This is the text that will appear in the second empty space on any chart. Leave blank to fill in on the printed version",
+      name: "Second Empty Space Label",
+      defaultValue: "",
+      type: "freeText",
+      maxLength: 100,
+    },
+    {
       id: "space-text",
       description: "Label that will appear instead of the Space command",
       name: "Space Label",
@@ -1377,7 +1395,10 @@ export const alphabetChart: Template = {
 
     {
       id: "empty-cell-one",
-      label: "",
+      label: {
+        id: "empty-cell-one-text",
+        type: "TemplateItem",
+      },
       border_color: { id: "emptySpaceBorderColor", type: "TemplateItem" },
       background_color: {
         id: "emptySpaceBackgroundColor",
@@ -1394,7 +1415,10 @@ export const alphabetChart: Template = {
     },
     {
       id: "empty-cell-two",
-      label: "",
+      label: {
+        id: "empty-cell-two-text",
+        type: "TemplateItem",
+      },
       border_color: { id: "emptySpaceBorderColor", type: "TemplateItem" },
       background_color: {
         id: "emptySpaceBackgroundColor",
@@ -1776,7 +1800,6 @@ export const alphabetChart: Template = {
             "empty-cell-one",
             "empty-cell-two",
             "empty-cell-three",
-            "empty-cell-four",
           ],
         ],
       },
@@ -1802,7 +1825,6 @@ export const alphabetChart: Template = {
             "empty-cell-one",
             "empty-cell-two",
             "empty-cell-three",
-            "empty-cell-four",
           ],
         ],
       },
