@@ -372,6 +372,30 @@ export const alphabetChart: Template = {
       ],
     },
     {
+      id: "space-text",
+      description: "Label that will appear instead of the Space command",
+      name: "Space Label",
+      defaultValue: "SPACE",
+      type: "freeText",
+      maxLength: 18,
+    },
+    {
+      id: "start-again-text",
+      description: "Label that will appear instead of the Start Again command",
+      name: "Start Again Label",
+      defaultValue: "START AGAIN",
+      type: "freeText",
+      maxLength: 18,
+    },
+    {
+      id: "delete-text",
+      description: "Label that will appear instead of the Delete command",
+      name: "Delete Label",
+      defaultValue: "DELETE",
+      type: "freeText",
+      maxLength: 18,
+    },
+    {
       id: "casing",
       description:
         "Pick if you want the letters to appear in all capital letters or in all lower case letters.",
@@ -568,6 +592,13 @@ export const alphabetChart: Template = {
       variables: ["gap", "command-casing", "border-width"],
       name: "More options",
       description: "Edit advanced options about the chart",
+      openByDefault: false,
+    },
+    {
+      id: "advanced-options",
+      variables: ["delete-label", "start-again-label", "space-label"],
+      name: "Command Options",
+      description: "Edit the commands that appear",
       openByDefault: false,
     },
     {
@@ -1260,7 +1291,7 @@ export const alphabetChart: Template = {
     },
     {
       id: "delete",
-      label: "DELETE",
+      label: { id: "delete-label", type: "TemplateItem" },
       border_color: { id: "commandBorderColor", type: "TemplateItem" },
       background_color: { id: "commandBackgroundColor", type: "TemplateItem" },
       ext_launchpad_label_color: {
@@ -1294,7 +1325,7 @@ export const alphabetChart: Template = {
     },
     {
       id: "space",
-      label: "SPACE",
+      label: { id: "space-label", type: "TemplateItem" },
       border_color: { id: "commandBorderColor", type: "TemplateItem" },
       background_color: { id: "commandBackgroundColor", type: "TemplateItem" },
       ext_launchpad_label_color: {
@@ -1311,7 +1342,7 @@ export const alphabetChart: Template = {
     },
     {
       id: "start-again",
-      label: "START AGAIN",
+      label: { id: "start-again-label", type: "TemplateItem" },
       border_color: { id: "commandBorderColor", type: "TemplateItem" },
       background_color: { id: "commandBackgroundColor", type: "TemplateItem" },
       ext_launchpad_label_color: {
