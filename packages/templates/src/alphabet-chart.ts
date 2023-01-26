@@ -1,6 +1,5 @@
 import {
   CAPITAL_CASE_OPTION,
-  CASING_OPTIONS,
   FONT_OPTIONS,
   LOWER_CASE_OPTION,
   UPPER_CASE_OPTION,
@@ -390,6 +389,60 @@ export const alphabetChart: Template = {
       maxLength: 100,
     },
     {
+      id: "empty-cells",
+      description: "What would you like to appear in the empty cells",
+      name: "Empty Spaces",
+      defaultValue: "empty",
+      type: "preset",
+      presets: [
+        {
+          value: "empty",
+          label: "blank",
+          description: "Leave cells blank and fill them in later",
+          variableValues: [
+            {
+              id: "empty-cell-one-text",
+              value: "",
+            },
+            {
+              id: "empty-cell-two-text",
+              value: "",
+            },
+          ],
+        },
+        {
+          value: "Yes / No",
+          label: "yes-no",
+          description: "Use Yes on the left and No on the right",
+          variableValues: [
+            {
+              id: "empty-cell-one-text",
+              value: "Yes",
+            },
+            {
+              id: "empty-cell-two-text",
+              value: "No",
+            },
+          ],
+        },
+        {
+          value: "No / Yes",
+          label: "no-yes",
+          description: "Use No on the left and Yes on the right",
+          variableValues: [
+            {
+              id: "empty-cell-one-text",
+              value: "No",
+            },
+            {
+              id: "empty-cell-two-text",
+              value: "Yes",
+            },
+          ],
+        },
+      ],
+    },
+    {
       id: "space-text",
       description: "Label that will appear instead of the Space command",
       name: "Space Label",
@@ -613,10 +666,16 @@ export const alphabetChart: Template = {
       openByDefault: false,
     },
     {
-      id: "advanced-options",
-      variables: ["delete-label", "start-again-label", "space-label"],
-      name: "Command Options",
-      description: "Edit the commands that appear",
+      id: "label-options",
+      variables: [
+        "delete-label",
+        "start-again-label",
+        "space-label",
+        "empty-cell-one-text",
+        "empty-cell-two-text",
+      ],
+      name: "Labels",
+      description: "Edit the labels that appear on the chart",
       openByDefault: false,
     },
     {
