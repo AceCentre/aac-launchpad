@@ -668,9 +668,9 @@ export const alphabetChart: Template = {
     {
       id: "label-options",
       variables: [
-        "delete-label",
-        "start-again-label",
-        "space-label",
+        "delete-text",
+        "start-again-text",
+        "space-text",
         "empty-cell-one-text",
         "empty-cell-two-text",
       ],
