@@ -1,0 +1,35 @@
+{
+  "format": "open-board-0.1",
+  "id": "portrait-with-branding",
+  "locale": "en-GB",
+  "description_html": "Create a document in portrait mode",
+  "ext_launchpad_options": {
+    "copyright_notice": "test notice",
+    "use_ace_branding": true
+  },
+  "name": "Portrait",
+  "buttons": [
+    {
+      "id": "main",
+      "label": "Core",
+      "border_color": "rgb(0, 0, 55)",
+      "background_color": "rgb(255, 0, 0)"
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 1,
+        "columns": 1,
+        "order": [
+          [
+            "main"
+          ]
+        ]
+      },
+      "id": "first",
+      "orientation": "portrait"
+    }
+  ],
+  "images": []
+}
