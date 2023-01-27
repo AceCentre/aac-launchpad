@@ -47,6 +47,7 @@ export {
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
+  core,
   portrait,
   alphabetChart,
   simpleChoice,

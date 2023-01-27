@@ -175,7 +175,7 @@ const main = async () => {
             type: "input",
             name: variable.id,
             message: variable.description,
-            default: presetOverrides[variable.id],
+            default: presetOverrides[variable.id] || variable.defaultValue,
             validate: (input) => {
               if (!input.startsWith("rgb(")) {
                 return `You must describe your color in rgb format. Example: rgb(255, 255, 255)`;
