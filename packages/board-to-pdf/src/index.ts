@@ -356,7 +356,7 @@ const boardToPdf = async (
       );
       const logoProperties = doc.getImageProperties(logoImageData);
 
-      const scale = 0.015;
+      const scale = 0.15;
       const logoWidth = logoProperties.width * scale;
       const logoHeight = logoProperties.height * scale;
 
