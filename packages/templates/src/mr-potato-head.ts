@@ -274,8 +274,7 @@ export const mrPotatoHead: Template = {
       description: "Copyright notice",
       type: "freeText",
       maxLength: 600,
-      defaultValue:
-        "Widgit Symbols © Widgit Software 2002 - 2022 www.widgit.com",
+      defaultValue: "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
       hidden: true,
     },
 
