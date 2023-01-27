@@ -398,7 +398,14 @@ const boardToPdf = async (
           );
       }
 
-      documentHeight = currentPageHeight - logoHeight - 6;
+      // Something funky is happening here but this seems to fix it.
+      // Problem for another day
+      // I suspect the units are messed up
+      if (page.orientation === "portrait") {
+        documentHeight = currentPageHeight - 10;
+      } else {
+        documentHeight = currentPageHeight - logoHeight - 6;
+      }
     }
 
     const buttonDimensions = calculateButtonSize(

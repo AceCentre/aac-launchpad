@@ -20,7 +20,10 @@ export const portrait: Template = {
   locale: "en-GB",
   name: "Portrait",
   description_html: "Create a document in portrait mode",
-  ext_launchpad_options: {},
+  ext_launchpad_options: {
+    use_ace_branding: true,
+    copyright_notice: "test notice",
+  },
   images: [],
   buttons: [
     {
