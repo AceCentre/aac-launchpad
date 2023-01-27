@@ -350,7 +350,10 @@ const boardToPdf = async (
     }
 
     if (options.use_ace_branding === true) {
-      const logoImageData = getImageFromFile("../", "ace-logo.png");
+      const logoImageData = getImageFromFile(
+        __dirname,
+        "../../../ace-logo.png"
+      );
       const logoProperties = doc.getImageProperties(logoImageData);
 
       const scale = 0.015;
