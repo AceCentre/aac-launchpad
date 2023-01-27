@@ -294,7 +294,7 @@ export const mrPotatoHead: Template = {
             {
               id: "copyright-notice",
               value:
-                "The Picture Communication Symbols © 1981 - 2022 DynaVox Mayer-Johnson are used under contractual agreement. All rights reserved worldwide.",
+                "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
             },
             ...generateSymbolPreset(TILES, "pcs"),
           ],
@@ -307,7 +307,7 @@ export const mrPotatoHead: Template = {
             {
               id: "copyright-notice",
               value:
-                "The Picture Communication Symbols © 1981 - 2022 DynaVox Mayer-Johnson are used under contractual agreement. All rights reserved worldwide.",
+                "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
             },
             ...generateSymbolPreset(TILES, "high-contrast-pcs"),
           ],
@@ -320,7 +320,7 @@ export const mrPotatoHead: Template = {
             {
               id: "copyright-notice",
               value:
-                "The Picture Communication Symbols © 1981 - 2022 DynaVox Mayer-Johnson are used under contractual agreement. All rights reserved worldwide.",
+                "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
             },
             ...generateSymbolPreset(TILES, "widgit"),
           ],
