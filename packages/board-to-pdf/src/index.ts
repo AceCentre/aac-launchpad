@@ -395,7 +395,7 @@ const boardToPdf = async (
           );
       }
 
-      documentHeight = documentHeight - logoHeight - padding - 2;
+      documentHeight = currentPageHeight - logoHeight - 6;
     }
 
     const buttonDimensions = calculateButtonSize(
