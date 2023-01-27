@@ -331,7 +331,9 @@ const boardToPdf = async (
       extraTopPadding += 10 + titleHeight;
     }
 
-    if (options.copyright_notice) {
+    let noticeHeight = 0;
+
+    if (options.copyright_notice && !options.use_ace_branding) {
       doc
         .setFontSize(10)
         .text(
@@ -344,9 +346,59 @@ const boardToPdf = async (
           }
         );
 
-      const noticeHeight = doc.getFontSize() * POINT_TO_MM;
-      documentHeight = documentHeight - 2 - noticeHeight;
+      noticeHeight = doc.getFontSize() * POINT_TO_MM;
     }
+
+    if (options.use_ace_branding === true) {
+      const logoImageData = getImageFromFile("../", "ace-logo.png");
+      const logoProperties = doc.getImageProperties(logoImageData);
+
+      const scale = 0.015;
+      const logoWidth = logoProperties.width * scale;
+      const logoHeight = logoProperties.height * scale;
+
+      await doc.addImage(
+        logoImageData,
+        logoProperties.fileType,
+        padding,
+        currentPageHeight - logoHeight - 2,
+        logoWidth,
+        logoHeight,
+        "ace-logo",
+        "FAST",
+        0
+      );
+
+      doc
+        .setFontSize(10)
+        .text(
+          "A free resource created by the charity acecentre.org.uk",
+          padding + logoWidth + 2,
+          currentPageHeight - logoHeight / 2 - 2,
+          {
+            baseline: "top",
+            align: "left",
+          }
+        );
+
+      if (options.copyright_notice) {
+        doc
+          .setFontSize(10)
+          .text(
+            options.copyright_notice,
+            currentPageWidth - padding,
+            currentPageHeight - logoHeight / 2 - 2,
+            {
+              baseline: "top",
+              align: "right",
+            }
+          );
+      }
+
+      noticeHeight = logoHeight - padding;
+    }
+
+    documentHeight = documentHeight - 2 - noticeHeight;
 
     const buttonDimensions = calculateButtonSize(
       currentPageWidth,
