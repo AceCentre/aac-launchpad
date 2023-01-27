@@ -732,6 +732,7 @@ export const blocks: Template = {
     copyright_notice: { type: "TemplateItem", id: "copyright-notice" },
     invert_symbol_and_label: { type: "TemplateItem", id: "invert-text" },
     autofit_label_text: true,
+    use_ace_branding: true,
   },
   images: [
     {

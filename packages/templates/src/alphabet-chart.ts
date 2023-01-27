@@ -735,6 +735,7 @@ export const alphabetChart: Template = {
   name: "Alphabet Chart",
   description_html: "Alphabet board to allow individuals to spell",
   ext_launchpad_options: {
+    use_ace_branding: true,
     padding: 10,
     gap: { id: "gap", type: "TemplateItem" },
     button_radius: 0,
