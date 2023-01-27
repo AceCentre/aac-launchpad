@@ -331,8 +331,6 @@ const boardToPdf = async (
       extraTopPadding += 10 + titleHeight;
     }
 
-    let noticeHeight = 0;
-
     if (options.copyright_notice && !options.use_ace_branding) {
       doc
         .setFontSize(10)
@@ -346,7 +344,9 @@ const boardToPdf = async (
           }
         );
 
-      noticeHeight = doc.getFontSize() * POINT_TO_MM;
+      const fontInMm = doc.getFontSize() * POINT_TO_MM;
+
+      documentHeight = documentHeight - 2 - fontInMm;
     }
 
     if (options.use_ace_branding === true) {
@@ -395,10 +395,8 @@ const boardToPdf = async (
           );
       }
 
-      noticeHeight = logoHeight - padding;
+      documentHeight = documentHeight - logoHeight - padding - 2;
     }
-
-    documentHeight = documentHeight - 2 - noticeHeight;
 
     const buttonDimensions = calculateButtonSize(
       currentPageWidth,
