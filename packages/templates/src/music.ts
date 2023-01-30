@@ -354,7 +354,7 @@ export const music: Template = {
         },
         {
           label: "High Contrast PCS",
-          value: "high-contrast-pcs",
+          value: "high_contrast_pcs",
           description: "High Contrast version of PCS Symbols",
           variableValues: [
             {
@@ -362,7 +362,7 @@ export const music: Template = {
               value:
                 "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
             },
-            ...generateSymbolPreset(TILES, "high-contrast-pcs"),
+            ...generateSymbolPreset(TILES, "high_contrast_pcs"),
           ],
         },
         {

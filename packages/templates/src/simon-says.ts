@@ -124,7 +124,7 @@ export const simonSays: Template = {
         },
         {
           label: "High Contrast PCS",
-          value: "high-contrast-pcs",
+          value: "high_contrast_pcs",
           description: "High Contrast version of PCS Symbols",
           variableValues: [
             {
@@ -134,35 +134,35 @@ export const simonSays: Template = {
             },
             {
               id: "more",
-              value: "./symbols/high-contrast-pcs/more.png",
+              value: "./symbols/high_contrast_pcs/more.png",
             },
             {
               id: "run",
-              value: "./symbols/high-contrast-pcs/run.png",
+              value: "./symbols/high_contrast_pcs/run.png",
             },
             {
               id: "jump",
-              value: "./symbols/high-contrast-pcs/jump.png",
+              value: "./symbols/high_contrast_pcs/jump.png",
             },
             {
               id: "like",
-              value: "./symbols/high-contrast-pcs/like.png",
+              value: "./symbols/high_contrast_pcs/like.png",
             },
             {
               id: "stop",
-              value: "./symbols/high-contrast-pcs/stop.png",
+              value: "./symbols/high_contrast_pcs/stop.png",
             },
             {
               id: "fall-over",
-              value: "./symbols/high-contrast-pcs/fall-over.png",
+              value: "./symbols/high_contrast_pcs/fall-over.png",
             },
             {
               id: "look",
-              value: "./symbols/high-contrast-pcs/look.png",
+              value: "./symbols/high_contrast_pcs/look.png",
             },
             {
               id: "uh-oh",
-              value: "./symbols/high-contrast-pcs/uh-oh.png",
+              value: "./symbols/high_contrast_pcs/uh-oh.png",
             },
           ],
         },

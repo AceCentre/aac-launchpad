@@ -436,7 +436,7 @@ export const bubbles: Template = {
         },
         {
           label: "High Contrast PCS",
-          value: "high-contrast-pcs",
+          value: "high_contrast_pcs",
           description: "High Contrast version of PCS Symbols",
           variableValues: [
             {
@@ -446,96 +446,96 @@ export const bubbles: Template = {
             },
             {
               id: "more",
-              value: "./symbols/high-contrast-pcs/more.png",
+              value: "./symbols/high_contrast_pcs/more.png",
             },
             {
               id: "help",
-              value: "./symbols/high-contrast-pcs/help.png",
+              value: "./symbols/high_contrast_pcs/help.png",
             },
 
             {
               id: "want",
-              value: "./symbols/high-contrast-pcs/want.png",
+              value: "./symbols/high_contrast_pcs/want.png",
             },
             {
               id: "like",
-              value: "./symbols/high-contrast-pcs/like.png",
+              value: "./symbols/high_contrast_pcs/like.png",
             },
 
             {
               id: "no",
-              value: "./symbols/high-contrast-pcs/no.png",
+              value: "./symbols/high_contrast_pcs/no.png",
             },
 
             {
               id: "stop",
-              value: "./symbols/high-contrast-pcs/stop.png",
+              value: "./symbols/high_contrast_pcs/stop.png",
             },
 
             {
               id: "different",
-              value: "./symbols/high-contrast-pcs/different.png",
+              value: "./symbols/high_contrast_pcs/different.png",
             },
 
             {
               id: "look",
-              value: "./symbols/high-contrast-pcs/look.png",
+              value: "./symbols/high_contrast_pcs/look.png",
             },
 
             {
               id: "wow",
-              value: "./symbols/high-contrast-pcs/wow.png",
+              value: "./symbols/high_contrast_pcs/wow.png",
             },
 
             {
               id: "this",
-              value: "./symbols/high-contrast-pcs/this.png",
+              value: "./symbols/high_contrast_pcs/this.png",
             },
 
             {
               id: "me",
-              value: "./symbols/high-contrast-pcs/me.png",
+              value: "./symbols/high_contrast_pcs/me.png",
             },
 
             {
               id: "you",
-              value: "./symbols/high-contrast-pcs/you.png",
+              value: "./symbols/high_contrast_pcs/you.png",
             },
 
             {
               id: "go",
-              value: "./symbols/high-contrast-pcs/go.png",
+              value: "./symbols/high_contrast_pcs/go.png",
             },
 
             {
               id: "uh-oh",
-              value: "./symbols/high-contrast-pcs/uh-oh.png",
+              value: "./symbols/high_contrast_pcs/uh-oh.png",
             },
 
             {
               id: "question",
-              value: "./symbols/high-contrast-pcs/question.png",
+              value: "./symbols/high_contrast_pcs/question.png",
             },
 
             {
               id: "bubbles",
-              value: "./symbols/high-contrast-pcs/bubbles.png",
+              value: "./symbols/high_contrast_pcs/bubbles.png",
             },
             {
               id: "blow",
-              value: "./symbols/high-contrast-pcs/blow.png",
+              value: "./symbols/high_contrast_pcs/blow.png",
             },
             {
               id: "catch",
-              value: "./symbols/high-contrast-pcs/catch.png",
+              value: "./symbols/high_contrast_pcs/catch.png",
             },
             {
               id: "pop",
-              value: "./symbols/high-contrast-pcs/pop.png",
+              value: "./symbols/high_contrast_pcs/pop.png",
             },
             {
               id: "lots",
-              value: "./symbols/high-contrast-pcs/lots.png",
+              value: "./symbols/high_contrast_pcs/lots.png",
             },
           ],
         },
