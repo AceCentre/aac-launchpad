@@ -33,10 +33,10 @@ export const blocks: Template = {
             {
               id: "order",
               value: `[
-                ["more", "help", "want", "like", "no", "red"],
-                ["stop", "different", "look", "wow", "this", "green"],
-                ["me", "you", "go", "uh-oh", "question", "blue"],
-                ["block", "tower", "make", "big", "knock-it-down", "yellow"]
+                ["me", "more", "look", "question", "red", "block"],
+                ["you", "stop", "want", "this", "green", "tower"],
+                ["go", "different", "help", "big", "blue", "make"],
+                ["like", "wow", "uh-oh", "no", "yellow", "knock it down"]
               ]`,
             },
           ],
@@ -57,8 +57,8 @@ export const blocks: Template = {
             {
               id: "order",
               value: `[
-                ["more", "block", "knock-it-down", "like"],
-                ["stop", "tower", "look", "uh-oh"]
+                ["more", "look", "tower", "block"],
+                ["stop", "like", "uh-oh", "knock-it-down"]
               ]`,
             },
           ],
@@ -99,7 +99,7 @@ export const blocks: Template = {
       name: "Background Colour",
       description:
         "Change the background colour of the chart. Select white to save printer ink.",
-      defaultValue: "rgb(253,240,189)",
+      defaultValue: "rgb(255,255,255)",
       type: "color",
     },
     {
@@ -727,7 +727,7 @@ export const blocks: Template = {
     gap: { type: "TemplateItem", id: "gap" },
     padding: { type: "TemplateItem", id: "padding" },
     button_border_width: 1,
-    title_shown_on_board: "Play with Blocks Chart",
+    title_shown_on_board: "Blocks",
     full_background_color: { type: "TemplateItem", id: "background-colour" },
     copyright_notice: { type: "TemplateItem", id: "copyright-notice" },
     invert_symbol_and_label: { type: "TemplateItem", id: "invert-text" },
@@ -841,7 +841,7 @@ export const blocks: Template = {
       border_color: "rgb(0, 0, 0)",
       ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "more, again",
+      label: "more (again)",
     },
     {
       id: "help",
@@ -881,7 +881,7 @@ export const blocks: Template = {
       border_color: "rgb(0, 0, 0)",
       ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "no, not",
+      label: "not (no)",
     },
     {
       id: "red",
@@ -901,7 +901,7 @@ export const blocks: Template = {
       border_color: "rgb(0, 0, 0)",
       ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "stop, finished",
+      label: "stop (finish)",
     },
     {
       id: "different",
@@ -921,7 +921,7 @@ export const blocks: Template = {
       border_color: "rgb(0, 0, 0)",
       ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "look",
+      label: "look (see)",
     },
     {
       id: "wow",
@@ -931,7 +931,7 @@ export const blocks: Template = {
       border_color: "rgb(0, 0, 0)",
       ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "wow",
+      label: "wow!",
     },
     {
       id: "this",
@@ -941,7 +941,7 @@ export const blocks: Template = {
       border_color: "rgb(0, 0, 0)",
       ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "this",
+      label: "this, that",
     },
     {
       id: "green",
@@ -991,7 +991,7 @@ export const blocks: Template = {
       border_color: "rgb(0, 0, 0)",
       ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "uh oh",
+      label: "oh no!",
     },
     {
       id: "question",
@@ -1049,7 +1049,7 @@ export const blocks: Template = {
       ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
       ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
       border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 1,
+      ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
       label: "big",
     },
