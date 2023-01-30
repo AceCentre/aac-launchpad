@@ -61,6 +61,11 @@ const resolvers = {
     templates: () => {
       return WEB_TEMPLATES.map(addTypenameToTemplate);
     },
+    template: (_: null, { id }: { id: string }) => {
+      return WEB_TEMPLATES.map(addTypenameToTemplate).find(
+        (x: { templateId: string }) => x.templateId === id
+      );
+    },
   },
 
   Mutation: {

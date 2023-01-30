@@ -131,6 +131,7 @@ export const typeDefs = gql`
 
   type Query {
     templates: [Template]!
+    template(id: String!): Template
   }
 
   type BoardResult {
