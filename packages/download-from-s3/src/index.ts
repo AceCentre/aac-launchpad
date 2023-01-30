@@ -29,7 +29,7 @@ const streamToString = (stream: any) => {
   mkdirSync(symbolsFolder);
   mkdirSync(path.join(symbolsFolder, "./widgit"));
   mkdirSync(path.join(symbolsFolder, "./pcs"));
-  mkdirSync(path.join(symbolsFolder, "./high-contrast-pcs"));
+  mkdirSync(path.join(symbolsFolder, "./high_contrast_pcs"));
   mkdirSync(path.join(symbolsFolder, "./ss"));
   mkdirSync(path.join(symbolsFolder, "./uncompressed_widgit"));
   mkdirSync(path.join(symbolsFolder, "./uncompressed_pcs"));
@@ -56,7 +56,7 @@ const streamToString = (stream: any) => {
       content !== undefined &&
       content.Size !== undefined &&
       content.Key !== undefined &&
-      content.Size > 0
+      content.Size > 20 // Sometimes a folder is bigger than 0
     ) {
       const response = await s3Client.send(
         new GetObjectCommand({ Bucket: "launchpad-symbols", Key: content.Key })
