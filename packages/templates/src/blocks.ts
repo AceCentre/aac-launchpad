@@ -36,7 +36,7 @@ export const blocks: Template = {
                 ["me", "more", "look", "question", "red", "block"],
                 ["you", "stop", "want", "this", "green", "tower"],
                 ["go", "different", "help", "big", "blue", "make"],
-                ["like", "wow", "uh-oh", "no", "yellow", "knock it down"]
+                ["like", "wow", "uh-oh", "no", "yellow", "knock-it-down"]
               ]`,
             },
           ],
