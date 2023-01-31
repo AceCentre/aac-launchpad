@@ -7,7 +7,7 @@ import {
   ButtonWithTemplateItems,
 } from "types";
 
-type Tile = { key: string; label: string; isCore: boolean };
+type Tile = { key: string; label: string; isCore: boolean; noImage?: boolean };
 
 const TILES: Array<Tile> = [
   {
@@ -149,6 +149,7 @@ const TILES: Array<Tile> = [
     key: "can",
     label: "can, could",
     isCore: false,
+    noImage: true,
   },
   {
     key: "this",
@@ -156,7 +157,7 @@ const TILES: Array<Tile> = [
     isCore: false,
   },
   {
-    key: "not (no)",
+    key: "no",
     label: "not (no)",
     isCore: false,
   },
@@ -198,7 +199,7 @@ const generateButtons = (
 ): Array<ButtonWithTemplateItems> => {
   return tiles.map((tile) => ({
     id: tile.key,
-    image_id: tile.key,
+    image_id: tile.noImage ? undefined : tile.key,
     ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
     ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
     border_color: "rgb(0, 0, 0)",
@@ -359,7 +360,7 @@ export const core: Template = {
       id: "grid",
       type: "preset",
       description: "The number of items shown on the chart",
-      defaultValue: "28",
+      defaultValue: "30",
       name: "Layout",
       presets: [
         {
@@ -369,7 +370,7 @@ export const core: Template = {
           variableValues: [
             {
               id: "rows",
-              value: "6",
+              value: "5",
             },
             {
               id: "columns",
