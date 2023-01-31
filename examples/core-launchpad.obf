@@ -1,0 +1,493 @@
+{
+  "format": "open-board-0.1",
+  "id": "core-launchpad",
+  "locale": "en-GB",
+  "description_html": "Core words are a set of words that we use across huge numbers of different situations.",
+  "ext_launchpad_options": {
+    "padding": 10,
+    "gap": 3,
+    "button_border_width": 1,
+    "title_shown_on_board": "Core Words",
+    "full_background_color": "rgb(255,255,255)",
+    "copyright_notice": "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
+    "invert_symbol_and_label": true,
+    "autofit_label_text": true,
+    "use_ace_branding": true
+  },
+  "name": "Core",
+  "buttons": [
+    {
+      "image_id": "me",
+      "id": "me",
+      "label": "I, me, my, mine",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "we",
+      "id": "we",
+      "label": "we, us ours",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "more",
+      "id": "more",
+      "label": "more (again)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "look",
+      "id": "look",
+      "label": "look (see)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "turn",
+      "id": "turn",
+      "label": "turn",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "question",
+      "id": "question",
+      "label": "question",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "you",
+      "id": "you",
+      "label": "you, your(s)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "they",
+      "id": "they",
+      "label": "they, them, their(s)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "stop",
+      "id": "stop",
+      "label": "stop (finish)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "want",
+      "id": "want",
+      "label": "want",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "make",
+      "id": "make",
+      "label": "make",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "play",
+      "id": "play",
+      "label": "play",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "she",
+      "id": "she",
+      "label": "she, her(s)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "do",
+      "id": "do",
+      "label": "do, does",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "different",
+      "id": "different",
+      "label": "different",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "help",
+      "id": "help",
+      "label": "help",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "big",
+      "id": "big",
+      "label": "big",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "good",
+      "id": "good",
+      "label": "good",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "he",
+      "id": "he",
+      "label": "he, him, his",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "it",
+      "id": "it",
+      "label": "it",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "go",
+      "id": "go",
+      "label": "go",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "have",
+      "id": "have",
+      "label": "have, has",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "little",
+      "id": "little",
+      "label": "little",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "bad",
+      "id": "bad",
+      "label": "bad (yucky)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "like",
+      "id": "like",
+      "label": "like",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "wow",
+      "id": "wow",
+      "label": "wow!",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "uh-oh",
+      "id": "uh-oh",
+      "label": "oh no!",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "id": "can",
+      "label": "can, could",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "this",
+      "id": "this",
+      "label": "this, that",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "no",
+      "id": "no",
+      "label": "not (no)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 5,
+        "columns": 6,
+        "order": [
+          [
+            "me",
+            "we",
+            "more",
+            "look",
+            "turn",
+            "question"
+          ],
+          [
+            "you",
+            "they",
+            "stop",
+            "want",
+            "make",
+            "play"
+          ],
+          [
+            "she",
+            "do",
+            "different",
+            "help",
+            "big",
+            "good"
+          ],
+          [
+            "he",
+            "it",
+            "go",
+            "have",
+            "little",
+            "bad"
+          ],
+          [
+            "like",
+            "wow",
+            "uh-oh",
+            "can",
+            "this",
+            "no"
+          ]
+        ]
+      },
+      "id": "first",
+      "orientation": "landscape"
+    }
+  ],
+  "images": [
+    {
+      "id": "me",
+      "url": "./symbols/pcs/me.png"
+    },
+    {
+      "id": "we",
+      "url": "./symbols/pcs/we.png"
+    },
+    {
+      "id": "more",
+      "url": "./symbols/pcs/more.png"
+    },
+    {
+      "id": "look",
+      "url": "./symbols/pcs/look.png"
+    },
+    {
+      "id": "turn",
+      "url": "./symbols/pcs/turn.png"
+    },
+    {
+      "id": "question",
+      "url": "./symbols/pcs/question.png"
+    },
+    {
+      "id": "you",
+      "url": "./symbols/pcs/you.png"
+    },
+    {
+      "id": "they",
+      "url": "./symbols/pcs/they.png"
+    },
+    {
+      "id": "stop",
+      "url": "./symbols/pcs/stop.png"
+    },
+    {
+      "id": "want",
+      "url": "./symbols/pcs/want.png"
+    },
+    {
+      "id": "make",
+      "url": "./symbols/pcs/make.png"
+    },
+    {
+      "id": "play",
+      "url": "./symbols/pcs/play.png"
+    },
+    {
+      "id": "she",
+      "url": "./symbols/pcs/she.png"
+    },
+    {
+      "id": "do",
+      "url": "./symbols/pcs/do.png"
+    },
+    {
+      "id": "different",
+      "url": "./symbols/pcs/different.png"
+    },
+    {
+      "id": "help",
+      "url": "./symbols/pcs/help.png"
+    },
+    {
+      "id": "big",
+      "url": "./symbols/pcs/big.png"
+    },
+    {
+      "id": "good",
+      "url": "./symbols/pcs/good.png"
+    },
+    {
+      "id": "he",
+      "url": "./symbols/pcs/he.png"
+    },
+    {
+      "id": "it",
+      "url": "./symbols/pcs/it.png"
+    },
+    {
+      "id": "go",
+      "url": "./symbols/pcs/go.png"
+    },
+    {
+      "id": "have",
+      "url": "./symbols/pcs/have.png"
+    },
+    {
+      "id": "little",
+      "url": "./symbols/pcs/little.png"
+    },
+    {
+      "id": "bad",
+      "url": "./symbols/pcs/bad.png"
+    },
+    {
+      "id": "like",
+      "url": "./symbols/pcs/like.png"
+    },
+    {
+      "id": "wow",
+      "url": "./symbols/pcs/wow.png"
+    },
+    {
+      "id": "uh-oh",
+      "url": "./symbols/pcs/uh-oh.png"
+    },
+    {
+      "id": "can",
+      "url": "./symbols/pcs/can.png"
+    },
+    {
+      "id": "this",
+      "url": "./symbols/pcs/this.png"
+    },
+    {
+      "id": "no",
+      "url": "./symbols/pcs/no.png"
+    }
+  ]
+}
