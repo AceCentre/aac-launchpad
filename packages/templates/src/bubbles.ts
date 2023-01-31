@@ -1216,7 +1216,7 @@ export const bubbles: Template = {
       id: "title-text",
       description: "title",
       hidden: true,
-      defaultValue: "Core Vocabulary / Commenting Chart",
+      defaultValue: "Bubbles",
       maxLength: 100,
     },
     {
