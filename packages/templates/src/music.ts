@@ -12,7 +12,7 @@ type Tile = { key: string; label: string; isCore: boolean };
 const TILES: Array<Tile> = [
   {
     key: "more",
-    label: "more, again",
+    label: "more (again)",
     isCore: true,
   },
   {
@@ -42,7 +42,7 @@ const TILES: Array<Tile> = [
   },
   {
     key: "stop",
-    label: "stop, finished",
+    label: "stop (finish)",
     isCore: true,
   },
   {
@@ -52,7 +52,7 @@ const TILES: Array<Tile> = [
   },
   {
     key: "look",
-    label: "look, see",
+    label: "look (see)",
     isCore: true,
   },
   {

@@ -424,7 +424,7 @@ export const reading: Template = {
       id: "more-label",
       description: "more",
       hidden: true,
-      defaultValue: "more, again",
+      defaultValue: "more (again)",
       maxLength: 100,
     },
     {
@@ -469,7 +469,7 @@ export const reading: Template = {
       id: "stop-label",
       description: "stop",
       hidden: true,
-      defaultValue: "stop, finished",
+      defaultValue: "stop (finish)",
       maxLength: 100,
     },
     {
@@ -487,7 +487,7 @@ export const reading: Template = {
       id: "look-label",
       description: "look",
       hidden: true,
-      defaultValue: "look",
+      defaultValue: "look (see)",
       maxLength: 100,
     },
     {
@@ -550,7 +550,7 @@ export const reading: Template = {
       id: "uh-oh-label",
       description: "uh-oh",
       hidden: true,
-      defaultValue: "uh oh!",
+      defaultValue: "oh no!",
       maxLength: 100,
     },
     {

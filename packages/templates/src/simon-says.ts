@@ -374,7 +374,7 @@ export const simonSays: Template = {
       border_color: "rgb(0, 0, 0)",
       ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "more, again",
+      label: "more (again)",
     },
     {
       id: "run",
@@ -414,7 +414,7 @@ export const simonSays: Template = {
       border_color: "rgb(0, 0, 0)",
       ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "stop, finished",
+      label: "stop (finish)",
     },
     {
       id: "fall-over",
@@ -434,7 +434,7 @@ export const simonSays: Template = {
       border_color: "rgb(0, 0, 0)",
       ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "look",
+      label: "look (see)",
     },
     {
       id: "uh-oh",
@@ -444,7 +444,7 @@ export const simonSays: Template = {
       border_color: "rgb(0, 0, 0)",
       ext_button_border_width: 2,
       background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "uh oh!",
+      label: "oh no!",
     },
   ],
 

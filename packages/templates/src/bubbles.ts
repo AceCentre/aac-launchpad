@@ -118,7 +118,7 @@ export const bubbles: Template = {
     //         },
     //         {
     //           id: "more-label",
-    //           value: "more, again",
+    //           value: "more (again)",
     //         },
 
     //         {
@@ -138,12 +138,12 @@ export const bubbles: Template = {
 
     //         {
     //           id: "no-label",
-    //           value: "no, not",
+    //           value: "not (no)",
     //         },
 
     //         {
     //           id: "stop-label",
-    //           value: "stop, finished",
+    //           value: "stop (finish)",
     //         },
 
     //         {
@@ -163,7 +163,7 @@ export const bubbles: Template = {
 
     //         {
     //           id: "this-label",
-    //           value: "this, that, there",
+    //           value: "this, that",
     //         },
 
     //         {
@@ -183,7 +183,7 @@ export const bubbles: Template = {
 
     //         {
     //           id: "uh-oh-label",
-    //           value: "uh oh",
+    //           value: "oh no!",
     //         },
 
     //         {
@@ -1029,7 +1029,7 @@ export const bubbles: Template = {
       id: "more-label",
       description: "more",
       hidden: true,
-      defaultValue: "more, again",
+      defaultValue: "more (again)",
       maxLength: 100,
     },
     {
@@ -1067,7 +1067,7 @@ export const bubbles: Template = {
       id: "no-label",
       description: "no",
       hidden: true,
-      defaultValue: "no, not",
+      defaultValue: "not (no)",
       maxLength: 100,
     },
     {
@@ -1076,7 +1076,7 @@ export const bubbles: Template = {
       id: "stop-label",
       description: "stop",
       hidden: true,
-      defaultValue: "stop, finished",
+      defaultValue: "stop (finish)",
       maxLength: 100,
     },
 
@@ -1095,7 +1095,7 @@ export const bubbles: Template = {
       id: "look-label",
       description: "look",
       hidden: true,
-      defaultValue: "look",
+      defaultValue: "look (see)",
       maxLength: 100,
     },
 
@@ -1115,7 +1115,7 @@ export const bubbles: Template = {
       id: "this-label",
       description: "this",
       hidden: true,
-      defaultValue: "this, that, there",
+      defaultValue: "this, that",
       maxLength: 100,
     },
     {
@@ -1152,7 +1152,7 @@ export const bubbles: Template = {
       id: "uh-oh-label",
       description: "uh-oh",
       hidden: true,
-      defaultValue: "uh oh",
+      defaultValue: "oh no!",
       maxLength: 100,
     },
 
@@ -1207,7 +1207,7 @@ export const bubbles: Template = {
       id: "lots-label",
       description: "lots",
       hidden: true,
-      defaultValue: "lots",
+      defaultValue: "lots (many)",
       maxLength: 100,
     },
     {

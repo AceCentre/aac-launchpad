@@ -123,7 +123,7 @@ export const core: Template = {
 
     //         {
     //           id: "more-label",
-    //           value: "more, again",
+    //           value: "more (again)",
     //         },
 
     //         {
@@ -153,12 +153,12 @@ export const core: Template = {
 
     //         {
     //           id: "no-label",
-    //           value: "no, not",
+    //           value: "not (no)",
     //         },
 
     //         {
     //           id: "stop-label",
-    //           value: "stop, finished",
+    //           value: "stop (finish)",
     //         },
 
     //         {
@@ -188,7 +188,7 @@ export const core: Template = {
 
     //         {
     //           id: "this-label",
-    //           value: "this, that, there",
+    //           value: "this, that",
     //         },
 
     //         {
@@ -213,7 +213,7 @@ export const core: Template = {
 
     //         {
     //           id: "uh-oh-label",
-    //           value: "uh oh",
+    //           value: "oh no!",
     //         },
 
     //         {
@@ -1425,7 +1425,7 @@ export const core: Template = {
       id: "more-label",
       description: "more",
       hidden: true,
-      defaultValue: "more, again",
+      defaultValue: "more (again)",
       maxLength: 100,
     },
     {
@@ -1479,7 +1479,7 @@ export const core: Template = {
       id: "no-label",
       description: "no",
       hidden: true,
-      defaultValue: "no, not",
+      defaultValue: "not (no)",
       maxLength: 100,
     },
     {
@@ -1488,7 +1488,7 @@ export const core: Template = {
       id: "stop-label",
       description: "stop",
       hidden: true,
-      defaultValue: "stop, finished",
+      defaultValue: "stop (finish)",
       maxLength: 100,
     },
 
@@ -1507,7 +1507,7 @@ export const core: Template = {
       id: "look-label",
       description: "look",
       hidden: true,
-      defaultValue: "look",
+      defaultValue: "look (see)",
       maxLength: 100,
     },
     {
@@ -1543,7 +1543,7 @@ export const core: Template = {
       id: "this-label",
       description: "this",
       hidden: true,
-      defaultValue: "this, that, there",
+      defaultValue: "this, that",
       maxLength: 100,
     },
     {
@@ -1588,7 +1588,7 @@ export const core: Template = {
       id: "uh-oh-label",
       description: "uh-oh",
       hidden: true,
-      defaultValue: "uh oh",
+      defaultValue: "oh no!",
       maxLength: 100,
     },
     {

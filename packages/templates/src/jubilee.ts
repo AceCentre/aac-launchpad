@@ -37,7 +37,7 @@ export const jubilee: Template = {
           variableValues: [
             {
               id: "more-label",
-              value: "more, again",
+              value: "more (again)",
             },
             {
               id: "help-label",
@@ -65,7 +65,7 @@ export const jubilee: Template = {
             },
             {
               id: "look-label",
-              value: "look",
+              value: "look (see)",
             },
             {
               id: "dont-like-label",
