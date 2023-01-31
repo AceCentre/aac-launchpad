@@ -115,7 +115,7 @@ const resolvers = {
       const board = templateToBoard(template, input.answers);
 
       const rootToImages = path.join(__dirname, "../private");
-      const rootToPdfs = path.join(__dirname, "../private");
+      const rootToPdfs = path.join(__dirname, "../public");
       const { pdf, totalNanoSeconds, totalSeconds } = await boardToPdf(board, {
         rootToImages,
         rootToPdfs,
