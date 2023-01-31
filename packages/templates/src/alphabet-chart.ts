@@ -397,7 +397,7 @@ export const alphabetChart: Template = {
       presets: [
         {
           value: "empty",
-          label: "blank",
+          label: "Empty Spaces",
           description: "Leave cells blank and fill them in later",
           variableValues: [
             {
@@ -411,8 +411,8 @@ export const alphabetChart: Template = {
           ],
         },
         {
-          value: "Yes / No",
-          label: "yes-no",
+          value: "yes-no",
+          label: "Yes / No",
           description: "Use Yes on the left and No on the right",
           variableValues: [
             {
@@ -426,8 +426,8 @@ export const alphabetChart: Template = {
           ],
         },
         {
-          value: "No / Yes",
-          label: "no-yes",
+          value: "no-yes",
+          label: "No / Yes",
           description: "Use No on the left and Yes on the right",
           variableValues: [
             {
