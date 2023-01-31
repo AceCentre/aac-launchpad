@@ -13,10 +13,14 @@ const streamToString = (stream: any) => {
 };
 
 (async () => {
-  const symbolsFolder = path.join(
+  let symbolsFolder = path.join(
     __dirname,
     "../../../apps/backend/private/symbols"
   );
+
+  if (process.argv.includes("--examples")) {
+    symbolsFolder = path.join(__dirname, "../../../examples/symbols");
+  }
 
   try {
     rmSync(symbolsFolder, { recursive: true });
