@@ -1369,7 +1369,7 @@ export const alphabetChart: Template = {
     },
     {
       id: "delete",
-      label: { id: "delete-label", type: "TemplateItem" },
+      label: { id: "delete-text", type: "TemplateItem" },
       border_color: { id: "commandBorderColor", type: "TemplateItem" },
       background_color: { id: "commandBackgroundColor", type: "TemplateItem" },
       ext_launchpad_label_color: {
@@ -1403,7 +1403,7 @@ export const alphabetChart: Template = {
     },
     {
       id: "space",
-      label: { id: "space-label", type: "TemplateItem" },
+      label: { id: "space-text", type: "TemplateItem" },
       border_color: { id: "commandBorderColor", type: "TemplateItem" },
       background_color: { id: "commandBackgroundColor", type: "TemplateItem" },
       ext_launchpad_label_color: {
@@ -1420,7 +1420,7 @@ export const alphabetChart: Template = {
     },
     {
       id: "start-again",
-      label: { id: "start-again-label", type: "TemplateItem" },
+      label: { id: "start-again-text", type: "TemplateItem" },
       border_color: { id: "commandBorderColor", type: "TemplateItem" },
       background_color: { id: "commandBackgroundColor", type: "TemplateItem" },
       ext_launchpad_label_color: {
