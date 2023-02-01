@@ -24,7 +24,7 @@ export const alphabetChart: Template = {
         {
           value: "basic",
           description: "Black and White",
-          label: "Basic",
+          label: "Black and White",
           variableValues: [
             { id: "textColorOnBackground", value: "rgb(0,0,0)" },
             {
