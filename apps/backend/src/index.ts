@@ -126,10 +126,10 @@ const resolvers = {
         `Board generation (${board.id}) ${totalSeconds}.${totalNanoSeconds}s`
       );
 
-      const fileHash = crypto
-        .createHash("sha256")
-        .update(JSON.stringify(input))
-        .digest("hex");
+      const fileHash =
+        board.id +
+        "--" +
+        crypto.createHash("sha256").update(JSON.stringify(input)).digest("hex");
 
       const writeStartTime = process.hrtime();
       fs.writeFileSync(
@@ -231,7 +231,9 @@ async function setupServer() {
   app.get("/boards/:id", (req, res) => {
     const date = new Date();
 
-    res.download(req.params.id, `launchpad-${date.toISOString()}.pdf`, {
+    const boardId = req.params.id.split("--")[0];
+
+    res.download(req.params.id, `${boardId}-${date.toISOString()}.pdf`, {
       root: "./public/boards",
     });
   });
