@@ -636,9 +636,9 @@ export const alphabetChart: Template = {
       description: "The thickness of the border",
       type: "number",
       name: "Border Thickness",
-      defaultValue: "1",
+      defaultValue: "0.5",
       max: 10,
-      min: 1,
+      min: 0,
     },
 
     {
@@ -1702,8 +1702,8 @@ export const alphabetChart: Template = {
           [
             "empty-cell-one",
             "empty-cell-one",
-            "empty-cell-one",
-            "empty-cell-one",
+            "empty-cell-two",
+            "empty-cell-two",
           ],
         ],
       },
