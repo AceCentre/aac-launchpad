@@ -301,6 +301,8 @@ export const reading: Template = {
   name: "Reading",
   description_html: "",
   ext_launchpad_options: {
+    ext_launchpad_prepend_pdf: "./symbol-chart-cover.pdf",
+
     gap: { type: "TemplateItem", id: "gap" },
     padding: { type: "TemplateItem", id: "padding" },
     button_border_width: 1,

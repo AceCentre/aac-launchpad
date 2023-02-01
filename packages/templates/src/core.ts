@@ -508,6 +508,7 @@ export const core: Template = {
   description_html:
     "Core words are a set of words that we use across huge numbers of different situations.",
   ext_launchpad_options: {
+    ext_launchpad_prepend_pdf: "./core-cover.pdf",
     gap: { type: "TemplateItem", id: "gap" },
     padding: { type: "TemplateItem", id: "padding" },
     button_border_width: 1,
