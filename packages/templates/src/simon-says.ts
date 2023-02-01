@@ -114,7 +114,7 @@ export const simonSays: Template = {
       name: "Background Colour",
       description:
         "Change the background colour of the chart. Select white to save printer ink.",
-      defaultValue: "rgb(253,240,189)",
+      defaultValue: "rgb(255,255,255)",
       type: "color",
     },
     {
@@ -262,7 +262,7 @@ export const simonSays: Template = {
     gap: { type: "TemplateItem", id: "gap" },
     padding: { type: "TemplateItem", id: "padding" },
     button_border_width: 1,
-    title_shown_on_board: "Simon Says Chart",
+    title_shown_on_board: "Simon Says",
     full_background_color: { type: "TemplateItem", id: "background-colour" },
     copyright_notice: { type: "TemplateItem", id: "copyright-notice" },
     invert_symbol_and_label: { type: "TemplateItem", id: "invert-text" },

@@ -87,7 +87,7 @@ const TILES: Array<Tile> = [
   },
   {
     key: "uh-oh",
-    label: "oh no!!",
+    label: "oh no!",
     isCore: true,
   },
   {
@@ -222,7 +222,7 @@ export const mrPotatoHead: Template = {
       name: "Background Colour",
       description:
         "Change the background colour of the chart. Select white to save printer ink.",
-      defaultValue: "rgb(253,240,189)",
+      defaultValue: "rgb(255,255,255)",
       type: "color",
     },
     {
@@ -370,7 +370,7 @@ export const mrPotatoHead: Template = {
     gap: { type: "TemplateItem", id: "gap" },
     padding: { type: "TemplateItem", id: "padding" },
     button_border_width: 1,
-    title_shown_on_board: "Mr Potato Head Chart",
+    title_shown_on_board: "Mr Potato Head",
     full_background_color: { type: "TemplateItem", id: "background-colour" },
     copyright_notice: { type: "TemplateItem", id: "copyright-notice" },
     invert_symbol_and_label: { type: "TemplateItem", id: "invert-text" },
@@ -386,18 +386,11 @@ export const mrPotatoHead: Template = {
         rows: 5,
         columns: 6,
         order: [
-          ["more", "help", "want", "like", "no", "funny"],
-          ["stop", "different", "look", "wow", "this", "arm"],
-          ["me", "you", "go", "uh-oh", "question", "shoes"],
-          [
-            "mr-potato-head",
-            "mrs-potato-head",
-            "put-on",
-            "take-off",
-            "hair",
-            "hat",
-          ],
-          ["eyes", "mouth", "teeth", "nose", "ear", "earring"],
+          ["me", "more", "look", "question", "arm", "hair"],
+          ["you", "stop", "want", "this", "nose", "ear"],
+          ["go", "different", "help", "put-on", "teeth", "mouth"],
+          ["like", "funny", "mr-potato-head", "take-off", "eyes", "hat"],
+          ["wow", "uh-oh", "mrs-potato-head", "no", "shoes", "earring"],
         ],
       },
     },

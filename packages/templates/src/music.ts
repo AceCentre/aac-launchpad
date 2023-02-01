@@ -87,7 +87,7 @@ const TILES: Array<Tile> = [
   },
   {
     key: "uh-oh",
-    label: "uh-oh",
+    label: "oh no!",
     isCore: true,
   },
   {
@@ -210,10 +210,10 @@ export const music: Template = {
             {
               id: "order",
               value: `[
-                ["more", "help", "want", "like", "no", "happy"],
-                ["stop", "different", "look", "wow", "this", "sad"],
-                ["me", "you", "go", "uh-oh", "question", "favourite"],
-                ["sing-along", "dance", "music", "playlist", "loud", "quiet"]
+                ["me", "more", "look", "question", "music", "happy"],
+                ["you", "stop", "want", "this", "playlist", "sad"],
+                ["go", "different", "help", "dance", "sing-along", "loud"],
+                ["like", "wow", "uh-oh", "no", "favourite", "quiet"]
               ]`,
             },
           ],
@@ -234,8 +234,8 @@ export const music: Template = {
             {
               id: "order",
               value: `[
-                ["more", "sing-along", "song", "like"],
-                ["stop", "different", "loud", "quiet"]
+                ["more", "sing-along", "music", "loud"],
+                ["stop", "different", "like", "quiet"]
               ]`,
             },
           ],
@@ -276,7 +276,7 @@ export const music: Template = {
       name: "Background Colour",
       description:
         "Change the background colour of the chart. Select white to save printer ink.",
-      defaultValue: "rgb(253,240,189)",
+      defaultValue: "rgb(255,255,255)",
       type: "color",
     },
     {

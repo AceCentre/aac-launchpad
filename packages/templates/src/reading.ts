@@ -150,7 +150,7 @@ export const reading: Template = {
       name: "Background Colour",
       description:
         "Change the background colour of the chart. Select white to save printer ink.",
-      defaultValue: "rgb(253,240,189)",
+      defaultValue: "rgb(255,255,255)",
       type: "color",
     },
     {
@@ -262,7 +262,7 @@ export const reading: Template = {
       id: "title-text",
       description: "title",
       hidden: true,
-      defaultValue: "Reading chart",
+      defaultValue: "Readingf",
       maxLength: 100,
     },
     {

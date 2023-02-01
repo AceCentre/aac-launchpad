@@ -168,6 +168,15 @@ export const bubbles: Template = {
 
   templateVariables: [
     {
+      type: "freeText",
+      name: "title",
+      id: "title-text",
+      description: "title",
+      hidden: true,
+      defaultValue: "Bubbles",
+      maxLength: 100,
+    },
+    {
       id: "background-colour",
       name: "Background Colour",
       description:
