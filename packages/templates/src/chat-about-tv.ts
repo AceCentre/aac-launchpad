@@ -16,6 +16,21 @@ const TILES: Array<Tile> = [
     isCore: true,
   },
   {
+    key: "me",
+    label: "I, me, my, mine",
+    isCore: true,
+  },
+  {
+    key: "you",
+    label: "you, your(s)",
+    isCore: true,
+  },
+  {
+    key: "no",
+    label: "not (no)",
+    isCore: true,
+  },
+  {
     key: "help",
     label: "help",
     isCore: true,
@@ -82,7 +97,7 @@ const TILES: Array<Tile> = [
   },
   {
     key: "uh-oh",
-    label: "uh-oh",
+    label: "oh no!",
     isCore: false,
   },
 ];
@@ -147,7 +162,7 @@ export const chatAboutTv: Template = {
       name: "Background Colour",
       description:
         "Change the background colour of the chart. Select white to save printer ink.",
-      defaultValue: "rgb(253,240,189)",
+      defaultValue: "rgb(255,255,255)",
       type: "color",
     },
     {
@@ -295,7 +310,7 @@ export const chatAboutTv: Template = {
     gap: { type: "TemplateItem", id: "gap" },
     padding: { type: "TemplateItem", id: "padding" },
     button_border_width: 1,
-    title_shown_on_board: "Chat About TV Chart",
+    title_shown_on_board: "Chat About TV",
     full_background_color: { type: "TemplateItem", id: "background-colour" },
     copyright_notice: { type: "TemplateItem", id: "copyright-notice" },
     invert_symbol_and_label: { type: "TemplateItem", id: "invert-text" },
@@ -311,9 +326,9 @@ export const chatAboutTv: Template = {
         rows: 3,
         columns: 5,
         order: [
-          ["more", "help", "want", "like", "funny"],
-          ["stop", "different", "look", "dont-like", "sad"],
-          ["watch-tv", "program", "remote", "wow", "uh-oh"],
+          ["me", "more", "look", "wow", "uh-oh"],
+          ["you", "stop", "want", "program", "watch-tv"],
+          ["like", "different", "help", "no", "remote"],
         ],
       },
     },
