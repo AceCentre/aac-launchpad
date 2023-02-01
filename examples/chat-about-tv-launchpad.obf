@@ -1,0 +1,308 @@
+{
+  "format": "open-board-0.1",
+  "id": "chat-about-tv-launchpad",
+  "locale": "en-GB",
+  "description_html": "",
+  "ext_launchpad_options": {
+    "padding": 10,
+    "gap": 3,
+    "button_border_width": 1,
+    "title_shown_on_board": "Chat About TV Chart",
+    "full_background_color": "rgb(255,255,255)",
+    "copyright_notice": "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
+    "invert_symbol_and_label": true,
+    "autofit_label_text": true,
+    "ext_launchpad_prepend_pdf": "./symbol-chart-cover.pdf",
+    "use_ace_branding": true
+  },
+  "name": "Chat About T",
+  "buttons": [
+    {
+      "image_id": "more",
+      "id": "more",
+      "label": "more (again)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "me",
+      "id": "me",
+      "label": "I, me, my, mine",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "you",
+      "id": "you",
+      "label": "you, your(s)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "no",
+      "id": "no",
+      "label": "not (no)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "help",
+      "id": "help",
+      "label": "help",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "want",
+      "id": "want",
+      "label": "want",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "like",
+      "id": "like",
+      "label": "like",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "funny",
+      "id": "funny",
+      "label": "funny",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "stop",
+      "id": "stop",
+      "label": "stop (finish)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "different",
+      "id": "different",
+      "label": "different",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "look",
+      "id": "look",
+      "label": "look (see)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "dont-like",
+      "id": "dont-like",
+      "label": "dont-like",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "sad",
+      "id": "sad",
+      "label": "sad",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "watch-tv",
+      "id": "watch-tv",
+      "label": "watch-tv",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "program",
+      "id": "program",
+      "label": "program",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "remote",
+      "id": "remote",
+      "label": "remote",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "wow",
+      "id": "wow",
+      "label": "wow",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "uh-oh",
+      "id": "uh-oh",
+      "label": "oh no!",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 3,
+        "columns": 5,
+        "order": [
+          [
+            "me",
+            "more",
+            "look",
+            "wow",
+            "uh-oh"
+          ],
+          [
+            "you",
+            "stop",
+            "want",
+            "program",
+            "watch-tv"
+          ],
+          [
+            "like",
+            "different",
+            "help",
+            "no",
+            "remote"
+          ]
+        ]
+      },
+      "id": "first",
+      "orientation": "landscape"
+    }
+  ],
+  "images": [
+    {
+      "id": "more",
+      "url": "./symbols/widgit/more.png"
+    },
+    {
+      "id": "me",
+      "url": "./symbols/widgit/me.png"
+    },
+    {
+      "id": "you",
+      "url": "./symbols/widgit/you.png"
+    },
+    {
+      "id": "no",
+      "url": "./symbols/widgit/no.png"
+    },
+    {
+      "id": "help",
+      "url": "./symbols/widgit/help.png"
+    },
+    {
+      "id": "want",
+      "url": "./symbols/widgit/want.png"
+    },
+    {
+      "id": "like",
+      "url": "./symbols/widgit/like.png"
+    },
+    {
+      "id": "funny",
+      "url": "./symbols/widgit/funny.png"
+    },
+    {
+      "id": "stop",
+      "url": "./symbols/widgit/stop.png"
+    },
+    {
+      "id": "different",
+      "url": "./symbols/widgit/different.png"
+    },
+    {
+      "id": "look",
+      "url": "./symbols/widgit/look.png"
+    },
+    {
+      "id": "dont-like",
+      "url": "./symbols/widgit/dont-like.png"
+    },
+    {
+      "id": "sad",
+      "url": "./symbols/widgit/sad.png"
+    },
+    {
+      "id": "watch-tv",
+      "url": "./symbols/widgit/watch-tv.png"
+    },
+    {
+      "id": "program",
+      "url": "./symbols/widgit/program.png"
+    },
+    {
+      "id": "remote",
+      "url": "./symbols/widgit/remote.png"
+    },
+    {
+      "id": "wow",
+      "url": "./symbols/widgit/wow.png"
+    },
+    {
+      "id": "uh-oh",
+      "url": "./symbols/widgit/uh-oh.png"
+    }
+  ]
+}
