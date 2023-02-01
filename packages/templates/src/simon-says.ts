@@ -1,6 +1,105 @@
 import { FONT_OPTIONS } from "board-to-pdf";
-import { Template } from "types";
+import {
+  AllTemplateVariable,
+  PresetVariableValues,
+  Template,
+  ImageWithTemplateItems,
+  ButtonWithTemplateItems,
+} from "types";
 
+type Tile = { key: string; label: string; isCore: boolean };
+
+const TILES: Array<Tile> = [
+  {
+    key: "more",
+    label: "more (again)",
+    isCore: true,
+  },
+  {
+    key: "look",
+    label: "look (see)",
+    isCore: true,
+  },
+  {
+    key: "jump",
+    label: "jump around",
+    isCore: false,
+  },
+  {
+    key: "run",
+    label: "run around",
+    isCore: false,
+  },
+
+  {
+    key: "uh-oh",
+    label: "oh no!",
+    isCore: true,
+  },
+
+  {
+    key: "stop",
+    label: "stop (finish)",
+    isCore: true,
+  },
+
+  {
+    key: "like",
+    label: "like",
+    isCore: true,
+  },
+  {
+    key: "fall-over",
+    label: "fall over",
+    isCore: false,
+  },
+];
+
+const generateSymbolPreset = (
+  tiles: Array<Tile>,
+  name: string
+): PresetVariableValues => {
+  return tiles.map((tile) => ({
+    id: tile.key,
+    value: `./symbols/${name}/${tile.key}.png`,
+  }));
+};
+
+const generateImageVariables = (
+  tiles: Array<Tile>,
+  name: string
+): Array<AllTemplateVariable> => {
+  return tiles.map((tile) => ({
+    type: "imageUrl",
+    name: tile.key,
+    id: tile.key,
+    description: tile.key,
+    hidden: true,
+    defaultValue: `./symbols/${name}/${tile.key}.png`,
+  }));
+};
+
+const generateImages = (tiles: Array<Tile>): Array<ImageWithTemplateItems> => {
+  return tiles.map((tile) => ({
+    id: tile.key,
+    url: { type: "TemplateItem", id: tile.key },
+  }));
+};
+
+const generateButtons = (
+  tiles: Array<Tile>
+): Array<ButtonWithTemplateItems> => {
+  return tiles.map((tile) => ({
+    id: tile.key,
+    image_id: tile.key,
+    ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
+    ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+    border_color: "rgb(0, 0, 0)",
+    ext_button_border_width: tile.isCore ? 2 : 1,
+    background_color: { type: "TemplateItem", id: "cell-colour" },
+    label: tile.label,
+  }));
+};
 export const simonSays: Template = {
   templateDateCreated: "2022-10-12T12:00:00+01:00",
   templateCategory: "Symbol Charts",
@@ -88,38 +187,7 @@ export const simonSays: Template = {
               value:
                 "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
             },
-            {
-              id: "more",
-              value: "./symbols/pcs/more.png",
-            },
-            {
-              id: "run",
-              value: "./symbols/pcs/run.png",
-            },
-            {
-              id: "jump",
-              value: "./symbols/pcs/jump.png",
-            },
-            {
-              id: "like",
-              value: "./symbols/pcs/like.png",
-            },
-            {
-              id: "stop",
-              value: "./symbols/pcs/stop.png",
-            },
-            {
-              id: "fall-over",
-              value: "./symbols/pcs/fall-over.png",
-            },
-            {
-              id: "look",
-              value: "./symbols/pcs/look.png",
-            },
-            {
-              id: "uh-oh",
-              value: "./symbols/pcs/uh-oh.png",
-            },
+            ...generateSymbolPreset(TILES, "pcs"),
           ],
         },
         {
@@ -132,38 +200,7 @@ export const simonSays: Template = {
               value:
                 "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
             },
-            {
-              id: "more",
-              value: "./symbols/high_contrast_pcs/more.png",
-            },
-            {
-              id: "run",
-              value: "./symbols/high_contrast_pcs/run.png",
-            },
-            {
-              id: "jump",
-              value: "./symbols/high_contrast_pcs/jump.png",
-            },
-            {
-              id: "like",
-              value: "./symbols/high_contrast_pcs/like.png",
-            },
-            {
-              id: "stop",
-              value: "./symbols/high_contrast_pcs/stop.png",
-            },
-            {
-              id: "fall-over",
-              value: "./symbols/high_contrast_pcs/fall-over.png",
-            },
-            {
-              id: "look",
-              value: "./symbols/high_contrast_pcs/look.png",
-            },
-            {
-              id: "uh-oh",
-              value: "./symbols/high_contrast_pcs/uh-oh.png",
-            },
+            ...generateSymbolPreset(TILES, "high_contrast_pcs"),
           ],
         },
         {
@@ -176,114 +213,13 @@ export const simonSays: Template = {
               value:
                 "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
             },
-            {
-              id: "more",
-              value: "./symbols/widgit/more.png",
-            },
-            {
-              id: "run",
-              value: "./symbols/widgit/run.png",
-            },
-            {
-              id: "jump",
-              value: "./symbols/widgit/jump.png",
-            },
-            {
-              id: "like",
-              value: "./symbols/widgit/like.png",
-            },
-            {
-              id: "stop",
-              value: "./symbols/widgit/stop.png",
-            },
-            {
-              id: "fall-over",
-              value: "./symbols/widgit/fall-over.png",
-            },
-            {
-              id: "look",
-              value: "./symbols/widgit/look.png",
-            },
-            {
-              id: "uh-oh",
-              value: "./symbols/widgit/uh-oh.png",
-            },
+            ...generateSymbolPreset(TILES, "widgit"),
           ],
         },
       ],
     },
 
-    {
-      type: "imageUrl",
-      name: "more",
-      id: "more",
-      description: "more",
-      hidden: true,
-      defaultValue: "./symbols/widgit/more.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "run",
-      id: "run",
-      description: "run",
-      hidden: true,
-      defaultValue: "./symbols/widgit/run.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "jump",
-      id: "jump",
-      description: "jump",
-      hidden: true,
-      defaultValue: "./symbols/widgit/jump.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "like",
-      id: "like",
-      description: "like",
-      hidden: true,
-      defaultValue: "./symbols/widgit/like.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "stop",
-      id: "stop",
-      description: "stop",
-      hidden: true,
-      defaultValue: "./symbols/widgit/stop.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "fall-over",
-      id: "fall-over",
-      description: "fall-over",
-      hidden: true,
-      defaultValue: "./symbols/widgit/fall-over.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "look",
-      id: "look",
-      description: "look",
-      hidden: true,
-      defaultValue: "./symbols/widgit/look.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "uh-oh",
-      id: "uh-oh",
-      description: "uh-oh",
-      hidden: true,
-      defaultValue: "./symbols/widgit/uh-oh.png",
-    },
+    ...generateImageVariables(TILES, "pcs"),
 
     {
       type: "option",
@@ -331,122 +267,8 @@ export const simonSays: Template = {
     autofit_label_text: true,
     use_ace_branding: true,
   },
-  images: [
-    {
-      id: "more",
-      url: { type: "TemplateItem", id: "more" },
-    },
-    {
-      id: "run",
-      url: { type: "TemplateItem", id: "run" },
-    },
-    {
-      id: "jump",
-      url: { type: "TemplateItem", id: "jump" },
-    },
-    {
-      id: "like",
-      url: { type: "TemplateItem", id: "like" },
-    },
-    {
-      id: "stop",
-      url: { type: "TemplateItem", id: "stop" },
-    },
-    {
-      id: "fall-over",
-      url: { type: "TemplateItem", id: "fall-over" },
-    },
-    {
-      id: "look",
-      url: { type: "TemplateItem", id: "look" },
-    },
-    {
-      id: "uh-oh",
-      url: { type: "TemplateItem", id: "uh-oh" },
-    },
-  ],
-  buttons: [
-    {
-      id: "more",
-      image_id: "more",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "more (again)",
-    },
-    {
-      id: "run",
-      image_id: "run",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "run around",
-    },
-    {
-      id: "jump",
-      image_id: "jump",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "jump up and down",
-    },
-    {
-      id: "like",
-      image_id: "like",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "like",
-    },
-    {
-      id: "stop",
-      image_id: "stop",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "stop (finish)",
-    },
-    {
-      id: "fall-over",
-      image_id: "fall-over",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "fall over",
-    },
-    {
-      id: "look",
-      image_id: "look",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "look (see)",
-    },
-    {
-      id: "uh-oh",
-      image_id: "uh-oh",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "oh no!",
-    },
-  ],
+  images: generateImages(TILES),
+  buttons: generateButtons(TILES),
 
   pages: [
     {
@@ -455,8 +277,8 @@ export const simonSays: Template = {
         rows: 2,
         columns: 4,
         order: [
-          ["more", "run", "jump", "like"],
-          ["stop", "fall-over", "look", "uh-oh"],
+          ["more", "look", "jump", "run"],
+          ["stop", "like", "uh-oh", "fall-over"],
         ],
       },
     },

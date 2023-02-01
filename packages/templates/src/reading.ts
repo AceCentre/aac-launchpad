@@ -1,5 +1,140 @@
 import { FONT_OPTIONS } from "board-to-pdf";
-import { Template } from "types";
+import {
+  AllTemplateVariable,
+  PresetVariableValues,
+  Template,
+  ImageWithTemplateItems,
+  ButtonWithTemplateItems,
+} from "types";
+
+type Tile = { key: string; label: string; isCore: boolean };
+
+const TILES: Array<Tile> = [
+  {
+    key: "me",
+    label: "I, me, my, mine",
+    isCore: true,
+  },
+  {
+    key: "more",
+    label: "more (again)",
+    isCore: true,
+  },
+  {
+    key: "look",
+    label: "look (see)",
+    isCore: true,
+  },
+  {
+    key: "wow",
+    label: "wow!",
+    isCore: true,
+  },
+  {
+    key: "uh-oh",
+    label: "oh no!",
+    isCore: true,
+  },
+  {
+    key: "you",
+    label: "you, you(s)",
+    isCore: true,
+  },
+  {
+    key: "stop",
+    label: "stop (finish)",
+    isCore: true,
+  },
+  {
+    key: "want",
+    label: "want",
+    isCore: true,
+  },
+
+  {
+    key: "read",
+    label: "read",
+    isCore: false,
+  },
+  {
+    key: "story-book",
+    label: "story (book)",
+    isCore: false,
+  },
+  {
+    key: "different",
+    label: "different",
+    isCore: true,
+  },
+  {
+    key: "help",
+    label: "help",
+    isCore: true,
+  },
+
+  {
+    key: "like",
+    label: "like",
+    isCore: true,
+  },
+
+  {
+    key: "no",
+    label: "not (no)",
+    isCore: true,
+  },
+  {
+    key: "turn-page",
+    label: "turn page",
+    isCore: false,
+  },
+];
+
+const generateSymbolPreset = (
+  tiles: Array<Tile>,
+  name: string
+): PresetVariableValues => {
+  return tiles.map((tile) => ({
+    id: tile.key,
+    value: `./symbols/${name}/${tile.key}.png`,
+  }));
+};
+
+const generateImageVariables = (
+  tiles: Array<Tile>,
+  name: string
+): Array<AllTemplateVariable> => {
+  return tiles.map((tile) => ({
+    type: "imageUrl",
+    name: tile.key,
+    id: tile.key,
+    description: tile.key,
+    hidden: true,
+    defaultValue: `./symbols/${name}/${tile.key}.png`,
+  }));
+};
+
+const generateImages = (tiles: Array<Tile>): Array<ImageWithTemplateItems> => {
+  return tiles.map((tile) => ({
+    id: tile.key,
+    url: { type: "TemplateItem", id: tile.key },
+  }));
+};
+
+const generateButtons = (
+  tiles: Array<Tile>
+): Array<ButtonWithTemplateItems> => {
+  return tiles.map((tile) => ({
+    id: tile.key,
+    image_id: tile.key,
+    ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
+    ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+    border_color: "rgb(0, 0, 0)",
+    ext_button_border_width: tile.isCore ? 2 : 1,
+    background_color: { type: "TemplateItem", id: "cell-colour" },
+    label: tile.label,
+  }));
+};
 
 export const reading: Template = {
   templateDateCreated: "2022-10-12T12:00:00+01:00",
@@ -88,66 +223,7 @@ export const reading: Template = {
               value:
                 "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
             },
-            {
-              id: "more",
-              value: "./symbols/pcs/more.png",
-            },
-            {
-              id: "help",
-              value: "./symbols/pcs/help.png",
-            },
-            {
-              id: "want",
-              value: "./symbols/pcs/want.png",
-            },
-            {
-              id: "like",
-              value: "./symbols/pcs/like.png",
-            },
-            {
-              id: "read",
-              value: "./symbols/pcs/read.png",
-            },
-            {
-              id: "stop",
-              value: "./symbols/pcs/stop.png",
-            },
-            {
-              id: "different",
-              value: "./symbols/pcs/different.png",
-            },
-            {
-              id: "look",
-              value: "./symbols/pcs/look.png",
-            },
-            {
-              id: "dont-like",
-              value: "./symbols/pcs/dont-like.png",
-            },
-            {
-              id: "story-book",
-              value: "./symbols/pcs/story-book.png",
-            },
-            {
-              id: "me",
-              value: "./symbols/pcs/me.png",
-            },
-            {
-              id: "you",
-              value: "./symbols/pcs/you.png",
-            },
-            {
-              id: "turn-page",
-              value: "./symbols/pcs/turn-page.png",
-            },
-            {
-              id: "wow",
-              value: "./symbols/pcs/wow.png",
-            },
-            {
-              id: "uh-oh",
-              value: "./symbols/pcs/uh-oh.png",
-            },
+            ...generateSymbolPreset(TILES, "pcs"),
           ],
         },
         {
@@ -160,66 +236,7 @@ export const reading: Template = {
               value:
                 "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
             },
-            {
-              id: "more",
-              value: "./symbols/high_contrast_pcs/more.png",
-            },
-            {
-              id: "help",
-              value: "./symbols/high_contrast_pcs/help.png",
-            },
-            {
-              id: "want",
-              value: "./symbols/high_contrast_pcs/want.png",
-            },
-            {
-              id: "like",
-              value: "./symbols/high_contrast_pcs/like.png",
-            },
-            {
-              id: "read",
-              value: "./symbols/high_contrast_pcs/read.png",
-            },
-            {
-              id: "stop",
-              value: "./symbols/high_contrast_pcs/stop.png",
-            },
-            {
-              id: "different",
-              value: "./symbols/high_contrast_pcs/different.png",
-            },
-            {
-              id: "look",
-              value: "./symbols/high_contrast_pcs/look.png",
-            },
-            {
-              id: "dont-like",
-              value: "./symbols/high_contrast_pcs/dont-like.png",
-            },
-            {
-              id: "story-book",
-              value: "./symbols/high_contrast_pcs/story-book.png",
-            },
-            {
-              id: "me",
-              value: "./symbols/high_contrast_pcs/me.png",
-            },
-            {
-              id: "you",
-              value: "./symbols/high_contrast_pcs/you.png",
-            },
-            {
-              id: "turn-page",
-              value: "./symbols/high_contrast_pcs/turn-page.png",
-            },
-            {
-              id: "wow",
-              value: "./symbols/high_contrast_pcs/wow.png",
-            },
-            {
-              id: "uh-oh",
-              value: "./symbols/high_contrast_pcs/uh-oh.png",
-            },
+            ...generateSymbolPreset(TILES, "high_contrast_pcs"),
           ],
         },
         {
@@ -232,327 +249,13 @@ export const reading: Template = {
               value:
                 "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
             },
-            {
-              id: "more",
-              value: "./symbols/widgit/more.png",
-            },
-            {
-              id: "help",
-              value: "./symbols/widgit/help.png",
-            },
-            {
-              id: "want",
-              value: "./symbols/widgit/want.png",
-            },
-            {
-              id: "like",
-              value: "./symbols/widgit/like.png",
-            },
-            {
-              id: "read",
-              value: "./symbols/widgit/read.png",
-            },
-            {
-              id: "stop",
-              value: "./symbols/widgit/stop.png",
-            },
-            {
-              id: "different",
-              value: "./symbols/widgit/different.png",
-            },
-            {
-              id: "look",
-              value: "./symbols/widgit/look.png",
-            },
-            {
-              id: "dont-like",
-              value: "./symbols/widgit/dont-like.png",
-            },
-            {
-              id: "story-book",
-              value: "./symbols/widgit/story-book.png",
-            },
-            {
-              id: "me",
-              value: "./symbols/widgit/me.png",
-            },
-            {
-              id: "you",
-              value: "./symbols/widgit/you.png",
-            },
-            {
-              id: "turn-page",
-              value: "./symbols/widgit/turn-page.png",
-            },
-            {
-              id: "wow",
-              value: "./symbols/widgit/wow.png",
-            },
-            {
-              id: "uh-oh",
-              value: "./symbols/widgit/uh-oh.png",
-            },
+            ...generateSymbolPreset(TILES, "widgit"),
           ],
         },
       ],
     },
 
-    {
-      type: "imageUrl",
-      name: "more",
-      id: "more",
-      description: "more",
-      hidden: true,
-      defaultValue: "./symbols/widgit/more.png",
-    },
-    {
-      type: "imageUrl",
-      name: "help",
-      id: "help",
-      description: "help",
-      hidden: true,
-      defaultValue: "./symbols/widgit/help.png",
-    },
-    {
-      type: "imageUrl",
-      name: "want",
-      id: "want",
-      description: "want",
-      hidden: true,
-      defaultValue: "./symbols/widgit/want.png",
-    },
-    {
-      type: "imageUrl",
-      name: "like",
-      id: "like",
-      description: "like",
-      hidden: true,
-      defaultValue: "./symbols/widgit/like.png",
-    },
-    {
-      type: "imageUrl",
-      name: "read",
-      id: "read",
-      description: "read",
-      hidden: true,
-      defaultValue: "./symbols/widgit/read.png",
-    },
-    {
-      type: "imageUrl",
-      name: "stop",
-      id: "stop",
-      description: "stop",
-      hidden: true,
-      defaultValue: "./symbols/widgit/stop.png",
-    },
-    {
-      type: "imageUrl",
-      name: "different",
-      id: "different",
-      description: "different",
-      hidden: true,
-      defaultValue: "./symbols/widgit/different.png",
-    },
-    {
-      type: "imageUrl",
-      name: "look",
-      id: "look",
-      description: "look",
-      hidden: true,
-      defaultValue: "./symbols/widgit/look.png",
-    },
-    {
-      type: "imageUrl",
-      name: "dont-like",
-      id: "dont-like",
-      description: "dont-like",
-      hidden: true,
-      defaultValue: "./symbols/widgit/dont-like.png",
-    },
-    {
-      type: "imageUrl",
-      name: "story-book",
-      id: "story-book",
-      description: "story-book",
-      hidden: true,
-      defaultValue: "./symbols/widgit/story-book.png",
-    },
-    {
-      type: "imageUrl",
-      name: "me",
-      id: "me",
-      description: "me",
-      hidden: true,
-      defaultValue: "./symbols/widgit/me.png",
-    },
-    {
-      type: "imageUrl",
-      name: "you",
-      id: "you",
-      description: "you",
-      hidden: true,
-      defaultValue: "./symbols/widgit/you.png",
-    },
-    {
-      type: "imageUrl",
-      name: "turn-page",
-      id: "turn-page",
-      description: "turn-page",
-      hidden: true,
-      defaultValue: "./symbols/widgit/turn-page.png",
-    },
-    {
-      type: "imageUrl",
-      name: "wow",
-      id: "wow",
-      description: "wow",
-      hidden: true,
-      defaultValue: "./symbols/widgit/wow.png",
-    },
-    {
-      type: "imageUrl",
-      name: "uh-oh",
-      id: "uh-oh",
-      description: "uh-oh",
-      hidden: true,
-      defaultValue: "./symbols/widgit/uh-oh.png",
-    },
-
-    {
-      type: "freeText",
-      name: "more",
-      id: "more-label",
-      description: "more",
-      hidden: true,
-      defaultValue: "more (again)",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "help",
-      id: "help-label",
-      description: "help",
-      hidden: true,
-      defaultValue: "help",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "want",
-      id: "want-label",
-      description: "want",
-      hidden: true,
-      defaultValue: "want",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "like",
-      id: "like-label",
-      description: "like",
-      hidden: true,
-      defaultValue: "like",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "read",
-      id: "read-label",
-      description: "read",
-      hidden: true,
-      defaultValue: "read",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "stop",
-      id: "stop-label",
-      description: "stop",
-      hidden: true,
-      defaultValue: "stop (finish)",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "different",
-      id: "different-label",
-      description: "different",
-      hidden: true,
-      defaultValue: "different",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "look",
-      id: "look-label",
-      description: "look",
-      hidden: true,
-      defaultValue: "look (see)",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "dont-like",
-      id: "dont-like-label",
-      description: "dont-like",
-      hidden: true,
-      defaultValue: "don't like",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "story-book",
-      id: "story-book-label",
-      description: "story-book",
-      hidden: true,
-      defaultValue: "story, book",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "me",
-      id: "me-label",
-      description: "me",
-      hidden: true,
-      defaultValue: "I, me, my, mine",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "you",
-      id: "you-label",
-      description: "you",
-      hidden: true,
-      defaultValue: "you, your(s)",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "turn-page",
-      id: "turn-page-label",
-      description: "turn-page",
-      hidden: true,
-      defaultValue: "turn page",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "wow",
-      id: "wow-label",
-      description: "wow",
-      hidden: true,
-      defaultValue: "wow!",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "uh-oh",
-      id: "uh-oh-label",
-      description: "uh-oh",
-      hidden: true,
-      defaultValue: "oh no!",
-      maxLength: 100,
-    },
+    ...generateImageVariables(TILES, "pcs"),
     {
       type: "freeText",
       name: "title",
@@ -608,221 +311,8 @@ export const reading: Template = {
     autofit_label_text: true,
     use_ace_branding: true,
   },
-  images: [
-    {
-      id: "more",
-      url: { type: "TemplateItem", id: "more" },
-    },
-
-    {
-      id: "help",
-      url: { type: "TemplateItem", id: "help" },
-    },
-
-    {
-      id: "want",
-      url: { type: "TemplateItem", id: "want" },
-    },
-
-    {
-      id: "like",
-      url: { type: "TemplateItem", id: "like" },
-    },
-
-    {
-      id: "read",
-      url: { type: "TemplateItem", id: "read" },
-    },
-
-    {
-      id: "stop",
-      url: { type: "TemplateItem", id: "stop" },
-    },
-
-    {
-      id: "different",
-      url: { type: "TemplateItem", id: "different" },
-    },
-
-    {
-      id: "look",
-      url: { type: "TemplateItem", id: "look" },
-    },
-
-    {
-      id: "dont-like",
-      url: { type: "TemplateItem", id: "dont-like" },
-    },
-    {
-      id: "story-book",
-      url: { type: "TemplateItem", id: "story-book" },
-    },
-    {
-      id: "me",
-      url: { type: "TemplateItem", id: "me" },
-    },
-    {
-      id: "you",
-      url: { type: "TemplateItem", id: "you" },
-    },
-    {
-      id: "turn-page",
-      url: { type: "TemplateItem", id: "turn-page" },
-    },
-    {
-      id: "wow",
-      url: { type: "TemplateItem", id: "wow" },
-    },
-    {
-      id: "uh-oh",
-      url: { type: "TemplateItem", id: "uh-oh" },
-    },
-  ],
-  buttons: [
-    {
-      id: "more",
-      image_id: "more",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "more-label" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "help",
-      image_id: "help",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "help-label" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "want",
-      image_id: "want",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "want-label" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "like",
-      image_id: "like",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "like-label" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "read",
-      image_id: "read",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "read-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "stop",
-      image_id: "stop",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "stop-label" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "different",
-      image_id: "different",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "different-label" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "look",
-      image_id: "look",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "look-label" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "dont-like",
-      image_id: "dont-like",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "dont-like-label" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "story-book",
-      image_id: "story-book",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "story-book-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "me",
-      image_id: "me",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "me-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "you",
-      image_id: "you",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "you-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "turn-page",
-      image_id: "turn-page",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "turn-page-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "wow",
-      image_id: "wow",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "wow-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "uh-oh",
-      image_id: "uh-oh",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "uh-oh-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-  ],
+  images: generateImages(TILES),
+  buttons: generateButtons(TILES),
 
   pages: [
     {
@@ -831,9 +321,9 @@ export const reading: Template = {
         rows: 3,
         columns: 5,
         order: [
-          ["more", "help", "want", "like", "read"],
-          ["stop", "different", "look", "dont-like", "story-book"],
-          ["me", "you", "turn-page", "wow", "uh-oh"],
+          ["me", "more", "look", "wow", "uh-oh"],
+          ["you", "stop", "want", "read", "story-book"],
+          ["like", "different", "help", "no", "turn-page"],
         ],
       },
     },

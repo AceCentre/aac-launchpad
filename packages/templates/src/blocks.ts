@@ -1,5 +1,182 @@
 import { FONT_OPTIONS } from "board-to-pdf";
-import { Template } from "types";
+import {
+  AllTemplateVariable,
+  PresetVariableValues,
+  Template,
+  ImageWithTemplateItems,
+  ButtonWithTemplateItems,
+} from "types";
+
+type Tile = { key: string; label: string; isCore: boolean };
+
+const TILES: Array<Tile> = [
+  {
+    key: "me",
+    label: "I, me, my, mine",
+    isCore: true,
+  },
+  {
+    key: "more",
+    label: "more (again)",
+    isCore: true,
+  },
+  {
+    key: "look",
+    label: "look (see)",
+    isCore: true,
+  },
+  {
+    key: "question",
+    label: "question",
+    isCore: true,
+  },
+  {
+    key: "red",
+    label: "red",
+    isCore: false,
+  },
+  {
+    key: "block",
+    label: "block",
+    isCore: false,
+  },
+  {
+    key: "you",
+    label: "you, your(s)",
+    isCore: true,
+  },
+  {
+    key: "stop",
+    label: "stop (finish)",
+    isCore: true,
+  },
+  {
+    key: "want",
+    label: "want",
+    isCore: true,
+  },
+  {
+    key: "this",
+    label: "this, that",
+    isCore: true,
+  },
+  {
+    key: "green",
+    label: "green",
+    isCore: false,
+  },
+  {
+    key: "tower",
+    label: "tower",
+    isCore: false,
+  },
+  {
+    key: "go",
+    label: "go",
+    isCore: true,
+  },
+  {
+    key: "different",
+    label: "different",
+    isCore: true,
+  },
+  {
+    key: "help",
+    label: "help",
+    isCore: true,
+  },
+  {
+    key: "big",
+    label: "big",
+    isCore: false,
+  },
+  {
+    key: "blue",
+    label: "blue",
+    isCore: false,
+  },
+  {
+    key: "make",
+    label: "make",
+    isCore: false,
+  },
+  {
+    key: "like",
+    label: "like",
+    isCore: true,
+  },
+  {
+    key: "wow",
+    label: "wow!",
+    isCore: true,
+  },
+  {
+    key: "uh-oh",
+    label: "oh no!",
+    isCore: true,
+  },
+  {
+    key: "no",
+    label: "not (no)",
+    isCore: true,
+  },
+  {
+    key: "yellow",
+    label: "yellow",
+    isCore: false,
+  },
+  {
+    key: "knock-it-down",
+    label: "knock it down",
+    isCore: false,
+  },
+];
+
+const generateSymbolPreset = (
+  tiles: Array<Tile>,
+  name: string
+): PresetVariableValues => {
+  return tiles.map((tile) => ({
+    id: tile.key,
+    value: `./symbols/${name}/${tile.key}.png`,
+  }));
+};
+
+const generateImageVariables = (
+  tiles: Array<Tile>,
+  name: string
+): Array<AllTemplateVariable> => {
+  return tiles.map((tile) => ({
+    type: "imageUrl",
+    name: tile.key,
+    id: tile.key,
+    description: tile.key,
+    hidden: true,
+    defaultValue: `./symbols/${name}/${tile.key}.png`,
+  }));
+};
+
+const generateImages = (tiles: Array<Tile>): Array<ImageWithTemplateItems> => {
+  return tiles.map((tile) => ({
+    id: tile.key,
+    url: { type: "TemplateItem", id: tile.key },
+  }));
+};
+
+const generateButtons = (
+  tiles: Array<Tile>
+): Array<ButtonWithTemplateItems> => {
+  return tiles.map((tile) => ({
+    id: tile.key,
+    image_id: tile.key,
+    ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
+    ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+    border_color: "rgb(0, 0, 0)",
+    ext_button_border_width: tile.isCore ? 2 : 1,
+    background_color: { type: "TemplateItem", id: "cell-colour" },
+    label: tile.label,
+  }));
+};
 
 export const blocks: Template = {
   templateDateCreated: "2022-10-12T12:00:00+01:00",
@@ -172,102 +349,7 @@ export const blocks: Template = {
               value:
                 "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
             },
-            {
-              id: "more",
-              value: "./symbols/pcs/more.png",
-            },
-            {
-              id: "help",
-              value: "./symbols/pcs/help.png",
-            },
-            {
-              id: "want",
-              value: "./symbols/pcs/want.png",
-            },
-            {
-              id: "like",
-              value: "./symbols/pcs/like.png",
-            },
-            {
-              id: "no",
-              value: "./symbols/pcs/no.png",
-            },
-            {
-              id: "red",
-              value: "./symbols/pcs/red.png",
-            },
-            {
-              id: "stop",
-              value: "./symbols/pcs/stop.png",
-            },
-            {
-              id: "different",
-              value: "./symbols/pcs/different.png",
-            },
-            {
-              id: "look",
-              value: "./symbols/pcs/look.png",
-            },
-            {
-              id: "wow",
-              value: "./symbols/pcs/wow.png",
-            },
-            {
-              id: "this",
-              value: "./symbols/pcs/this.png",
-            },
-            {
-              id: "green",
-              value: "./symbols/pcs/green.png",
-            },
-            {
-              id: "me",
-              value: "./symbols/pcs/me.png",
-            },
-            {
-              id: "you",
-              value: "./symbols/pcs/you.png",
-            },
-            {
-              id: "go",
-              value: "./symbols/pcs/go.png",
-            },
-            {
-              id: "uh-oh",
-              value: "./symbols/pcs/uh-oh.png",
-            },
-            {
-              id: "question",
-              value: "./symbols/pcs/question.png",
-            },
-            {
-              id: "blue",
-              value: "./symbols/pcs/blue.png",
-            },
-            {
-              id: "block",
-              value: "./symbols/pcs/block.png",
-            },
-            {
-              id: "tower",
-              value: "./symbols/pcs/tower.png",
-            },
-            {
-              id: "make",
-              value: "./symbols/pcs/make.png",
-            },
-            {
-              id: "big",
-              value: "./symbols/pcs/big.png",
-            },
-            {
-              id: "knock-it-down",
-              value: "./symbols/pcs/knock-it-down.png",
-            },
-            {
-              id: "yellow",
-              value: "./symbols/pcs/yellow.png",
-            },
+            ...generateSymbolPreset(TILES, "pcs"),
           ],
         },
         {
@@ -280,102 +362,7 @@ export const blocks: Template = {
               value:
                 "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
             },
-            {
-              id: "more",
-              value: "./symbols/high_contrast_pcs/more.png",
-            },
-            {
-              id: "help",
-              value: "./symbols/high_contrast_pcs/help.png",
-            },
-            {
-              id: "want",
-              value: "./symbols/high_contrast_pcs/want.png",
-            },
-            {
-              id: "like",
-              value: "./symbols/high_contrast_pcs/like.png",
-            },
-            {
-              id: "no",
-              value: "./symbols/high_contrast_pcs/no.png",
-            },
-            {
-              id: "red",
-              value: "./symbols/high_contrast_pcs/red.png",
-            },
-            {
-              id: "stop",
-              value: "./symbols/high_contrast_pcs/stop.png",
-            },
-            {
-              id: "different",
-              value: "./symbols/high_contrast_pcs/different.png",
-            },
-            {
-              id: "look",
-              value: "./symbols/high_contrast_pcs/look.png",
-            },
-            {
-              id: "wow",
-              value: "./symbols/high_contrast_pcs/wow.png",
-            },
-            {
-              id: "this",
-              value: "./symbols/high_contrast_pcs/this.png",
-            },
-            {
-              id: "green",
-              value: "./symbols/high_contrast_pcs/green.png",
-            },
-            {
-              id: "me",
-              value: "./symbols/high_contrast_pcs/me.png",
-            },
-            {
-              id: "you",
-              value: "./symbols/high_contrast_pcs/you.png",
-            },
-            {
-              id: "go",
-              value: "./symbols/high_contrast_pcs/go.png",
-            },
-            {
-              id: "uh-oh",
-              value: "./symbols/high_contrast_pcs/uh-oh.png",
-            },
-            {
-              id: "question",
-              value: "./symbols/high_contrast_pcs/question.png",
-            },
-            {
-              id: "blue",
-              value: "./symbols/high_contrast_pcs/blue.png",
-            },
-            {
-              id: "block",
-              value: "./symbols/high_contrast_pcs/block.png",
-            },
-            {
-              id: "tower",
-              value: "./symbols/high_contrast_pcs/tower.png",
-            },
-            {
-              id: "make",
-              value: "./symbols/high_contrast_pcs/make.png",
-            },
-            {
-              id: "big",
-              value: "./symbols/high_contrast_pcs/big.png",
-            },
-            {
-              id: "knock-it-down",
-              value: "./symbols/high_contrast_pcs/knock-it-down.png",
-            },
-            {
-              id: "yellow",
-              value: "./symbols/high_contrast_pcs/yellow.png",
-            },
+            ...generateSymbolPreset(TILES, "high_contrast_pcs"),
           ],
         },
         {
@@ -388,305 +375,13 @@ export const blocks: Template = {
               value:
                 "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
             },
-            {
-              id: "more",
-              value: "./symbols/widgit/more.png",
-            },
-            {
-              id: "help",
-              value: "./symbols/widgit/help.png",
-            },
-            {
-              id: "want",
-              value: "./symbols/widgit/want.png",
-            },
-            {
-              id: "like",
-              value: "./symbols/widgit/like.png",
-            },
-            {
-              id: "no",
-              value: "./symbols/widgit/no.png",
-            },
-            {
-              id: "red",
-              value: "./symbols/widgit/red.png",
-            },
-            {
-              id: "stop",
-              value: "./symbols/widgit/stop.png",
-            },
-            {
-              id: "different",
-              value: "./symbols/widgit/different.png",
-            },
-            {
-              id: "look",
-              value: "./symbols/widgit/look.png",
-            },
-            {
-              id: "wow",
-              value: "./symbols/widgit/wow.png",
-            },
-            {
-              id: "this",
-              value: "./symbols/widgit/this.png",
-            },
-            {
-              id: "green",
-              value: "./symbols/widgit/green.png",
-            },
-            {
-              id: "me",
-              value: "./symbols/widgit/me.png",
-            },
-            {
-              id: "you",
-              value: "./symbols/widgit/you.png",
-            },
-            {
-              id: "go",
-              value: "./symbols/widgit/go.png",
-            },
-            {
-              id: "uh-oh",
-              value: "./symbols/widgit/uh-oh.png",
-            },
-            {
-              id: "question",
-              value: "./symbols/widgit/question.png",
-            },
-            {
-              id: "blue",
-              value: "./symbols/widgit/blue.png",
-            },
-            {
-              id: "block",
-              value: "./symbols/widgit/block.png",
-            },
-            {
-              id: "tower",
-              value: "./symbols/widgit/tower.png",
-            },
-            {
-              id: "make",
-              value: "./symbols/widgit/make.png",
-            },
-            {
-              id: "big",
-              value: "./symbols/widgit/big.png",
-            },
-            {
-              id: "knock-it-down",
-              value: "./symbols/widgit/knock-it-down.png",
-            },
-            {
-              id: "yellow",
-              value: "./symbols/widgit/yellow.png",
-            },
+            ...generateSymbolPreset(TILES, "widgit"),
           ],
         },
       ],
     },
 
-    {
-      type: "imageUrl",
-      name: "more",
-      id: "more",
-      description: "more",
-      hidden: true,
-      defaultValue: "./symbols/widgit/more.png",
-    },
-    {
-      type: "imageUrl",
-      name: "help",
-      id: "help",
-      description: "help",
-      hidden: true,
-      defaultValue: "./symbols/widgit/help.png",
-    },
-    {
-      type: "imageUrl",
-      name: "want",
-      id: "want",
-      description: "want",
-      hidden: true,
-      defaultValue: "./symbols/widgit/want.png",
-    },
-    {
-      type: "imageUrl",
-      name: "like",
-      id: "like",
-      description: "like",
-      hidden: true,
-      defaultValue: "./symbols/widgit/more.png",
-    },
-    {
-      type: "imageUrl",
-      name: "no",
-      id: "no",
-      description: "no",
-      hidden: true,
-      defaultValue: "./symbols/widgit/no.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "red",
-      id: "red",
-      description: "red",
-      hidden: true,
-      defaultValue: "./symbols/widgit/red.png",
-    },
-    {
-      type: "imageUrl",
-      name: "stop",
-      id: "stop",
-      description: "stop",
-      hidden: true,
-      defaultValue: "./symbols/widgit/stop.png",
-    },
-    {
-      type: "imageUrl",
-      name: "different",
-      id: "different",
-      description: "different",
-      hidden: true,
-      defaultValue: "./symbols/widgit/more.png",
-    },
-    {
-      type: "imageUrl",
-      name: "look",
-      id: "look",
-      description: "look",
-      hidden: true,
-      defaultValue: "./symbols/widgit/look.png",
-    },
-    {
-      type: "imageUrl",
-      name: "wow",
-      id: "wow",
-      description: "wow",
-      hidden: true,
-      defaultValue: "./symbols/widgit/wow.png",
-    },
-    {
-      type: "imageUrl",
-      name: "this",
-      id: "this",
-      description: "this",
-      hidden: true,
-      defaultValue: "./symbols/widgit/this.png",
-    },
-    {
-      type: "imageUrl",
-      name: "green",
-      id: "green",
-      description: "green",
-      hidden: true,
-      defaultValue: "./symbols/widgit/green.png",
-    },
-    {
-      type: "imageUrl",
-      name: "me",
-      id: "me",
-      description: "me",
-      hidden: true,
-      defaultValue: "./symbols/widgit/me.png",
-    },
-    {
-      type: "imageUrl",
-      name: "you",
-      id: "you",
-      description: "you",
-      hidden: true,
-      defaultValue: "./symbols/widgit/you.png",
-    },
-    {
-      type: "imageUrl",
-      name: "go",
-      id: "go",
-      description: "go",
-      hidden: true,
-      defaultValue: "./symbols/widgit/go.png",
-    },
-    {
-      type: "imageUrl",
-      name: "uh-oh",
-      id: "uh-oh",
-      description: "uh-oh",
-      hidden: true,
-      defaultValue: "./symbols/widgit/uh-oh.png",
-    },
-    {
-      type: "imageUrl",
-      name: "question",
-      id: "question",
-      description: "question",
-      hidden: true,
-      defaultValue: "./symbols/widgit/question.png",
-    },
-    {
-      type: "imageUrl",
-      name: "blue",
-      id: "blue",
-      description: "blue",
-      hidden: true,
-      defaultValue: "./symbols/widgit/blue.png",
-    },
-    {
-      type: "imageUrl",
-      name: "block",
-      id: "block",
-      description: "block",
-      hidden: true,
-      defaultValue: "./symbols/widgit/block.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "tower",
-      id: "tower",
-      description: "tower",
-      hidden: true,
-      defaultValue: "./symbols/widgit/tower.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "make",
-      id: "make",
-      description: "make",
-      hidden: true,
-      defaultValue: "./symbols/widgit/make.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "big",
-      id: "big",
-      description: "big",
-      hidden: true,
-      defaultValue: "./symbols/widgit/big.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "knock-it-down",
-      id: "knock-it-down",
-      description: "knock-it-down",
-      hidden: true,
-      defaultValue: "./symbols/widgit/knock-it-down.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "yellow",
-      id: "yellow",
-      description: "yellow",
-      hidden: true,
-      defaultValue: "./symbols/widgit/yellow.png",
-    },
+    ...generateImageVariables(TILES, "pcs"),
 
     {
       type: "option",
@@ -735,346 +430,8 @@ export const blocks: Template = {
     autofit_label_text: true,
     use_ace_branding: true,
   },
-  images: [
-    {
-      id: "more",
-      url: { type: "TemplateItem", id: "more" },
-    },
-    {
-      id: "help",
-      url: { type: "TemplateItem", id: "help" },
-    },
-    {
-      id: "want",
-      url: { type: "TemplateItem", id: "want" },
-    },
-    {
-      id: "like",
-      url: { type: "TemplateItem", id: "like" },
-    },
-    {
-      id: "no",
-      url: { type: "TemplateItem", id: "no" },
-    },
-    {
-      id: "red",
-      url: { type: "TemplateItem", id: "red" },
-    },
-    {
-      id: "stop",
-      url: { type: "TemplateItem", id: "stop" },
-    },
-    {
-      id: "different",
-      url: { type: "TemplateItem", id: "different" },
-    },
-    {
-      id: "look",
-      url: { type: "TemplateItem", id: "look" },
-    },
-    {
-      id: "wow",
-      url: { type: "TemplateItem", id: "wow" },
-    },
-    {
-      id: "this",
-      url: { type: "TemplateItem", id: "this" },
-    },
-    {
-      id: "green",
-      url: { type: "TemplateItem", id: "green" },
-    },
-    {
-      id: "me",
-      url: { type: "TemplateItem", id: "me" },
-    },
-    {
-      id: "you",
-      url: { type: "TemplateItem", id: "you" },
-    },
-    {
-      id: "go",
-      url: { type: "TemplateItem", id: "go" },
-    },
-    {
-      id: "uh-oh",
-      url: { type: "TemplateItem", id: "uh-oh" },
-    },
-    {
-      id: "question",
-      url: { type: "TemplateItem", id: "question" },
-    },
-    {
-      id: "blue",
-      url: { type: "TemplateItem", id: "blue" },
-    },
-    {
-      id: "block",
-      url: { type: "TemplateItem", id: "block" },
-    },
-    {
-      id: "tower",
-      url: { type: "TemplateItem", id: "tower" },
-    },
-    {
-      id: "make",
-      url: { type: "TemplateItem", id: "make" },
-    },
-    {
-      id: "knock-it-down",
-      url: { type: "TemplateItem", id: "knock-it-down" },
-    },
-    {
-      id: "yellow",
-      url: { type: "TemplateItem", id: "yellow" },
-    },
-    {
-      id: "big",
-      url: { type: "TemplateItem", id: "big" },
-    },
-  ],
-  buttons: [
-    {
-      id: "more",
-      image_id: "more",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "more (again)",
-    },
-    {
-      id: "help",
-      image_id: "help",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "help",
-    },
-    {
-      id: "want",
-      image_id: "want",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "want",
-    },
-    {
-      id: "like",
-      image_id: "like",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "like",
-    },
-    {
-      id: "no",
-      image_id: "no",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "not (no)",
-    },
-    {
-      id: "red",
-      image_id: "red",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 1,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "red",
-    },
-    {
-      id: "stop",
-      image_id: "stop",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "stop (finish)",
-    },
-    {
-      id: "different",
-      image_id: "different",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "different",
-    },
-    {
-      id: "look",
-      image_id: "look",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "look (see)",
-    },
-    {
-      id: "wow",
-      image_id: "wow",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "wow!",
-    },
-    {
-      id: "this",
-      image_id: "this",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "this, that",
-    },
-    {
-      id: "green",
-      image_id: "green",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 1,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "green",
-    },
-    {
-      id: "me",
-      image_id: "me",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "I, me, my, mine",
-    },
-    {
-      id: "you",
-      image_id: "you",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "you, your(s)",
-    },
-    {
-      id: "go",
-      image_id: "go",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "go",
-    },
-    {
-      id: "uh-oh",
-      image_id: "uh-oh",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "oh no!",
-    },
-    {
-      id: "question",
-      image_id: "question",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "question",
-    },
-    {
-      id: "blue",
-      image_id: "blue",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 1,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "blue",
-    },
-    {
-      id: "block",
-      image_id: "block",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 1,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "block",
-    },
-    {
-      id: "tower",
-      image_id: "tower",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 1,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "tower",
-    },
-    {
-      id: "make",
-      image_id: "make",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 1,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "make",
-    },
-    {
-      id: "big",
-      image_id: "big",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 2,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "big",
-    },
-    {
-      id: "knock-it-down",
-      image_id: "knock-it-down",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 1,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "knock it down",
-    },
-    {
-      id: "yellow",
-      image_id: "yellow",
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-      border_color: "rgb(0, 0, 0)",
-      ext_button_border_width: 1,
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      label: "yellow",
-    },
-  ],
+  images: generateImages(TILES),
+  buttons: generateButtons(TILES),
 
   pages: [
     {

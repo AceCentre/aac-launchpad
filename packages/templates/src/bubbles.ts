@@ -1,5 +1,162 @@
 import { FONT_OPTIONS } from "board-to-pdf";
-import { Template } from "types";
+import {
+  AllTemplateVariable,
+  PresetVariableValues,
+  Template,
+  ImageWithTemplateItems,
+  ButtonWithTemplateItems,
+} from "types";
+
+type Tile = { key: string; label: string; isCore: boolean };
+
+const TILES: Array<Tile> = [
+  {
+    key: "me",
+    label: "I, me, my, mine",
+    isCore: true,
+  },
+  {
+    key: "more",
+    label: "more (again)",
+    isCore: true,
+  },
+  {
+    key: "look",
+    label: "look (see)",
+    isCore: true,
+  },
+  {
+    key: "question",
+    label: "question",
+    isCore: true,
+  },
+  {
+    key: "bubbles",
+    label: "bubbles",
+    isCore: false,
+  },
+  {
+    key: "you",
+    label: "you, your(s)",
+    isCore: true,
+  },
+  {
+    key: "stop",
+    label: "stop (finish)",
+    isCore: true,
+  },
+  {
+    key: "want",
+    label: "want",
+    isCore: true,
+  },
+  {
+    key: "this",
+    label: "this, that",
+    isCore: true,
+  },
+  {
+    key: "blow",
+    label: "blow",
+    isCore: false,
+  },
+  {
+    key: "go",
+    label: "go",
+    isCore: true,
+  },
+  {
+    key: "different",
+    label: "different",
+    isCore: true,
+  },
+  {
+    key: "help",
+    label: "help",
+    isCore: true,
+  },
+  {
+    key: "lots",
+    label: "lots (many)",
+    isCore: true,
+  },
+  {
+    key: "catch",
+    label: "catch",
+    isCore: false,
+  },
+  {
+    key: "like",
+    label: "like",
+    isCore: true,
+  },
+  {
+    key: "wow",
+    label: "wow!",
+    isCore: true,
+  },
+  {
+    key: "uh-oh",
+    label: "oh no!",
+    isCore: true,
+  },
+  {
+    key: "no",
+    label: "not (no)",
+    isCore: true,
+  },
+  {
+    key: "pop",
+    label: "pop",
+    isCore: false,
+  },
+];
+
+const generateSymbolPreset = (
+  tiles: Array<Tile>,
+  name: string
+): PresetVariableValues => {
+  return tiles.map((tile) => ({
+    id: tile.key,
+    value: `./symbols/${name}/${tile.key}.png`,
+  }));
+};
+
+const generateImageVariables = (
+  tiles: Array<Tile>,
+  name: string
+): Array<AllTemplateVariable> => {
+  return tiles.map((tile) => ({
+    type: "imageUrl",
+    name: tile.key,
+    id: tile.key,
+    description: tile.key,
+    hidden: true,
+    defaultValue: `./symbols/${name}/${tile.key}.png`,
+  }));
+};
+
+const generateImages = (tiles: Array<Tile>): Array<ImageWithTemplateItems> => {
+  return tiles.map((tile) => ({
+    id: tile.key,
+    url: { type: "TemplateItem", id: tile.key },
+  }));
+};
+
+const generateButtons = (
+  tiles: Array<Tile>
+): Array<ButtonWithTemplateItems> => {
+  return tiles.map((tile) => ({
+    id: tile.key,
+    image_id: tile.key,
+    ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
+    ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
+    border_color: "rgb(0, 0, 0)",
+    ext_button_border_width: tile.isCore ? 2 : 1,
+    background_color: { type: "TemplateItem", id: "cell-colour" },
+    label: tile.label,
+  }));
+};
 
 export const bubbles: Template = {
   templateDateCreated: "2022-07-21T12:00:00+01:00",
@@ -99,229 +256,7 @@ export const bubbles: Template = {
       name: "orders",
       hidden: true,
     },
-    // {
-    //   id: "language",
-    //   type: "preset",
-    //   name: "Language",
-    //   defaultValue: "english",
-    //   hidden: true,
-    //   description: "The language on the chart",
-    //   presets: [
-    //     {
-    //       label: "English",
-    //       value: "english",
-    //       description: "English",
-    //       variableValues: [
-    //         {
-    //           id: "title-text",
-    //           value: "Bubbles Chart",
-    //         },
-    //         {
-    //           id: "more-label",
-    //           value: "more (again)",
-    //         },
 
-    //         {
-    //           id: "help-label",
-    //           value: "help",
-    //         },
-
-    //         {
-    //           id: "want-label",
-    //           value: "want",
-    //         },
-
-    //         {
-    //           id: "like-label",
-    //           value: "like",
-    //         },
-
-    //         {
-    //           id: "no-label",
-    //           value: "not (no)",
-    //         },
-
-    //         {
-    //           id: "stop-label",
-    //           value: "stop (finish)",
-    //         },
-
-    //         {
-    //           id: "different-label",
-    //           value: "different",
-    //         },
-
-    //         {
-    //           id: "look-label",
-    //           value: "look",
-    //         },
-
-    //         {
-    //           id: "wow-label",
-    //           value: "wow",
-    //         },
-
-    //         {
-    //           id: "this-label",
-    //           value: "this, that",
-    //         },
-
-    //         {
-    //           id: "me-label",
-    //           value: "I, me, my, mine",
-    //         },
-
-    //         {
-    //           id: "you-label",
-    //           value: "you, your(s)",
-    //         },
-
-    //         {
-    //           id: "go-label",
-    //           value: "go",
-    //         },
-
-    //         {
-    //           id: "uh-oh-label",
-    //           value: "oh no!",
-    //         },
-
-    //         {
-    //           id: "question-label",
-    //           value: "question",
-    //         },
-
-    //         {
-    //           id: "bubbles-label",
-    //           value: "bubbles",
-    //         },
-    //         {
-    //           id: "blow-label",
-    //           value: "blow",
-    //         },
-    //         {
-    //           id: "catch-label",
-    //           value: "catch",
-    //         },
-    //         {
-    //           id: "pop-label",
-    //           value: "pop",
-    //         },
-    //         {
-    //           id: "lots-label",
-    //           value: "lots",
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       label: "French",
-    //       value: "french",
-    //       description: "French",
-    //       variableValues: [
-    //         {
-    //           id: "title-text",
-    //           value: "Graphique à bulles",
-    //         },
-
-    //         {
-    //           id: "more-label",
-    //           value: "plus encore",
-    //         },
-
-    //         {
-    //           id: "help-label",
-    //           value: "aider",
-    //         },
-
-    //         {
-    //           id: "want-label",
-    //           value: "vouloir",
-    //         },
-
-    //         {
-    //           id: "like-label",
-    //           value: "aimer",
-    //         },
-
-    //         {
-    //           id: "no-label",
-    //           value: "non, pas",
-    //         },
-
-    //         {
-    //           id: "stop-label",
-    //           value: "arrête, fini",
-    //         },
-
-    //         {
-    //           id: "different-label",
-    //           value: "différent",
-    //         },
-
-    //         {
-    //           id: "look-label",
-    //           value: "voir",
-    //         },
-
-    //         {
-    //           id: "wow-label",
-    //           value: "wow",
-    //         },
-
-    //         {
-    //           id: "this-label",
-    //           value: "ceci, cela, là",
-    //         },
-
-    //         {
-    //           id: "me-label",
-    //           value: "Je, moi, mon, mien",
-    //         },
-
-    //         {
-    //           id: "you-label",
-    //           value: "toi, le tien",
-    //         },
-
-    //         {
-    //           id: "go-label",
-    //           value: "aller",
-    //         },
-
-    //         {
-    //           id: "uh-oh-label",
-    //           value: "euh oh",
-    //         },
-
-    //         {
-    //           id: "question-label",
-    //           value: "question",
-    //         },
-
-    //         {
-    //           id: "bubbles-label",
-    //           value: "bulles",
-    //         },
-    //         {
-    //           id: "blow-label",
-    //           value: "souffler",
-    //         },
-    //         {
-    //           id: "catch-label",
-    //           value: "attraper",
-    //         },
-    //         {
-    //           id: "pop-label",
-    //           value: "pop",
-    //         },
-    //         {
-    //           id: "lots-label",
-    //           value: "lots",
-    //         },
-    //       ],
-    //     },
-    //   ],
-    // },
     {
       id: "symbol-system",
       type: "preset",
@@ -339,99 +274,7 @@ export const bubbles: Template = {
               value:
                 "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
             },
-            {
-              id: "more",
-              value: "./symbols/pcs/more.png",
-            },
-            {
-              id: "help",
-              value: "./symbols/pcs/help.png",
-            },
-
-            {
-              id: "want",
-              value: "./symbols/pcs/want.png",
-            },
-            {
-              id: "like",
-              value: "./symbols/pcs/like.png",
-            },
-
-            {
-              id: "no",
-              value: "./symbols/pcs/no.png",
-            },
-
-            {
-              id: "stop",
-              value: "./symbols/pcs/stop.png",
-            },
-
-            {
-              id: "different",
-              value: "./symbols/pcs/different.png",
-            },
-
-            {
-              id: "look",
-              value: "./symbols/pcs/look.png",
-            },
-
-            {
-              id: "wow",
-              value: "./symbols/pcs/wow.png",
-            },
-
-            {
-              id: "this",
-              value: "./symbols/pcs/this.png",
-            },
-
-            {
-              id: "me",
-              value: "./symbols/pcs/me.png",
-            },
-
-            {
-              id: "you",
-              value: "./symbols/pcs/you.png",
-            },
-
-            {
-              id: "go",
-              value: "./symbols/pcs/go.png",
-            },
-
-            {
-              id: "uh-oh",
-              value: "./symbols/pcs/uh-oh.png",
-            },
-
-            {
-              id: "question",
-              value: "./symbols/pcs/question.png",
-            },
-
-            {
-              id: "bubbles",
-              value: "./symbols/pcs/bubbles.png",
-            },
-            {
-              id: "blow",
-              value: "./symbols/pcs/blow.png",
-            },
-            {
-              id: "catch",
-              value: "./symbols/pcs/catch.png",
-            },
-            {
-              id: "pop",
-              value: "./symbols/pcs/pop.png",
-            },
-            {
-              id: "lots",
-              value: "./symbols/pcs/lots.png",
-            },
+            ...generateSymbolPreset(TILES, "pcs"),
           ],
         },
         {
@@ -444,206 +287,10 @@ export const bubbles: Template = {
               value:
                 "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
             },
-            {
-              id: "more",
-              value: "./symbols/high_contrast_pcs/more.png",
-            },
-            {
-              id: "help",
-              value: "./symbols/high_contrast_pcs/help.png",
-            },
-
-            {
-              id: "want",
-              value: "./symbols/high_contrast_pcs/want.png",
-            },
-            {
-              id: "like",
-              value: "./symbols/high_contrast_pcs/like.png",
-            },
-
-            {
-              id: "no",
-              value: "./symbols/high_contrast_pcs/no.png",
-            },
-
-            {
-              id: "stop",
-              value: "./symbols/high_contrast_pcs/stop.png",
-            },
-
-            {
-              id: "different",
-              value: "./symbols/high_contrast_pcs/different.png",
-            },
-
-            {
-              id: "look",
-              value: "./symbols/high_contrast_pcs/look.png",
-            },
-
-            {
-              id: "wow",
-              value: "./symbols/high_contrast_pcs/wow.png",
-            },
-
-            {
-              id: "this",
-              value: "./symbols/high_contrast_pcs/this.png",
-            },
-
-            {
-              id: "me",
-              value: "./symbols/high_contrast_pcs/me.png",
-            },
-
-            {
-              id: "you",
-              value: "./symbols/high_contrast_pcs/you.png",
-            },
-
-            {
-              id: "go",
-              value: "./symbols/high_contrast_pcs/go.png",
-            },
-
-            {
-              id: "uh-oh",
-              value: "./symbols/high_contrast_pcs/uh-oh.png",
-            },
-
-            {
-              id: "question",
-              value: "./symbols/high_contrast_pcs/question.png",
-            },
-
-            {
-              id: "bubbles",
-              value: "./symbols/high_contrast_pcs/bubbles.png",
-            },
-            {
-              id: "blow",
-              value: "./symbols/high_contrast_pcs/blow.png",
-            },
-            {
-              id: "catch",
-              value: "./symbols/high_contrast_pcs/catch.png",
-            },
-            {
-              id: "pop",
-              value: "./symbols/high_contrast_pcs/pop.png",
-            },
-            {
-              id: "lots",
-              value: "./symbols/high_contrast_pcs/lots.png",
-            },
+            ...generateSymbolPreset(TILES, "high_contrast_pcs"),
           ],
         },
-        // {
-        //   label: "SymbolStix",
-        //   value: "ss",
-        //   description: "SymbolStix Symbols",
-        //   variableValues: [
-        //     {
-        //       id: "copyright-notice",
-        //       value: "(c) SymbolStix 2022 LLC",
-        //     },
 
-        //     {
-        //       id: "more",
-        //       value: "./symbols/ss/more.png",
-        //     },
-
-        //     {
-        //       id: "help",
-        //       value: "./symbols/ss/help.png",
-        //     },
-
-        //     {
-        //       id: "want",
-        //       value: "./symbols/ss/want.png",
-        //     },
-
-        //     {
-        //       id: "like",
-        //       value: "./symbols/ss/like.png",
-        //     },
-
-        //     {
-        //       id: "no",
-        //       value: "./symbols/ss/no.png",
-        //     },
-
-        //     {
-        //       id: "stop",
-        //       value: "./symbols/ss/stop.png",
-        //     },
-
-        //     {
-        //       id: "different",
-        //       value: "./symbols/ss/different.png",
-        //     },
-
-        //     {
-        //       id: "look",
-        //       value: "./symbols/ss/look.png",
-        //     },
-
-        //     {
-        //       id: "wow",
-        //       value: "./symbols/ss/wow.png",
-        //     },
-
-        //     {
-        //       id: "this",
-        //       value: "./symbols/ss/this.png",
-        //     },
-
-        //     {
-        //       id: "me",
-        //       value: "./symbols/ss/me.png",
-        //     },
-
-        //     {
-        //       id: "you",
-        //       value: "./symbols/ss/you.png",
-        //     },
-
-        //     {
-        //       id: "go",
-        //       value: "./symbols/ss/go.png",
-        //     },
-
-        //     {
-        //       id: "uh-oh",
-        //       value: "./symbols/ss/uh-oh.png",
-        //     },
-        //     {
-        //       id: "question",
-        //       value: "./symbols/ss/question.png",
-        //     },
-        //     {
-        //       id: "bubbles",
-        //       value: "./symbols/ss/bubbles.png",
-        //     },
-        //     {
-        //       id: "blow",
-        //       value: "./symbols/ss/blow.png",
-        //     },
-        //     {
-        //       id: "catch",
-        //       value: "./symbols/ss/catch.png",
-        //     },
-        //     {
-        //       id: "pop",
-        //       value: "./symbols/ss/pop.png",
-        //     },
-        //     {
-        //       id: "lots",
-        //       value: "./symbols/ss/lots.png",
-        //     },
-        //   ],
-        // },
         {
           label: "Widgit",
           value: "widgit",
@@ -655,100 +302,7 @@ export const bubbles: Template = {
                 "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
             },
 
-            {
-              id: "more",
-              value: "./symbols/widgit/more.png",
-            },
-
-            {
-              id: "help",
-              value: "./symbols/widgit/help.png",
-            },
-
-            {
-              id: "want",
-              value: "./symbols/widgit/want.png",
-            },
-
-            {
-              id: "like",
-              value: "./symbols/widgit/like.png",
-            },
-
-            {
-              id: "no",
-              value: "./symbols/widgit/no.png",
-            },
-
-            {
-              id: "stop",
-              value: "./symbols/widgit/stop.png",
-            },
-
-            {
-              id: "different",
-              value: "./symbols/widgit/different.png",
-            },
-
-            {
-              id: "look",
-              value: "./symbols/widgit/look.png",
-            },
-
-            {
-              id: "wow",
-              value: "./symbols/widgit/wow.png",
-            },
-
-            {
-              id: "this",
-              value: "./symbols/widgit/this.png",
-            },
-
-            {
-              id: "me",
-              value: "./symbols/widgit/me.png",
-            },
-
-            {
-              id: "you",
-              value: "./symbols/widgit/you.png",
-            },
-
-            {
-              id: "go",
-              value: "./symbols/widgit/go.png",
-            },
-
-            {
-              id: "uh-oh",
-              value: "./symbols/widgit/uh-oh.png",
-            },
-
-            {
-              id: "question",
-              value: "./symbols/widgit/question.png",
-            },
-            {
-              id: "bubbles",
-              value: "./symbols/widgit/bubbles.png",
-            },
-            {
-              id: "blow",
-              value: "./symbols/widgit/blow.png",
-            },
-            {
-              id: "catch",
-              value: "./symbols/widgit/catch.png",
-            },
-            {
-              id: "pop",
-              value: "./symbols/widgit/pop.png",
-            },
-            {
-              id: "lots",
-              value: "./symbols/widgit/lots.png",
-            },
+            ...generateSymbolPreset(TILES, "widgit"),
           ],
         },
       ],
@@ -782,26 +336,6 @@ export const bubbles: Template = {
                 ["like", "wow", "uh-oh", "no", "pop"]
               ]`,
             },
-            { id: "more-border", value: "2" },
-            { id: "help-border", value: "2" },
-            { id: "want-border", value: "2" },
-            { id: "like-border", value: "2" },
-            { id: "no-border", value: "2" },
-            { id: "stop-border", value: "2" },
-            { id: "different-border", value: "2" },
-            { id: "look-border", value: "2" },
-            { id: "wow-border", value: "2" },
-            { id: "this-border", value: "2" },
-            { id: "me-border", value: "2" },
-            { id: "you-border", value: "2" },
-            { id: "go-border", value: "2" },
-            { id: "uh-oh-border", value: "2" },
-            { id: "question-border", value: "2" },
-            { id: "bubbles-border", value: "1" },
-            { id: "blow-border", value: "1" },
-            { id: "catch-border", value: "1" },
-            { id: "pop-border", value: "1" },
-            { id: "lots-border", value: "2" },
           ],
         },
         {
@@ -824,401 +358,13 @@ export const bubbles: Template = {
                 ["stop", "like", "uh-oh", "blow"]
               ]`,
             },
-            { id: "more-border", value: "2" },
-            { id: "help-border", value: "2" },
-            { id: "want-border", value: "2" },
-            { id: "like-border", value: "2" },
-            { id: "no-border", value: "2" },
-            { id: "stop-border", value: "2" },
-            { id: "different-border", value: "2" },
-            { id: "look-border", value: "2" },
-            { id: "wow-border", value: "2" },
-            { id: "this-border", value: "2" },
-            { id: "me-border", value: "2" },
-            { id: "you-border", value: "2" },
-            { id: "go-border", value: "2" },
-            { id: "uh-oh-border", value: "2" },
-            { id: "question-border", value: "2" },
-            { id: "bubbles-border", value: "1" },
-            { id: "blow-border", value: "1" },
-            { id: "catch-border", value: "1" },
-            { id: "pop-border", value: "1" },
-            { id: "lots-border", value: "2" },
           ],
         },
       ],
     },
 
-    {
-      type: "imageUrl",
-      name: "more",
-      id: "more",
-      description: "more",
-      hidden: true,
-      defaultValue: "./symbols/widgit/more.png",
-    },
+    ...generateImageVariables(TILES, "pcs"),
 
-    {
-      type: "imageUrl",
-      name: "help",
-      id: "help",
-      description: "help",
-      hidden: true,
-      defaultValue: "./symbols/widgit/help.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "want",
-      id: "want",
-      description: "want",
-      hidden: true,
-      defaultValue: "./symbols/widgit/want.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "like",
-      id: "like",
-      description: "like",
-      hidden: true,
-      defaultValue: "./symbols/widgit/like.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "no",
-      id: "no",
-      description: "no",
-      hidden: true,
-      defaultValue: "./symbols/widgit/no.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "stop",
-      id: "stop",
-      description: "stop",
-      hidden: true,
-      defaultValue: "./symbols/widgit/stop.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "different",
-      id: "different",
-      description: "different",
-      hidden: true,
-      defaultValue: "./symbols/widgit/different.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "look",
-      id: "look",
-      description: "look",
-      hidden: true,
-      defaultValue: "./symbols/widgit/look.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "wow",
-      id: "wow",
-      description: "wow",
-      hidden: true,
-      defaultValue: "./symbols/widgit/wow.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "this",
-      id: "this",
-      description: "this",
-      hidden: true,
-      defaultValue: "./symbols/widgit/this.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "me",
-      id: "me",
-      description: "me",
-      hidden: true,
-      defaultValue: "./symbols/widgit/me.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "you",
-      id: "you",
-      description: "you",
-      hidden: true,
-      defaultValue: "./symbols/widgit/you.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "go",
-      id: "go",
-      description: "go",
-      hidden: true,
-      defaultValue: "./symbols/widgit/go.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "uh-oh",
-      id: "uh-oh",
-      description: "uh-oh",
-      hidden: true,
-      defaultValue: "./symbols/widgit/uh-oh.png",
-    },
-
-    {
-      type: "imageUrl",
-      name: "question",
-      id: "question",
-      description: "question",
-      hidden: true,
-      defaultValue: "./symbols/widgit/question.png",
-    },
-    {
-      type: "imageUrl",
-      name: "bubbles",
-      id: "bubbles",
-      description: "bubbles",
-      hidden: true,
-      defaultValue: "./symbols/widgit/bubbles.png",
-    },
-    {
-      type: "imageUrl",
-      name: "blow",
-      id: "blow",
-      description: "blow",
-      hidden: true,
-      defaultValue: "./symbols/widgit/blow.png",
-    },
-    {
-      type: "imageUrl",
-      name: "catch",
-      id: "catch",
-      description: "catch",
-      hidden: true,
-      defaultValue: "./symbols/widgit/catch.png",
-    },
-    {
-      type: "imageUrl",
-      name: "pop",
-      id: "pop",
-      description: "pop",
-      hidden: true,
-      defaultValue: "./symbols/widgit/pop.png",
-    },
-    {
-      type: "imageUrl",
-      name: "lots",
-      id: "lots",
-      description: "lots",
-      hidden: true,
-      defaultValue: "./symbols/widgit/lots.png",
-    },
-    {
-      type: "freeText",
-      name: "more",
-      id: "more-label",
-      description: "more",
-      hidden: true,
-      defaultValue: "more (again)",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "help",
-      id: "help-label",
-      description: "help",
-      hidden: true,
-      defaultValue: "help",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "want",
-      id: "want-label",
-      description: "want",
-      hidden: true,
-      defaultValue: "want",
-      maxLength: 100,
-    },
-
-    {
-      type: "freeText",
-      name: "like",
-      id: "like-label",
-      description: "like",
-      hidden: true,
-      defaultValue: "like",
-      maxLength: 100,
-    },
-
-    {
-      type: "freeText",
-      name: "no",
-      id: "no-label",
-      description: "no",
-      hidden: true,
-      defaultValue: "not (no)",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "stop",
-      id: "stop-label",
-      description: "stop",
-      hidden: true,
-      defaultValue: "stop (finish)",
-      maxLength: 100,
-    },
-
-    {
-      type: "freeText",
-      name: "different",
-      id: "different-label",
-      description: "different",
-      hidden: true,
-      defaultValue: "different",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "look",
-      id: "look-label",
-      description: "look",
-      hidden: true,
-      defaultValue: "look (see)",
-      maxLength: 100,
-    },
-
-    {
-      type: "freeText",
-      name: "wow",
-      id: "wow-label",
-      description: "wow",
-      hidden: true,
-      defaultValue: "wow",
-      maxLength: 100,
-    },
-
-    {
-      type: "freeText",
-      name: "this",
-      id: "this-label",
-      description: "this",
-      hidden: true,
-      defaultValue: "this, that",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "me",
-      id: "me-label",
-      description: "me",
-      hidden: true,
-      defaultValue: "I, me, my, mine",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "you",
-      id: "you-label",
-      description: "you",
-      hidden: true,
-      defaultValue: "you, your(s)",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "go",
-      id: "go-label",
-      description: "go",
-      hidden: true,
-      defaultValue: "go",
-      maxLength: 100,
-    },
-
-    {
-      type: "freeText",
-      name: "uh-oh",
-      id: "uh-oh-label",
-      description: "uh-oh",
-      hidden: true,
-      defaultValue: "oh no!",
-      maxLength: 100,
-    },
-
-    {
-      type: "freeText",
-      name: "question",
-      id: "question-label",
-      description: "question",
-      hidden: true,
-      defaultValue: "question",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "bubbles",
-      id: "bubbles-label",
-      description: "bubbles",
-      hidden: true,
-      defaultValue: "bubbles",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "blow",
-      id: "blow-label",
-      description: "blow",
-      hidden: true,
-      defaultValue: "blow",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "catch",
-      id: "catch-label",
-      description: "catch",
-      hidden: true,
-      defaultValue: "catch",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "pop",
-      id: "pop-label",
-      description: "pop",
-      hidden: true,
-      defaultValue: "pop",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "lots",
-      id: "lots-label",
-      description: "lots",
-      hidden: true,
-      defaultValue: "lots (many)",
-      maxLength: 100,
-    },
-    {
-      type: "freeText",
-      name: "title",
-      id: "title-text",
-      description: "title",
-      hidden: true,
-      defaultValue: "Bubbles",
-      maxLength: 100,
-    },
     {
       type: "option",
       id: "font",
@@ -1226,226 +372,6 @@ export const bubbles: Template = {
       name: "Font",
       defaultValue: "helvetica",
       options: FONT_OPTIONS,
-    },
-
-    {
-      name: "more-border",
-      id: "more-border",
-      type: "number",
-      defaultValue: "1",
-      description: "more-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "help-border",
-      id: "help-border",
-      type: "number",
-      defaultValue: "1",
-      description: "help-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "want-border",
-      id: "want-border",
-      type: "number",
-      defaultValue: "1",
-      description: "want-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "like-border",
-      id: "like-border",
-      type: "number",
-      defaultValue: "1",
-      description: "like-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "no-border",
-      id: "no-border",
-      type: "number",
-      defaultValue: "1",
-      description: "no-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "stop-border",
-      id: "stop-border",
-      type: "number",
-      defaultValue: "1",
-      description: "stop-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "different-border",
-      id: "different-border",
-      type: "number",
-      defaultValue: "1",
-      description: "different-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "look-border",
-      id: "look-border",
-      type: "number",
-      defaultValue: "1",
-      description: "look-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "wow-border",
-      id: "wow-border",
-      type: "number",
-      defaultValue: "1",
-      description: "wow-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "this-border",
-      id: "this-border",
-      type: "number",
-      defaultValue: "1",
-      description: "this-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "me-border",
-      id: "me-border",
-      type: "number",
-      defaultValue: "1",
-      description: "me-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "you-border",
-      id: "you-border",
-      type: "number",
-      defaultValue: "1",
-      description: "you-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "go-border",
-      id: "go-border",
-      type: "number",
-      defaultValue: "1",
-      description: "go-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "uh-oh-border",
-      id: "uh-oh-border",
-      type: "number",
-      defaultValue: "1",
-      description: "uh-oh-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "question-border",
-      id: "question-border",
-      type: "number",
-      defaultValue: "1",
-      description: "question-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "bubbles-border",
-      id: "bubbles-border",
-      type: "number",
-      defaultValue: "1",
-      description: "bubbles-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "blow-border",
-      id: "blow-border",
-      type: "number",
-      defaultValue: "1",
-      description: "blow-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "catch-border",
-      id: "catch-border",
-      type: "number",
-      defaultValue: "1",
-      description: "catch-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "pop-border",
-      id: "pop-border",
-      type: "number",
-      defaultValue: "1",
-      description: "pop-border",
-      hidden: true,
-      min: 1,
-      max: 10,
-    },
-
-    {
-      name: "lots-border",
-      id: "lots-border",
-      type: "number",
-      defaultValue: "1",
-      description: "lots-border",
-      hidden: true,
-      min: 1,
-      max: 10,
     },
   ],
   templateDescription: "",
@@ -1486,310 +412,8 @@ export const bubbles: Template = {
     autofit_label_text: true,
     use_ace_branding: true,
   },
-  images: [
-    {
-      id: "more",
-      url: { type: "TemplateItem", id: "more" },
-    },
-
-    {
-      id: "help",
-      url: { type: "TemplateItem", id: "help" },
-    },
-
-    {
-      id: "want",
-      url: { type: "TemplateItem", id: "want" },
-    },
-
-    {
-      id: "like",
-      url: { type: "TemplateItem", id: "like" },
-    },
-
-    {
-      id: "no",
-      url: { type: "TemplateItem", id: "no" },
-    },
-
-    {
-      id: "stop",
-      url: { type: "TemplateItem", id: "stop" },
-    },
-
-    {
-      id: "different",
-      url: { type: "TemplateItem", id: "different" },
-    },
-
-    {
-      id: "look",
-      url: { type: "TemplateItem", id: "look" },
-    },
-
-    {
-      id: "wow",
-      url: { type: "TemplateItem", id: "wow" },
-    },
-
-    {
-      id: "this",
-      url: { type: "TemplateItem", id: "this" },
-    },
-
-    {
-      id: "me",
-      url: { type: "TemplateItem", id: "me" },
-    },
-
-    {
-      id: "you",
-      url: { type: "TemplateItem", id: "you" },
-    },
-
-    {
-      id: "go",
-      url: { type: "TemplateItem", id: "go" },
-    },
-
-    {
-      id: "uh-oh",
-      url: { type: "TemplateItem", id: "uh-oh" },
-    },
-
-    {
-      id: "question",
-      url: { type: "TemplateItem", id: "question" },
-    },
-    {
-      id: "bubbles",
-      url: { type: "TemplateItem", id: "bubbles" },
-    },
-    {
-      id: "blow",
-      url: { type: "TemplateItem", id: "blow" },
-    },
-    {
-      id: "catch",
-      url: { type: "TemplateItem", id: "catch" },
-    },
-    {
-      id: "pop",
-      url: { type: "TemplateItem", id: "pop" },
-    },
-    {
-      id: "lots",
-      url: { type: "TemplateItem", id: "lots" },
-    },
-  ],
-  buttons: [
-    {
-      id: "more",
-      image_id: "more",
-      ext_button_border_width: { type: "TemplateItem", id: "more-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "more-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "help",
-      image_id: "help",
-      ext_button_border_width: { type: "TemplateItem", id: "help-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "help-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "want",
-      image_id: "want",
-      ext_button_border_width: { type: "TemplateItem", id: "want-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "want-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-
-    {
-      id: "like",
-      image_id: "like",
-      ext_button_border_width: { type: "TemplateItem", id: "like-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "like-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-
-    {
-      id: "no",
-      image_id: "no",
-      ext_button_border_width: { type: "TemplateItem", id: "no-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "no-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "stop",
-      image_id: "stop",
-      ext_button_border_width: { type: "TemplateItem", id: "stop-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "stop-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "different",
-      image_id: "different",
-      ext_button_border_width: { type: "TemplateItem", id: "different-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "different-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "look",
-      image_id: "look",
-      ext_button_border_width: { type: "TemplateItem", id: "look-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "look-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-
-    {
-      id: "wow",
-      image_id: "wow",
-      ext_button_border_width: { type: "TemplateItem", id: "wow-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "wow-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-
-    {
-      id: "this",
-      image_id: "this",
-      ext_button_border_width: { type: "TemplateItem", id: "this-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "this-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "me",
-      image_id: "me",
-      ext_button_border_width: { type: "TemplateItem", id: "me-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "me-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "you",
-      image_id: "you",
-      ext_button_border_width: { type: "TemplateItem", id: "you-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "you-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "go",
-      image_id: "go",
-      ext_button_border_width: { type: "TemplateItem", id: "go-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "go-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-
-    {
-      id: "uh-oh",
-      image_id: "uh-oh",
-      ext_button_border_width: { type: "TemplateItem", id: "uh-oh-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "uh-oh-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-
-    {
-      id: "question",
-      image_id: "question",
-      ext_button_border_width: { type: "TemplateItem", id: "question-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "question-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "bubbles",
-      image_id: "bubbles",
-      ext_button_border_width: { type: "TemplateItem", id: "bubbles-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "bubbles-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "blow",
-      image_id: "blow",
-      ext_button_border_width: { type: "TemplateItem", id: "blow-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "blow-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "catch",
-      image_id: "catch",
-      ext_button_border_width: { type: "TemplateItem", id: "catch-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "catch-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "pop",
-      image_id: "pop",
-      ext_button_border_width: { type: "TemplateItem", id: "pop-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "pop-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-    {
-      id: "lots",
-      image_id: "lots",
-      ext_button_border_width: { type: "TemplateItem", id: "lots-border" },
-      ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-      label: { type: "TemplateItem", id: "lots-label" },
-      border_color: "rgb(0, 0, 0)",
-      background_color: { type: "TemplateItem", id: "cell-colour" },
-      ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    },
-  ],
+  images: generateImages(TILES),
+  buttons: generateButtons(TILES),
 
   pages: [
     {
