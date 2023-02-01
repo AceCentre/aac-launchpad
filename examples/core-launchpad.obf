@@ -9,9 +9,10 @@
     "button_border_width": 1,
     "title_shown_on_board": "Core Words",
     "full_background_color": "rgb(255,255,255)",
-    "copyright_notice": "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
+    "copyright_notice": "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
     "invert_symbol_and_label": true,
     "autofit_label_text": true,
+    "ext_launchpad_prepend_pdf": "./core-cover.pdf",
     "use_ace_branding": true
   },
   "name": "Core",
@@ -371,123 +372,123 @@
   "images": [
     {
       "id": "me",
-      "url": "./symbols/pcs/me.png"
+      "url": "./symbols/widgit/me.png"
     },
     {
       "id": "we",
-      "url": "./symbols/pcs/we.png"
+      "url": "./symbols/widgit/we.png"
     },
     {
       "id": "more",
-      "url": "./symbols/pcs/more.png"
+      "url": "./symbols/widgit/more.png"
     },
     {
       "id": "look",
-      "url": "./symbols/pcs/look.png"
+      "url": "./symbols/widgit/look.png"
     },
     {
       "id": "turn",
-      "url": "./symbols/pcs/turn.png"
+      "url": "./symbols/widgit/turn.png"
     },
     {
       "id": "question",
-      "url": "./symbols/pcs/question.png"
+      "url": "./symbols/widgit/question.png"
     },
     {
       "id": "you",
-      "url": "./symbols/pcs/you.png"
+      "url": "./symbols/widgit/you.png"
     },
     {
       "id": "they",
-      "url": "./symbols/pcs/they.png"
+      "url": "./symbols/widgit/they.png"
     },
     {
       "id": "stop",
-      "url": "./symbols/pcs/stop.png"
+      "url": "./symbols/widgit/stop.png"
     },
     {
       "id": "want",
-      "url": "./symbols/pcs/want.png"
+      "url": "./symbols/widgit/want.png"
     },
     {
       "id": "make",
-      "url": "./symbols/pcs/make.png"
+      "url": "./symbols/widgit/make.png"
     },
     {
       "id": "play",
-      "url": "./symbols/pcs/play.png"
+      "url": "./symbols/widgit/play.png"
     },
     {
       "id": "she",
-      "url": "./symbols/pcs/she.png"
+      "url": "./symbols/widgit/she.png"
     },
     {
       "id": "do",
-      "url": "./symbols/pcs/do.png"
+      "url": "./symbols/widgit/do.png"
     },
     {
       "id": "different",
-      "url": "./symbols/pcs/different.png"
+      "url": "./symbols/widgit/different.png"
     },
     {
       "id": "help",
-      "url": "./symbols/pcs/help.png"
+      "url": "./symbols/widgit/help.png"
     },
     {
       "id": "big",
-      "url": "./symbols/pcs/big.png"
+      "url": "./symbols/widgit/big.png"
     },
     {
       "id": "good",
-      "url": "./symbols/pcs/good.png"
+      "url": "./symbols/widgit/good.png"
     },
     {
       "id": "he",
-      "url": "./symbols/pcs/he.png"
+      "url": "./symbols/widgit/he.png"
     },
     {
       "id": "it",
-      "url": "./symbols/pcs/it.png"
+      "url": "./symbols/widgit/it.png"
     },
     {
       "id": "go",
-      "url": "./symbols/pcs/go.png"
+      "url": "./symbols/widgit/go.png"
     },
     {
       "id": "have",
-      "url": "./symbols/pcs/have.png"
+      "url": "./symbols/widgit/have.png"
     },
     {
       "id": "little",
-      "url": "./symbols/pcs/little.png"
+      "url": "./symbols/widgit/little.png"
     },
     {
       "id": "bad",
-      "url": "./symbols/pcs/bad.png"
+      "url": "./symbols/widgit/bad.png"
     },
     {
       "id": "like",
-      "url": "./symbols/pcs/like.png"
+      "url": "./symbols/widgit/like.png"
     },
     {
       "id": "wow",
-      "url": "./symbols/pcs/wow.png"
+      "url": "./symbols/widgit/wow.png"
     },
     {
       "id": "uh-oh",
-      "url": "./symbols/pcs/uh-oh.png"
+      "url": "./symbols/widgit/uh-oh.png"
     },
     {
       "id": "can",
-      "url": "./symbols/pcs/can.png"
+      "url": "./symbols/widgit/can.png"
     },
     {
       "id": "this",
-      "url": "./symbols/pcs/this.png"
+      "url": "./symbols/widgit/this.png"
     },
     {
       "id": "no",
-      "url": "./symbols/pcs/no.png"
+      "url": "./symbols/widgit/no.png"
     }
   ]
 }

@@ -1,0 +1,159 @@
+{
+  "format": "open-board-0.1",
+  "id": "simon-says-launchpad",
+  "locale": "en-GB",
+  "description_html": "",
+  "ext_launchpad_options": {
+    "padding": 10,
+    "gap": 3,
+    "button_border_width": 1,
+    "title_shown_on_board": "Simon Says Chart",
+    "full_background_color": "rgb(253,240,189)",
+    "copyright_notice": "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
+    "invert_symbol_and_label": true,
+    "autofit_label_text": true,
+    "ext_launchpad_prepend_pdf": "./symbol-chart-cover.pdf",
+    "use_ace_branding": true
+  },
+  "name": "Simon Says",
+  "buttons": [
+    {
+      "image_id": "more",
+      "id": "more",
+      "label": "more (again)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "look",
+      "id": "look",
+      "label": "look (see)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "jump",
+      "id": "jump",
+      "label": "jump around",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "run",
+      "id": "run",
+      "label": "run around",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "uh-oh",
+      "id": "uh-oh",
+      "label": "oh no!",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "stop",
+      "id": "stop",
+      "label": "stop (finish)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "like",
+      "id": "like",
+      "label": "like",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "fall-over",
+      "id": "fall-over",
+      "label": "fall over",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 2,
+        "columns": 4,
+        "order": [
+          [
+            "more",
+            "look",
+            "jump",
+            "run"
+          ],
+          [
+            "stop",
+            "like",
+            "uh-oh",
+            "fall-over"
+          ]
+        ]
+      },
+      "id": "first",
+      "orientation": "landscape"
+    }
+  ],
+  "images": [
+    {
+      "id": "more",
+      "url": "./symbols/widgit/more.png"
+    },
+    {
+      "id": "look",
+      "url": "./symbols/widgit/look.png"
+    },
+    {
+      "id": "jump",
+      "url": "./symbols/widgit/jump.png"
+    },
+    {
+      "id": "run",
+      "url": "./symbols/widgit/run.png"
+    },
+    {
+      "id": "uh-oh",
+      "url": "./symbols/widgit/uh-oh.png"
+    },
+    {
+      "id": "stop",
+      "url": "./symbols/widgit/stop.png"
+    },
+    {
+      "id": "like",
+      "url": "./symbols/widgit/like.png"
+    },
+    {
+      "id": "fall-over",
+      "url": "./symbols/widgit/fall-over.png"
+    }
+  ]
+}

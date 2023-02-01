@@ -1,13 +1,13 @@
 {
   "format": "open-board-0.1",
-  "id": "blocks-launchpad",
+  "id": "mr-potato-head-launchpad",
   "locale": "en-GB",
   "description_html": "",
   "ext_launchpad_options": {
     "padding": 10,
     "gap": 3,
     "button_border_width": 1,
-    "title_shown_on_board": "Blocks",
+    "title_shown_on_board": "Mr Potato Head Chart",
     "full_background_color": "rgb(255,255,255)",
     "copyright_notice": "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
     "invert_symbol_and_label": true,
@@ -15,142 +15,12 @@
     "ext_launchpad_prepend_pdf": "./symbol-chart-cover.pdf",
     "use_ace_branding": true
   },
-  "name": "Blocks",
+  "name": "Mr Potato Head",
   "buttons": [
-    {
-      "image_id": "me",
-      "id": "me",
-      "label": "I, me, my, mine",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 2
-    },
     {
       "image_id": "more",
       "id": "more",
       "label": "more (again)",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 2
-    },
-    {
-      "image_id": "look",
-      "id": "look",
-      "label": "look (see)",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 2
-    },
-    {
-      "image_id": "question",
-      "id": "question",
-      "label": "question",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 2
-    },
-    {
-      "image_id": "red",
-      "id": "red",
-      "label": "red",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 1
-    },
-    {
-      "image_id": "block",
-      "id": "block",
-      "label": "block",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 1
-    },
-    {
-      "image_id": "you",
-      "id": "you",
-      "label": "you, your(s)",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 2
-    },
-    {
-      "image_id": "stop",
-      "id": "stop",
-      "label": "stop (finish)",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 2
-    },
-    {
-      "image_id": "want",
-      "id": "want",
-      "label": "want",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 2
-    },
-    {
-      "image_id": "this",
-      "id": "this",
-      "label": "this, that",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 2
-    },
-    {
-      "image_id": "green",
-      "id": "green",
-      "label": "green",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 1
-    },
-    {
-      "image_id": "tower",
-      "id": "tower",
-      "label": "tower",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 1
-    },
-    {
-      "image_id": "go",
-      "id": "go",
-      "label": "go",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 2
-    },
-    {
-      "image_id": "different",
-      "id": "different",
-      "label": "different",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
@@ -168,59 +38,19 @@
       "ext_button_border_width": 2
     },
     {
-      "image_id": "big",
-      "id": "big",
-      "label": "big",
+      "image_id": "want",
+      "id": "want",
+      "label": "want",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 1
-    },
-    {
-      "image_id": "blue",
-      "id": "blue",
-      "label": "blue",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 1
-    },
-    {
-      "image_id": "make",
-      "id": "make",
-      "label": "make",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 1
+      "ext_button_border_width": 2
     },
     {
       "image_id": "like",
       "id": "like",
       "label": "like",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 2
-    },
-    {
-      "image_id": "wow",
-      "id": "wow",
-      "label": "wow!",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 2
-    },
-    {
-      "image_id": "uh-oh",
-      "id": "uh-oh",
-      "label": "oh no!",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
@@ -238,9 +68,9 @@
       "ext_button_border_width": 2
     },
     {
-      "image_id": "yellow",
-      "id": "yellow",
-      "label": "yellow",
+      "image_id": "funny",
+      "id": "funny",
+      "label": "funny",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
@@ -248,9 +78,239 @@
       "ext_button_border_width": 1
     },
     {
-      "image_id": "knock-it-down",
-      "id": "knock-it-down",
-      "label": "knock it down",
+      "image_id": "stop",
+      "id": "stop",
+      "label": "stop (finish)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "different",
+      "id": "different",
+      "label": "different",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "look",
+      "id": "look",
+      "label": "look (see)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "wow",
+      "id": "wow",
+      "label": "wow!",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "this",
+      "id": "this",
+      "label": "this, that",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "arm",
+      "id": "arm",
+      "label": "arm",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "me",
+      "id": "me",
+      "label": "I, me, my, mine",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "you",
+      "id": "you",
+      "label": "you, your(s)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "go",
+      "id": "go",
+      "label": "go",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "uh-oh",
+      "id": "uh-oh",
+      "label": "oh no!",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "question",
+      "id": "question",
+      "label": "question",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "shoes",
+      "id": "shoes",
+      "label": "shoes",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "mr-potato-head",
+      "id": "mr-potato-head",
+      "label": "Mr Potato Head",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "mrs-potato-head",
+      "id": "mrs-potato-head",
+      "label": "Mrs Potato Head",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "put-on",
+      "id": "put-on",
+      "label": "put on",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "take-off",
+      "id": "take-off",
+      "label": "take off",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "hair",
+      "id": "hair",
+      "label": "hair",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "hat",
+      "id": "hat",
+      "label": "hat",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "eyes",
+      "id": "eyes",
+      "label": "eyes",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "mouth",
+      "id": "mouth",
+      "label": "mouth",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "teeth",
+      "id": "teeth",
+      "label": "teeth",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "nose",
+      "id": "nose",
+      "label": "nose",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "ear",
+      "id": "ear",
+      "label": "ear",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "earring",
+      "id": "earring",
+      "label": "earring",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
@@ -261,20 +321,48 @@
   "pages": [
     {
       "grid": {
-        "rows": 2,
-        "columns": 4,
+        "rows": 5,
+        "columns": 6,
         "order": [
           [
+            "me",
             "more",
             "look",
-            "tower",
-            "block"
+            "question",
+            "arm",
+            "hair"
           ],
           [
+            "you",
             "stop",
+            "want",
+            "this",
+            "nose",
+            "ear"
+          ],
+          [
+            "go",
+            "different",
+            "help",
+            "put-on",
+            "teeth",
+            "mouth"
+          ],
+          [
             "like",
+            "funny",
+            "mr-potato-head",
+            "take-off",
+            "eyes",
+            "hat"
+          ],
+          [
+            "wow",
             "uh-oh",
-            "knock-it-down"
+            "mrs-potato-head",
+            "no",
+            "shoes",
+            "earring"
           ]
         ]
       },
@@ -284,100 +372,124 @@
   ],
   "images": [
     {
-      "id": "me",
-      "url": "./symbols/widgit/me.png"
-    },
-    {
       "id": "more",
       "url": "./symbols/widgit/more.png"
-    },
-    {
-      "id": "look",
-      "url": "./symbols/widgit/look.png"
-    },
-    {
-      "id": "question",
-      "url": "./symbols/widgit/question.png"
-    },
-    {
-      "id": "red",
-      "url": "./symbols/widgit/red.png"
-    },
-    {
-      "id": "block",
-      "url": "./symbols/widgit/block.png"
-    },
-    {
-      "id": "you",
-      "url": "./symbols/widgit/you.png"
-    },
-    {
-      "id": "stop",
-      "url": "./symbols/widgit/stop.png"
-    },
-    {
-      "id": "want",
-      "url": "./symbols/widgit/want.png"
-    },
-    {
-      "id": "this",
-      "url": "./symbols/widgit/this.png"
-    },
-    {
-      "id": "green",
-      "url": "./symbols/widgit/green.png"
-    },
-    {
-      "id": "tower",
-      "url": "./symbols/widgit/tower.png"
-    },
-    {
-      "id": "go",
-      "url": "./symbols/widgit/go.png"
-    },
-    {
-      "id": "different",
-      "url": "./symbols/widgit/different.png"
     },
     {
       "id": "help",
       "url": "./symbols/widgit/help.png"
     },
     {
-      "id": "big",
-      "url": "./symbols/widgit/big.png"
-    },
-    {
-      "id": "blue",
-      "url": "./symbols/widgit/blue.png"
-    },
-    {
-      "id": "make",
-      "url": "./symbols/widgit/make.png"
+      "id": "want",
+      "url": "./symbols/widgit/want.png"
     },
     {
       "id": "like",
       "url": "./symbols/widgit/like.png"
     },
     {
+      "id": "no",
+      "url": "./symbols/widgit/no.png"
+    },
+    {
+      "id": "funny",
+      "url": "./symbols/widgit/funny.png"
+    },
+    {
+      "id": "stop",
+      "url": "./symbols/widgit/stop.png"
+    },
+    {
+      "id": "different",
+      "url": "./symbols/widgit/different.png"
+    },
+    {
+      "id": "look",
+      "url": "./symbols/widgit/look.png"
+    },
+    {
       "id": "wow",
       "url": "./symbols/widgit/wow.png"
+    },
+    {
+      "id": "this",
+      "url": "./symbols/widgit/this.png"
+    },
+    {
+      "id": "arm",
+      "url": "./symbols/widgit/arm.png"
+    },
+    {
+      "id": "me",
+      "url": "./symbols/widgit/me.png"
+    },
+    {
+      "id": "you",
+      "url": "./symbols/widgit/you.png"
+    },
+    {
+      "id": "go",
+      "url": "./symbols/widgit/go.png"
     },
     {
       "id": "uh-oh",
       "url": "./symbols/widgit/uh-oh.png"
     },
     {
-      "id": "no",
-      "url": "./symbols/widgit/no.png"
+      "id": "question",
+      "url": "./symbols/widgit/question.png"
     },
     {
-      "id": "yellow",
-      "url": "./symbols/widgit/yellow.png"
+      "id": "shoes",
+      "url": "./symbols/widgit/shoes.png"
     },
     {
-      "id": "knock-it-down",
-      "url": "./symbols/widgit/knock-it-down.png"
+      "id": "mr-potato-head",
+      "url": "./symbols/widgit/mr-potato-head.png"
+    },
+    {
+      "id": "mrs-potato-head",
+      "url": "./symbols/widgit/mrs-potato-head.png"
+    },
+    {
+      "id": "put-on",
+      "url": "./symbols/widgit/put-on.png"
+    },
+    {
+      "id": "take-off",
+      "url": "./symbols/widgit/take-off.png"
+    },
+    {
+      "id": "hair",
+      "url": "./symbols/widgit/hair.png"
+    },
+    {
+      "id": "hat",
+      "url": "./symbols/widgit/hat.png"
+    },
+    {
+      "id": "eyes",
+      "url": "./symbols/widgit/eyes.png"
+    },
+    {
+      "id": "mouth",
+      "url": "./symbols/widgit/mouth.png"
+    },
+    {
+      "id": "teeth",
+      "url": "./symbols/widgit/teeth.png"
+    },
+    {
+      "id": "nose",
+      "url": "./symbols/widgit/nose.png"
+    },
+    {
+      "id": "ear",
+      "url": "./symbols/widgit/ear.png"
+    },
+    {
+      "id": "earring",
+      "url": "./symbols/widgit/earring.png"
     }
   ]
 }
