@@ -483,7 +483,7 @@ export const core: Template = {
     `,
   templateName: "Core",
   templateId: "core-launchpad",
-  templateImageUrl: "core.png",
+  templateImageUrl: "core1.png",
   templateVariableGroups: [
     {
       id: "advanced-options",

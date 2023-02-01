@@ -386,7 +386,7 @@ export const bubbles: Template = {
   templateDescription: "",
   templateName: "Bubbles",
   templateId: "bubbles-launchpad",
-  templateImageUrl: "bubbles.png",
+  templateImageUrl: "bubbles1.png",
   templateVariableGroups: [
     {
       id: "advanced-options",

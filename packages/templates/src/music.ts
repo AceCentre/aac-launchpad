@@ -395,7 +395,7 @@ export const music: Template = {
   templateDescription: ``,
   templateName: "Listen to Music",
   templateId: "listen-to-music-launchpad",
-  templateImageUrl: "listen-to-music.png",
+  templateImageUrl: "listen-to-music1.png",
   templateVariableGroups: [
     {
       id: "advanced-options",

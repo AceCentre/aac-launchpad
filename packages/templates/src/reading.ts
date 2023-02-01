@@ -277,7 +277,7 @@ export const reading: Template = {
   templateDescription: ``,
   templateName: "Reading",
   templateId: "reading-launchpad",
-  templateImageUrl: "reading.png",
+  templateImageUrl: "reading1.png",
   templateVariableGroups: [
     {
       id: "advanced-options",

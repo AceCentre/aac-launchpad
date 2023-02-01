@@ -233,7 +233,7 @@ export const simonSays: Template = {
   templateDescription: ``,
   templateName: "Simon Says",
   templateId: "simon-says-launchpad",
-  templateImageUrl: "simon-says.png",
+  templateImageUrl: "simon-says1.png",
   templateVariableGroups: [
     {
       id: "advanced-options",

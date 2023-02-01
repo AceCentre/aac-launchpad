@@ -341,7 +341,7 @@ export const mrPotatoHead: Template = {
   templateDescription: ``,
   templateName: "Mr Potato Head",
   templateId: "mr-potato-head-launchpad",
-  templateImageUrl: "mr-potato-head.png",
+  templateImageUrl: "mr-potato-head1.png",
   templateVariableGroups: [
     {
       id: "advanced-options",

@@ -395,7 +395,7 @@ export const blocks: Template = {
   templateDescription: ``,
   templateName: "Blocks",
   templateId: "blocks-launchpad",
-  templateImageUrl: "blocks.png",
+  templateImageUrl: "blocks1.png",
   templateVariableGroups: [
     {
       id: "advanced-options",

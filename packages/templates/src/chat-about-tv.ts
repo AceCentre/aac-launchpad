@@ -281,7 +281,7 @@ export const chatAboutTv: Template = {
   templateDescription: ``,
   templateName: "Chat about TV",
   templateId: "chat-about-tv-launchpad",
-  templateImageUrl: "chat-about-tv.png",
+  templateImageUrl: "chat-about-tv1.png",
   templateVariableGroups: [
     {
       id: "advanced-options",
