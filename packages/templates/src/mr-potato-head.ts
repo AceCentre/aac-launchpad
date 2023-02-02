@@ -298,19 +298,7 @@ export const mrPotatoHead: Template = {
             ...generateSymbolPreset(TILES, "pcs"),
           ],
         },
-        {
-          label: "High Contrast PCS",
-          value: "high_contrast_pcs",
-          description: "High Contrast version of PCS Symbols",
-          variableValues: [
-            {
-              id: "copyright-notice",
-              value:
-                "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
-            },
-            ...generateSymbolPreset(TILES, "high_contrast_pcs"),
-          ],
-        },
+
         {
           label: "Widgit",
           value: "widgit",
