@@ -430,6 +430,10 @@ export const music: Template = {
     invert_symbol_and_label: { type: "TemplateItem", id: "invert-text" },
     autofit_label_text: true,
     use_ace_branding: true,
+    text_color_on_background: {
+      id: "label-colour",
+      type: "TemplateItem",
+    },
   },
   images: generateImages(TILES),
   buttons: generateButtons(TILES),
