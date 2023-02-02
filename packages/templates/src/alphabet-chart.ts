@@ -108,6 +108,178 @@ export const alphabetChart: Template = {
           ],
         },
         {
+          value: "high-contrast",
+          description: "High Contrast",
+          label: "High Contrast (Black on Yellow)",
+          variableValues: [
+            { id: "textColorOnBackground", value: "rgb(255,255,0)" },
+            {
+              id: "fullBackgroundColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "numberBackgroundColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "consonantBackgroundColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "vowelBackgroundColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "punctuationBackgroundColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "commandBackgroundColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "emptySpaceBackgroundColor",
+              value: "rgb(0,0,0)",
+            },
+
+            {
+              id: "numberTextColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "consonantTextColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "vowelTextColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "punctuationTextColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "commandTextColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "emptySpaceTextColor",
+              value: "rgb(255,255,0)",
+            },
+
+            {
+              id: "numberBorderColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "consonantBorderColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "vowelBorderColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "punctuationBorderColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "commandBorderColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "emptySpaceBorderColor",
+              value: "rgb(255,255,0)",
+            },
+          ],
+        },
+        {
+          value: "high-contrast",
+          description: "High Contrast",
+          label: "High Contrast (Yellow on Black)",
+          variableValues: [
+            { id: "textColorOnBackground", value: "rgb(0,0,0)" },
+            {
+              id: "fullBackgroundColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "numberBackgroundColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "consonantBackgroundColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "vowelBackgroundColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "punctuationBackgroundColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "commandBackgroundColor",
+              value: "rgb(255,255,0)",
+            },
+            {
+              id: "emptySpaceBackgroundColor",
+              value: "rgb(255,255,0)",
+            },
+
+            {
+              id: "numberTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "consonantTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "vowelTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "punctuationTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "commandTextColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "emptySpaceTextColor",
+              value: "rgb(0,0,0)",
+            },
+
+            {
+              id: "numberBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "consonantBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "vowelBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "punctuationBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "commandBorderColor",
+              value: "rgb(0,0,0)",
+            },
+            {
+              id: "emptySpaceBorderColor",
+              value: "rgb(0,0,0)",
+            },
+          ],
+        },
+        {
           value: "green-with-highlights",
           description: "Green",
           label: "Green",
