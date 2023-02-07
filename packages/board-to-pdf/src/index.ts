@@ -826,6 +826,8 @@ const boardToPdf = async (
   }
 
   if (board.ext_launchpad_options.ext_launchpad_prepend_pdf) {
+    const prependStartTime = process.hrtime();
+
     const pdfDoc = await PDFDocument.create();
 
     const pdf = getPdfFromFile(
@@ -848,6 +850,15 @@ const boardToPdf = async (
     const output = await pdfDoc.save();
 
     const [totalSeconds, totalNanoSeconds] = process.hrtime(startTime);
+
+    const [prependTotalSeconds, prependTotalNanoSeconds] =
+      process.hrtime(prependStartTime);
+
+    if (boardToPdfOptions.verboseTimingLogs) {
+      console.log(
+        `Page generation (${board.id} - ${board.ext_launchpad_options.ext_launchpad_prepend_pdf}) ${prependTotalSeconds}.${prependTotalNanoSeconds}s`
+      );
+    }
 
     return {
       numberOfPages: pdfDoc.getPageCount(),
