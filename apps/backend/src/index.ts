@@ -77,6 +77,27 @@ const resolvers = {
       let analyticsProperties: { [key: string]: string } = {};
       const keysToCollect = ["language", "symbol-system"];
 
+      const fileHash = crypto
+        .createHash("sha256")
+        .update(JSON.stringify(input))
+        .digest("hex");
+      const fileLocation = new URL(
+        `/boards/${fileHash}.pdf`,
+        getBaseUrl()
+      ).toString();
+
+      // Technically, this is vulnerable to a timing attack. I think the data we are risking
+      // is probably okay just now. Lets just make sure people dont enter their passwords into the
+      // boxes at the bottom.
+      if (fs.existsSync(path.join("./public/boards", `${fileHash}.pdf`))) {
+        console.log("Board served from cache!", fileHash);
+        return {
+          success: true,
+          message: "Board generated!",
+          fileLocation,
+        };
+      }
+
       for (const currentAnswer of input.answers) {
         if (keysToCollect.includes(currentAnswer.id)) {
           analyticsProperties[currentAnswer.id] = currentAnswer.value;
@@ -126,11 +147,6 @@ const resolvers = {
         `Board generation (${board.id}) ${totalSeconds}.${totalNanoSeconds}s`
       );
 
-      const fileHash =
-        board.id +
-        "--" +
-        crypto.createHash("sha256").update(JSON.stringify(input)).digest("hex");
-
       const writeStartTime = process.hrtime();
       fs.writeFileSync(
         path.join("./public/boards", `${fileHash}.pdf`),
@@ -141,11 +157,6 @@ const resolvers = {
       console.log(
         `Board saving took (${board.id}) ${writeSeconds}.${writeNanoSeconds}s`
       );
-
-      const fileLocation = new URL(
-        `/boards/${fileHash}.pdf`,
-        getBaseUrl()
-      ).toString();
 
       return {
         success: true,
