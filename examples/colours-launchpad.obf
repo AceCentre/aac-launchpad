@@ -1,0 +1,160 @@
+{
+  "format": "open-board-0.1",
+  "id": "colours-launchpad",
+  "locale": "en-GB",
+  "description_html": "A symbol chart to support communication about colour. It could be used during an arts and crafts activities, while playing games, choosing what clothes to wear … the possibilities are endless!",
+  "ext_launchpad_options": {
+    "padding": 10,
+    "gap": 10,
+    "button_border_width": 1,
+    "title_shown_on_board": "Colours",
+    "full_background_color": "rgb(255,255,255)",
+    "copyright_notice": "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
+    "invert_symbol_and_label": true,
+    "autofit_label_text": true,
+    "ext_launchpad_prepend_pdf": "./symbol-chart-cover.pdf",
+    "use_ace_branding": true,
+    "text_color_on_background": "rgb(0,0,0)"
+  },
+  "name": "Colours",
+  "buttons": [
+    {
+      "image_id": "more",
+      "id": "more",
+      "label": "more (again)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "look",
+      "id": "look",
+      "label": "look (see)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "stop",
+      "id": "stop",
+      "label": "stop (finish)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "like",
+      "id": "like",
+      "label": "like",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "red",
+      "id": "red",
+      "label": "red",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "blue",
+      "id": "blue",
+      "label": "blue",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "yellow",
+      "id": "yellow",
+      "label": "yellow",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "purple",
+      "id": "purple",
+      "label": "purple",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 2,
+        "columns": 4,
+        "order": [
+          [
+            "more",
+            "look",
+            "red",
+            "blue"
+          ],
+          [
+            "stop",
+            "like",
+            "yellow",
+            "purple"
+          ]
+        ]
+      },
+      "id": "first",
+      "orientation": "landscape"
+    }
+  ],
+  "images": [
+    {
+      "id": "more",
+      "url": "./symbols/widgit/more.png"
+    },
+    {
+      "id": "look",
+      "url": "./symbols/widgit/look.png"
+    },
+    {
+      "id": "stop",
+      "url": "./symbols/widgit/stop.png"
+    },
+    {
+      "id": "like",
+      "url": "./symbols/widgit/like.png"
+    },
+    {
+      "id": "red",
+      "url": "./symbols/widgit/red.png"
+    },
+    {
+      "id": "blue",
+      "url": "./symbols/widgit/blue.png"
+    },
+    {
+      "id": "yellow",
+      "url": "./symbols/widgit/yellow.png"
+    },
+    {
+      "id": "purple",
+      "url": "./symbols/widgit/purple.png"
+    }
+  ]
+}

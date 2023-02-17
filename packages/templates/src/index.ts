@@ -24,6 +24,7 @@ import { simonSays } from "./simon-says";
 import { mrPotatoHead } from "./mr-potato-head";
 import { chatAboutTv } from "./chat-about-tv";
 import { music } from "./music";
+import { colours } from "./colours";
 
 export {
   alphabetChart,
@@ -73,6 +74,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   mrPotatoHead,
   chatAboutTv,
   music,
+  colours,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -85,4 +87,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   mrPotatoHead, // Downloadable
   chatAboutTv, // Downloadable
   music, // Downloadable
+  colours, // Downloadable
 ];
