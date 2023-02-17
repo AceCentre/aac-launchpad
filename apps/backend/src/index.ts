@@ -77,10 +77,10 @@ const resolvers = {
       let analyticsProperties: { [key: string]: string } = {};
       const keysToCollect = ["language", "symbol-system"];
 
-      const fileHash = crypto
-        .createHash("sha256")
-        .update(JSON.stringify(input))
-        .digest("hex");
+      const fileHash =
+        input.templateId +
+        "--" +
+        crypto.createHash("sha256").update(JSON.stringify(input)).digest("hex");
       const fileLocation = new URL(
         `/boards/${fileHash}.pdf`,
         getBaseUrl()
