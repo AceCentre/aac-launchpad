@@ -2,6 +2,7 @@ import {
   CAPITAL_CASE_OPTION,
   FONT_OPTIONS,
   LOWER_CASE_OPTION,
+  SENTENCE_CASING,
   UPPER_CASE_OPTION,
 } from "board-to-pdf";
 import { Template } from "types";
@@ -654,7 +655,12 @@ export const alphabetChart: Template = {
       name: "Command Casing",
       defaultValue: "capital",
       type: "option",
-      options: [CAPITAL_CASE_OPTION, UPPER_CASE_OPTION, LOWER_CASE_OPTION],
+      options: [
+        CAPITAL_CASE_OPTION,
+        UPPER_CASE_OPTION,
+        LOWER_CASE_OPTION,
+        SENTENCE_CASING,
+      ],
     },
 
     {

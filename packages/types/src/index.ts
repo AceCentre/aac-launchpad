@@ -7,7 +7,7 @@ export type Result = { id: string; value: string };
  */
 type Color = string;
 
-export type Casing = "no-change" | "lower" | "upper" | "capital";
+export type Casing = "no-change" | "lower" | "upper" | "capital" | "sentence";
 
 export type Button = {
   id: ButtonID;

@@ -65,3 +65,9 @@ it("capital case a string with a new line and space", () => {
 
   expect(result).toBe("More Random\nWords");
 });
+
+it("Sentence case a string", () => {
+  const result = alterCasing("this is A Sentence", "sentence");
+
+  expect(result).toBe("This is a sentence");
+});

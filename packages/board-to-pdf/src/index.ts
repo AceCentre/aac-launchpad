@@ -84,6 +84,12 @@ export const CAPITAL_CASE_OPTION = {
   description: "Uppercase the first letter of each word",
 };
 
+export const SENTENCE_CASING = {
+  label: "Sentence Case",
+  value: "sentence",
+  description: "Uppercase the first letter of each sentence",
+};
+
 export const CASING_OPTIONS: Array<Option> = [
   {
     label: "No change",
@@ -96,8 +102,25 @@ export const CASING_OPTIONS: Array<Option> = [
 ];
 
 export const alterCasing = (rawLabel: string, casingType: Casing): string => {
+  const capitalCaseWord = (word: string): string => {
+    if (word === "") return "";
+
+    return word.replace(word[0], word[0].toUpperCase());
+  };
+
   if (casingType === "no-change") {
     return rawLabel;
+  }
+
+  if (casingType === "sentence") {
+    return rawLabel
+      .toLowerCase()
+      .split(" ")
+      .map((x, index) => {
+        if (index === 0) return capitalCaseWord(x);
+        return x;
+      })
+      .join(" ");
   }
 
   if (casingType === "lower") {
@@ -109,12 +132,6 @@ export const alterCasing = (rawLabel: string, casingType: Casing): string => {
   }
 
   if (casingType === "capital") {
-    const capitalCaseWord = (word: string): string => {
-      if (word === "") return "";
-
-      return word.replace(word[0], word[0].toUpperCase());
-    };
-
     return rawLabel
       .toLowerCase()
       .split(" ")
