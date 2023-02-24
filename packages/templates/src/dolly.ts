@@ -275,7 +275,7 @@ export const dolly: Template = {
       id: "grid",
       type: "preset",
       description: "The number of items shown on the chart",
-      defaultValue: "30",
+      defaultValue: "15",
       name: "Layout",
       presets: [
         {
