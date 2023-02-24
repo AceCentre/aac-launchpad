@@ -32,15 +32,15 @@ export const initialiseFonts = () => {
 
 export const FONT_OPTIONS: Array<Option> = [
   {
+    label: "Helvetica",
+    value: "helvetica",
+    description: "Helvetica is a widely used sans-serif typeface",
+  },
+  {
     label: "OpenDyslexic",
     value: "OpenDyslexic",
     description:
       "OpenDyslexic is a typeface designed against some common symptoms of dyslexia",
-  },
-  {
-    label: "Helvetica",
-    value: "helvetica",
-    description: "Helvetica is a widely used sans-serif typeface",
   },
   {
     label: "Atkinson Hyperlegible",
