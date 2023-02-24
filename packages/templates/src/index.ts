@@ -25,8 +25,11 @@ import { mrPotatoHead } from "./mr-potato-head";
 import { chatAboutTv } from "./chat-about-tv";
 import { music } from "./music";
 import { colours } from "./colours";
+import { dolly } from "./dolly";
 
 export {
+  core,
+  portrait,
   alphabetChart,
   simpleChoice,
   withImages,
@@ -43,8 +46,15 @@ export {
   prependPdf,
   jubilee,
   gridOptions,
-  portrait,
   bubbles,
+  reading,
+  blocks,
+  simonSays,
+  mrPotatoHead,
+  chatAboutTv,
+  music,
+  colours,
+  dolly,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -66,7 +76,6 @@ export const ALL_TEMPLATES: Array<Template> = [
   prependPdf,
   jubilee,
   gridOptions,
-  core,
   bubbles,
   reading,
   blocks,
@@ -75,17 +84,19 @@ export const ALL_TEMPLATES: Array<Template> = [
   chatAboutTv,
   music,
   colours,
+  dolly,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
-  core, // Downloadable
-  bubbles, // Downloadable
-  reading, // Downloadable
-  alphabetChart, // Downloadable
-  blocks, // Downloadable
-  simonSays, // Downloadable
-  mrPotatoHead, // Downloadable
-  chatAboutTv, // Downloadable
-  music, // Downloadable
-  colours, // Downloadable
+  core,
+  bubbles,
+  reading,
+  alphabetChart,
+  blocks,
+  simonSays,
+  mrPotatoHead,
+  chatAboutTv,
+  music,
+  colours,
+  dolly,
 ];
