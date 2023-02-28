@@ -159,7 +159,7 @@ export const chatAboutTv: Template = {
   templateVariables: [
     {
       id: "background-colour",
-      name: "Background Colour",
+      name: "Background colour",
       description:
         "Change the background colour of the chart. Select white to save printer ink.",
       defaultValue: "rgb(255,255,255)",

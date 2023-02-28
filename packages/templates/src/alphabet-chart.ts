@@ -858,7 +858,7 @@ export const alphabetChart: Template = {
     },
     {
       openByDefault: false,
-      name: "Background Colours",
+      name: "Background colours",
       id: "background-colours",
       description: "Change the background colour of each cell type",
       variables: [
