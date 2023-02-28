@@ -6,7 +6,7 @@ import fs from "fs";
 import { URL } from "url";
 import axios from "axios";
 import { initialiseFonts, FONT_OPTIONS } from "./fonts/fonts";
-import { PDFDocument } from "pdf-lib";
+import { PDFDocument, PDFPage } from "pdf-lib";
 
 type ButtonDimensions = {
   width: number;
@@ -100,6 +100,22 @@ export const CASING_OPTIONS: Array<Option> = [
   LOWER_CASE_OPTION,
   CAPITAL_CASE_OPTION,
 ];
+
+const timedTask = async (
+  label: string,
+  task: (...args: any[]) => any
+): Promise<any> => {
+  const currentStartTime = process.hrtime();
+
+  const result = await task();
+
+  const [currentTotalSeconds, currentTotalNanoSeconds] =
+    process.hrtime(currentStartTime);
+
+  console.log(`${label} - ${currentTotalSeconds}.${currentTotalNanoSeconds}s`);
+
+  return result;
+};
 
 export const alterCasing = (rawLabel: string, casingType: Casing): string => {
   const capitalCaseWord = (word: string): string => {
@@ -842,29 +858,85 @@ const boardToPdf = async (
     }
   }
 
-  if (board.ext_launchpad_options.ext_launchpad_prepend_pdf) {
+  if (
+    board.ext_launchpad_options.ext_launchpad_prepend_pdf &&
+    board.ext_launchpad_options.ext_launchpad_prepend_pdf !== undefined
+  ) {
+    const prependPdfName =
+      board.ext_launchpad_options.ext_launchpad_prepend_pdf;
+    const logLabel = `${board.id} - ${board.ext_launchpad_options.ext_launchpad_prepend_pdf}`;
+
     const prependStartTime = process.hrtime();
 
-    const pdfDoc = await PDFDocument.create();
-
-    const pdf = getPdfFromFile(
-      boardToPdfOptions.rootToPdfs,
-      board.ext_launchpad_options.ext_launchpad_prepend_pdf
+    const pdfDoc: PDFDocument = await timedTask(
+      `(${logLabel}) - PDFDocument.create()`,
+      async () => {
+        return await PDFDocument.create();
+      }
     );
 
-    const newPdf = await PDFDocument.load(doc.output("arraybuffer"));
-    const prependPdf = await PDFDocument.load(pdf);
-
-    const pagesCopyA = await pdfDoc.copyPages(
-      prependPdf,
-      prependPdf.getPageIndices()
+    const pdf: Buffer = await timedTask(
+      `(${logLabel}) - getPdfFromFile(boardToPdfOptions.rootToPdfs, prependPdfName)`,
+      async () => {
+        return await getPdfFromFile(
+          boardToPdfOptions.rootToPdfs,
+          prependPdfName
+        );
+      }
     );
-    pagesCopyA.forEach((page) => pdfDoc.addPage(page));
 
-    const pagesCopyB = await pdfDoc.copyPages(newPdf, newPdf.getPageIndices());
-    pagesCopyB.forEach((page) => pdfDoc.addPage(page));
+    const newPdf: PDFDocument = await timedTask(
+      `(${logLabel}) - PDFDocument.load(doc.output("arraybuffer"))`,
+      async () => {
+        return await PDFDocument.load(doc.output("arraybuffer"));
+      }
+    );
 
-    const output = await pdfDoc.save();
+    const prependPdf: PDFDocument = await timedTask(
+      `(${logLabel}) - PDFDocument.load(pdf)`,
+      async () => {
+        return await PDFDocument.load(pdf);
+      }
+    );
+
+    const pagesCopyA: PDFPage[] = await timedTask(
+      `(${logLabel}) - pdfDoc.copyPages(prependPdf, prependPdf.getPageIndices())`,
+      async () => {
+        return await pdfDoc.copyPages(prependPdf, prependPdf.getPageIndices());
+      }
+    );
+
+    for (let i = 0; i < pagesCopyA.length; i++) {
+      await timedTask(
+        `(${logLabel}) - pdfDoc.addPage(pagesCopyA[i]) - ${i}`,
+        async () => {
+          return await pdfDoc.addPage(pagesCopyA[i]);
+        }
+      );
+    }
+
+    const pagesCopyB: PDFPage[] = await timedTask(
+      `(${logLabel}) - pdfDoc.copyPages(newPdf, newPdf.getPageIndices())`,
+      async () => {
+        return await pdfDoc.copyPages(newPdf, newPdf.getPageIndices());
+      }
+    );
+
+    for (let i = 0; i < pagesCopyB.length; i++) {
+      await timedTask(
+        `(${logLabel}) - pdfDoc.addPage(pagesCopyB[i]) - ${i}`,
+        async () => {
+          return await pdfDoc.addPage(pagesCopyB[i]);
+        }
+      );
+    }
+
+    const output: Uint8Array = await timedTask(
+      `(${logLabel}) - pdfDoc.save()`,
+      async () => {
+        return await pdfDoc.save();
+      }
+    );
 
     const [totalSeconds, totalNanoSeconds] = process.hrtime(startTime);
 
