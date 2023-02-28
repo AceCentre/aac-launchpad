@@ -6,7 +6,7 @@ import fs from "fs";
 import { URL } from "url";
 import axios from "axios";
 import { initialiseFonts, FONT_OPTIONS } from "./fonts/fonts";
-import { PDFDocument, PDFPage } from "pdf-lib";
+import pdftk from "node-pdftk";
 
 type ButtonDimensions = {
   width: number;
@@ -864,79 +864,20 @@ const boardToPdf = async (
   ) {
     const prependPdfName =
       board.ext_launchpad_options.ext_launchpad_prepend_pdf;
-    const logLabel = `${board.id} - ${board.ext_launchpad_options.ext_launchpad_prepend_pdf}`;
 
     const prependStartTime = process.hrtime();
 
-    const pdfDoc: PDFDocument = await timedTask(
-      `(${logLabel}) - PDFDocument.create()`,
-      async () => {
-        return await PDFDocument.create();
-      }
-    );
-
-    const pdf: Buffer = await timedTask(
-      `(${logLabel}) - getPdfFromFile(boardToPdfOptions.rootToPdfs, prependPdfName)`,
-      async () => {
-        return await getPdfFromFile(
-          boardToPdfOptions.rootToPdfs,
-          prependPdfName
-        );
-      }
-    );
-
-    const newPdf: PDFDocument = await timedTask(
-      `(${logLabel}) - PDFDocument.load(doc.output("arraybuffer"))`,
-      async () => {
-        return await PDFDocument.load(doc.output("arraybuffer"));
-      }
-    );
-
-    const prependPdf: PDFDocument = await timedTask(
-      `(${logLabel}) - PDFDocument.load(pdf)`,
-      async () => {
-        return await PDFDocument.load(pdf);
-      }
-    );
-
-    const pagesCopyA: PDFPage[] = await timedTask(
-      `(${logLabel}) - pdfDoc.copyPages(prependPdf, prependPdf.getPageIndices())`,
-      async () => {
-        return await pdfDoc.copyPages(prependPdf, prependPdf.getPageIndices());
-      }
-    );
-
-    for (let i = 0; i < pagesCopyA.length; i++) {
-      await timedTask(
-        `(${logLabel}) - pdfDoc.addPage(pagesCopyA[i]) - ${i}`,
-        async () => {
-          return await pdfDoc.addPage(pagesCopyA[i]);
-        }
-      );
-    }
-
-    const pagesCopyB: PDFPage[] = await timedTask(
-      `(${logLabel}) - pdfDoc.copyPages(newPdf, newPdf.getPageIndices())`,
-      async () => {
-        return await pdfDoc.copyPages(newPdf, newPdf.getPageIndices());
-      }
-    );
-
-    for (let i = 0; i < pagesCopyB.length; i++) {
-      await timedTask(
-        `(${logLabel}) - pdfDoc.addPage(pagesCopyB[i]) - ${i}`,
-        async () => {
-          return await pdfDoc.addPage(pagesCopyB[i]);
-        }
-      );
-    }
-
-    const output: Uint8Array = await timedTask(
-      `(${logLabel}) - pdfDoc.save()`,
-      async () => {
-        return await pdfDoc.save();
-      }
-    );
+    const buffer: Buffer = await new Promise((resolve, reject) => {
+      pdftk
+        .input({
+          A: path.join(boardToPdfOptions.rootToPdfs, prependPdfName),
+          B: Buffer.from(doc.output("arraybuffer")),
+        })
+        .cat("A B")
+        .output()
+        .then((buffer) => resolve(buffer))
+        .catch((error) => reject(error));
+    });
 
     const [totalSeconds, totalNanoSeconds] = process.hrtime(startTime);
 
@@ -950,8 +891,9 @@ const boardToPdf = async (
     }
 
     return {
-      numberOfPages: pdfDoc.getPageCount(),
-      pdf: Buffer.from(output),
+      // This breaks down if we ever prepend more than one page
+      numberOfPages: doc.getNumberOfPages() + 1,
+      pdf: buffer,
       totalSeconds,
       totalNanoSeconds,
     };
