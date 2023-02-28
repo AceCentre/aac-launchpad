@@ -38,6 +38,9 @@ const streamToString = (stream: any) => {
   mkdirSync(path.join(symbolsFolder, "./uncompressed_widgit"));
   mkdirSync(path.join(symbolsFolder, "./uncompressed_pcs"));
 
+  console.log("accessKeyId", !!process.env.ACCESS_KEY_ID);
+  console.log("secretAccessKey", !!process.env.SECRET_ACCESS_KEY);
+
   const s3Client = new S3({
     endpoint: "https://fra1.digitaloceanspaces.com/",
     region: "us-east-1",
