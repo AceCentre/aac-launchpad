@@ -13,6 +13,8 @@ RUN apt-get update && \
 
 RUN yarn install
 RUN yarn build
-RUN yarn download-images
 
+# This will always bust the cache so that images are always freshly downloaded
+ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
+RUN yarn download-images
 CMD yarn start
