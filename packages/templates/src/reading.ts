@@ -250,7 +250,7 @@ export const reading: Template = {
       id: "title-text",
       description: "title",
       hidden: true,
-      defaultValue: "Readingf",
+      defaultValue: "Reading",
       maxLength: 100,
     },
     {
