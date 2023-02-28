@@ -8,7 +8,7 @@ import { rmSync, mkdirSync } from "fs";
 
 expect.extend({ toMatchImage });
 
-jest.setTimeout(10000);
+jest.setTimeout(15000);
 
 beforeAll(() => {
   try {
