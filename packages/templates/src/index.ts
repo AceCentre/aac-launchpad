@@ -26,6 +26,7 @@ import { chatAboutTv } from "./chat-about-tv";
 import { music } from "./music";
 import { colours } from "./colours";
 import { dolly } from "./dolly";
+import { artsAndCrafts } from "./arts-crafts";
 
 export {
   core,
@@ -55,6 +56,7 @@ export {
   music,
   colours,
   dolly,
+  artsAndCrafts,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -85,6 +87,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   music,
   colours,
   dolly,
+  artsAndCrafts,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -99,4 +102,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   music,
   colours,
   dolly,
+  artsAndCrafts,
 ];
