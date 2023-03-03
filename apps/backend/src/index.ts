@@ -74,6 +74,8 @@ const resolvers = {
       input: GenerateBoardInput,
       context: any
     ) => {
+      const writeStartTime = process.hrtime();
+
       let analyticsProperties: { [key: string]: string } = {};
       const keysToCollect = ["language", "symbol-system"];
 
@@ -91,6 +93,37 @@ const resolvers = {
       // boxes at the bottom.
       if (fs.existsSync(path.join("./public/boards", `${fileHash}.pdf`))) {
         console.log("Board served from cache!", fileHash);
+
+        const [writeSeconds, writeNanoSeconds] = process.hrtime(writeStartTime);
+
+        const fullTimeInMs = writeSeconds * 1000 + writeNanoSeconds / 1000000;
+
+        console.log({
+          context,
+          captured: process.env["COLLECT_ANALYTICS"] === "true",
+          distinctId: context.distinctId,
+          event: "generate-board",
+          properties: {
+            timeTaken: fullTimeInMs,
+            board: input.templateId,
+            fullGeneration: false,
+            ...analyticsProperties,
+          },
+        });
+
+        if (process.env["COLLECT_ANALYTICS"] === "true")
+          client.capture({
+            distinctId: context.distinctId,
+            event: "generate-board",
+            properties: {
+              timeTaken: fullTimeInMs,
+              board: input.templateId,
+              fullGeneration: false,
+              ...analyticsProperties,
+            },
+          });
+
+        console.log("Board served from cache!", fileHash);
         return {
           success: true,
           message: "Board generated!",
@@ -103,27 +136,6 @@ const resolvers = {
           analyticsProperties[currentAnswer.id] = currentAnswer.value;
         }
       }
-
-      console.log({
-        context,
-        captured: process.env["COLLECT_ANALYTICS"] === "true",
-        distinctId: context.distinctId,
-        event: "generate-board",
-        properties: {
-          board: input.templateId,
-          ...analyticsProperties,
-        },
-      });
-
-      if (process.env["COLLECT_ANALYTICS"] === "true")
-        client.capture({
-          distinctId: context.distinctId,
-          event: "generate-board",
-          properties: {
-            board: input.templateId,
-            ...analyticsProperties,
-          },
-        });
 
       const template = WEB_TEMPLATES.find(
         (x) => x.templateId === input.templateId
@@ -147,16 +159,43 @@ const resolvers = {
         `Board generation (${board.id}) ${totalSeconds}.${totalNanoSeconds}s`
       );
 
-      const writeStartTime = process.hrtime();
       fs.writeFileSync(
         path.join("./public/boards", `${fileHash}.pdf`),
         Buffer.from(pdf)
       );
+
       const [writeSeconds, writeNanoSeconds] = process.hrtime(writeStartTime);
 
       console.log(
         `Board saving took (${board.id}) ${writeSeconds}.${writeNanoSeconds}s`
       );
+
+      const fullTimeInMs = writeSeconds * 1000 + writeNanoSeconds / 1000000;
+
+      console.log({
+        context,
+        captured: process.env["COLLECT_ANALYTICS"] === "true",
+        distinctId: context.distinctId,
+        event: "generate-board",
+        properties: {
+          timeTaken: fullTimeInMs,
+          board: input.templateId,
+          fullGeneration: true,
+          ...analyticsProperties,
+        },
+      });
+
+      if (process.env["COLLECT_ANALYTICS"] === "true")
+        client.capture({
+          distinctId: context.distinctId,
+          event: "generate-board",
+          properties: {
+            timeTaken: fullTimeInMs,
+            board: input.templateId,
+            fullGeneration: true,
+            ...analyticsProperties,
+          },
+        });
 
       return {
         success: true,
