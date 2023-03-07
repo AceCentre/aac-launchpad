@@ -311,7 +311,7 @@ async function setupServer() {
 
 setupServer();
 
-const CLEAR_INTERVAL = 10 * 60 * 1000; // 10 minutes
+const CLEAR_INTERVAL = 60 * 60 * 1000; // 60 minutes
 const MIN_STORAGE_TIME = 60000; // 60 Seconds
 
 setInterval(async () => {
