@@ -70,6 +70,7 @@ export type LaunchpadOptions = {
   autofit_label_text?: boolean;
   text_color_on_background?: Color;
   use_ace_branding?: boolean;
+  use_page_numbers?: boolean;
 };
 
 type LaunchpadOptionsWithTemplateItems = {
@@ -84,6 +85,7 @@ type LaunchpadOptionsWithTemplateItems = {
   invert_symbol_and_label?: boolean | TemplateItem;
   autofit_label_text?: boolean | TemplateItem;
   use_ace_branding?: boolean;
+  use_page_numbers?: boolean;
   ext_launchpad_prepend_pdf?: string;
 };
 
