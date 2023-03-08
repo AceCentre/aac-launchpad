@@ -10,6 +10,7 @@
     "button_radius": 0,
     "full_background_color": "rgb(255,255,255)",
     "use_ace_branding": true,
+    "use_page_numbers": true,
     "text_color_on_background": "rgb(0,0,0)"
   },
   "name": "Alphabet Chart",
@@ -21,7 +22,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -32,7 +33,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -43,7 +44,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -54,7 +55,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -65,7 +66,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -76,7 +77,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -87,7 +88,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -98,7 +99,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -109,7 +110,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -120,7 +121,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -131,7 +132,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -142,7 +143,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -153,7 +154,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -164,7 +165,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -175,7 +176,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -186,7 +187,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -197,7 +198,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -208,7 +209,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -219,7 +220,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -230,7 +231,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -241,7 +242,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -252,7 +253,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -263,7 +264,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -274,7 +275,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -285,7 +286,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -296,7 +297,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -307,7 +308,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -318,7 +319,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -329,7 +330,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -340,7 +341,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -351,7 +352,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -362,7 +363,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -373,7 +374,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -384,7 +385,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -395,7 +396,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -406,7 +407,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -417,7 +418,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -428,7 +429,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -439,7 +440,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -450,7 +451,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 30,
       "ext_launchpad_label_casing": "upper"
     },
@@ -461,7 +462,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 20,
       "ext_launchpad_label_casing": "capital"
     },
@@ -472,7 +473,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 20,
       "ext_launchpad_label_casing": "capital"
     },
@@ -483,7 +484,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 20,
       "ext_launchpad_label_casing": "capital"
     },
@@ -494,7 +495,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 20,
       "ext_launchpad_label_casing": "capital"
     },
@@ -505,29 +506,29 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 20,
       "ext_launchpad_label_casing": "capital"
     },
     {
       "id": "empty-cell-one",
-      "label": "Yes",
+      "label": "",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 20,
       "ext_launchpad_label_casing": "upper"
     },
     {
       "id": "empty-cell-two",
-      "label": "No",
+      "label": "",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 20,
       "ext_launchpad_label_casing": "upper"
     },
@@ -538,7 +539,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 20,
       "ext_launchpad_label_casing": "upper"
     },
@@ -549,7 +550,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font_style": "bold",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_launchpad_label_font_size": 20,
       "ext_launchpad_label_casing": "upper"
     }
@@ -623,8 +624,7 @@
         ]
       },
       "id": "abc-with-numbers",
-      "orientation": "landscape",
-      "ext_launchpad_title_shown_on_board": "ABC (with numbers)"
+      "orientation": "landscape"
     },
     {
       "grid": {
@@ -682,8 +682,7 @@
         ]
       },
       "id": "abc-no-numbers",
-      "orientation": "landscape",
-      "ext_launchpad_title_shown_on_board": "ABC"
+      "orientation": "landscape"
     },
     {
       "grid": {
@@ -765,8 +764,7 @@
         ]
       },
       "id": "abc-with-numbers-and-spaces",
-      "orientation": "landscape",
-      "ext_launchpad_title_shown_on_board": "ABC (with space for your own messages and numbers)"
+      "orientation": "landscape"
     },
     {
       "grid": {
@@ -836,8 +834,7 @@
         ]
       },
       "id": "abc-no-numbers-and-spaces",
-      "orientation": "landscape",
-      "ext_launchpad_title_shown_on_board": "ABC (with space for your own messages)"
+      "orientation": "landscape"
     },
     {
       "grid": {
@@ -895,8 +892,7 @@
         ]
       },
       "id": "abc-portrait-no-space",
-      "orientation": "portrait",
-      "ext_launchpad_title_shown_on_board": "ABC"
+      "orientation": "portrait"
     },
     {
       "grid": {
@@ -960,8 +956,7 @@
         ]
       },
       "id": "abc-portrait-with-space",
-      "orientation": "portrait",
-      "ext_launchpad_title_shown_on_board": "ABC (with space for your own messages)"
+      "orientation": "portrait"
     },
     {
       "grid": {
@@ -1031,8 +1026,7 @@
         ]
       },
       "id": "qwerty-with-numbers",
-      "orientation": "landscape",
-      "ext_launchpad_title_shown_on_board": "QWERTY (with numbers)"
+      "orientation": "landscape"
     },
     {
       "grid": {
@@ -1090,8 +1084,7 @@
         ]
       },
       "id": "qwerty-no-numbers",
-      "orientation": "landscape",
-      "ext_launchpad_title_shown_on_board": "QWERTY"
+      "orientation": "landscape"
     },
     {
       "grid": {
@@ -1161,8 +1154,7 @@
         ]
       },
       "id": "qwerty-no-numbers-and-spaces",
-      "orientation": "landscape",
-      "ext_launchpad_title_shown_on_board": "QWERTY (with space for your own messages)"
+      "orientation": "landscape"
     },
     {
       "grid": {
@@ -1244,8 +1236,7 @@
         ]
       },
       "id": "qwerty-with-numbers-and-spaces",
-      "orientation": "landscape",
-      "ext_launchpad_title_shown_on_board": "QWERTY (with space for your own messages and numbers)"
+      "orientation": "landscape"
     }
   ],
   "images": []
