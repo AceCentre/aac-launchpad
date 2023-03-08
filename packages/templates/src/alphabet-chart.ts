@@ -1710,7 +1710,6 @@ export const alphabetChart: Template = {
   pages: [
     {
       id: "abc-with-numbers",
-      ext_launchpad_title_shown_on_board: "ABC (with numbers)",
       grid: {
         rows: 5,
         columns: 10,
@@ -1736,8 +1735,6 @@ export const alphabetChart: Template = {
     },
     {
       id: "abc-no-numbers",
-      ext_launchpad_title_shown_on_board: "ABC",
-
       grid: {
         rows: 4,
         columns: 10,
@@ -1762,8 +1759,6 @@ export const alphabetChart: Template = {
     },
     {
       id: "abc-with-numbers-and-spaces",
-      ext_launchpad_title_shown_on_board:
-        "ABC (with space for your own messages and numbers)",
       grid: {
         rows: 6,
         columns: 10,
@@ -1801,8 +1796,6 @@ export const alphabetChart: Template = {
     },
     {
       id: "abc-no-numbers-and-spaces",
-      ext_launchpad_title_shown_on_board:
-        "ABC (with space for your own messages)",
 
       grid: {
         rows: 5,
@@ -1841,7 +1834,6 @@ export const alphabetChart: Template = {
 
     {
       id: "abc-portrait-no-space",
-      ext_launchpad_title_shown_on_board: "ABC",
 
       orientation: "portrait",
       grid: {
@@ -1861,8 +1853,6 @@ export const alphabetChart: Template = {
     },
     {
       id: "abc-portrait-with-space",
-      ext_launchpad_title_shown_on_board:
-        "ABC (with space for your own messages)",
 
       orientation: "portrait",
       grid: {
@@ -1888,8 +1878,6 @@ export const alphabetChart: Template = {
     },
     {
       id: "qwerty-with-numbers",
-      ext_launchpad_title_shown_on_board: "QWERTY (with numbers)",
-
       grid: {
         rows: 5,
         columns: 10,
@@ -1915,7 +1903,6 @@ export const alphabetChart: Template = {
     },
     {
       id: "qwerty-no-numbers",
-      ext_launchpad_title_shown_on_board: "QWERTY",
 
       grid: {
         rows: 4,
@@ -1941,8 +1928,6 @@ export const alphabetChart: Template = {
     },
     {
       id: "qwerty-no-numbers-and-spaces",
-      ext_launchpad_title_shown_on_board:
-        "QWERTY (with space for your own messages)",
 
       grid: {
         rows: 5,
@@ -1980,8 +1965,6 @@ export const alphabetChart: Template = {
     },
     {
       id: "qwerty-with-numbers-and-spaces",
-      ext_launchpad_title_shown_on_board:
-        "QWERTY (with space for your own messages and numbers)",
 
       grid: {
         rows: 6,
