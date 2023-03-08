@@ -57,6 +57,7 @@ const getExtLaunchpadOptions = (
     ),
     ext_launchpad_prepend_pdf: launchpadOptions.ext_launchpad_prepend_pdf,
     use_ace_branding: launchpadOptions.use_ace_branding,
+    use_page_numbers: launchpadOptions.use_page_numbers,
     text_color_on_background: getOptionalStringFromTemplateItem(
       launchpadOptions.text_color_on_background,
       results

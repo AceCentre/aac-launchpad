@@ -101,22 +101,6 @@ export const CASING_OPTIONS: Array<Option> = [
   CAPITAL_CASE_OPTION,
 ];
 
-const timedTask = async (
-  label: string,
-  task: (...args: any[]) => any
-): Promise<any> => {
-  const currentStartTime = process.hrtime();
-
-  const result = await task();
-
-  const [currentTotalSeconds, currentTotalNanoSeconds] =
-    process.hrtime(currentStartTime);
-
-  console.log(`${label} - ${currentTotalSeconds}.${currentTotalNanoSeconds}s`);
-
-  return result;
-};
-
 export const alterCasing = (rawLabel: string, casingType: Casing): string => {
   const capitalCaseWord = (word: string): string => {
     if (word === "") return "";
@@ -209,19 +193,6 @@ const getImageFromFile = (imageRoot: string, url: string) => {
   }
 };
 
-const getPdfFromFile = (pdfRoot: string, url: string) => {
-  try {
-    const imagePath = path.join(pdfRoot, url);
-    return fs.readFileSync(imagePath);
-  } catch (error: any) {
-    if (error && error.code && error.code === "ENOENT") {
-      throw Error(`PDF URL '${url}' does not exist as a path or as a URL`);
-    } else {
-      throw error;
-    }
-  }
-};
-
 const VALID_RESPONSE_TYPES = ["image/png", "image/jpeg"];
 
 const getImageFromNetwork = async (url: string): Promise<Buffer> => {
@@ -279,11 +250,13 @@ const boardToPdf = async (
   const buttonRadius = options.button_radius ?? DEFAULT_BUTTON_RADIUS;
   const documentButtonBorderWidth =
     options.button_border_width ?? DEFAULT_BUTTON_BORDER_WIDTH;
+  const addPageNumbers = options.use_ace_branding ?? false;
 
   const labelAboveSymbol = options.invert_symbol_and_label ?? false;
   const autoFitLabels = options.autofit_label_text ?? false;
 
   let firstPage = true;
+  let pageNumber = 1;
   for (const page of board.pages) {
     const currentPageOrientation = page.orientation ?? "landscape";
     const withRowLabels = page.ext_launchpad_with_row_labels ?? false;
@@ -380,6 +353,20 @@ const boardToPdf = async (
       const fontInMm = doc.getFontSize() * POINT_TO_MM;
 
       documentHeight = documentHeight - 2 - fontInMm;
+    }
+
+    if (addPageNumbers) {
+      doc
+        .setFontSize(10)
+        .text(
+          "Page " + pageNumber,
+          currentPageWidth - 8,
+          currentPageHeight - 8,
+          {
+            baseline: "bottom",
+            align: "right",
+          }
+        );
     }
 
     if (options.use_ace_branding === true) {
@@ -856,6 +843,7 @@ const boardToPdf = async (
         `Page generation (${board.id} - ${page.id}) ${pageTotalSeconds}.${pageTotalNanoSeconds}s`
       );
     }
+    pageNumber++;
   }
 
   if (
