@@ -913,6 +913,8 @@ export const alphabetChart: Template = {
   name: "Alphabet Chart",
   description_html: "Alphabet board to allow individuals to spell",
   ext_launchpad_options: {
+    ext_launchpad_prepend_pdf: "./alphabet-chart-cover.pdf",
+
     use_page_numbers: true,
     use_ace_branding: true,
     padding: 10,
