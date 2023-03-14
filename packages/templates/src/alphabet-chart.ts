@@ -570,7 +570,7 @@ export const alphabetChart: Template = {
       presets: [
         {
           value: "empty",
-          label: "Empty Spaces",
+          label: "Leave Empty",
           description: "Leave cells blank and fill them in later",
           variableValues: [
             {
