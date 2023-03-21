@@ -109,7 +109,7 @@ export const alphabetChart: Template = {
           ],
         },
         {
-          value: "high-contrast",
+          value: "high-contrast-one",
           description: "High Contrast",
           label: "High Contrast (Black on Yellow)",
           variableValues: [
@@ -195,7 +195,7 @@ export const alphabetChart: Template = {
           ],
         },
         {
-          value: "high-contrast",
+          value: "high-contrast-two",
           description: "High Contrast",
           label: "High Contrast (Yellow on Black)",
           variableValues: [
