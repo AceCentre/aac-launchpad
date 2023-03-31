@@ -250,7 +250,7 @@ const boardToPdf = async (
   const buttonRadius = options.button_radius ?? DEFAULT_BUTTON_RADIUS;
   const documentButtonBorderWidth =
     options.button_border_width ?? DEFAULT_BUTTON_BORDER_WIDTH;
-  const addPageNumbers = options.use_ace_branding ?? false;
+  const addPageNumbers = options.use_page_numbers ?? false;
 
   const labelAboveSymbol = options.invert_symbol_and_label ?? false;
   const autoFitLabels = options.autofit_label_text ?? false;
