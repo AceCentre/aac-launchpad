@@ -27,6 +27,7 @@ import { music } from "./music";
 import { colours } from "./colours";
 import { dolly } from "./dolly";
 import { artsAndCrafts } from "./arts-crafts";
+import { balloons } from "./balloons";
 
 export {
   core,
@@ -57,6 +58,7 @@ export {
   colours,
   dolly,
   artsAndCrafts,
+  balloons,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -88,6 +90,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   colours,
   dolly,
   artsAndCrafts,
+  balloons,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -103,4 +106,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   colours,
   dolly,
   artsAndCrafts,
+  balloons,
 ];
