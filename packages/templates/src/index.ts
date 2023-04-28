@@ -29,6 +29,7 @@ import { dolly } from "./dolly";
 import { artsAndCrafts } from "./arts-crafts";
 import { balloons } from "./balloons";
 import { bath } from "./bath";
+import { turnTaking } from "./turn-taking";
 
 export {
   core,
@@ -61,6 +62,7 @@ export {
   artsAndCrafts,
   balloons,
   bath,
+  turnTaking,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -94,6 +96,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   artsAndCrafts,
   balloons,
   bath,
+  turnTaking,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -111,4 +114,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   artsAndCrafts,
   balloons,
   bath,
+  turnTaking,
 ];
