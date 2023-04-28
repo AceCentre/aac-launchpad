@@ -342,6 +342,7 @@ setInterval(async () => {
     if (file.includes("right.png")) continue;
     if (file.includes("front-page.pdf")) continue;
     if (file.includes("symbols")) continue;
+    if (file.includes("blank")) continue;
 
     const filePath = path.join("./private", file);
     fs.unlinkSync(filePath);

@@ -203,7 +203,7 @@ export const turnTaking: Template = {
       id: "title-text",
       description: "title",
       hidden: true,
-      defaultValue: "Bath",
+      defaultValue: "Turn Taking",
       maxLength: 100,
     },
     {

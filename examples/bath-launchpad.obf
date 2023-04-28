@@ -9,7 +9,7 @@
     "button_border_width": 1,
     "title_shown_on_board": "Bath",
     "full_background_color": "rgb(255,255,255)",
-    "copyright_notice": "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
+    "copyright_notice": "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
     "invert_symbol_and_label": true,
     "autofit_label_text": true,
     "ext_launchpad_prepend_pdf": "./symbol-chart-cover.pdf",
@@ -205,63 +205,63 @@
   "images": [
     {
       "id": "more",
-      "url": "./symbols/widgit/more.png"
+      "url": "./symbols/pcs/more.png"
     },
     {
       "id": "look",
-      "url": "./symbols/widgit/look.png"
+      "url": "./symbols/pcs/look.png"
     },
     {
       "id": "stop",
-      "url": "./symbols/widgit/stop.png"
+      "url": "./symbols/pcs/stop.png"
     },
     {
       "id": "want",
-      "url": "./symbols/widgit/want.png"
+      "url": "./symbols/pcs/want.png"
     },
     {
       "id": "like",
-      "url": "./symbols/widgit/like.png"
+      "url": "./symbols/pcs/like.png"
     },
     {
       "id": "different",
-      "url": "./symbols/widgit/different.png"
+      "url": "./symbols/pcs/different.png"
     },
     {
       "id": "help",
-      "url": "./symbols/widgit/help.png"
+      "url": "./symbols/pcs/help.png"
     },
     {
       "id": "no",
-      "url": "./symbols/widgit/no.png"
+      "url": "./symbols/pcs/no.png"
     },
     {
       "id": "wash",
-      "url": "./symbols/widgit/wash.png"
+      "url": "./symbols/pcs/wash.png"
     },
     {
       "id": "cold",
-      "url": "./symbols/widgit/cold.png"
+      "url": "./symbols/pcs/cold.png"
     },
     {
       "id": "bath",
-      "url": "./symbols/widgit/bath.png"
+      "url": "./symbols/pcs/bath.png"
     },
     {
       "id": "splash",
-      "url": "./symbols/widgit/splash.png"
+      "url": "./symbols/pcs/splash.png"
     },
     {
       "id": "hot",
-      "url": "./symbols/widgit/hot.png"
+      "url": "./symbols/pcs/hot.png"
     },
     {
       "id": "water",
-      "url": "./symbols/widgit/water.png"
+      "url": "./symbols/pcs/water.png"
     },
     {
       "id": "bath-toy",
-      "url": "./symbols/widgit/bath-toy.png"
+      "url": "./symbols/pcs/bath-toy.png"
     }
   ]
 }
