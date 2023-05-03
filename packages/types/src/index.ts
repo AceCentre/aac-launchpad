@@ -58,7 +58,7 @@ export type GridWithTemplateItems = {
 };
 
 export type LaunchpadOptions = {
-  padding?: number;
+  padding?: number | Padding;
   gap?: number;
   button_radius?: number;
   button_border_width?: number;
@@ -73,8 +73,18 @@ export type LaunchpadOptions = {
   use_page_numbers?: boolean;
 };
 
-type LaunchpadOptionsWithTemplateItems = {
-  padding?: number | TemplateItem;
+export type Padding = {
+  horizontal: number;
+  vertical: number;
+};
+
+export type PaddingWithTemplateItem = {
+  horizontal: number | TemplateItem;
+  vertical: number | TemplateItem;
+};
+
+export type LaunchpadOptionsWithTemplateItems = {
+  padding?: number | TemplateItem | PaddingWithTemplateItem;
   gap?: number | TemplateItem;
   button_radius?: number | TemplateItem;
   button_border_width?: number | TemplateItem;

@@ -38,19 +38,20 @@ const SPACE_RESERVED_FOR_ROW_LABEL = 24;
 const calculateButtonSize = (
   pageWidth: number,
   pageHeight: number,
-  padding: number,
+  horizontalPadding: number,
+  verticalPadding: number,
   gap: number,
   rows: number,
   columns: number,
   withRowLabels: boolean
 ): ButtonDimensions => {
-  const widthLostToPadding = padding * 2;
+  const widthLostToPadding = horizontalPadding * 2;
   const widthDistanceLostToGap = (columns - 1) * gap;
   const totalButtonWidth =
     pageWidth - widthLostToPadding - widthDistanceLostToGap;
   const buttonWidth = totalButtonWidth / columns;
 
-  const heightLostToPadding = padding * 2;
+  const heightLostToPadding = verticalPadding * 2;
   const heightLostToGap = (rows - 1) * gap;
   const totalButtonHeight = pageHeight - heightLostToGap - heightLostToPadding;
   const buttonHeight = totalButtonHeight / rows;
@@ -245,7 +246,22 @@ const boardToPdf = async (
   });
 
   const options = board.ext_launchpad_options;
-  const padding = options.padding ?? DEFAULT_PADDING;
+
+  let horizontalPadding = DEFAULT_PADDING;
+  let verticalPadding = DEFAULT_PADDING;
+
+  if (typeof options.padding === "number") {
+    horizontalPadding = options.padding;
+    verticalPadding = options.padding;
+  } else if (
+    options.padding !== undefined &&
+    "horizontal" in options.padding &&
+    "vertical" in options.padding
+  ) {
+    horizontalPadding = options.padding.horizontal;
+    verticalPadding = options.padding.vertical;
+  }
+
   const gap = options.gap ?? DEFAULT_GAP;
   const buttonRadius = options.button_radius ?? DEFAULT_BUTTON_RADIUS;
   const documentButtonBorderWidth =
@@ -312,7 +328,7 @@ const boardToPdf = async (
         }
       );
 
-      documentHeight = documentHeight - padding - titleHeight;
+      documentHeight = documentHeight - verticalPadding - titleHeight;
       extraTopPadding += 10 + titleHeight;
     } else if (options.title_shown_on_board) {
       doc.setFont(DEFAULT_LABEL_FONT, DEFAULT_LABEL_FONT_STYLE);
@@ -333,7 +349,7 @@ const boardToPdf = async (
         align: "center",
       });
 
-      documentHeight = documentHeight - padding - titleHeight;
+      documentHeight = documentHeight - verticalPadding - titleHeight;
       extraTopPadding += 10 + titleHeight;
     }
 
@@ -342,8 +358,8 @@ const boardToPdf = async (
         .setFontSize(10)
         .text(
           options.copyright_notice,
-          currentPageWidth - padding,
-          currentPageHeight - padding,
+          currentPageWidth - horizontalPadding,
+          currentPageHeight - verticalPadding,
           {
             baseline: "bottom",
             align: "right",
@@ -383,7 +399,7 @@ const boardToPdf = async (
       await doc.addImage(
         logoImageData,
         logoProperties.fileType,
-        padding,
+        horizontalPadding,
         currentPageHeight - logoHeight - 2,
         logoWidth,
         logoHeight,
@@ -396,7 +412,7 @@ const boardToPdf = async (
         .setFontSize(10)
         .text(
           "A free resource created by the charity acecentre.org.uk",
-          padding + logoWidth + 2,
+          horizontalPadding + logoWidth + 2,
           currentPageHeight - logoHeight / 2 - 2,
           {
             baseline: "top",
@@ -409,7 +425,7 @@ const boardToPdf = async (
           .setFontSize(10)
           .text(
             options.copyright_notice,
-            currentPageWidth - padding,
+            currentPageWidth - horizontalPadding,
             currentPageHeight - logoHeight / 2 - 2,
             {
               baseline: "top",
@@ -427,7 +443,8 @@ const boardToPdf = async (
     const buttonDimensions = calculateButtonSize(
       currentPageWidth,
       documentHeight,
-      padding,
+      horizontalPadding,
+      verticalPadding,
       gap,
       page.grid.rows,
       page.grid.columns,
@@ -510,11 +527,11 @@ const boardToPdf = async (
       if (withRowLabels) {
         const label = rowCount + 1;
 
-        const currentX = padding + SPACE_RESERVED_FOR_ROW_LABEL / 2;
+        const currentX = horizontalPadding + SPACE_RESERVED_FOR_ROW_LABEL / 2;
 
         const currentY =
           rowCount * (buttonDimensions.height + gap) +
-          padding +
+          verticalPadding +
           extraTopPadding;
 
         doc
@@ -615,11 +632,11 @@ const boardToPdf = async (
 
         const currentX =
           columnCount * (buttonDimensions.width + gap) +
-          padding +
+          horizontalPadding +
           spaceForLabels;
         const currentY =
           rowCount * (buttonDimensions.height + gap) +
-          padding +
+          verticalPadding +
           extraTopPadding;
 
         const cellWidth =

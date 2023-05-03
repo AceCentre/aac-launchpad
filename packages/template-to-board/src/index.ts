@@ -13,7 +13,29 @@ import {
   ButtonID,
   Orientation,
   PageWithTemplateItems,
+  Padding,
+  LaunchpadOptionsWithTemplateItems,
+  PaddingWithTemplateItem,
 } from "types";
+
+const getPadding = (
+  template: LaunchpadOptionsWithTemplateItems,
+  results: Array<Result>
+): number | Padding | undefined => {
+  const givenPadding = template.padding;
+
+  if (givenPadding === undefined) return undefined;
+  if (typeof givenPadding === "number") return givenPadding;
+  if ("type" in givenPadding && givenPadding.type === "TemplateItem")
+    return getNumberFromTemplateItem(givenPadding, results);
+
+  const specificPadding = givenPadding as PaddingWithTemplateItem;
+
+  return {
+    horizontal: getNumberFromTemplateItem(specificPadding.horizontal, results),
+    vertical: getNumberFromTemplateItem(specificPadding.vertical, results),
+  };
+};
 
 const getExtLaunchpadOptions = (
   template: Template,
@@ -22,10 +44,7 @@ const getExtLaunchpadOptions = (
   const launchpadOptions = template.ext_launchpad_options;
 
   return {
-    padding: getOptionalNumberFromTemplateItem(
-      launchpadOptions.padding,
-      results
-    ),
+    padding: getPadding(launchpadOptions, results),
     gap: getOptionalNumberFromTemplateItem(launchpadOptions.gap, results),
     button_border_width: getOptionalNumberFromTemplateItem(
       launchpadOptions.button_border_width,
