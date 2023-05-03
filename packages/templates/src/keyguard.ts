@@ -81,7 +81,11 @@ export const keyguard: Template = {
   locale: "en-GB",
   name: "Keyguard Alphabet Chart",
   description_html: "Alphabet board to allow individuals to spell",
-  ext_launchpad_options: {},
+  ext_launchpad_options: {
+    padding: { horizontal: 40, vertical: 60 },
+    gap: 3,
+    button_border_width: 0.1,
+  },
   buttons: getButtons(),
   images: [],
   pages: [
