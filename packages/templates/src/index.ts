@@ -31,6 +31,7 @@ import { balloons } from "./balloons";
 import { bath } from "./bath";
 import { turnTaking } from "./turn-taking";
 import { keyguard } from "./keyguard";
+import { wheelsOnTheBus } from "./wheels-on-the-bus";
 
 export {
   core,
@@ -65,6 +66,7 @@ export {
   bath,
   turnTaking,
   keyguard,
+  wheelsOnTheBus,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -100,6 +102,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   bath,
   turnTaking,
   keyguard,
+  wheelsOnTheBus,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -119,4 +122,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   bath,
   turnTaking,
   keyguard,
+  wheelsOnTheBus,
 ];

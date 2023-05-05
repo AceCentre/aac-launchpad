@@ -1,0 +1,160 @@
+{
+  "format": "open-board-0.1",
+  "id": "sing-wheels-on-the-bus-launchpad",
+  "locale": "en-GB",
+  "description_html": "A symbol chart to support communication while singing the song Wheels on the Bus",
+  "ext_launchpad_options": {
+    "padding": 10,
+    "gap": 10,
+    "button_border_width": 1,
+    "title_shown_on_board": "Sing Wheels on the Bus",
+    "full_background_color": "rgb(255,255,255)",
+    "copyright_notice": "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
+    "invert_symbol_and_label": true,
+    "autofit_label_text": true,
+    "ext_launchpad_prepend_pdf": "./symbol-chart-cover.pdf",
+    "use_ace_branding": true,
+    "text_color_on_background": "rgb(0,0,0)"
+  },
+  "name": "Sing Wheels on the Bus",
+  "buttons": [
+    {
+      "image_id": "more",
+      "id": "more",
+      "label": "more (again)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "bus",
+      "id": "bus",
+      "label": "Wheels on the bus",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "turn",
+      "id": "turn",
+      "label": "Go round and round",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "bus-doors",
+      "id": "bus-doors",
+      "label": "Doors open and shut",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "stop",
+      "id": "stop",
+      "label": "stop (finish)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "like",
+      "id": "like",
+      "label": "like",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "different",
+      "id": "different",
+      "label": "different",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "children",
+      "id": "children",
+      "label": "Children bounce up and down",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 2,
+        "columns": 4,
+        "order": [
+          [
+            "more",
+            "bus",
+            "turn",
+            "bus-doors"
+          ],
+          [
+            "stop",
+            "like",
+            "different",
+            "children"
+          ]
+        ]
+      },
+      "id": "first",
+      "orientation": "landscape"
+    }
+  ],
+  "images": [
+    {
+      "id": "more",
+      "url": "./symbols/pcs/more.png"
+    },
+    {
+      "id": "bus",
+      "url": "./symbols/pcs/bus.png"
+    },
+    {
+      "id": "turn",
+      "url": "./symbols/pcs/turn.png"
+    },
+    {
+      "id": "bus-doors",
+      "url": "./symbols/pcs/bus-doors.png"
+    },
+    {
+      "id": "stop",
+      "url": "./symbols/pcs/stop.png"
+    },
+    {
+      "id": "like",
+      "url": "./symbols/pcs/like.png"
+    },
+    {
+      "id": "different",
+      "url": "./symbols/pcs/different.png"
+    },
+    {
+      "id": "children",
+      "url": "./symbols/pcs/children.png"
+    }
+  ]
+}
