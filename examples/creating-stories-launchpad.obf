@@ -1,0 +1,496 @@
+{
+  "format": "open-board-0.1",
+  "id": "creating-stories-launchpad",
+  "locale": "en-GB",
+  "description_html": "A symbol chart to support communication around creating a story.",
+  "ext_launchpad_options": {
+    "padding": 10,
+    "gap": 4,
+    "button_border_width": 1,
+    "title_shown_on_board": "Creating Stories",
+    "full_background_color": "rgb(255,255,255)",
+    "copyright_notice": "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
+    "invert_symbol_and_label": true,
+    "autofit_label_text": true,
+    "ext_launchpad_prepend_pdf": "./symbol-chart-cover.pdf",
+    "use_ace_branding": true,
+    "text_color_on_background": "rgb(0,0,0)"
+  },
+  "name": "Creating Stories",
+  "buttons": [
+    {
+      "image_id": "me",
+      "id": "me",
+      "label": "I, me, mine, my",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "more",
+      "id": "more",
+      "label": "more (again)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "look",
+      "id": "look",
+      "label": "look (see)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "question",
+      "id": "question",
+      "label": "question",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "girl",
+      "id": "girl",
+      "label": "girl",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "boy",
+      "id": "boy",
+      "label": "boy",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "you",
+      "id": "you",
+      "label": "you, your(s)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "stop",
+      "id": "stop",
+      "label": "stop (finish)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "want",
+      "id": "want",
+      "label": "want",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "this",
+      "id": "this",
+      "label": "this (that)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "cat",
+      "id": "cat",
+      "label": "cat",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "monster",
+      "id": "monster",
+      "label": "monster",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "go",
+      "id": "go",
+      "label": "go",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "different",
+      "id": "different",
+      "label": "different",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "help",
+      "id": "help",
+      "label": "help",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "find",
+      "id": "find",
+      "label": "find",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "city",
+      "id": "city",
+      "label": "city",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "home",
+      "id": "home",
+      "label": "home",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "like",
+      "id": "like",
+      "label": "like",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "funny",
+      "id": "funny",
+      "label": "funny",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "scary",
+      "id": "scary",
+      "label": "scary",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "run",
+      "id": "run",
+      "label": "run",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "school",
+      "id": "school",
+      "label": "school",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "forest",
+      "id": "forest",
+      "label": "forest",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "wow",
+      "id": "wow",
+      "label": "wow!",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "uh-oh",
+      "id": "uh-oh",
+      "label": "oh no!",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "naughty",
+      "id": "naughty",
+      "label": "naughty",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "no",
+      "id": "no",
+      "label": "not (no)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "magic-wand",
+      "id": "magic-wand",
+      "label": "magic wand",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "treasure",
+      "id": "treasure",
+      "label": "treasure",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 5,
+        "columns": 6,
+        "order": [
+          [
+            "me",
+            "more",
+            "look",
+            "question",
+            "girl",
+            "boy"
+          ],
+          [
+            "you",
+            "stop",
+            "want",
+            "this",
+            "cat",
+            "monster"
+          ],
+          [
+            "go",
+            "different",
+            "help",
+            "find",
+            "city",
+            "home"
+          ],
+          [
+            "like",
+            "funny",
+            "scary",
+            "run",
+            "school",
+            "forest"
+          ],
+          [
+            "wow",
+            "uh-oh",
+            "naughty",
+            "no",
+            "magic-wand",
+            "treasure"
+          ]
+        ]
+      },
+      "id": "first",
+      "orientation": "landscape"
+    }
+  ],
+  "images": [
+    {
+      "id": "me",
+      "url": "./symbols/widgit/me.png"
+    },
+    {
+      "id": "more",
+      "url": "./symbols/widgit/more.png"
+    },
+    {
+      "id": "look",
+      "url": "./symbols/widgit/look.png"
+    },
+    {
+      "id": "question",
+      "url": "./symbols/widgit/question.png"
+    },
+    {
+      "id": "girl",
+      "url": "./symbols/widgit/girl.png"
+    },
+    {
+      "id": "boy",
+      "url": "./symbols/widgit/boy.png"
+    },
+    {
+      "id": "you",
+      "url": "./symbols/widgit/you.png"
+    },
+    {
+      "id": "stop",
+      "url": "./symbols/widgit/stop.png"
+    },
+    {
+      "id": "want",
+      "url": "./symbols/widgit/want.png"
+    },
+    {
+      "id": "this",
+      "url": "./symbols/widgit/this.png"
+    },
+    {
+      "id": "cat",
+      "url": "./symbols/widgit/cat.png"
+    },
+    {
+      "id": "monster",
+      "url": "./symbols/widgit/monster.png"
+    },
+    {
+      "id": "go",
+      "url": "./symbols/widgit/go.png"
+    },
+    {
+      "id": "different",
+      "url": "./symbols/widgit/different.png"
+    },
+    {
+      "id": "help",
+      "url": "./symbols/widgit/help.png"
+    },
+    {
+      "id": "find",
+      "url": "./symbols/widgit/find.png"
+    },
+    {
+      "id": "city",
+      "url": "./symbols/widgit/city.png"
+    },
+    {
+      "id": "home",
+      "url": "./symbols/widgit/home.png"
+    },
+    {
+      "id": "like",
+      "url": "./symbols/widgit/like.png"
+    },
+    {
+      "id": "funny",
+      "url": "./symbols/widgit/funny.png"
+    },
+    {
+      "id": "scary",
+      "url": "./symbols/widgit/scary.png"
+    },
+    {
+      "id": "run",
+      "url": "./symbols/widgit/run.png"
+    },
+    {
+      "id": "school",
+      "url": "./symbols/widgit/school.png"
+    },
+    {
+      "id": "forest",
+      "url": "./symbols/widgit/forest.png"
+    },
+    {
+      "id": "wow",
+      "url": "./symbols/widgit/wow.png"
+    },
+    {
+      "id": "uh-oh",
+      "url": "./symbols/widgit/uh-oh.png"
+    },
+    {
+      "id": "naughty",
+      "url": "./symbols/widgit/naughty.png"
+    },
+    {
+      "id": "no",
+      "url": "./symbols/widgit/no.png"
+    },
+    {
+      "id": "magic-wand",
+      "url": "./symbols/widgit/magic-wand.png"
+    },
+    {
+      "id": "treasure",
+      "url": "./symbols/widgit/treasure.png"
+    }
+  ]
+}
