@@ -33,6 +33,7 @@ import { turnTaking } from "./turn-taking";
 import { keyguard } from "./keyguard";
 import { wheelsOnTheBus } from "./wheels-on-the-bus";
 import { creatingStories } from "./creating-stories";
+import { oldMacdonald } from "./old-macdonald";
 
 export {
   core,
@@ -69,6 +70,7 @@ export {
   keyguard,
   wheelsOnTheBus,
   creatingStories,
+  oldMacdonald,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -106,6 +108,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   keyguard,
   wheelsOnTheBus,
   creatingStories,
+  oldMacdonald,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -127,4 +130,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   keyguard,
   wheelsOnTheBus,
   creatingStories,
+  oldMacdonald,
 ];

@@ -1,0 +1,160 @@
+{
+  "format": "open-board-0.1",
+  "id": "old-macdonald-launchpad",
+  "locale": "en-GB",
+  "description_html": "A symbol chart to support communication around singing Old MacDonald",
+  "ext_launchpad_options": {
+    "padding": 10,
+    "gap": 4,
+    "button_border_width": 1,
+    "title_shown_on_board": "Singing Old MacDonald",
+    "full_background_color": "rgb(255,255,255)",
+    "copyright_notice": "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
+    "invert_symbol_and_label": true,
+    "autofit_label_text": true,
+    "ext_launchpad_prepend_pdf": "./symbol-chart-cover.pdf",
+    "use_ace_branding": true,
+    "text_color_on_background": "rgb(0,0,0)"
+  },
+  "name": "Singing Old MacDonald",
+  "buttons": [
+    {
+      "image_id": "more",
+      "id": "more",
+      "label": "more (again)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "stop",
+      "id": "stop",
+      "label": "stop (finish)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "different",
+      "id": "different",
+      "label": "different",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "like",
+      "id": "like",
+      "label": "like",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "old-macdonald",
+      "id": "old-macdonald",
+      "label": "Old MacDonald",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "cow",
+      "id": "cow",
+      "label": "cow",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "pig",
+      "id": "pig",
+      "label": "pig",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "sheep",
+      "id": "sheep",
+      "label": "sheep",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 2,
+        "columns": 4,
+        "order": [
+          [
+            "more",
+            "old-macdonald",
+            "cow",
+            "pig"
+          ],
+          [
+            "stop",
+            "like",
+            "different",
+            "sheep"
+          ]
+        ]
+      },
+      "id": "first",
+      "orientation": "landscape"
+    }
+  ],
+  "images": [
+    {
+      "id": "more",
+      "url": "./symbols/pcs/more.png"
+    },
+    {
+      "id": "stop",
+      "url": "./symbols/pcs/stop.png"
+    },
+    {
+      "id": "different",
+      "url": "./symbols/pcs/different.png"
+    },
+    {
+      "id": "like",
+      "url": "./symbols/pcs/like.png"
+    },
+    {
+      "id": "old-macdonald",
+      "url": "./symbols/pcs/old-macdonald.png"
+    },
+    {
+      "id": "cow",
+      "url": "./symbols/pcs/cow.png"
+    },
+    {
+      "id": "pig",
+      "url": "./symbols/pcs/pig.png"
+    },
+    {
+      "id": "sheep",
+      "url": "./symbols/pcs/sheep.png"
+    }
+  ]
+}
