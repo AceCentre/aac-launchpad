@@ -1,0 +1,160 @@
+{
+  "format": "open-board-0.1",
+  "id": "look-at-photos-launchpad",
+  "locale": "en-GB",
+  "description_html": "A symbol chart to support conversation while looking at or taking photos.",
+  "ext_launchpad_options": {
+    "padding": 10,
+    "gap": 4,
+    "button_border_width": 1,
+    "title_shown_on_board": "Look at Photos",
+    "full_background_color": "rgb(255,255,255)",
+    "copyright_notice": "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
+    "invert_symbol_and_label": true,
+    "autofit_label_text": true,
+    "ext_launchpad_prepend_pdf": "./symbol-chart-cover.pdf",
+    "use_ace_branding": true,
+    "text_color_on_background": "rgb(0,0,0)"
+  },
+  "name": "Look at Photos",
+  "buttons": [
+    {
+      "image_id": "more",
+      "id": "more",
+      "label": "more (again)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "stop",
+      "id": "stop",
+      "label": "stop (finish)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "look",
+      "id": "look",
+      "label": "look (see)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "like",
+      "id": "like",
+      "label": "like",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "no",
+      "id": "no",
+      "label": "not (no)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "photo",
+      "id": "photo",
+      "label": "photo",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "next",
+      "id": "next",
+      "label": "next",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "take-picture",
+      "id": "take-picture",
+      "label": "take picture",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 2,
+        "columns": 4,
+        "order": [
+          [
+            "more",
+            "look",
+            "photo",
+            "next"
+          ],
+          [
+            "stop",
+            "like",
+            "no",
+            "take-picture"
+          ]
+        ]
+      },
+      "id": "first",
+      "orientation": "landscape"
+    }
+  ],
+  "images": [
+    {
+      "id": "more",
+      "url": "./symbols/widgit/more.png"
+    },
+    {
+      "id": "stop",
+      "url": "./symbols/widgit/stop.png"
+    },
+    {
+      "id": "look",
+      "url": "./symbols/widgit/look.png"
+    },
+    {
+      "id": "like",
+      "url": "./symbols/widgit/like.png"
+    },
+    {
+      "id": "no",
+      "url": "./symbols/widgit/no.png"
+    },
+    {
+      "id": "photo",
+      "url": "./symbols/widgit/photo.png"
+    },
+    {
+      "id": "next",
+      "url": "./symbols/widgit/next.png"
+    },
+    {
+      "id": "take-picture",
+      "url": "./symbols/widgit/take-picture.png"
+    }
+  ]
+}

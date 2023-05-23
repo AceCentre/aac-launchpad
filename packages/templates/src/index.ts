@@ -34,6 +34,7 @@ import { keyguard } from "./keyguard";
 import { wheelsOnTheBus } from "./wheels-on-the-bus";
 import { creatingStories } from "./creating-stories";
 import { oldMacdonald } from "./old-macdonald";
+import { lookAtPhotos } from "./look-at-photos";
 
 export {
   core,
@@ -71,6 +72,7 @@ export {
   wheelsOnTheBus,
   creatingStories,
   oldMacdonald,
+  lookAtPhotos,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -109,6 +111,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   wheelsOnTheBus,
   creatingStories,
   oldMacdonald,
+  lookAtPhotos,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -131,4 +134,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   wheelsOnTheBus,
   creatingStories,
   oldMacdonald,
+  lookAtPhotos,
 ];
