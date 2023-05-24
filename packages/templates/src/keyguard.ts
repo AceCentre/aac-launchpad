@@ -1,18 +1,41 @@
 import {
+  AllTemplateVariable,
   ButtonWithTemplateItems,
   GridWithTemplateItems,
+  Preset,
   Template,
 } from "types";
 
 const blueprint = {
   rows: 5,
-  columns: 26,
+  columns: 21,
   grid: [
-    [3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3],
-    [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-    [3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3],
-    [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-    [3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3],
+    [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+    [2, 2, 2, 2, 2, 2, 2, 2, 2, 3],
+    [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+    [2, 2, 2, 2, 2, 2, 2, 2, 2, 3],
+    [5, 4, 4, 4, 2, 2],
+  ],
+  layouts: [
+    {
+      value: "abc",
+      name: "ABC",
+      description: "ABC layout",
+      layout: [
+        ["", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+        ["a", "b", "c", "d", "e", "f", "g", "h", "", "yes"],
+        ["", "i", "j", "k", "l", "m", "n", "o", "p", "q", ""],
+        ["r", "s", "t", "u", "v", "w", "x", "y", "z", "no"],
+        [
+          "You've\nmisunderstood",
+          "Next\nword",
+          "I don't\nknow",
+          "I'll start\nagain",
+          ".",
+          "?",
+        ],
+      ],
+    },
   ],
 };
 
@@ -49,10 +72,12 @@ const getButtons = (): Array<ButtonWithTemplateItems> => {
     const currentRow = blueprint.grid[i];
 
     for (let j = 0; j < currentRow.length; j++) {
+      let currentButton = currentRow[j];
+
       buttons.push({
         id: `row-${i}-button-${j}`,
-        label: "",
-        border_color: "rgb(0,0,0)",
+        label: { type: "TemplateItem", id: `row-${i}-button-${j}-label` },
+        border_color: currentButton > 1 ? "rgb(0,0,0)" : "rgb(255,255,255)",
         background_color: "rgb(255,255,255)",
       });
     }
@@ -61,13 +86,70 @@ const getButtons = (): Array<ButtonWithTemplateItems> => {
   return buttons;
 };
 
+const getLabelVariables = (): Array<AllTemplateVariable> => {
+  let variables: Array<AllTemplateVariable> = [];
+
+  for (let i = 0; i < blueprint.grid.length; i++) {
+    const currentRow = blueprint.grid[i];
+
+    for (let j = 0; j < currentRow.length; j++) {
+      variables.push({
+        id: `row-${i}-button-${j}-label`,
+        name: `row-${i}-button-${j}-label`,
+        description: `row-${i}-button-${j}-label`,
+        hidden: true,
+        defaultValue: "",
+        type: "freeText",
+        maxLength: 10,
+      });
+    }
+  }
+
+  return variables;
+};
+
+const getLayoutPresets = (): Array<Preset> => {
+  return blueprint.layouts.map((currentLayout) => {
+    let variableValues = [];
+
+    for (let i = 0; i < blueprint.grid.length; i++) {
+      const currentRow = blueprint.grid[i];
+
+      for (let j = 0; j < currentRow.length; j++) {
+        variableValues.push({
+          id: `row-${i}-button-${j}-label`,
+          value: currentLayout.layout[i][j],
+        });
+      }
+    }
+
+    return {
+      value: currentLayout.value,
+      name: currentLayout.name,
+      label: currentLayout.name,
+      description: currentLayout.description,
+      variableValues: variableValues,
+    };
+  });
+};
+
 export const keyguard: Template = {
   templateFeatured: false,
   templateCategory: "Alphabet Charts",
   templateSubcategory: "Alphabet Charts",
   templateShortDescription:
     "Create an alphabet chart with custom colors to go with a keyguard",
-  templateVariables: [],
+  templateVariables: [
+    ...getLabelVariables(),
+    {
+      type: "preset",
+      name: "Layout",
+      description: "The layout of the keyboard",
+      id: "layout",
+      defaultValue: "abc",
+      presets: getLayoutPresets(),
+    },
+  ],
   templateVariableGroups: [],
   templateId: "keyguard-launchpad",
   templateDateCreated: "2022-07-20T12:00:00+01:00",

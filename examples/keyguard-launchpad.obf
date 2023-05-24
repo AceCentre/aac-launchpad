@@ -18,120 +18,114 @@
     {
       "id": "row-0-button-0",
       "label": "",
-      "border_color": "rgb(0,0,0)",
+      "border_color": "rgb(255,255,255)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-0-button-1",
-      "label": "",
+      "label": "1",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-0-button-2",
-      "label": "",
+      "label": "2",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-0-button-3",
-      "label": "",
+      "label": "3",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-0-button-4",
-      "label": "",
+      "label": "4",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-0-button-5",
-      "label": "",
+      "label": "5",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-0-button-6",
-      "label": "",
+      "label": "6",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-0-button-7",
-      "label": "",
+      "label": "7",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-0-button-8",
-      "label": "",
+      "label": "8",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-0-button-9",
-      "label": "",
+      "label": "9",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-0-button-10",
-      "label": "",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
-      "id": "row-0-button-11",
-      "label": "",
+      "label": "0",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-1-button-0",
-      "label": "",
+      "label": "a",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-1-button-1",
-      "label": "",
+      "label": "b",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-1-button-2",
-      "label": "",
+      "label": "c",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-1-button-3",
-      "label": "",
+      "label": "d",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-1-button-4",
-      "label": "",
+      "label": "e",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-1-button-5",
-      "label": "",
+      "label": "f",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-1-button-6",
-      "label": "",
+      "label": "g",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-1-button-7",
-      "label": "",
+      "label": "h",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
@@ -143,85 +137,67 @@
     },
     {
       "id": "row-1-button-9",
-      "label": "",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
-      "id": "row-1-button-10",
-      "label": "",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
-      "id": "row-1-button-11",
-      "label": "",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
-      "id": "row-1-button-12",
-      "label": "",
+      "label": "yes",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-0",
       "label": "",
-      "border_color": "rgb(0,0,0)",
+      "border_color": "rgb(255,255,255)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-1",
-      "label": "",
+      "label": "i",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-2",
-      "label": "",
+      "label": "j",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-3",
-      "label": "",
+      "label": "k",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-4",
-      "label": "",
+      "label": "l",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-5",
-      "label": "",
+      "label": "m",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-6",
-      "label": "",
+      "label": "n",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-7",
-      "label": "",
+      "label": "o",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-8",
-      "label": "",
+      "label": "p",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-9",
-      "label": "",
+      "label": "q",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
@@ -232,158 +208,98 @@
       "background_color": "rgb(255,255,255)"
     },
     {
-      "id": "row-2-button-11",
-      "label": "",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
       "id": "row-3-button-0",
-      "label": "",
+      "label": "r",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-3-button-1",
-      "label": "",
+      "label": "s",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-3-button-2",
-      "label": "",
+      "label": "t",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-3-button-3",
-      "label": "",
+      "label": "u",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-3-button-4",
-      "label": "",
+      "label": "v",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-3-button-5",
-      "label": "",
+      "label": "w",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-3-button-6",
-      "label": "",
+      "label": "x",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-3-button-7",
-      "label": "",
+      "label": "y",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-3-button-8",
-      "label": "",
+      "label": "z",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-3-button-9",
-      "label": "",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
-      "id": "row-3-button-10",
-      "label": "",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
-      "id": "row-3-button-11",
-      "label": "",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
-      "id": "row-3-button-12",
-      "label": "",
+      "label": "no",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-4-button-0",
-      "label": "",
+      "label": "You've\nmisunderstood",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-4-button-1",
-      "label": "",
+      "label": "Next\nword",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-4-button-2",
-      "label": "",
+      "label": "I don't\nknow",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-4-button-3",
-      "label": "",
+      "label": "I'll start\nagain",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-4-button-4",
-      "label": "",
+      "label": ".",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-4-button-5",
-      "label": "",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
-      "id": "row-4-button-6",
-      "label": "",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
-      "id": "row-4-button-7",
-      "label": "",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
-      "id": "row-4-button-8",
-      "label": "",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
-      "id": "row-4-button-9",
-      "label": "",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
-      "id": "row-4-button-10",
-      "label": "",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
-      "id": "row-4-button-11",
-      "label": "",
+      "label": "?",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     }
@@ -392,12 +308,10 @@
     {
       "grid": {
         "rows": 5,
-        "columns": 26,
+        "columns": 21,
         "order": [
           [
             "row-0-button-0",
-            "row-0-button-0",
-            "row-0-button-0",
             "row-0-button-1",
             "row-0-button-1",
             "row-0-button-2",
@@ -417,10 +331,7 @@
             "row-0-button-9",
             "row-0-button-9",
             "row-0-button-10",
-            "row-0-button-10",
-            "row-0-button-11",
-            "row-0-button-11",
-            "row-0-button-11"
+            "row-0-button-10"
           ],
           [
             "row-1-button-0",
@@ -443,17 +354,10 @@
             "row-1-button-8",
             "row-1-button-9",
             "row-1-button-9",
-            "row-1-button-10",
-            "row-1-button-10",
-            "row-1-button-11",
-            "row-1-button-11",
-            "row-1-button-12",
-            "row-1-button-12"
+            "row-1-button-9"
           ],
           [
             "row-2-button-0",
-            "row-2-button-0",
-            "row-2-button-0",
             "row-2-button-1",
             "row-2-button-1",
             "row-2-button-2",
@@ -473,10 +377,7 @@
             "row-2-button-9",
             "row-2-button-9",
             "row-2-button-10",
-            "row-2-button-10",
-            "row-2-button-11",
-            "row-2-button-11",
-            "row-2-button-11"
+            "row-2-button-10"
           ],
           [
             "row-3-button-0",
@@ -499,40 +400,30 @@
             "row-3-button-8",
             "row-3-button-9",
             "row-3-button-9",
-            "row-3-button-10",
-            "row-3-button-10",
-            "row-3-button-11",
-            "row-3-button-11",
-            "row-3-button-12",
-            "row-3-button-12"
+            "row-3-button-9"
           ],
           [
             "row-4-button-0",
             "row-4-button-0",
             "row-4-button-0",
+            "row-4-button-0",
+            "row-4-button-0",
+            "row-4-button-1",
+            "row-4-button-1",
             "row-4-button-1",
             "row-4-button-1",
             "row-4-button-2",
             "row-4-button-2",
+            "row-4-button-2",
+            "row-4-button-2",
+            "row-4-button-3",
+            "row-4-button-3",
             "row-4-button-3",
             "row-4-button-3",
             "row-4-button-4",
             "row-4-button-4",
             "row-4-button-5",
-            "row-4-button-5",
-            "row-4-button-6",
-            "row-4-button-6",
-            "row-4-button-7",
-            "row-4-button-7",
-            "row-4-button-8",
-            "row-4-button-8",
-            "row-4-button-9",
-            "row-4-button-9",
-            "row-4-button-10",
-            "row-4-button-10",
-            "row-4-button-11",
-            "row-4-button-11",
-            "row-4-button-11"
+            "row-4-button-5"
           ]
         ]
       },

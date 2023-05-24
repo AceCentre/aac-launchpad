@@ -146,7 +146,7 @@ interface BooleanVariable extends TemplateVariable {
 
 export type PresetVariableValues = Array<{ id: string; value: string }>;
 
-type Preset = {
+export type Preset = {
   value: string;
   label: string;
   description: string;
