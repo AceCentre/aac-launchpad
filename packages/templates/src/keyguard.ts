@@ -82,14 +82,22 @@ export const keyguard: Template = {
   name: "Keyguard Alphabet Chart",
   description_html: "Alphabet board to allow individuals to spell",
   ext_launchpad_options: {
-    padding: { horizontal: 40, vertical: 60 },
-    gap: 3,
+    padding: { horizontal: 52, vertical: 35 },
+    gap: 0,
     button_border_width: 0.1,
+    button_radius: 0,
+    use_ace_branding: true,
   },
   buttons: getButtons(),
   images: [],
   pages: [
     {
+      ext_launchpad_title_shown_on_board: "Ace Centre Keyguard",
+      ext_launchpad_overlay_image: {
+        path: "./keyguard-overlay.png",
+        scale: 0.355,
+        yOffset: 12,
+      },
       id: "mainPage",
       grid: blueprintToPageGrid(),
     },
