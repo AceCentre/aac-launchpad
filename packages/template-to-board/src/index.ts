@@ -393,6 +393,7 @@ const getPages = (template: Template, results: Array<Result>): Array<Page> => {
         page.ext_launchpad_with_row_labels,
         results
       ),
+      ext_launchpad_overlay_image: page.ext_launchpad_overlay_image,
     };
   });
 };

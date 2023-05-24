@@ -280,6 +280,7 @@ const boardToPdf = async (
       currentPageOrientation === "landscape" ? WIDTH : HEIGHT;
     const currentPageHeight =
       currentPageOrientation === "landscape" ? HEIGHT : WIDTH;
+    const overlayImage = page.ext_launchpad_overlay_image;
 
     const pageStartTime = process.hrtime();
     // The first page doesn't need added as its there by default.
@@ -399,7 +400,7 @@ const boardToPdf = async (
       await doc.addImage(
         logoImageData,
         logoProperties.fileType,
-        horizontalPadding,
+        10,
         currentPageHeight - logoHeight - 2,
         logoWidth,
         logoHeight,
@@ -412,7 +413,7 @@ const boardToPdf = async (
         .setFontSize(10)
         .text(
           "A free resource created by the charity acecentre.org.uk",
-          horizontalPadding + logoWidth + 2,
+          10 + logoWidth + 2,
           currentPageHeight - logoHeight / 2 - 2,
           {
             baseline: "top",
@@ -823,6 +824,33 @@ const boardToPdf = async (
           );
         }
       }
+    }
+
+    if (overlayImage) {
+      const overlayImageData = getImageFromFile(
+        boardToPdfOptions.rootToImages,
+        overlayImage.path
+      );
+
+      const overlayProperties = doc.getImageProperties(overlayImageData);
+      const scale = overlayImage.scale;
+      const overlayWidth = overlayProperties.width * scale;
+      const overlayHeight = overlayProperties.height * scale;
+
+      const overlayX = currentPageWidth / 2 - overlayWidth / 2;
+      const overlayY = extraTopPadding + verticalPadding - overlayImage.yOffset;
+
+      await doc.addImage(
+        overlayImageData,
+        overlayProperties.fileType,
+        overlayX,
+        overlayY,
+        overlayWidth,
+        overlayHeight,
+        "overlay",
+        "FAST",
+        0
+      );
     }
 
     const addImageStartTime = process.hrtime();

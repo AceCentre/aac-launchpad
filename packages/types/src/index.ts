@@ -221,6 +221,11 @@ export type Page = {
   orientation?: Orientation;
   ext_launchpad_with_row_labels?: boolean;
   ext_launchpad_title_shown_on_board?: string;
+  ext_launchpad_overlay_image?: {
+    path: string;
+    scale: number;
+    yOffset: number;
+  };
   grid: Grid;
 };
 
@@ -230,6 +235,11 @@ export type PageWithTemplateItems = {
   grid: GridWithTemplateItems;
   ext_launchpad_with_row_labels?: boolean | TemplateItem;
   ext_launchpad_title_shown_on_board?: string | TemplateItem;
+  ext_launchpad_overlay_image?: {
+    path: string;
+    scale: number;
+    yOffset: number;
+  };
 };
 
 export type Board = {
