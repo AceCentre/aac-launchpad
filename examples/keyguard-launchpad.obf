@@ -83,61 +83,61 @@
     },
     {
       "id": "row-1-button-0",
-      "label": "a",
+      "label": "q",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-1-button-1",
-      "label": "b",
+      "label": "w",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-1-button-2",
-      "label": "c",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
-      "id": "row-1-button-3",
-      "label": "d",
-      "border_color": "rgb(0,0,0)",
-      "background_color": "rgb(255,255,255)"
-    },
-    {
-      "id": "row-1-button-4",
       "label": "e",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
+      "id": "row-1-button-3",
+      "label": "r",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)"
+    },
+    {
+      "id": "row-1-button-4",
+      "label": "t",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)"
+    },
+    {
       "id": "row-1-button-5",
-      "label": "f",
+      "label": "y",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-1-button-6",
-      "label": "g",
+      "label": "u",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-1-button-7",
-      "label": "h",
+      "label": "i",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-1-button-8",
-      "label": "",
+      "label": "o",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-1-button-9",
-      "label": "yes",
+      "label": "p",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
@@ -149,55 +149,55 @@
     },
     {
       "id": "row-2-button-1",
-      "label": "i",
+      "label": "a",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-2",
-      "label": "j",
+      "label": "s",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-3",
-      "label": "k",
+      "label": "d",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-4",
-      "label": "l",
+      "label": "f",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-5",
-      "label": "m",
+      "label": "g",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-6",
-      "label": "n",
+      "label": "h",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-7",
-      "label": "o",
+      "label": "j",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-8",
-      "label": "p",
+      "label": "k",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-2-button-9",
-      "label": "q",
+      "label": "l",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
@@ -209,25 +209,25 @@
     },
     {
       "id": "row-3-button-0",
-      "label": "r",
+      "label": "",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-3-button-1",
-      "label": "s",
+      "label": "z",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-3-button-2",
-      "label": "t",
+      "label": "x",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-3-button-3",
-      "label": "u",
+      "label": "c",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
@@ -239,25 +239,25 @@
     },
     {
       "id": "row-3-button-5",
-      "label": "w",
+      "label": "b",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-3-button-6",
-      "label": "x",
+      "label": "n",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-3-button-7",
-      "label": "y",
+      "label": "m",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
     {
       "id": "row-3-button-8",
-      "label": "z",
+      "label": "",
       "border_color": "rgb(0,0,0)",
       "background_color": "rgb(255,255,255)"
     },
