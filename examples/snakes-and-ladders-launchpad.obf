@@ -1,0 +1,646 @@
+{
+  "format": "open-board-0.1",
+  "id": "snakes-and-ladders-launchpad",
+  "locale": "en-GB",
+  "description_html": "A symbol chart to support conversation while playing Snakes and Ladders",
+  "ext_launchpad_options": {
+    "padding": 10,
+    "gap": 2,
+    "button_border_width": 1,
+    "title_shown_on_board": "Snakes and Ladders",
+    "full_background_color": "rgb(255,255,255)",
+    "copyright_notice": "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
+    "invert_symbol_and_label": true,
+    "autofit_label_text": true,
+    "ext_launchpad_prepend_pdf": "./symbol-chart-cover.pdf",
+    "use_ace_branding": true,
+    "text_color_on_background": "rgb(0,0,0)"
+  },
+  "name": "Snakes and Ladders",
+  "buttons": [
+    {
+      "image_id": "me",
+      "id": "me",
+      "label": "I, me, my, mine",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "more",
+      "id": "more",
+      "label": "more (again)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "look",
+      "id": "look",
+      "label": "look (see)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "question",
+      "id": "question",
+      "label": "question",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "have",
+      "id": "have",
+      "label": "have",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "turn",
+      "id": "turn",
+      "label": "turn",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "play",
+      "id": "play",
+      "label": "play",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "snakes-ladders",
+      "id": "snakes-ladders",
+      "label": "snakes &\nladders",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "you",
+      "id": "you",
+      "label": "you, your(s)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "stop",
+      "id": "stop",
+      "label": "stop (finish)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "want",
+      "id": "want",
+      "label": "want",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "this",
+      "id": "this",
+      "label": "this (that)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "can",
+      "id": "can",
+      "label": "can",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "make",
+      "id": "make",
+      "label": "make",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "count",
+      "id": "count",
+      "label": "count",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "ladder",
+      "id": "ladder",
+      "label": "ladder",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "he",
+      "id": "he",
+      "label": "he, his",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "go",
+      "id": "go",
+      "label": "go",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "different",
+      "id": "different",
+      "label": "different",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "help",
+      "id": "help",
+      "label": "help",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "some",
+      "id": "some",
+      "label": "some (few)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "roll-dice",
+      "id": "roll-dice",
+      "label": "roll dice",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "good",
+      "id": "good",
+      "label": "good",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "snake",
+      "id": "snake",
+      "label": "snake",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "she",
+      "id": "she",
+      "label": "she, her(s)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "like",
+      "id": "like",
+      "label": "like",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "little",
+      "id": "little",
+      "label": "little",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "big",
+      "id": "big",
+      "label": "big",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "lots",
+      "id": "lots",
+      "label": "lots (many)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "move-my-piece",
+      "id": "move-my-piece",
+      "label": "move my\npiece",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "bad",
+      "id": "bad",
+      "label": "bad (yucky)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "funny",
+      "id": "funny",
+      "label": "funny",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "wow",
+      "id": "wow",
+      "label": "wow!",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "uh-oh",
+      "id": "uh-oh",
+      "label": "oh no!",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "dont-know",
+      "id": "dont-know",
+      "label": "don't know",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "no",
+      "id": "no",
+      "label": "not (no)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "up",
+      "id": "up",
+      "label": "up",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "down",
+      "id": "down",
+      "label": "down",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "naughty",
+      "id": "naughty",
+      "label": "naughty",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    },
+    {
+      "image_id": "cross",
+      "id": "cross",
+      "label": "cross",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 0.5
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 5,
+        "columns": 8,
+        "order": [
+          [
+            "me",
+            "more",
+            "look",
+            "question",
+            "have",
+            "turn",
+            "play",
+            "snakes-ladders"
+          ],
+          [
+            "you",
+            "stop",
+            "want",
+            "this",
+            "can",
+            "make",
+            "count",
+            "ladder"
+          ],
+          [
+            "he",
+            "go",
+            "different",
+            "help",
+            "some",
+            "roll-dice",
+            "good",
+            "snake"
+          ],
+          [
+            "she",
+            "like",
+            "little",
+            "big",
+            "lots",
+            "move-my-piece",
+            "bad",
+            "funny"
+          ],
+          [
+            "wow",
+            "uh-oh",
+            "dont-know",
+            "no",
+            "up",
+            "down",
+            "naughty",
+            "cross"
+          ]
+        ]
+      },
+      "id": "first",
+      "orientation": "landscape"
+    }
+  ],
+  "images": [
+    {
+      "id": "me",
+      "url": "./symbols/pcs/me.png"
+    },
+    {
+      "id": "more",
+      "url": "./symbols/pcs/more.png"
+    },
+    {
+      "id": "look",
+      "url": "./symbols/pcs/look.png"
+    },
+    {
+      "id": "question",
+      "url": "./symbols/pcs/question.png"
+    },
+    {
+      "id": "have",
+      "url": "./symbols/pcs/have.png"
+    },
+    {
+      "id": "turn",
+      "url": "./symbols/pcs/turn.png"
+    },
+    {
+      "id": "play",
+      "url": "./symbols/pcs/play.png"
+    },
+    {
+      "id": "snakes-ladders",
+      "url": "./symbols/pcs/snakes-ladders.png"
+    },
+    {
+      "id": "you",
+      "url": "./symbols/pcs/you.png"
+    },
+    {
+      "id": "stop",
+      "url": "./symbols/pcs/stop.png"
+    },
+    {
+      "id": "want",
+      "url": "./symbols/pcs/want.png"
+    },
+    {
+      "id": "this",
+      "url": "./symbols/pcs/this.png"
+    },
+    {
+      "id": "can",
+      "url": "./symbols/pcs/can.png"
+    },
+    {
+      "id": "make",
+      "url": "./symbols/pcs/make.png"
+    },
+    {
+      "id": "count",
+      "url": "./symbols/pcs/count.png"
+    },
+    {
+      "id": "ladder",
+      "url": "./symbols/pcs/ladder.png"
+    },
+    {
+      "id": "he",
+      "url": "./symbols/pcs/he.png"
+    },
+    {
+      "id": "go",
+      "url": "./symbols/pcs/go.png"
+    },
+    {
+      "id": "different",
+      "url": "./symbols/pcs/different.png"
+    },
+    {
+      "id": "help",
+      "url": "./symbols/pcs/help.png"
+    },
+    {
+      "id": "some",
+      "url": "./symbols/pcs/some.png"
+    },
+    {
+      "id": "roll-dice",
+      "url": "./symbols/pcs/roll-dice.png"
+    },
+    {
+      "id": "good",
+      "url": "./symbols/pcs/good.png"
+    },
+    {
+      "id": "snake",
+      "url": "./symbols/pcs/snake.png"
+    },
+    {
+      "id": "she",
+      "url": "./symbols/pcs/she.png"
+    },
+    {
+      "id": "like",
+      "url": "./symbols/pcs/like.png"
+    },
+    {
+      "id": "little",
+      "url": "./symbols/pcs/little.png"
+    },
+    {
+      "id": "big",
+      "url": "./symbols/pcs/big.png"
+    },
+    {
+      "id": "lots",
+      "url": "./symbols/pcs/lots.png"
+    },
+    {
+      "id": "move-my-piece",
+      "url": "./symbols/pcs/move-my-piece.png"
+    },
+    {
+      "id": "bad",
+      "url": "./symbols/pcs/bad.png"
+    },
+    {
+      "id": "funny",
+      "url": "./symbols/pcs/funny.png"
+    },
+    {
+      "id": "wow",
+      "url": "./symbols/pcs/wow.png"
+    },
+    {
+      "id": "uh-oh",
+      "url": "./symbols/pcs/uh-oh.png"
+    },
+    {
+      "id": "dont-know",
+      "url": "./symbols/pcs/dont-know.png"
+    },
+    {
+      "id": "no",
+      "url": "./symbols/pcs/no.png"
+    },
+    {
+      "id": "up",
+      "url": "./symbols/pcs/up.png"
+    },
+    {
+      "id": "down",
+      "url": "./symbols/pcs/down.png"
+    },
+    {
+      "id": "naughty",
+      "url": "./symbols/pcs/naughty.png"
+    },
+    {
+      "id": "cross",
+      "url": "./symbols/pcs/cross.png"
+    }
+  ]
+}

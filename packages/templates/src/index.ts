@@ -35,6 +35,7 @@ import { wheelsOnTheBus } from "./wheels-on-the-bus";
 import { creatingStories } from "./creating-stories";
 import { oldMacdonald } from "./old-macdonald";
 import { lookAtPhotos } from "./look-at-photos";
+import { snakesAndLadders } from "./snakes-and-ladders";
 
 export {
   core,
@@ -73,6 +74,7 @@ export {
   creatingStories,
   oldMacdonald,
   lookAtPhotos,
+  snakesAndLadders,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -112,6 +114,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   creatingStories,
   oldMacdonald,
   lookAtPhotos,
+  snakesAndLadders,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -135,4 +138,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   creatingStories,
   oldMacdonald,
   lookAtPhotos,
+  snakesAndLadders,
 ];
