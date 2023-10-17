@@ -414,8 +414,8 @@ export const core: Template = {
             {
               id: "order",
               value: `[
-                ["more", "look", "stop", "want"],
-                ["like", "different", "help", "no"]
+                ["more", "look", "want", "help"],
+                ["stop", "like", "uh-oh", "no"]
               ]`,
             },
           ],

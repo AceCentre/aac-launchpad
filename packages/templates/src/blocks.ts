@@ -88,7 +88,12 @@ const TILES: Array<Tile> = [
   {
     key: "big",
     label: "big",
-    isCore: false,
+    isCore: true,
+  },
+  {
+    key: "lots",
+    label: "lots (many)",
+    isCore: true,
   },
   {
     key: "blue",
@@ -119,11 +124,6 @@ const TILES: Array<Tile> = [
     key: "no",
     label: "not (no)",
     isCore: true,
-  },
-  {
-    key: "yellow",
-    label: "yellow",
-    isCore: false,
   },
   {
     key: "knock-it-down",
@@ -212,8 +212,8 @@ export const blocks: Template = {
               value: `[
                 ["me", "more", "look", "question", "red", "block"],
                 ["you", "stop", "want", "this", "green", "tower"],
-                ["go", "different", "help", "big", "blue", "make"],
-                ["like", "wow", "uh-oh", "no", "yellow", "knock-it-down"]
+                ["go", "different", "help", "lots", "blue", "make"],
+                ["like", "wow", "uh-oh", "no", "big", "knock-it-down"]
               ]`,
             },
           ],

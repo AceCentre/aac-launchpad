@@ -13,7 +13,8 @@
     "invert_symbol_and_label": true,
     "autofit_label_text": true,
     "ext_launchpad_prepend_pdf": "./symbol-chart-cover.pdf",
-    "use_ace_branding": true
+    "use_ace_branding": true,
+    "text_color_on_background": "rgb(0,0,0)"
   },
   "name": "Blocks",
   "buttons": [
@@ -24,7 +25,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -34,7 +35,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -44,7 +45,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -54,7 +55,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -64,7 +65,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 1
     },
     {
@@ -74,7 +75,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 1
     },
     {
@@ -84,7 +85,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -94,7 +95,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -104,7 +105,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -114,7 +115,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -124,7 +125,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 1
     },
     {
@@ -134,7 +135,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 1
     },
     {
@@ -144,7 +145,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -154,7 +155,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -164,7 +165,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -174,8 +175,18 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 1
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "lots",
+      "id": "lots",
+      "label": "lots (many)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
     },
     {
       "image_id": "blue",
@@ -184,7 +195,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 1
     },
     {
@@ -194,7 +205,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 1
     },
     {
@@ -204,7 +215,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -214,7 +225,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -224,7 +235,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -234,18 +245,8 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
-    },
-    {
-      "image_id": "yellow",
-      "id": "yellow",
-      "label": "yellow",
-      "border_color": "rgb(0, 0, 0)",
-      "background_color": "rgb(255,255,255)",
-      "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
-      "ext_button_border_width": 1
     },
     {
       "image_id": "knock-it-down",
@@ -254,26 +255,46 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 1
     }
   ],
   "pages": [
     {
       "grid": {
-        "rows": 2,
-        "columns": 4,
+        "rows": 4,
+        "columns": 6,
         "order": [
           [
+            "me",
             "more",
             "look",
-            "tower",
+            "question",
+            "red",
             "block"
           ],
           [
+            "you",
             "stop",
+            "want",
+            "this",
+            "green",
+            "tower"
+          ],
+          [
+            "go",
+            "different",
+            "help",
+            "lots",
+            "blue",
+            "make"
+          ],
+          [
             "like",
+            "wow",
             "uh-oh",
+            "no",
+            "big",
             "knock-it-down"
           ]
         ]
@@ -285,99 +306,99 @@
   "images": [
     {
       "id": "me",
-      "url": "./symbols/widgit/me.png"
+      "url": "./symbols/pcs/me.png"
     },
     {
       "id": "more",
-      "url": "./symbols/widgit/more.png"
+      "url": "./symbols/pcs/more.png"
     },
     {
       "id": "look",
-      "url": "./symbols/widgit/look.png"
+      "url": "./symbols/pcs/look.png"
     },
     {
       "id": "question",
-      "url": "./symbols/widgit/question.png"
+      "url": "./symbols/pcs/question.png"
     },
     {
       "id": "red",
-      "url": "./symbols/widgit/red.png"
+      "url": "./symbols/pcs/red.png"
     },
     {
       "id": "block",
-      "url": "./symbols/widgit/block.png"
+      "url": "./symbols/pcs/block.png"
     },
     {
       "id": "you",
-      "url": "./symbols/widgit/you.png"
+      "url": "./symbols/pcs/you.png"
     },
     {
       "id": "stop",
-      "url": "./symbols/widgit/stop.png"
+      "url": "./symbols/pcs/stop.png"
     },
     {
       "id": "want",
-      "url": "./symbols/widgit/want.png"
+      "url": "./symbols/pcs/want.png"
     },
     {
       "id": "this",
-      "url": "./symbols/widgit/this.png"
+      "url": "./symbols/pcs/this.png"
     },
     {
       "id": "green",
-      "url": "./symbols/widgit/green.png"
+      "url": "./symbols/pcs/green.png"
     },
     {
       "id": "tower",
-      "url": "./symbols/widgit/tower.png"
+      "url": "./symbols/pcs/tower.png"
     },
     {
       "id": "go",
-      "url": "./symbols/widgit/go.png"
+      "url": "./symbols/pcs/go.png"
     },
     {
       "id": "different",
-      "url": "./symbols/widgit/different.png"
+      "url": "./symbols/pcs/different.png"
     },
     {
       "id": "help",
-      "url": "./symbols/widgit/help.png"
+      "url": "./symbols/pcs/help.png"
     },
     {
       "id": "big",
-      "url": "./symbols/widgit/big.png"
+      "url": "./symbols/pcs/big.png"
+    },
+    {
+      "id": "lots",
+      "url": "./symbols/pcs/lots.png"
     },
     {
       "id": "blue",
-      "url": "./symbols/widgit/blue.png"
+      "url": "./symbols/pcs/blue.png"
     },
     {
       "id": "make",
-      "url": "./symbols/widgit/make.png"
+      "url": "./symbols/pcs/make.png"
     },
     {
       "id": "like",
-      "url": "./symbols/widgit/like.png"
+      "url": "./symbols/pcs/like.png"
     },
     {
       "id": "wow",
-      "url": "./symbols/widgit/wow.png"
+      "url": "./symbols/pcs/wow.png"
     },
     {
       "id": "uh-oh",
-      "url": "./symbols/widgit/uh-oh.png"
+      "url": "./symbols/pcs/uh-oh.png"
     },
     {
       "id": "no",
-      "url": "./symbols/widgit/no.png"
-    },
-    {
-      "id": "yellow",
-      "url": "./symbols/widgit/yellow.png"
+      "url": "./symbols/pcs/no.png"
     },
     {
       "id": "knock-it-down",
-      "url": "./symbols/widgit/knock-it-down.png"
+      "url": "./symbols/pcs/knock-it-down.png"
     }
   ]
 }

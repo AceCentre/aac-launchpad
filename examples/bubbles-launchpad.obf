@@ -13,7 +13,8 @@
     "invert_symbol_and_label": true,
     "autofit_label_text": true,
     "ext_launchpad_prepend_pdf": "./symbol-chart-cover.pdf",
-    "use_ace_branding": true
+    "use_ace_branding": true,
+    "text_color_on_background": "rgb(0,0,0)"
   },
   "name": "Bubbles",
   "buttons": [
@@ -24,7 +25,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -34,7 +35,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -44,7 +45,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -54,17 +55,17 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
       "image_id": "bubbles",
       "id": "bubbles",
-      "label": "bubbles",
+      "label": "bubble(s)",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 1
     },
     {
@@ -74,7 +75,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -84,7 +85,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -94,7 +95,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -104,7 +105,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -114,7 +115,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 1
     },
     {
@@ -124,7 +125,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -134,7 +135,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -144,7 +145,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -154,7 +155,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -164,7 +165,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 1
     },
     {
@@ -174,7 +175,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -184,7 +185,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -194,7 +195,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -204,7 +205,7 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 2
     },
     {
@@ -214,27 +215,43 @@
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
-      "ext_launchpad_label_font": "OpenDyslexic",
+      "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 1
     }
   ],
   "pages": [
     {
       "grid": {
-        "rows": 2,
-        "columns": 4,
+        "rows": 4,
+        "columns": 5,
         "order": [
           [
+            "me",
             "more",
             "look",
-            "pop",
+            "question",
             "bubbles"
           ],
           [
+            "you",
             "stop",
-            "like",
-            "uh-oh",
+            "want",
+            "this",
             "blow"
+          ],
+          [
+            "go",
+            "different",
+            "help",
+            "lots",
+            "catch"
+          ],
+          [
+            "like",
+            "wow",
+            "uh-oh",
+            "no",
+            "pop"
           ]
         ]
       },

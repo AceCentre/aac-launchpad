@@ -61,7 +61,7 @@
     {
       "image_id": "balloons",
       "id": "balloons",
-      "label": "balloons",
+      "label": "balloon(s)",
       "border_color": "rgb(0, 0, 0)",
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
@@ -108,14 +108,14 @@
           [
             "more",
             "look",
-            "balloons",
-            "blow"
+            "go",
+            "balloons"
           ],
           [
-            "go",
             "stop",
             "like",
-            "uh-oh"
+            "uh-oh",
+            "blow"
           ]
         ]
       },

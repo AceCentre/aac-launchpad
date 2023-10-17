@@ -32,7 +32,7 @@ const TILES: Array<Tile> = [
   },
   {
     key: "balloons",
-    label: "balloons",
+    label: "balloon(s)",
     isCore: false,
   },
   {
@@ -280,8 +280,8 @@ export const balloons: Template = {
         rows: 2,
         columns: 4,
         order: [
-          ["more", "look", "balloons", "blow"],
-          ["go", "stop", "like", "uh-oh"],
+          ["more", "look", "go", "balloons"],
+          ["stop", "like", "uh-oh", "blow"],
         ],
       },
     },

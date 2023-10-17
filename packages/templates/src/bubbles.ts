@@ -32,7 +32,7 @@ const TILES: Array<Tile> = [
   },
   {
     key: "bubbles",
-    label: "bubbles",
+    label: "bubble(s)",
     isCore: false,
   },
   {
