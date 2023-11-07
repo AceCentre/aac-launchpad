@@ -101,7 +101,7 @@ export const dressingUpAsAPrincess: Template = {
       id: "grid",
       type: "preset",
       description: "The number of items shown on the chart",
-      defaultValue: "24",
+      defaultValue: "30",
       name: "Layout",
       presets: [
         {
