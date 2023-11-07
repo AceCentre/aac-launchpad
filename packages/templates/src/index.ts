@@ -38,6 +38,7 @@ import { lookAtPhotos } from "./look-at-photos";
 import { snakesAndLadders } from "./snakes-and-ladders";
 import { kerplunk } from "./kerplunk";
 import { makeUp } from "./make-up";
+import { dressingUpAsAPrincess } from "./dressing-up-as-a-princess";
 
 export {
   core,
@@ -78,6 +79,7 @@ export {
   lookAtPhotos,
   snakesAndLadders,
   makeUp,
+  dressingUpAsAPrincess,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -120,6 +122,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   snakesAndLadders,
   kerplunk,
   makeUp,
+  dressingUpAsAPrincess,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -146,4 +149,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   snakesAndLadders,
   kerplunk,
   makeUp,
+  dressingUpAsAPrincess,
 ];

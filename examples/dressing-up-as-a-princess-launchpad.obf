@@ -1,0 +1,496 @@
+{
+  "format": "open-board-0.1",
+  "id": "dressing-up-as-a-princess-launchpad",
+  "locale": "en-GB",
+  "description_html": "",
+  "ext_launchpad_options": {
+    "padding": 10,
+    "gap": 3,
+    "button_border_width": 1,
+    "title_shown_on_board": "Dressing Up - Princess",
+    "full_background_color": "rgb(255,255,255)",
+    "copyright_notice": "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
+    "invert_symbol_and_label": true,
+    "autofit_label_text": true,
+    "ext_launchpad_prepend_pdf": "./symbol-chart-cover.pdf",
+    "use_ace_branding": true,
+    "text_color_on_background": "rgb(0,0,0)"
+  },
+  "name": "Dressing Up - Princess",
+  "buttons": [
+    {
+      "image_id": "me",
+      "id": "me",
+      "label": "I, me, my, mine",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "more",
+      "id": "more",
+      "label": "more (again)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "look",
+      "id": "look",
+      "label": "look (see)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "question",
+      "id": "question",
+      "label": "question",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "dress",
+      "id": "dress",
+      "label": "dress",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "dressing-up",
+      "id": "dressing-up",
+      "label": "dressing up",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "you",
+      "id": "you",
+      "label": "you, your(s)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "stop",
+      "id": "stop",
+      "label": "stop (finish)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "want",
+      "id": "want",
+      "label": "want",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "this",
+      "id": "this",
+      "label": "this, that",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "crown",
+      "id": "crown",
+      "label": "crown (tiara)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "princess",
+      "id": "princess",
+      "label": "princess",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "go",
+      "id": "go",
+      "label": "go",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "different",
+      "id": "different",
+      "label": "different",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "help",
+      "id": "help",
+      "label": "help",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "put-on",
+      "id": "put-on",
+      "label": "put on",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "necklace",
+      "id": "necklace",
+      "label": "necklace",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "shoes",
+      "id": "shoes",
+      "label": "shoes",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "like",
+      "id": "like",
+      "label": "like",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "good",
+      "id": "good",
+      "label": "good",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "bad",
+      "id": "bad",
+      "label": "bad",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "take-off",
+      "id": "take-off",
+      "label": "take off",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "handbag",
+      "id": "handbag",
+      "label": "handbag",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "wand",
+      "id": "wand",
+      "label": "wand",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "wow",
+      "id": "wow",
+      "label": "wow!",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "uh-oh",
+      "id": "uh-oh",
+      "label": "oh no!",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 2
+    },
+    {
+      "image_id": "pretty",
+      "id": "pretty",
+      "label": "pretty",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "no",
+      "id": "no",
+      "label": "not (no)",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "mirror",
+      "id": "mirror",
+      "label": "mirror",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    },
+    {
+      "image_id": "photo",
+      "id": "photo",
+      "label": "photo",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_button_border_width": 1
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 5,
+        "columns": 6,
+        "order": [
+          [
+            "me",
+            "more",
+            "look",
+            "question",
+            "dress",
+            "dressing-up"
+          ],
+          [
+            "you",
+            "stop",
+            "want",
+            "this",
+            "crown",
+            "princess"
+          ],
+          [
+            "go",
+            "different",
+            "help",
+            "put-on",
+            "necklace",
+            "shoes"
+          ],
+          [
+            "like",
+            "good",
+            "bad",
+            "take-off",
+            "handbag",
+            "wand"
+          ],
+          [
+            "wow",
+            "uh-oh",
+            "pretty",
+            "no",
+            "mirror",
+            "photo"
+          ]
+        ]
+      },
+      "id": "first",
+      "orientation": "landscape"
+    }
+  ],
+  "images": [
+    {
+      "id": "me",
+      "url": "./symbols/widgit/me.png"
+    },
+    {
+      "id": "more",
+      "url": "./symbols/widgit/more.png"
+    },
+    {
+      "id": "look",
+      "url": "./symbols/widgit/look.png"
+    },
+    {
+      "id": "question",
+      "url": "./symbols/widgit/question.png"
+    },
+    {
+      "id": "dress",
+      "url": "./symbols/widgit/dress.png"
+    },
+    {
+      "id": "dressing-up",
+      "url": "./symbols/widgit/dressing-up.png"
+    },
+    {
+      "id": "you",
+      "url": "./symbols/widgit/you.png"
+    },
+    {
+      "id": "stop",
+      "url": "./symbols/widgit/stop.png"
+    },
+    {
+      "id": "want",
+      "url": "./symbols/widgit/want.png"
+    },
+    {
+      "id": "this",
+      "url": "./symbols/widgit/this.png"
+    },
+    {
+      "id": "crown",
+      "url": "./symbols/widgit/crown.png"
+    },
+    {
+      "id": "princess",
+      "url": "./symbols/widgit/princess.png"
+    },
+    {
+      "id": "go",
+      "url": "./symbols/widgit/go.png"
+    },
+    {
+      "id": "different",
+      "url": "./symbols/widgit/different.png"
+    },
+    {
+      "id": "help",
+      "url": "./symbols/widgit/help.png"
+    },
+    {
+      "id": "put-on",
+      "url": "./symbols/widgit/put-on.png"
+    },
+    {
+      "id": "necklace",
+      "url": "./symbols/widgit/necklace.png"
+    },
+    {
+      "id": "shoes",
+      "url": "./symbols/widgit/shoes.png"
+    },
+    {
+      "id": "like",
+      "url": "./symbols/widgit/like.png"
+    },
+    {
+      "id": "good",
+      "url": "./symbols/widgit/good.png"
+    },
+    {
+      "id": "bad",
+      "url": "./symbols/widgit/bad.png"
+    },
+    {
+      "id": "take-off",
+      "url": "./symbols/widgit/take-off.png"
+    },
+    {
+      "id": "handbag",
+      "url": "./symbols/widgit/handbag.png"
+    },
+    {
+      "id": "wand",
+      "url": "./symbols/widgit/wand.png"
+    },
+    {
+      "id": "wow",
+      "url": "./symbols/widgit/wow.png"
+    },
+    {
+      "id": "uh-oh",
+      "url": "./symbols/widgit/uh-oh.png"
+    },
+    {
+      "id": "pretty",
+      "url": "./symbols/widgit/pretty.png"
+    },
+    {
+      "id": "no",
+      "url": "./symbols/widgit/no.png"
+    },
+    {
+      "id": "mirror",
+      "url": "./symbols/widgit/mirror.png"
+    },
+    {
+      "id": "photo",
+      "url": "./symbols/widgit/photo.png"
+    }
+  ]
+}
