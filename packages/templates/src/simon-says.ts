@@ -22,7 +22,7 @@ const TILES: Array<Tile> = [
   },
   {
     key: "jump",
-    label: "jump around",
+    label: "jump up\nand down",
     isCore: false,
   },
   {
