@@ -5,14 +5,14 @@
   "description_html": "",
   "ext_launchpad_options": {
     "padding": 10,
-    "gap": 3,
+    "gap": 10,
     "button_border_width": 1,
     "title_shown_on_board": "Bubbles",
     "full_background_color": "rgb(255,255,255)",
     "copyright_notice": "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
     "invert_symbol_and_label": true,
     "autofit_label_text": true,
-    "ext_launchpad_prepend_pdf": "./symbol-chart-cover.pdf",
+    "ext_launchpad_prepend_pdf": "eye-pointing.pdf",
     "use_ace_branding": true,
     "text_color_on_background": "rgb(0,0,0)"
   },
@@ -217,6 +217,15 @@
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
       "ext_button_border_width": 1
+    },
+    {
+      "dashed_line": true,
+      "id": "eyePointing",
+      "label": "Carefully cut round the dotted lines and discard this central section.\nAfter laminating (especially if using a mat laminate pouch), cut out\nthe central section a second time so that there is a window through\nwhich the communication partner and learner can make eye contact.",
+      "border_color": "rgb(0, 0, 0)",
+      "background_color": "rgb(255, 255, 255)",
+      "ext_launchpad_label_font_size": 200,
+      "ext_button_border_width": 1
     }
   ],
   "pages": [
@@ -226,31 +235,31 @@
         "columns": 5,
         "order": [
           [
-            "me",
             "more",
-            "look",
-            "question",
-            "bubbles"
-          ],
-          [
-            "you",
-            "stop",
-            "want",
-            "this",
+            null,
+            "bubbles",
+            null,
             "blow"
           ],
           [
-            "go",
-            "different",
-            "help",
-            "lots",
-            "catch"
+            null,
+            "eyePointing",
+            "eyePointing",
+            "eyePointing",
+            null
           ],
           [
-            "like",
-            "wow",
+            null,
+            "eyePointing",
+            "eyePointing",
+            "eyePointing",
+            null
+          ],
+          [
+            "stop",
+            null,
             "uh-oh",
-            "no",
+            null,
             "pop"
           ]
         ]
