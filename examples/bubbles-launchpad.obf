@@ -26,7 +26,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "more",
@@ -36,7 +36,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "look",
@@ -46,7 +46,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "question",
@@ -56,7 +56,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "bubbles",
@@ -76,7 +76,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "stop",
@@ -86,7 +86,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "want",
@@ -96,7 +96,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "this",
@@ -106,7 +106,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "blow",
@@ -126,7 +126,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "different",
@@ -136,7 +136,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "help",
@@ -146,7 +146,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "lots",
@@ -156,7 +156,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "catch",
@@ -176,7 +176,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "wow",
@@ -186,7 +186,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "uh-oh",
@@ -196,7 +196,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "no",
@@ -206,7 +206,7 @@
       "background_color": "rgb(255,255,255)",
       "ext_launchpad_label_color": "rgb(0,0,0)",
       "ext_launchpad_label_font": "helvetica",
-      "ext_button_border_width": 2
+      "ext_button_border_width": 1
     },
     {
       "image_id": "pop",
