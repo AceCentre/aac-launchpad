@@ -83,6 +83,7 @@ export {
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
+  bubbles,
   core,
   portrait,
   alphabetChart,
@@ -101,7 +102,6 @@ export const ALL_TEMPLATES: Array<Template> = [
   prependPdf,
   jubilee,
   gridOptions,
-  bubbles,
   reading,
   blocks,
   simonSays,
