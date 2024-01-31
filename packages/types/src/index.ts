@@ -22,6 +22,7 @@ export type Button = {
   ext_launchpad_label_casing?: Casing;
   ext_launchpad_label_below?: boolean;
   image_id?: string;
+  dashed_line?: boolean;
 };
 
 export type Image = {
@@ -43,6 +44,7 @@ export type ButtonWithTemplateItems = {
   ext_launchpad_label_below?: boolean | TemplateItem;
   ext_button_border_width?: number | TemplateItem;
   image_id?: string;
+  dashed_line?: boolean;
 };
 
 export type Grid = {
@@ -96,7 +98,7 @@ export type LaunchpadOptionsWithTemplateItems = {
   autofit_label_text?: boolean | TemplateItem;
   use_ace_branding?: boolean;
   use_page_numbers?: boolean;
-  ext_launchpad_prepend_pdf?: string;
+  ext_launchpad_prepend_pdf?: string | TemplateItem;
 };
 
 export interface TemplateVariable {

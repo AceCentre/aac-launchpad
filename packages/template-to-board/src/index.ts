@@ -74,7 +74,10 @@ const getExtLaunchpadOptions = (
       launchpadOptions.autofit_label_text,
       results
     ),
-    ext_launchpad_prepend_pdf: launchpadOptions.ext_launchpad_prepend_pdf,
+    ext_launchpad_prepend_pdf: getOptionalStringFromTemplateItem(
+      launchpadOptions.ext_launchpad_prepend_pdf,
+      results
+    ),
     use_ace_branding: launchpadOptions.use_ace_branding,
     use_page_numbers: launchpadOptions.use_page_numbers,
     text_color_on_background: getOptionalStringFromTemplateItem(
@@ -259,6 +262,7 @@ const getButtons = (
   return template.buttons.map((current): Button => {
     return {
       image_id: current.image_id,
+      dashed_line: current.dashed_line,
       id: getStringFromTemplateItem(current.id, results),
       label: getStringFromTemplateItem(current.label, results),
       border_color: getStringFromTemplateItem(current.border_color, results),

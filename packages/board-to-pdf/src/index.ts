@@ -523,6 +523,11 @@ const boardToPdf = async (
       );
     }
 
+    let alreadySeen: Array<{
+      row: number;
+      column: number;
+    }> = [];
+
     for (let rowCount = 0; rowCount < page.grid.rows; rowCount++) {
       // Draw the row label for this row
       if (withRowLabels) {
@@ -566,6 +571,18 @@ const boardToPdf = async (
         columnCount < page.grid.columns;
         columnCount++
       ) {
+        let cellSeen = false;
+
+        for (const seen of alreadySeen) {
+          if (seen.row === rowCount && seen.column === columnCount) {
+            cellSeen = true;
+          }
+        }
+
+        if (cellSeen) {
+          continue;
+        }
+
         const buttonStartTime = process.hrtime();
 
         const currentButtonId = page.grid.order[rowCount][columnCount];
@@ -585,12 +602,30 @@ const boardToPdf = async (
         }
 
         let buttonsWide = 0;
+        let buttonsTall = 0;
 
         // Look forward to see if this is a long button
         for (let i = columnCount; i < page.grid.columns; i++) {
           const temp = page.grid.order[rowCount][i];
           if (temp === currentButtonId) {
             buttonsWide++;
+
+            alreadySeen.push({ row: rowCount, column: i });
+          } else {
+            break;
+          }
+        }
+
+        // Look forward to see if this is a tall button
+        for (let i = rowCount; i < page.grid.rows; i++) {
+          const temp = page.grid.order[i][columnCount];
+
+          if (temp === currentButtonId) {
+            for (let x = 0; x < buttonsWide; x++) {
+              alreadySeen.push({ row: i, column: columnCount + x });
+            }
+
+            buttonsTall++;
           } else {
             break;
           }
@@ -616,6 +651,7 @@ const boardToPdf = async (
           currentButton.ext_launchpad_label_below ?? DEFAULT_LABEL_BELOW;
         const buttonBorderWidth =
           currentButton.ext_button_border_width ?? documentButtonBorderWidth;
+        const dashedLine = currentButton.dashed_line ?? false;
 
         const labelText = alterCasing(currentButton.label, labelCasing);
 
@@ -642,7 +678,8 @@ const boardToPdf = async (
 
         const cellWidth =
           buttonDimensions.width * buttonsWide + gap * (buttonsWide - 1);
-        const cellHeight = buttonDimensions.height;
+        const cellHeight =
+          buttonDimensions.height * buttonsTall + gap * (buttonsTall - 1);
 
         let rectHeight = cellHeight;
 
@@ -654,17 +691,21 @@ const boardToPdf = async (
         }
 
         // Skip over the extra buttons
-        columnCount += buttonsWide - 1;
 
         doc.setFont(fontName, fontStyle).setFontSize(fontSize);
 
+        let longestLine = labelText
+          .split("\n")
+          .map((x) => x.trim())
+          .sort((a, b) => a.length - b.length)[0];
+
         if (autoFitLabels) {
           let textAreaWidth = cellWidth - buttonRadius - 2;
-          let textDimensions = doc.getTextDimensions(labelText);
+          let textDimensions = doc.getTextDimensions(longestLine);
 
           for (let i = fontSize; i > 1; i--) {
             doc.setFontSize(i);
-            textDimensions = doc.getTextDimensions(labelText);
+            textDimensions = doc.getTextDimensions(longestLine);
 
             if (textDimensions.w < textAreaWidth) {
               break;
@@ -672,8 +713,11 @@ const boardToPdf = async (
           }
         }
 
+        const dashPattern = dashedLine ? [1, 1] : [0, 0];
+
         doc
           .setLineWidth(buttonBorderWidth)
+          .setLineDashPattern(dashPattern, 0)
           .setDrawColor(borderColor.red, borderColor.green, borderColor.blue)
           .setFillColor(
             backgroundColor.red,
@@ -765,53 +809,25 @@ const boardToPdf = async (
             });
           }
         } else {
-          if (labelBelow) {
-            doc.text(
-              labelText,
-              currentX + cellWidth / 2,
-              currentY + cellHeight,
-              {
-                baseline: "bottom",
-                align: "center",
-              }
-            );
-          } else {
-            if (labelText.split("\n").length === 1) {
-              doc.text(
-                labelText,
-                currentX + cellWidth / 2,
-                currentY + cellHeight / 2,
-                {
-                  baseline: "middle",
-                  align: "center",
-                }
-              );
-            } else if (labelText.split("\n").length === 2) {
-              const [firstLine, secondLine] = labelText.split("\n");
+          let lines = labelText.split("\n").map((x) => x.trim());
 
-              doc.text(
-                firstLine.trim(),
-                currentX + cellWidth / 2,
-                currentY + cellHeight / 2,
-                {
-                  baseline: "bottom",
-                  align: "center",
-                }
-              );
-              doc.text(
-                secondLine.trim(),
-                currentX + cellWidth / 2,
-                currentY + cellHeight / 2,
-                {
-                  baseline: "top",
-                  align: "center",
-                }
-              );
-            } else {
-              throw new Error(
-                `Strings can currently only have one new line ${labelText}`
-              );
-            }
+          // Offset the y coord by half the total height of all the text
+          const centerY = currentY + cellHeight / 2;
+          const lineHeightInMM = doc.getLineHeight() * POINT_TO_MM;
+          const totalTextHeight = lineHeightInMM * lines.length;
+          const halfTextHeight = totalTextHeight / 2;
+          const finalY = centerY - halfTextHeight;
+
+          if (labelBelow) {
+            doc.text(lines, currentX + cellWidth / 2, currentY + cellHeight, {
+              baseline: "bottom",
+              align: "center",
+            });
+          } else {
+            doc.text(lines, currentX + cellWidth / 2, finalY, {
+              baseline: "top",
+              align: "center",
+            });
           }
         }
 
