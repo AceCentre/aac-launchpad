@@ -351,13 +351,14 @@ export const bubbles: Template = {
     {
       id: "grid",
       type: "preset",
-      description: "The number of items shown on the chart",
+      description:
+        "Select how you would like the chart to be laid out, ie finger, eye or fist pointing",
       defaultValue: "20",
       name: "Layout",
       presets: [
         {
           value: "20",
-          label: "20",
+          label: "20 Finger Pointing",
           description: "20 Cells",
           variableValues: [
             {
@@ -381,7 +382,7 @@ export const bubbles: Template = {
         },
         {
           value: "8",
-          label: "8",
+          label: "8 Finger Pointing",
           description: "8 Cells",
           variableValues: [
             {
@@ -398,6 +399,33 @@ export const bubbles: Template = {
                 ["more", "look", "pop", "bubbles"],
                 ["stop", "like", "uh-oh", "blow"]
               ]`,
+            },
+          ],
+        },
+        {
+          value: "fist",
+          label: "Fist Pointing (Preview)",
+          description: "Fist Pointing (Preview)",
+          variableValues: [
+            {
+              id: "rows",
+              value: "3",
+            },
+            {
+              id: "columns",
+              value: "5",
+            },
+            {
+              id: "core-border",
+              value: "1",
+            },
+            {
+              id: "order",
+              value: `[
+              ["more", null, "bubbles", null, "blow"],
+              [null, null, null, null, null],
+              ["stop", null, "uh-oh", null, "pop"]
+            ]`,
             },
           ],
         },
