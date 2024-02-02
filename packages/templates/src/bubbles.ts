@@ -510,7 +510,6 @@ export const bubbles: Template = {
     gap: { type: "TemplateItem", id: "gap" },
     padding: { type: "TemplateItem", id: "padding" },
     button_border_width: 1,
-    title_shown_on_board: { type: "TemplateItem", id: "title-text" },
     full_background_color: { type: "TemplateItem", id: "background-colour" },
     copyright_notice: { type: "TemplateItem", id: "copyright-notice" },
     invert_symbol_and_label: { type: "TemplateItem", id: "invert-text" },
