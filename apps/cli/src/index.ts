@@ -9,6 +9,7 @@ import { ALL_TEMPLATES } from "templates";
 import inquirer from "inquirer";
 import { writeFileSync, statSync } from "fs";
 import { generateTestScreenshots } from "./generate-test-screenshots";
+import { generateSymbolCountCsv } from "./generate-symbol-count-csv";
 
 const convertBytes = function (bytes: number) {
   const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
@@ -29,6 +30,11 @@ const convertBytes = function (bytes: number) {
 const main = async () => {
   if (process.argv.includes("--generate-test-screenshots")) {
     await generateTestScreenshots();
+    return;
+  }
+
+  if (process.argv.includes("--generate-symbol-count-csv")) {
+    await generateSymbolCountCsv();
     return;
   }
 
