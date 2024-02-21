@@ -230,9 +230,16 @@
   "pages": [
     {
       "grid": {
-        "rows": 4,
+        "rows": 6,
         "columns": 5,
         "order": [
+          [
+            "more",
+            null,
+            "bubbles",
+            null,
+            "blow"
+          ],
           [
             "more",
             null,
@@ -253,6 +260,13 @@
             "eyePointing",
             "eyePointing",
             null
+          ],
+          [
+            "stop",
+            null,
+            "uh-oh",
+            null,
+            "pop"
           ],
           [
             "stop",

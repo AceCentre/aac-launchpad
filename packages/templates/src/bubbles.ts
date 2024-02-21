@@ -444,7 +444,7 @@ export const bubbles: Template = {
             },
             {
               id: "rows",
-              value: "4",
+              value: "6",
             },
             {
               id: "columns",
@@ -458,8 +458,10 @@ export const bubbles: Template = {
               id: "order",
               value: `[
               ["more", null, "bubbles", null, "blow"],
+              ["more", null, "bubbles", null, "blow"],
               [null, "eyePointing", "eyePointing", "eyePointing", null],
               [null, "eyePointing", "eyePointing", "eyePointing", null],
+              ["stop", null, "uh-oh", null, "pop"],
               ["stop", null, "uh-oh", null, "pop"]
             ]`,
             },
