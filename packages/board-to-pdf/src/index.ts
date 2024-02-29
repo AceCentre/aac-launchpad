@@ -713,7 +713,7 @@ const boardToPdf = async (
           }
         }
 
-        const dashPattern = dashedLine ? [1, 1] : [0, 0];
+        const dashPattern = dashedLine ? [1, 1] : [99999999, 1];
 
         doc
           .setLineWidth(buttonBorderWidth)
@@ -872,7 +872,7 @@ const boardToPdf = async (
     const addImageStartTime = process.hrtime();
 
     const addImagePromises = addImageArray.map(async (options) => {
-      doc.addImage(
+      return doc.addImage(
         options.imageData,
         options.fileType,
         options.imageX,
