@@ -111,7 +111,7 @@ export const alphabetChart: Template = {
         {
           value: "high-contrast-one",
           description: "High Contrast",
-          label: "High Contrast (Black on Yellow)",
+          label: "High Contrast (Yellow on Black)",
           variableValues: [
             { id: "textColorOnBackground", value: "rgb(255,255,0)" },
             {
@@ -197,7 +197,7 @@ export const alphabetChart: Template = {
         {
           value: "high-contrast-two",
           description: "High Contrast",
-          label: "High Contrast (Yellow on Black)",
+          label: "High Contrast (Black on Yellow)",
           variableValues: [
             { id: "textColorOnBackground", value: "rgb(0,0,0)" },
             {
