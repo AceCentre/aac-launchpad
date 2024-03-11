@@ -254,7 +254,9 @@ const main = async () => {
 
   const board = templateToBoard(chosenTemplate, results);
 
-  const pdfPath = path.join(`./${chosenTemplate.id}.pdf`);
+  const pdfPath = path.join(
+    `./${chosenTemplate.id}-${new Date().toUTCString()}.pdf`
+  );
   const obfPath = path.join(`./${chosenTemplate.id}.obf`);
 
   writeFileSync(obfPath, JSON.stringify(board, null, 2));
