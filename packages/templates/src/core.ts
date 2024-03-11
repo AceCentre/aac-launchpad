@@ -161,6 +161,16 @@ const TILES: Array<Tile> = [
     label: "not (no)",
     isCore: false,
   },
+  {
+    key: "first",
+    label: "first",
+    isCore: false,
+  },
+  {
+    key: "next",
+    label: "then (next)",
+    isCore: false,
+  },
 ];
 
 const generateSymbolPreset = (
@@ -197,7 +207,7 @@ const generateImages = (tiles: Array<Tile>): Array<ImageWithTemplateItems> => {
 const generateButtons = (
   tiles: Array<Tile>
 ): Array<ButtonWithTemplateItems> => {
-  return tiles.map((tile) => ({
+  const buttons: Array<ButtonWithTemplateItems> = tiles.map((tile) => ({
     id: tile.key,
     image_id: tile.noImage ? undefined : tile.key,
     ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
@@ -207,6 +217,19 @@ const generateButtons = (
     background_color: { type: "TemplateItem", id: "cell-colour" },
     label: tile.label,
   }));
+
+  const eyePointing: ButtonWithTemplateItems = {
+    id: "eyePointing",
+    label:
+      "Carefully cut round the dotted lines and discard this central section.\nAfter laminating (especially if using a mat laminate pouch), cut out\nthe central section a second time so that there is a window through\nwhich the communication partner and learner can make eye contact.",
+    border_color: "rgb(0, 0, 0)",
+    background_color: "rgb(255, 255, 255)",
+    ext_button_border_width: 1,
+    dashed_line: true,
+    ext_launchpad_label_font_size: 200,
+  };
+
+  return [...buttons, eyePointing];
 };
 
 export const core: Template = {
@@ -351,57 +374,9 @@ export const core: Template = {
       name: "Layout",
       presets: [
         {
-          value: "30",
-          label: "30",
-          description: "30 Cells",
-          variableValues: [
-            {
-              id: "rows",
-              value: "5",
-            },
-            {
-              id: "columns",
-              value: "6",
-            },
-            {
-              id: "order",
-              value: `[
-                ["me", "we", "more", "look", "turn", "question"],
-                ["you", "they", "stop", "want", "make", "play"],
-                ["she", "do", "different", "help", "big", "good"],
-                ["he", "it", "go", "have", "little", "bad"],
-                ["like", "wow", "uh-oh", "can", "this", "no"]
-              ]`,
-            },
-          ],
-        },
-        {
-          value: "15",
-          label: "15",
-          description: "15 Cells",
-          variableValues: [
-            {
-              id: "rows",
-              value: "3",
-            },
-            {
-              id: "columns",
-              value: "5",
-            },
-            {
-              id: "order",
-              value: `[
-                ["me", "more", "look", "question", "uh-oh"],
-                ["you", "stop", "want", "this", "wow"],
-                ["go", "like", "different", "help", "no"]
-              ]`,
-            },
-          ],
-        },
-        {
-          value: "8",
-          label: "8",
-          description: "8 Cells",
+          value: "intro",
+          label: "Intro - Finger Pointing",
+          description: "Intro - Finger Pointing",
           variableValues: [
             {
               id: "rows",
@@ -414,30 +389,123 @@ export const core: Template = {
             {
               id: "order",
               value: `[
-                ["more", "look", "want", "help"],
-                ["stop", "like", "uh-oh", "no"]
+                ["more", "look", "different", "help"],
+                ["stop", "want", "like", "no"]
               ]`,
             },
           ],
         },
         {
-          value: "2",
-          label: "2",
-          description: "2 Cells",
+          value: "stage-1",
+          label: "Stage 1 - Finger Pointing",
+          description: "Stage 1 - Finger Pointing",
           variableValues: [
             {
               id: "rows",
-              value: "1",
+              value: "4",
             },
             {
               id: "columns",
-              value: "2",
+              value: "4",
             },
             {
               id: "order",
               value: `[
-                ["more", "stop"]
+                ["me", "more", "look", "question"],
+                ["you", "stop", "want", "little"],
+                ["go", "different", "help", "big"],
+                ["like", "wow", "uh-oh", "no"]
               ]`,
+            },
+          ],
+        },
+        {
+          value: "stage-2",
+          label: "Stage 2 - Finger Pointing",
+          description: "Stage 1 - Finger Pointing",
+          variableValues: [
+            {
+              id: "rows",
+              value: "5",
+            },
+            {
+              id: "columns",
+              value: "6",
+            },
+            {
+              id: "order",
+              value: `[
+                ["he", "me", "more", "look", "have", "question"],
+                ["she", "you", "stop", "want", "do", "turn"],
+                ["we", "go", "different", "help", "can", "this"],
+                ["they", "like", "little", "big", "first", "next"],
+                ["it", "wow", "uh-oh", "good", "bad", "no"]
+              ]`,
+            },
+          ],
+        },
+        {
+          value: "eye-pointing",
+          label: "Eye Pointing",
+          description: "Eye Pointing",
+          variableValues: [
+            {
+              id: "cover",
+              value: "eye-pointing.pdf",
+            },
+            {
+              id: "gap",
+              value: "10",
+            },
+            {
+              id: "rows",
+              value: "6",
+            },
+            {
+              id: "columns",
+              value: "5",
+            },
+            {
+              id: "core-border",
+              value: "1",
+            },
+            {
+              id: "order",
+              value: `[
+              ["more", null, "look", null, "different"],
+              ["more", null, "look", null, "different"],
+              [null, "eyePointing", "eyePointing", "eyePointing", null],
+              [null, "eyePointing", "eyePointing", "eyePointing", null],
+              ["stop", null, "want", null, "like"],
+              ["stop", null, "want", null, "like"]
+            ]`,
+            },
+          ],
+        },
+        {
+          value: "Hand",
+          label: "Hand Pointing",
+          description: "Hand Pointing",
+          variableValues: [
+            {
+              id: "rows",
+              value: "3",
+            },
+            {
+              id: "columns",
+              value: "5",
+            },
+            {
+              id: "core-border",
+              value: "1",
+            },
+            {
+              id: "order",
+              value: `[
+              ["more", null, "look", null, "different"],
+              [null, null, null, null, null],
+              ["stop", null, "want", null, "like"]
+            ]`,
             },
           ],
         },
