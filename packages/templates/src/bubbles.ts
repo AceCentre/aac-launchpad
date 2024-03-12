@@ -63,12 +63,12 @@ const TILES: Array<Tile> = [
   {
     key: "little",
     label: "little",
-    isCore: false,
+    isCore: true,
   },
   {
     key: "big",
     label: "big",
-    isCore: false,
+    isCore: true,
   },
   {
     key: "me",
