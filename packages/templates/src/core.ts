@@ -242,6 +242,15 @@ export const core: Template = {
 
   templateVariables: [
     {
+      type: "freeText",
+      name: "cover",
+      id: "cover",
+      description: "cover",
+      hidden: true,
+      defaultValue: "./symbol-chart-cover.pdf",
+      maxLength: 100,
+    },
+    {
       id: "background-colour",
       name: "Background colour",
       description:
@@ -379,6 +388,10 @@ export const core: Template = {
           description: "Intro - Finger Pointing",
           variableValues: [
             {
+              id: "cover",
+              value: "fp-core.pdf",
+            },
+            {
               id: "rows",
               value: "2",
             },
@@ -400,6 +413,10 @@ export const core: Template = {
           label: "Stage 1 - Finger Pointing",
           description: "Stage 1 - Finger Pointing",
           variableValues: [
+            {
+              id: "cover",
+              value: "fp-core.pdf",
+            },
             {
               id: "rows",
               value: "4",
@@ -425,6 +442,10 @@ export const core: Template = {
           description: "Stage 1 - Finger Pointing",
           variableValues: [
             {
+              id: "cover",
+              value: "fp-core.pdf",
+            },
+            {
               id: "rows",
               value: "5",
             },
@@ -449,6 +470,10 @@ export const core: Template = {
           label: "Eye Pointing",
           description: "Eye Pointing",
           variableValues: [
+            {
+              id: "cover",
+              value: "ep.pdf",
+            },
             {
               id: "cover",
               value: "eye-pointing.pdf",
@@ -487,6 +512,10 @@ export const core: Template = {
           label: "Hand Pointing",
           description: "Hand Pointing",
           variableValues: [
+            {
+              id: "cover",
+              value: "hp-core.pdf",
+            },
             {
               id: "rows",
               value: "3",
@@ -563,7 +592,7 @@ export const core: Template = {
   description_html:
     "Core words are a set of words that we use across huge numbers of different situations.",
   ext_launchpad_options: {
-    ext_launchpad_prepend_pdf: "./core-cover.pdf",
+    ext_launchpad_prepend_pdf: { type: "TemplateItem", id: "cover" },
     gap: { type: "TemplateItem", id: "gap" },
     padding: { type: "TemplateItem", id: "padding" },
     button_border_width: 1,
