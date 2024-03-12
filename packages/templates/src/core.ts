@@ -475,10 +475,6 @@ export const core: Template = {
               value: "ep.pdf",
             },
             {
-              id: "cover",
-              value: "eye-pointing.pdf",
-            },
-            {
               id: "gap",
               value: "10",
             },

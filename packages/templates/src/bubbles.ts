@@ -11,6 +11,66 @@ type Tile = { key: string; label: string; isCore: boolean };
 
 const TILES: Array<Tile> = [
   {
+    key: "pretty",
+    label: "pretty",
+    isCore: false,
+  },
+  {
+    key: "up",
+    label: "up",
+    isCore: false,
+  },
+  {
+    key: "slow",
+    label: "slow",
+    isCore: false,
+  },
+  {
+    key: "fun",
+    label: "fun",
+    isCore: false,
+  },
+  {
+    key: "fast",
+    label: "fast",
+    isCore: false,
+  },
+  {
+    key: "pour",
+    label: "pour",
+    isCore: false,
+  },
+  {
+    key: "hold",
+    label: "hold",
+    isCore: false,
+  },
+  {
+    key: "bubble-mix",
+    label: "bubble mix",
+    isCore: false,
+  },
+  {
+    key: "bubble-wand",
+    label: "bubble wand",
+    isCore: false,
+  },
+  {
+    key: "make",
+    label: "make",
+    isCore: false,
+  },
+  {
+    key: "little",
+    label: "little",
+    isCore: false,
+  },
+  {
+    key: "big",
+    label: "big",
+    isCore: false,
+  },
+  {
     key: "me",
     label: "I, me, my, mine",
     isCore: true,
@@ -352,39 +412,19 @@ export const bubbles: Template = {
       id: "grid",
       type: "preset",
       description:
-        "Select how you would like the chart to be laid out, ie finger, eye or fist pointing",
+        "Select how you would like the chart to be laid out, ie finger, hand or fist pointing",
       defaultValue: "20",
       name: "Layout",
       presets: [
         {
-          value: "20",
-          label: "20 Finger Pointing",
-          description: "20 Cells",
+          value: "intro",
+          label: "Intro - Finger Pointing",
+          description: "Intro - Finger Pointing",
           variableValues: [
             {
-              id: "rows",
-              value: "4",
+              id: "cover",
+              value: "fp-topic.pdf",
             },
-            {
-              id: "columns",
-              value: "5",
-            },
-            {
-              id: "order",
-              value: `[
-                ["me", "more", "look", "question", "bubbles"],
-                ["you", "stop", "want", "this", "blow"],
-                ["go", "different", "help", "lots", "catch"],
-                ["like", "wow", "uh-oh", "no", "pop"]
-              ]`,
-            },
-          ],
-        },
-        {
-          value: "8",
-          label: "8 Finger Pointing",
-          description: "8 Cells",
-          variableValues: [
             {
               id: "rows",
               value: "2",
@@ -396,47 +436,78 @@ export const bubbles: Template = {
             {
               id: "order",
               value: `[
-                ["more", "look", "pop", "bubbles"],
-                ["stop", "like", "uh-oh", "blow"]
-              ]`,
-            },
-          ],
-        },
-        {
-          value: "fist",
-          label: "Fist Pointing (Preview)",
-          description: "Fist Pointing (Preview)",
-          variableValues: [
-            {
-              id: "rows",
-              value: "3",
-            },
-            {
-              id: "columns",
-              value: "5",
-            },
-            {
-              id: "core-border",
-              value: "1",
-            },
-            {
-              id: "order",
-              value: `[
-              ["more", null, "bubbles", null, "blow"],
-              [null, null, null, null, null],
-              ["stop", null, "uh-oh", null, "pop"]
+              ["more", "look", "pop", "bubbles"],
+              ["stop", "uh-oh", "like", "blow"]
             ]`,
             },
           ],
         },
         {
+          value: "stage-1",
+          label: "Stage 1 - Finger Pointing",
+          description: "Stage 1 - Finger Pointing",
+          variableValues: [
+            {
+              id: "cover",
+              value: "fp-topic.pdf",
+            },
+            {
+              id: "rows",
+              value: "4",
+            },
+            {
+              id: "columns",
+              value: "4",
+            },
+            {
+              id: "order",
+              value: `[
+              ["more", "look", "pretty", "bubbles"],
+              ["stop", "want", "blow", "little"],
+              ["different", "help", "pop", "big"],
+              ["like", "no", "wow", "uh-oh"]
+            ]`,
+            },
+          ],
+        },
+        {
+          value: "stage-2",
+          label: "Stage 2 - Finger Pointing",
+          description: "Stage 2 - Finger Pointing",
+          variableValues: [
+            {
+              id: "cover",
+              value: "fp-topic.pdf",
+            },
+            {
+              id: "rows",
+              value: "5",
+            },
+            {
+              id: "columns",
+              value: "6",
+            },
+            {
+              id: "order",
+              value: `[
+              ["me", "more", "look", "question", "bubbles", "bubble-mix"],
+              ["you", "stop", "want", "make", "blow", "bubble-wand"],
+              ["go", "different", "help", "pretty", "hold", "fast"],
+              ["like", "little", "big", "pop", "pour", "slow"],
+              ["wow", "uh-oh", "no", "fun", "lots", "up"]
+            ]`,
+            },
+          ],
+        },
+
+        {
           value: "eye-pointing",
-          label: "Eye Pointing (Preview)",
+          label: "Eye Pointing",
           description: "Eye Pointing",
           variableValues: [
             {
               id: "cover",
-              value: "eye-pointing.pdf",
+              value: "ep.pdf",
             },
             {
               id: "gap",
@@ -462,6 +533,37 @@ export const bubbles: Template = {
               [null, "eyePointing", "eyePointing", "eyePointing", null],
               [null, "eyePointing", "eyePointing", "eyePointing", null],
               ["stop", null, "uh-oh", null, "pop"],
+              ["stop", null, "uh-oh", null, "pop"]
+            ]`,
+            },
+          ],
+        },
+        {
+          value: "hand",
+          label: "Hand Pointing",
+          description: "Hand Pointing",
+          variableValues: [
+            {
+              id: "cover",
+              value: "hp-topic.pdf",
+            },
+            {
+              id: "rows",
+              value: "3",
+            },
+            {
+              id: "columns",
+              value: "5",
+            },
+            {
+              id: "core-border",
+              value: "1",
+            },
+            {
+              id: "order",
+              value: `[
+              ["more", null, "bubbles", null, "blow"],
+              [null, null, null, null, null],
               ["stop", null, "uh-oh", null, "pop"]
             ]`,
             },
@@ -517,6 +619,7 @@ export const bubbles: Template = {
     invert_symbol_and_label: { type: "TemplateItem", id: "invert-text" },
     autofit_label_text: true,
     use_ace_branding: true,
+    title_shown_on_board: { type: "TemplateItem", id: "title-text" },
     text_color_on_background: {
       id: "label-colour",
       type: "TemplateItem",
