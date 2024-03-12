@@ -138,7 +138,7 @@ const TILES: Array<Tile> = [
   {
     key: "lots",
     label: "lots (many)",
-    isCore: true,
+    isCore: false,
   },
   {
     key: "catch",
