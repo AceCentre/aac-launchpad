@@ -379,7 +379,7 @@ export const core: Template = {
       id: "grid",
       type: "preset",
       description: "The number of items shown on the chart",
-      defaultValue: "30",
+      defaultValue: "intro",
       name: "Layout",
       presets: [
         {

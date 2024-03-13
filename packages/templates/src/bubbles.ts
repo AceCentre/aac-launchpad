@@ -413,7 +413,7 @@ export const bubbles: Template = {
       type: "preset",
       description:
         "Select how you would like the chart to be laid out, ie finger, hand or fist pointing",
-      defaultValue: "20",
+      defaultValue: "intro",
       name: "Layout",
       presets: [
         {
