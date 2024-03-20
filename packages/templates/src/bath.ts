@@ -94,7 +94,7 @@ export const bath: Template = {
   description_html:
     "A symbol chart to support communication while taking a bath",
   ext_launchpad_options: {
-    ext_launchpad_prepend_pdf: "./symbol-chart-cover.pdf",
+    ext_launchpad_prepend_pdf: { type: "TemplateItem", id: "cover" },
     gap: { type: "TemplateItem", id: "gap" },
     padding: { type: "TemplateItem", id: "padding" },
     button_border_width: 1,
