@@ -38,7 +38,7 @@ export const getLayoutPreset = (
     id: "grid",
     type: "preset",
     description:
-      "Select how you would like the chart to be laid out, ie finger, hand or fist pointing",
+      "Select how you would like the chart to be laid out, ie finger, hand or eye pointing",
     defaultValue: "intro",
     name: "Layout",
     presets: [
