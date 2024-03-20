@@ -6,6 +6,10 @@ export type Tile = {
 };
 
 const initialTiles: Array<Tile> = [
+  { key: "let-it-go", label: "let it go", isCore: false },
+
+  { key: "tie-knot", label: "tie knot", isCore: false },
+  { key: "throw", label: "throw", isCore: false },
   { key: "more", label: "more (again)", isCore: true },
   { key: "look", label: "look (see)", isCore: true },
   { key: "stop", label: "stop (finish)", isCore: true },

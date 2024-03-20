@@ -32,6 +32,8 @@ export const bubbles: Template = {
 
     generateAllSymbolPresets(TILES),
 
+    ...generateImageVariables(TILES, "pcs"),
+
     getLayoutPreset(
       {
         intro: [
@@ -62,8 +64,6 @@ export const bubbles: Template = {
       },
       "topic"
     ),
-
-    ...generateImageVariables(TILES, "pcs"),
   ],
   templateDescription: "",
   templateName: "Bubbles",

@@ -1,58 +1,13 @@
-import { FONT_OPTIONS } from "board-to-pdf";
+import { TILES } from "./shared/tiles";
 import {
-  AllTemplateVariable,
-  PresetVariableValues,
-  Template,
-  ImageWithTemplateItems,
-  ButtonWithTemplateItems,
-} from "types";
-import { TILES, Tile } from "./shared/tiles";
-
-const generateSymbolPreset = (
-  tiles: Array<Tile>,
-  name: string
-): PresetVariableValues => {
-  return tiles.map((tile) => ({
-    id: tile.key,
-    value: `./symbols/${name}/${tile.key}.png`,
-  }));
-};
-
-const generateImageVariables = (
-  tiles: Array<Tile>,
-  name: string
-): Array<AllTemplateVariable> => {
-  return tiles.map((tile) => ({
-    type: "imageUrl",
-    name: tile.key,
-    id: tile.key,
-    description: tile.key,
-    hidden: true,
-    defaultValue: `./symbols/${name}/${tile.key}.png`,
-  }));
-};
-
-const generateImages = (tiles: Array<Tile>): Array<ImageWithTemplateItems> => {
-  return tiles.map((tile) => ({
-    id: tile.key,
-    url: { type: "TemplateItem", id: tile.key },
-  }));
-};
-
-const generateButtons = (
-  tiles: Array<Tile>
-): Array<ButtonWithTemplateItems> => {
-  return tiles.map((tile) => ({
-    id: tile.key,
-    image_id: tile.noImage ? undefined : tile.key,
-    ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-    ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    border_color: "rgb(0, 0, 0)",
-    ext_button_border_width: tile.isCore ? 2 : 1,
-    background_color: { type: "TemplateItem", id: "cell-colour" },
-    label: tile.label,
-  }));
-};
+  generateImageVariables,
+  generateImages,
+} from "./shared/generate-images";
+import { generateButtons } from "./shared/generate-buttons";
+import { STANDARD_VARIABLES } from "./shared/standard-variables";
+import { generateAllSymbolPresets } from "./shared/generate-symbol-preset";
+import { getLayoutPreset } from "./shared/layout-preset";
+import { Template } from "types";
 
 export const balloons: Template = {
   templateDateCreated: "2022-07-20T12:00:00+01:00",
@@ -64,106 +19,6 @@ export const balloons: Template = {
 
   templateVariables: [
     {
-      id: "background-colour",
-      name: "Background colour",
-      description:
-        "Change the background colour of the chart. Select white to save printer ink.",
-      defaultValue: "rgb(255,255,255)",
-      type: "color",
-    },
-    {
-      id: "cell-colour",
-      name: "Cell colour",
-      description: "Change the colour of all the cells.",
-      defaultValue: "rgb(255,255,255)",
-      type: "color",
-    },
-    {
-      id: "label-colour",
-      name: "Text colour",
-      description: "The colour of text in the cell",
-      defaultValue: "rgb(0,0,0)",
-      type: "color",
-    },
-    {
-      id: "gap",
-      name: "Cell spacing",
-      description:
-        "The space between the cells. This will also affect the size of the cells.",
-      type: "number",
-      min: 0,
-      max: 100,
-      defaultValue: "10",
-    },
-    {
-      id: "padding",
-      name: "Page spacing",
-      description:
-        "The space on the outside edges of the page. This will also affect the size of the cells.",
-      type: "number",
-      min: 0,
-      max: 100,
-      defaultValue: "10",
-    },
-    {
-      id: "invert-text",
-      name: "Label position",
-      description: "Show text above symbol",
-      type: "boolean",
-      defaultValue: "true",
-      trueLabel: "Show label above symbol",
-      falseLabel: "Show label below symbol",
-    },
-    {
-      id: "copyright-notice",
-      name: "Copyright Notice",
-      description: "Copyright notice",
-      type: "freeText",
-      maxLength: 600,
-      defaultValue: "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
-      hidden: true,
-    },
-
-    {
-      id: "symbol-system",
-      type: "preset",
-      name: "Symbol System",
-      defaultValue: "widgit",
-      description: "The symbol system to use for the chart",
-      presets: [
-        {
-          label: "PCS",
-          value: "pcs",
-          description: "PCS Symbols",
-          variableValues: [
-            {
-              id: "copyright-notice",
-              value:
-                "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
-            },
-            ...generateSymbolPreset(TILES, "pcs"),
-          ],
-        },
-
-        {
-          label: "Widgit",
-          value: "widgit",
-          description: "Widgit Symbols",
-          variableValues: [
-            {
-              id: "copyright-notice",
-              value:
-                "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
-            },
-            ...generateSymbolPreset(TILES, "widgit"),
-          ],
-        },
-      ],
-    },
-
-    ...generateImageVariables(TILES, "pcs"),
-
-    {
       type: "freeText",
       name: "title",
       id: "title-text",
@@ -173,13 +28,51 @@ export const balloons: Template = {
       maxLength: 100,
     },
     {
-      type: "option",
-      id: "font",
-      description: "Choose the font used in the file",
-      name: "Font",
-      defaultValue: "helvetica",
-      options: FONT_OPTIONS,
+      type: "freeText",
+      name: "title",
+      id: "title-text",
+      description: "title",
+      hidden: true,
+      defaultValue: "Bubbles",
+      maxLength: 100,
     },
+
+    ...STANDARD_VARIABLES,
+
+    generateAllSymbolPresets(TILES),
+
+    ...generateImageVariables(TILES, "pcs"),
+
+    getLayoutPreset(
+      {
+        intro: [
+          ["MORE", "look", "let-it-go", "balloons"],
+          ["STOP", "uh-oh", "like", "blow"],
+        ],
+        stageOne: [
+          ["MORE", "LOOK", "colour", "balloons"],
+          ["STOP", "WANT", "pretty", "blow"],
+          ["DIFFERENT", "HELP", "let-it-go", "loud"],
+          ["LIKE", "NO", "wow", "uh-oh"],
+        ],
+        stageTwo: [
+          ["ME", "MORE", "LOOK", "QUESTION", "balloons", "pretty"],
+          ["YOU", "STOP", "WANT", "colour", "blow", "loud"],
+          ["GO", "DIFFERENT", "HELP", "tie-knot", "hold", "fast"],
+          ["LIKE", "LITTLE", "BIG", "pop", "throw", "slow"],
+          ["WOW", "UH-OH", "NO", "up", "catch", "fun"],
+        ],
+        eyePointing: [
+          ["more", "balloons", "blow"],
+          ["stop", "uh-oh", "let-it-go"],
+        ],
+        handPointing: [
+          ["more", "balloons", "blow"],
+          ["stop", "uh-oh", "let-it-go"],
+        ],
+      },
+      "topic"
+    ),
   ],
   templateDescription: `
   A symbol chart to support communication while playing with balloons.
@@ -233,12 +126,9 @@ export const balloons: Template = {
     {
       id: "first",
       grid: {
-        rows: 2,
-        columns: 4,
-        order: [
-          ["more", "look", "go", "balloons"],
-          ["stop", "like", "uh-oh", "blow"],
-        ],
+        rows: { type: "TemplateItem", id: "rows" },
+        columns: { type: "TemplateItem", id: "columns" },
+        order: { type: "TemplateItem", id: "order" },
       },
     },
   ],
