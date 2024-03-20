@@ -1,0 +1,10 @@
+export const toEyePointing = (input: Array<Array<string>>): string => {
+  return JSON.stringify([
+    [input[0][0], null, input[0][1], null, input[0][2]],
+    [input[0][0], null, input[0][1], null, input[0][2]],
+    [null, "eyePointing", "eyePointing", "eyePointing", null],
+    [null, "eyePointing", "eyePointing", "eyePointing", null],
+    [input[1][0], null, input[1][1], null, input[1][2]],
+    [input[1][0], null, input[1][1], null, input[1][2]],
+  ]);
+};

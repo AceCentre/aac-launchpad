@@ -5,7 +5,7 @@ export type Tile = {
   noImage?: boolean;
 };
 
-export const TILES: Array<Tile> = [
+const initialTiles: Array<Tile> = [
   { key: "more", label: "more (again)", isCore: true },
   { key: "look", label: "look (see)", isCore: true },
   { key: "stop", label: "stop (finish)", isCore: true },
@@ -182,3 +182,11 @@ export const TILES: Array<Tile> = [
   { key: "felt-tips", label: "felt tips", isCore: false },
   { key: "crayons", label: "crayons", isCore: false },
 ];
+
+export const TILES: Array<Tile> = initialTiles.flatMap((x) => {
+  return [
+    x,
+    { key: `${x.key}-core`, label: x.label, isCore: true },
+    { key: `${x.key}-non-core`, label: x.label, isCore: false },
+  ];
+});

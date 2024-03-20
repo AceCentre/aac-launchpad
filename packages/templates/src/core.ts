@@ -1,71 +1,13 @@
-import { FONT_OPTIONS } from "board-to-pdf";
+import { Template } from "types";
+import { TILES } from "./shared/tiles";
+import { generateAllSymbolPresets } from "./shared/generate-symbol-preset";
 import {
-  AllTemplateVariable,
-  PresetVariableValues,
-  Template,
-  ImageWithTemplateItems,
-  ButtonWithTemplateItems,
-} from "types";
-import { TILES, Tile } from "./shared/tiles";
-
-const generateSymbolPreset = (
-  tiles: Array<Tile>,
-  name: string
-): PresetVariableValues => {
-  return tiles.map((tile) => ({
-    id: tile.key,
-    value: `./symbols/${name}/${tile.key}.png`,
-  }));
-};
-
-const generateImageVariables = (
-  tiles: Array<Tile>,
-  name: string
-): Array<AllTemplateVariable> => {
-  return tiles.map((tile) => ({
-    type: "imageUrl",
-    name: tile.key,
-    id: tile.key,
-    description: tile.key,
-    hidden: true,
-    defaultValue: `./symbols/${name}/${tile.key}.png`,
-  }));
-};
-
-const generateImages = (tiles: Array<Tile>): Array<ImageWithTemplateItems> => {
-  return tiles.map((tile) => ({
-    id: tile.key,
-    url: { type: "TemplateItem", id: tile.key },
-  }));
-};
-
-const generateButtons = (
-  tiles: Array<Tile>
-): Array<ButtonWithTemplateItems> => {
-  const buttons: Array<ButtonWithTemplateItems> = tiles.map((tile) => ({
-    id: tile.key,
-    image_id: tile.noImage ? undefined : tile.key,
-    ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-    ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    border_color: "rgb(0, 0, 0)",
-    ext_button_border_width: tile.isCore ? 2 : 1,
-    background_color: { type: "TemplateItem", id: "cell-colour" },
-    label: tile.label,
-  }));
-
-  const eyePointing: ButtonWithTemplateItems = {
-    id: "eyePointing",
-    label:
-      "Carefully cut round the dotted lines and discard this central section.\nAfter laminating (especially if using a mat laminate pouch), cut out\nthe central section a second time so that there is a window through\nwhich the communication partner and learner can make eye contact.",
-    border_color: "rgb(0, 0, 0)",
-    background_color: "rgb(255, 255, 255)",
-    ext_button_border_width: 1,
-    dashed_line: true,
-    ext_launchpad_label_font_size: 200,
-  };
-
-  return [...buttons, eyePointing];
-};
+  generateImageVariables,
+  generateImages,
+} from "./shared/generate-images";
+import { generateButtons } from "./shared/generate-buttons";
+import { STANDARD_VARIABLES } from "./shared/standard-variables";
+import { getLayoutPreset } from "./shared/layout-preset";
 
 export const core: Template = {
   templateDateCreated: "2022-07-20T12:00:00+01:00",
@@ -78,303 +20,6 @@ export const core: Template = {
   templateVariables: [
     {
       type: "freeText",
-      name: "cover",
-      id: "cover",
-      description: "cover",
-      hidden: true,
-      defaultValue: "./symbol-chart-cover.pdf",
-      maxLength: 100,
-    },
-    {
-      id: "background-colour",
-      name: "Background colour",
-      description:
-        "Change the background colour of the chart. Select white to save printer ink.",
-      defaultValue: "rgb(255,255,255)",
-      type: "color",
-    },
-    {
-      id: "cell-colour",
-      name: "Cell colour",
-      description: "Change the colour of all the cells.",
-      defaultValue: "rgb(255,255,255)",
-      type: "color",
-    },
-    {
-      id: "label-colour",
-      name: "Text colour",
-      description: "The colour of text in the cell",
-      defaultValue: "rgb(0,0,0)",
-      type: "color",
-    },
-    {
-      id: "gap",
-      name: "Cell spacing",
-      description:
-        "The space between the cells. This will also affect the size of the cells.",
-      type: "number",
-      min: 0,
-      max: 100,
-      defaultValue: "3",
-    },
-    {
-      id: "padding",
-      name: "Page spacing",
-      description:
-        "The space on the outside edges of the page. This will also affect the size of the cells.",
-      type: "number",
-      min: 0,
-      max: 100,
-      defaultValue: "10",
-    },
-    {
-      id: "invert-text",
-      name: "Label position",
-      description: "Show text above symbol",
-      type: "boolean",
-      defaultValue: "true",
-      trueLabel: "Show label above symbol",
-      falseLabel: "Show label below symbol",
-    },
-    {
-      id: "copyright-notice",
-      name: "Copyright Notice",
-      description: "Copyright notice",
-      type: "freeText",
-      maxLength: 600,
-      defaultValue: "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
-      hidden: true,
-    },
-    {
-      id: "rows",
-      type: "number",
-      min: 1,
-      max: 10,
-      description: "rows",
-      defaultValue: "1",
-      name: "rows",
-      hidden: true,
-    },
-    {
-      id: "columns",
-      type: "number",
-      min: 1,
-      max: 10,
-      description: "columns",
-      defaultValue: "1",
-      name: "columns",
-      hidden: true,
-    },
-    {
-      id: "order",
-      type: "freeText",
-      maxLength: 9999,
-      description: "orders",
-      defaultValue: '[["left"]]',
-      name: "orders",
-      hidden: true,
-    },
-    {
-      id: "symbol-system",
-      type: "preset",
-      name: "Symbol System",
-      defaultValue: "widgit",
-      description: "The symbol system to use for the chart",
-      presets: [
-        {
-          label: "PCS",
-          value: "pcs",
-          description: "PCS Symbols",
-          variableValues: [
-            {
-              id: "copyright-notice",
-              value:
-                "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
-            },
-            ...generateSymbolPreset(TILES, "pcs"),
-          ],
-        },
-
-        {
-          label: "Widgit",
-          value: "widgit",
-          description: "Widgit Symbols",
-          variableValues: [
-            {
-              id: "copyright-notice",
-              value:
-                "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
-            },
-            ...generateSymbolPreset(TILES, "widgit"),
-          ],
-        },
-      ],
-    },
-    {
-      id: "grid",
-      type: "preset",
-      description: "The number of items shown on the chart",
-      defaultValue: "intro",
-      name: "Layout",
-      presets: [
-        {
-          value: "intro",
-          label: "Intro - Finger Pointing",
-          description: "Intro - Finger Pointing",
-          variableValues: [
-            {
-              id: "cover",
-              value: "fp-core.pdf",
-            },
-            {
-              id: "rows",
-              value: "2",
-            },
-            {
-              id: "columns",
-              value: "4",
-            },
-            {
-              id: "order",
-              value: `[
-                ["more", "look", "different", "help"],
-                ["stop", "want", "like", "no"]
-              ]`,
-            },
-          ],
-        },
-        {
-          value: "stage-1",
-          label: "Stage 1 - Finger Pointing",
-          description: "Stage 1 - Finger Pointing",
-          variableValues: [
-            {
-              id: "cover",
-              value: "fp-core.pdf",
-            },
-            {
-              id: "rows",
-              value: "4",
-            },
-            {
-              id: "columns",
-              value: "4",
-            },
-            {
-              id: "order",
-              value: `[
-                ["me", "more", "look", "question"],
-                ["you", "stop", "want", "little"],
-                ["go", "different", "help", "big"],
-                ["like", "wow", "uh-oh", "no"]
-              ]`,
-            },
-          ],
-        },
-        {
-          value: "stage-2",
-          label: "Stage 2 - Finger Pointing",
-          description: "Stage 1 - Finger Pointing",
-          variableValues: [
-            {
-              id: "cover",
-              value: "fp-core.pdf",
-            },
-            {
-              id: "rows",
-              value: "5",
-            },
-            {
-              id: "columns",
-              value: "6",
-            },
-            {
-              id: "order",
-              value: `[
-                ["he", "me", "more", "look", "have", "question"],
-                ["she", "you", "stop", "want", "do", "turn"],
-                ["we", "go", "different", "help", "can", "this"],
-                ["they", "like", "little", "big", "first", "next"],
-                ["it", "wow", "uh-oh", "good", "bad", "no"]
-              ]`,
-            },
-          ],
-        },
-        {
-          value: "eye-pointing",
-          label: "Eye Pointing",
-          description: "Eye Pointing",
-          variableValues: [
-            {
-              id: "cover",
-              value: "ep.pdf",
-            },
-            {
-              id: "gap",
-              value: "10",
-            },
-            {
-              id: "rows",
-              value: "6",
-            },
-            {
-              id: "columns",
-              value: "5",
-            },
-            {
-              id: "core-border",
-              value: "1",
-            },
-            {
-              id: "order",
-              value: `[
-              ["more", null, "look", null, "different"],
-              ["more", null, "look", null, "different"],
-              [null, "eyePointing", "eyePointing", "eyePointing", null],
-              [null, "eyePointing", "eyePointing", "eyePointing", null],
-              ["stop", null, "want", null, "like"],
-              ["stop", null, "want", null, "like"]
-            ]`,
-            },
-          ],
-        },
-        {
-          value: "Hand",
-          label: "Hand Pointing",
-          description: "Hand Pointing",
-          variableValues: [
-            {
-              id: "cover",
-              value: "hp-core.pdf",
-            },
-            {
-              id: "rows",
-              value: "3",
-            },
-            {
-              id: "columns",
-              value: "5",
-            },
-            {
-              id: "core-border",
-              value: "1",
-            },
-            {
-              id: "order",
-              value: `[
-              ["more", null, "look", null, "different"],
-              [null, null, null, null, null],
-              ["stop", null, "want", null, "like"]
-            ]`,
-            },
-          ],
-        },
-      ],
-    },
-    ...generateImageVariables(TILES, "pcs"),
-
-    {
-      type: "freeText",
       name: "title",
       id: "title-text",
       description: "title",
@@ -382,14 +27,42 @@ export const core: Template = {
       defaultValue: "Core Words",
       maxLength: 100,
     },
-    {
-      type: "option",
-      id: "font",
-      description: "Choose the font used in the file",
-      name: "Font",
-      defaultValue: "helvetica",
-      options: FONT_OPTIONS,
-    },
+    ...STANDARD_VARIABLES,
+    generateAllSymbolPresets(TILES),
+
+    getLayoutPreset(
+      {
+        intro: [
+          ["more", "look", "different", "help"],
+          ["stop", "want", "like", "no"],
+        ],
+        stageOne: [
+          ["me", "more", "look", "question"],
+          ["you", "stop", "want", "little"],
+          ["go", "different", "help", "big"],
+          ["like", "wow", "uh-oh", "no"],
+        ],
+        stageTwo: [
+          ["he", "me", "more", "look", "have", "question"],
+          ["she", "you", "stop", "want", "do", "turn"],
+          ["we", "go", "different", "help", "can", "this"],
+          ["they", "like", "little", "big", "first", "next"],
+          ["it", "wow", "uh-oh", "good", "bad", "no"],
+        ],
+        eyePointing: [
+          ["more", "look", "different"],
+          ["stop", "want", "like"],
+        ],
+        handPointing: [
+          ["more", "look", "different"],
+          ["stop", "want", "like"],
+        ],
+      },
+      "core",
+      1
+    ),
+
+    ...generateImageVariables(TILES, "pcs"),
   ],
   templateDescription: `
     <p>Core words are a set of words that we use across huge numbers of different situations. These are words like 'help', 'look', 'more', 'stop', etc.  Core words are the sort of words that young children start using very early on, and therefore are the sort of words that we want to get started with straight away.</p>
