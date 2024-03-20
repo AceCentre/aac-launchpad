@@ -6,41 +6,7 @@ import {
   ImageWithTemplateItems,
   ButtonWithTemplateItems,
 } from "types";
-
-type Tile = { key: string; label: string; isCore: boolean; noImage?: boolean };
-
-const TILES: Array<Tile> = [
-  { key: "me", label: "I, me, my, mine", isCore: true },
-  { key: "more", label: "more (again)", isCore: true },
-  { key: "look", label: "look (see)", isCore: true },
-  { key: "question", label: "question", isCore: true },
-  { key: "colour", label: "colour", isCore: false },
-  { key: "make-up", label: "make up", isCore: false },
-  { key: "you", label: "you, your(s)", isCore: true },
-  { key: "stop", label: "stop (finish)", isCore: true },
-  { key: "want", label: "want", isCore: true },
-  { key: "this", label: "this (that)", isCore: true },
-  { key: "eye-shadow", label: "eye shadow", isCore: false },
-  { key: "mascara", label: "mascara", isCore: false },
-  { key: "go", label: "go", isCore: true },
-  { key: "different", label: "different", isCore: true },
-  { key: "help", label: "help", isCore: true },
-  { key: "put-on", label: "put on", isCore: false },
-  { key: "brush-hair", label: "brush hair", isCore: false },
-  { key: "foundation", label: "foundation", isCore: false },
-  { key: "like", label: "like", isCore: true },
-  { key: "great", label: "great", isCore: false },
-  { key: "omg", label: "OMG", isCore: false },
-  { key: "take-off", label: "take off", isCore: false },
-  { key: "hair-clip", label: "hair clip", isCore: false },
-  { key: "blusher", label: "blusher", isCore: false },
-  { key: "wow", label: "wow!", isCore: true },
-  { key: "uh-oh", label: "oh no!", isCore: true },
-  { key: "nail-varnish", label: "nail varnish", isCore: false },
-  { key: "no", label: "not (no)", isCore: true },
-  { key: "mirror", label: "mirror", isCore: false },
-  { key: "lipstick", label: "lipstick", isCore: false },
-];
+import { TILES, Tile } from "./shared/tiles";
 
 const generateSymbolPreset = (
   tiles: Array<Tile>,

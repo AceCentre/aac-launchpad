@@ -6,41 +6,7 @@ import {
   ImageWithTemplateItems,
   ButtonWithTemplateItems,
 } from "types";
-
-type Tile = { key: string; label: string; isCore: boolean };
-
-const TILES: Array<Tile> = [
-  { key: "me", label: "I, me, my, mine", isCore: true },
-  { key: "more", label: "more (again)", isCore: true },
-  { key: "look", label: "look (see)", isCore: true },
-  { key: "question", label: "question", isCore: true },
-  { key: "dress", label: "dress", isCore: false },
-  { key: "dressing-up", label: "dressing up", isCore: false },
-  { key: "you", label: "you, your(s)", isCore: true },
-  { key: "stop", label: "stop (finish)", isCore: true },
-  { key: "want", label: "want", isCore: true },
-  { key: "this", label: "this, that", isCore: true },
-  { key: "crown", label: "crown (tiara)", isCore: false },
-  { key: "princess", label: "princess", isCore: false },
-  { key: "go", label: "go", isCore: true },
-  { key: "different", label: "different", isCore: true },
-  { key: "help", label: "help", isCore: true },
-  { key: "put-on", label: "put on", isCore: false },
-  { key: "necklace", label: "necklace", isCore: false },
-  { key: "shoes", label: "shoes", isCore: false },
-  { key: "like", label: "like", isCore: true },
-  { key: "good", label: "good", isCore: false },
-  { key: "bad", label: "bad", isCore: false },
-  { key: "take-off", label: "take off", isCore: false },
-  { key: "handbag", label: "handbag", isCore: false },
-  { key: "wand", label: "wand", isCore: false },
-  { key: "wow", label: "wow!", isCore: true },
-  { key: "uh-oh", label: "oh no!", isCore: true },
-  { key: "pretty", label: "pretty", isCore: false },
-  { key: "no", label: "not (no)", isCore: false },
-  { key: "mirror", label: "mirror", isCore: false },
-  { key: "photo", label: "photo", isCore: false },
-];
+import { TILES, Tile } from "./shared/tiles";
 
 const generateSymbolPreset = (
   tiles: Array<Tile>,

@@ -6,51 +6,7 @@ import {
   ImageWithTemplateItems,
   ButtonWithTemplateItems,
 } from "types";
-
-type Tile = { key: string; label: string; isCore: boolean; noImage?: boolean };
-
-const TILES: Array<Tile> = [
-  { key: "me", label: "I, me, my, mine", isCore: true },
-  { key: "more", label: "more (again)", isCore: true },
-  { key: "look", label: "look (see)", isCore: true },
-  { key: "question", label: "question", isCore: true },
-  { key: "have", label: "have", isCore: false },
-  { key: "turn", label: "turn", isCore: false },
-  { key: "play", label: "play", isCore: false },
-  { key: "snakes-ladders", label: "snakes &\nladders", isCore: false },
-  { key: "you", label: "you, your(s)", isCore: true },
-  { key: "stop", label: "stop (finish)", isCore: true },
-  { key: "want", label: "want", isCore: true },
-  { key: "this", label: "this (that)", isCore: true },
-  { key: "can", label: "can", isCore: false },
-  { key: "make", label: "make", isCore: false },
-  { key: "count", label: "count", isCore: false },
-  { key: "ladder", label: "ladder", isCore: false },
-  { key: "he", label: "he, his", isCore: true },
-  { key: "go", label: "go", isCore: true },
-  { key: "different", label: "different", isCore: true },
-  { key: "help", label: "help", isCore: true },
-  { key: "some", label: "some (few)", isCore: true },
-  { key: "roll-dice", label: "roll dice", isCore: false },
-  { key: "good", label: "good", isCore: false },
-  { key: "snake", label: "snake", isCore: false },
-  { key: "she", label: "she, her(s)", isCore: true },
-  { key: "like", label: "like", isCore: true },
-  { key: "little", label: "little", isCore: true },
-  { key: "big", label: "big", isCore: true },
-  { key: "lots", label: "lots (many)", isCore: true },
-  { key: "move-my-piece", label: "move my\npiece", isCore: false },
-  { key: "bad", label: "bad (yucky)", isCore: false },
-  { key: "funny", label: "funny", isCore: false },
-  { key: "wow", label: "wow!", isCore: true },
-  { key: "uh-oh", label: "oh no!", isCore: true },
-  { key: "dont-know", label: "don't know", isCore: true },
-  { key: "no", label: "not (no)", isCore: true },
-  { key: "up", label: "up", isCore: false },
-  { key: "down", label: "down", isCore: false },
-  { key: "naughty", label: "naughty", isCore: false },
-  { key: "cross", label: "cross", isCore: false },
-];
+import { TILES, Tile } from "./shared/tiles";
 
 const generateSymbolPreset = (
   tiles: Array<Tile>,

@@ -6,41 +6,7 @@ import {
   ImageWithTemplateItems,
   ButtonWithTemplateItems,
 } from "types";
-
-type Tile = { key: string; label: string; isCore: boolean; noImage?: boolean };
-
-const TILES: Array<Tile> = [
-  { key: "me", label: "I, me, mine, my", isCore: true },
-  { key: "more", label: "more (again)", isCore: true },
-  { key: "look", label: "look (see)", isCore: true },
-  { key: "question", label: "question", isCore: true },
-  { key: "girl", label: "girl", isCore: false },
-  { key: "boy", label: "boy", isCore: false },
-  { key: "you", label: "you, your(s)", isCore: true },
-  { key: "stop", label: "stop (finish)", isCore: true },
-  { key: "want", label: "want", isCore: true },
-  { key: "this", label: "this (that)", isCore: true },
-  { key: "cat", label: "cat", isCore: false },
-  { key: "monster", label: "monster", isCore: false },
-  { key: "go", label: "go", isCore: true },
-  { key: "different", label: "different", isCore: true },
-  { key: "help", label: "help", isCore: true },
-  { key: "find", label: "find", isCore: false },
-  { key: "city", label: "city", isCore: false },
-  { key: "home", label: "home", isCore: false },
-  { key: "like", label: "like", isCore: true },
-  { key: "funny", label: "funny", isCore: false },
-  { key: "scary", label: "scary", isCore: false },
-  { key: "run", label: "run", isCore: false },
-  { key: "school", label: "school", isCore: false },
-  { key: "forest", label: "forest", isCore: false },
-  { key: "wow", label: "wow!", isCore: true },
-  { key: "uh-oh", label: "oh no!", isCore: true },
-  { key: "naughty", label: "naughty", isCore: false },
-  { key: "no", label: "not (no)", isCore: true },
-  { key: "magic-wand", label: "magic wand", isCore: false },
-  { key: "treasure", label: "treasure", isCore: false },
-];
+import { TILES, Tile } from "./shared/tiles";
 
 const generateSymbolPreset = (
   tiles: Array<Tile>,

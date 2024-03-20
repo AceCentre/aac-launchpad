@@ -6,35 +6,7 @@ import {
   ImageWithTemplateItems,
   ButtonWithTemplateItems,
 } from "types";
-
-type Tile = { key: string; label: string; isCore: boolean; noImage?: boolean };
-
-const TILES: Array<Tile> = [
-  { key: "me", label: "I, me, my, mine", isCore: true },
-  { key: "more", label: "more (again)", isCore: true },
-  { key: "look", label: "look (see)", isCore: true },
-  { key: "turn", label: "turn", isCore: true },
-  { key: "question", label: "question", isCore: true },
-  { key: "kerplunk", label: "Kerplunk", isCore: false },
-  { key: "you", label: "you, your(s)", isCore: true },
-  { key: "stop", label: "stop (finish)", isCore: true },
-  { key: "want", label: "want", isCore: true },
-  { key: "this", label: "this (that)", isCore: true },
-  { key: "play", label: "play", isCore: false },
-  { key: "kerplunk-stick", label: "stick", isCore: false },
-  { key: "go", label: "go", isCore: true },
-  { key: "different", label: "different", isCore: true },
-  { key: "help", label: "help", isCore: true },
-  { key: "fall-over", label: "fall", isCore: false },
-  { key: "push", label: "push", isCore: false },
-  { key: "marble", label: "marble", isCore: false },
-  { key: "like", label: "like", isCore: true },
-  { key: "wow", label: "wow!", isCore: true },
-  { key: "uh-oh", label: "oh no!", isCore: true },
-  { key: "no", label: "not (no)", isCore: true },
-  { key: "pull", label: "pull", isCore: false },
-  { key: "win", label: "win", isCore: false },
-];
+import { TILES, Tile } from "./shared/tiles";
 
 const generateSymbolPreset = (
   tiles: Array<Tile>,

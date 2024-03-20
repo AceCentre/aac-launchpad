@@ -6,19 +6,7 @@ import {
   ImageWithTemplateItems,
   ButtonWithTemplateItems,
 } from "types";
-
-type Tile = { key: string; label: string; isCore: boolean; noImage?: boolean };
-
-const TILES: Array<Tile> = [
-  { key: "more", label: "more (again)", isCore: true },
-  { key: "stop", label: "stop (finish)", isCore: true },
-  { key: "look", label: "look (see)", isCore: true },
-  { key: "like", label: "like", isCore: true },
-  { key: "no", label: "not (no)", isCore: true },
-  { key: "photo", label: "photo", isCore: false },
-  { key: "next", label: "next", isCore: false },
-  { key: "take-picture", label: "take picture", isCore: false },
-];
+import { TILES, Tile } from "./shared/tiles";
 
 const generateSymbolPreset = (
   tiles: Array<Tile>,
