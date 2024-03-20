@@ -27,15 +27,6 @@ export const balloons: Template = {
       defaultValue: "Balloons",
       maxLength: 100,
     },
-    {
-      type: "freeText",
-      name: "title",
-      id: "title-text",
-      description: "title",
-      hidden: true,
-      defaultValue: "Bubbles",
-      maxLength: 100,
-    },
 
     ...STANDARD_VARIABLES,
 

@@ -8,7 +8,7 @@ const setupCoreForTile = (current: string): string => {
   } else if (current === current.toUpperCase()) {
     return `${current.toLowerCase()}-core`;
   }
-  return current;
+  throw new Error("This should never run");
 };
 
 const setupCoreForGrid = (grid: Array<Array<string>>): Array<Array<string>> => {
