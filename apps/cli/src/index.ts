@@ -3,7 +3,7 @@
 import boardToPdf from "board-to-pdf";
 import templateToBoard from "template-to-board";
 import path from "path";
-import { PresetVariable, PresetVariableValues, Result } from "types";
+import { PresetVariable, PresetVariableValues, Result, Template } from "types";
 import { ALL_TEMPLATES } from "templates";
 
 import inquirer from "inquirer";
@@ -61,163 +61,201 @@ const main = async () => {
     throw new Error("You have chosen an invalid template");
   }
 
-  const presetResults = (await inquirer.prompt(
-    chosenTemplate.templateVariables
-      .filter((x) => x.type === "preset")
-      .map((variable) => {
-        const presetVariable = variable as PresetVariable;
-        return {
-          type: "list",
-          name: presetVariable.id,
-          message: presetVariable.description,
-          choices: presetVariable.presets.map((preset) => ({
-            name: preset.label,
-            value: preset.variableValues,
-            short: preset.description,
-          })),
+  if (process.argv.includes("--all-layouts-and-symbols")) {
+    let symbolsSystems = chosenTemplate.templateVariables.find(
+      (x) => x.id === "symbol-system"
+    ) as PresetVariable;
+    let layouts = chosenTemplate.templateVariables.find(
+      (x) => x.id === "grid"
+    ) as PresetVariable;
+
+    for (const layout of layouts.presets) {
+      for (const symbolsSystem of symbolsSystems.presets) {
+        let presetOverrides: { [key: string]: string } = {
+          grid: layout.value,
+          "symbol-system": symbolsSystem.value,
         };
-      })
-  )) as { [key: string]: PresetVariableValues };
 
-  let presetOverrides: { [key: string]: string } = {};
-
-  for (const result of Object.values(presetResults).flat()) {
-    presetOverrides[result.id] = result.value;
-  }
-
-  const templateResults = await inquirer.prompt(
-    chosenTemplate.templateVariables
-      .filter((x) => x.type !== "preset")
-      .filter((x) => x.hidden === false || x.hidden === undefined)
-      .sort((a, b) => {
-        if (a.type === "preset" && b.type !== "preset") {
-          return -1;
+        for (const layoutVals of layout.variableValues) {
+          presetOverrides[layoutVals.id] = layoutVals.value;
         }
-        if (a.type !== "preset" && b.type === "preset") {
-          return 1;
+
+        for (const symbolVals of symbolsSystem.variableValues) {
+          presetOverrides[symbolVals.id] = symbolVals.value;
         }
-        return 0;
-      })
-      .map((variable) => {
-        if (variable.type === "option") {
+
+        await createBoard(chosenTemplate, {}, presetOverrides);
+      }
+    }
+  } else {
+    const presetResults = (await inquirer.prompt(
+      chosenTemplate.templateVariables
+        .filter((x) => x.type === "preset")
+        .map((variable) => {
+          const presetVariable = variable as PresetVariable;
           return {
             type: "list",
-            name: variable.id,
-            message: variable.description,
-            default: presetOverrides[variable.id],
-            choices: variable.options.map((option) => ({
-              name: option.label,
-              value: option.value,
-              short: option.description,
+            name: presetVariable.id,
+            message: presetVariable.description,
+            choices: presetVariable.presets.map((preset) => ({
+              name: preset.label,
+              value: preset.variableValues,
+              short: preset.description,
             })),
           };
-        }
+        })
+    )) as { [key: string]: PresetVariableValues };
 
-        if (variable.type === "boolean") {
-          return {
-            type: "list",
-            name: variable.id,
-            message: variable.description,
-            default: presetOverrides[variable.id],
-            choices: [
-              {
-                name: variable.trueLabel,
-                value: "true",
-                short: variable.trueLabel,
+    let presetOverrides: { [key: string]: string } = {};
+
+    for (const result of Object.values(presetResults).flat()) {
+      presetOverrides[result.id] = result.value;
+    }
+
+    const templateResults = await inquirer.prompt(
+      chosenTemplate.templateVariables
+        .filter((x) => x.type !== "preset")
+        .filter((x) => x.hidden === false || x.hidden === undefined)
+        .sort((a, b) => {
+          if (a.type === "preset" && b.type !== "preset") {
+            return -1;
+          }
+          if (a.type !== "preset" && b.type === "preset") {
+            return 1;
+          }
+          return 0;
+        })
+        .map((variable) => {
+          if (variable.type === "option") {
+            return {
+              type: "list",
+              name: variable.id,
+              message: variable.description,
+              default: presetOverrides[variable.id],
+              choices: variable.options.map((option) => ({
+                name: option.label,
+                value: option.value,
+                short: option.description,
+              })),
+            };
+          }
+
+          if (variable.type === "boolean") {
+            return {
+              type: "list",
+              name: variable.id,
+              message: variable.description,
+              default: presetOverrides[variable.id],
+              choices: [
+                {
+                  name: variable.trueLabel,
+                  value: "true",
+                  short: variable.trueLabel,
+                },
+                {
+                  name: variable.falseLabel,
+                  value: "false",
+                  short: variable.falseLabel,
+                },
+              ],
+            };
+          }
+
+          if (variable.type === "freeText") {
+            return {
+              type: "input",
+              name: variable.id,
+              message: variable.description,
+              default: presetOverrides[variable.id],
+              validate: (input) => {
+                if (input.length > variable.maxLength) {
+                  return `Input must be less than ${variable.maxLength} characters`;
+                }
+                return true;
               },
-              {
-                name: variable.falseLabel,
-                value: "false",
-                short: variable.falseLabel,
+            };
+          }
+
+          if (variable.type === "imageUrl") {
+            return {
+              type: "input",
+              name: variable.id,
+              message: variable.description,
+              default: presetOverrides[variable.id],
+            };
+          }
+
+          if (variable.type === "number") {
+            return {
+              type: "number",
+              name: variable.id,
+              message: variable.description,
+              default: presetOverrides[variable.id],
+              validate: (input) => {
+                if (input > variable.max) {
+                  return `Input must be lower than ${variable.max}`;
+                }
+                if (input < variable.min) {
+                  return `Input must be higher than ${variable.min}`;
+                }
+                return true;
               },
-            ],
-          };
-        }
+            };
+          }
 
-        if (variable.type === "freeText") {
-          return {
-            type: "input",
-            name: variable.id,
-            message: variable.description,
-            default: presetOverrides[variable.id],
-            validate: (input) => {
-              if (input.length > variable.maxLength) {
-                return `Input must be less than ${variable.maxLength} characters`;
-              }
-              return true;
-            },
-          };
-        }
+          if (variable.type === "color") {
+            return {
+              type: "input",
+              name: variable.id,
+              message: variable.description,
+              default: presetOverrides[variable.id] || variable.defaultValue,
+              validate: (input) => {
+                if (!input.startsWith("rgb(")) {
+                  return `You must describe your color in rgb format. Example: rgb(255, 255, 255)`;
+                }
+                if (!input.endsWith(")")) {
+                  return `You must describe your color in rgb format. Example: rgb(255, 255, 255)`;
+                }
 
-        if (variable.type === "imageUrl") {
-          return {
-            type: "input",
-            name: variable.id,
-            message: variable.description,
-            default: presetOverrides[variable.id],
-          };
-        }
+                const [red, green, blue] = input
+                  .replace("rgb(", "")
+                  .replace(")", "")
+                  .split(",")
+                  .map((x: string) => x.trim())
+                  .map((x: string) => parseInt(x));
 
-        if (variable.type === "number") {
-          return {
-            type: "number",
-            name: variable.id,
-            message: variable.description,
-            default: presetOverrides[variable.id],
-            validate: (input) => {
-              if (input > variable.max) {
-                return `Input must be lower than ${variable.max}`;
-              }
-              if (input < variable.min) {
-                return `Input must be higher than ${variable.min}`;
-              }
-              return true;
-            },
-          };
-        }
+                if (
+                  red === undefined ||
+                  green === undefined ||
+                  blue === undefined
+                ) {
+                  return `You must describe your color in rgb format. Example: rgb(255, 255, 255)`;
+                }
 
-        if (variable.type === "color") {
-          return {
-            type: "input",
-            name: variable.id,
-            message: variable.description,
-            default: presetOverrides[variable.id] || variable.defaultValue,
-            validate: (input) => {
-              if (!input.startsWith("rgb(")) {
-                return `You must describe your color in rgb format. Example: rgb(255, 255, 255)`;
-              }
-              if (!input.endsWith(")")) {
-                return `You must describe your color in rgb format. Example: rgb(255, 255, 255)`;
-              }
+                if (isNaN(red) || isNaN(green) || isNaN(blue)) {
+                  return `You must describe your color in rgb format. Example: rgb(255, 255, 255)`;
+                }
 
-              const [red, green, blue] = input
-                .replace("rgb(", "")
-                .replace(")", "")
-                .split(",")
-                .map((x: string) => x.trim())
-                .map((x: string) => parseInt(x));
+                return true;
+              },
+            };
+          }
 
-              if (
-                red === undefined ||
-                green === undefined ||
-                blue === undefined
-              ) {
-                return `You must describe your color in rgb format. Example: rgb(255, 255, 255)`;
-              }
+          throw new Error(
+            `You gave an invalid variable type: ${variable.type}`
+          );
+        })
+    );
 
-              if (isNaN(red) || isNaN(green) || isNaN(blue)) {
-                return `You must describe your color in rgb format. Example: rgb(255, 255, 255)`;
-              }
+    await createBoard(chosenTemplate, templateResults, presetOverrides);
+  }
+};
 
-              return true;
-            },
-          };
-        }
-
-        throw new Error(`You gave an invalid variable type: ${variable.type}`);
-      })
-  );
-
+const createBoard = async (
+  chosenTemplate: Template,
+  templateResults: any,
+  presetOverrides: any
+) => {
   const results: Array<Result> = chosenTemplate.templateVariables
     .sort((a, b) => {
       if (a.type === "preset" && b.type !== "preset") {
