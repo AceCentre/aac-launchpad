@@ -17,6 +17,12 @@ const initialTiles: Array<Tile> = [
   { key: "triangle", label: "triangle", isCore: false },
   { key: "bridge", label: "bridge", isCore: false },
   { key: "brown", label: "brown", isCore: false },
+  { key: "film", label: "film", isCore: false },
+  { key: "tv", label: "tv", isCore: false },
+  { key: "watch", label: "watch", isCore: false },
+  { key: "cartoon", label: "cartoon", isCore: false },
+  { key: "silly", label: "silly", isCore: false },
+  { key: "choose", label: "choose", isCore: false },
 
   { key: "tie-knot", label: "tie knot", isCore: false },
   { key: "throw", label: "throw", isCore: false },
