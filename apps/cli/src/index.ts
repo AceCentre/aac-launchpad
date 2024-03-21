@@ -69,8 +69,10 @@ const main = async () => {
       (x) => x.id === "grid"
     ) as PresetVariable;
 
-    for (const layout of layouts.presets) {
-      for (const symbolsSystem of symbolsSystems.presets) {
+    for (const symbolsSystem of symbolsSystems.presets) {
+      for (const layout of layouts.presets) {
+        console.log(symbolsSystem.label, layout.label);
+
         let presetOverrides: { [key: string]: string } = {
           grid: layout.value,
           "symbol-system": symbolsSystem.value,
