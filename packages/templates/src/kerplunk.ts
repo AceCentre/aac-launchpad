@@ -7,52 +7,14 @@ import {
   ButtonWithTemplateItems,
 } from "types";
 import { TILES, Tile } from "./shared/tiles";
-
-const generateSymbolPreset = (
-  tiles: Array<Tile>,
-  name: string
-): PresetVariableValues => {
-  return tiles.map((tile) => ({
-    id: tile.key,
-    value: `./symbols/${name}/${tile.key}.png`,
-  }));
-};
-
-const generateImageVariables = (
-  tiles: Array<Tile>,
-  name: string
-): Array<AllTemplateVariable> => {
-  return tiles.map((tile) => ({
-    type: "imageUrl",
-    name: tile.key,
-    id: tile.key,
-    description: tile.key,
-    hidden: true,
-    defaultValue: `./symbols/${name}/${tile.key}.png`,
-  }));
-};
-
-const generateImages = (tiles: Array<Tile>): Array<ImageWithTemplateItems> => {
-  return tiles.map((tile) => ({
-    id: tile.key,
-    url: { type: "TemplateItem", id: tile.key },
-  }));
-};
-
-const generateButtons = (
-  tiles: Array<Tile>
-): Array<ButtonWithTemplateItems> => {
-  return tiles.map((tile) => ({
-    id: tile.key,
-    image_id: tile.noImage ? undefined : tile.key,
-    ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-    ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    border_color: "rgb(0, 0, 0)",
-    ext_button_border_width: tile.isCore ? 1 : 0.5,
-    background_color: { type: "TemplateItem", id: "cell-colour" },
-    label: tile.label,
-  }));
-};
+import { STANDARD_VARIABLES } from "./shared/standard-variables";
+import { generateAllSymbolPresets } from "./shared/generate-symbol-preset";
+import { getLayoutPreset } from "./shared/layout-preset";
+import {
+  generateImageVariables,
+  generateImages,
+} from "./shared/generate-images";
+import { generateButtons } from "./shared/generate-buttons";
 
 export const kerplunk: Template = {
   templateDateCreated: "2022-07-20T12:00:00+01:00",
@@ -64,106 +26,6 @@ export const kerplunk: Template = {
 
   templateVariables: [
     {
-      id: "background-colour",
-      name: "Background colour",
-      description:
-        "Change the background colour of the chart. Select white to save printer ink.",
-      defaultValue: "rgb(255,255,255)",
-      type: "color",
-    },
-    {
-      id: "cell-colour",
-      name: "Cell colour",
-      description: "Change the colour of all the cells.",
-      defaultValue: "rgb(255,255,255)",
-      type: "color",
-    },
-    {
-      id: "label-colour",
-      name: "Text colour",
-      description: "The colour of text in the cell",
-      defaultValue: "rgb(0,0,0)",
-      type: "color",
-    },
-    {
-      id: "gap",
-      name: "Cell spacing",
-      description:
-        "The space between the cells. This will also affect the size of the cells.",
-      type: "number",
-      min: 0,
-      max: 100,
-      defaultValue: "2",
-    },
-    {
-      id: "padding",
-      name: "Page spacing",
-      description:
-        "The space on the outside edges of the page. This will also affect the size of the cells.",
-      type: "number",
-      min: 0,
-      max: 100,
-      defaultValue: "10",
-    },
-    {
-      id: "invert-text",
-      name: "Label position",
-      description: "Show text above symbol",
-      type: "boolean",
-      defaultValue: "true",
-      trueLabel: "Show label above symbol",
-      falseLabel: "Show label below symbol",
-    },
-    {
-      id: "copyright-notice",
-      name: "Copyright Notice",
-      description: "Copyright notice",
-      type: "freeText",
-      maxLength: 600,
-      defaultValue: "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
-      hidden: true,
-    },
-
-    {
-      id: "symbol-system",
-      type: "preset",
-      name: "Symbol System",
-      defaultValue: "widgit",
-      description: "The symbol system to use for the chart",
-      presets: [
-        {
-          label: "PCS",
-          value: "pcs",
-          description: "PCS Symbols",
-          variableValues: [
-            {
-              id: "copyright-notice",
-              value:
-                "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
-            },
-            ...generateSymbolPreset(TILES, "pcs"),
-          ],
-        },
-
-        {
-          label: "Widgit",
-          value: "widgit",
-          description: "Widgit Symbols",
-          variableValues: [
-            {
-              id: "copyright-notice",
-              value:
-                "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
-            },
-            ...generateSymbolPreset(TILES, "widgit"),
-          ],
-        },
-      ],
-    },
-
-    ...generateImageVariables(TILES, "pcs"),
-
-    {
       type: "freeText",
       name: "title",
       id: "title-text",
@@ -172,14 +34,42 @@ export const kerplunk: Template = {
       defaultValue: "Kerplunk",
       maxLength: 100,
     },
-    {
-      type: "option",
-      id: "font",
-      description: "Choose the font used in the file",
-      name: "Font",
-      defaultValue: "helvetica",
-      options: FONT_OPTIONS,
-    },
+    ...STANDARD_VARIABLES,
+
+    generateAllSymbolPresets(TILES),
+
+    ...generateImageVariables(TILES, "pcs"),
+
+    getLayoutPreset(
+      {
+        intro: [
+          ["MORE", "look", "play", "kerplunk"],
+          ["STOP", "uh-oh", "fall-over", "marble"],
+        ],
+        stageOne: [
+          ["MORE", "LOOK", "play", "kerplunk"],
+          ["STOP", "WANT", "fall-over", "marble"],
+          ["DIFFERENT", "HELP", "pull", "stick"],
+          ["LIKE", "NO", "wow", "uh-oh"],
+        ],
+        stageTwo: [
+          ["ME", "MORE", "LOOK", "QUESTION", "kerplunk", "turn"],
+          ["YOU", "STOP", "WANT", "play", "marble", "win"],
+          ["GO", "DIFFERENT", "HELP", "fall-over", "stick", "lose"],
+          ["LIKE", "LITTLE", "BIG", "push", "count", "some"],
+          ["WOW", "UH-OH", "NO", "pull", "fun", "lots"],
+        ],
+        eyePointing: [
+          ["more", "fall-over", "kerplunk"],
+          ["stop", "uh-oh", "marble"],
+        ],
+        handPointing: [
+          ["more", "fall-over", "kerplunk"],
+          ["stop", "uh-oh", "marble"],
+        ],
+      },
+      "topic"
+    ),
   ],
   templateDescription: `
   A symbol chart to support conversation while playing Kerplunk!
@@ -211,7 +101,7 @@ export const kerplunk: Template = {
   description_html:
     "A symbol chart to support conversation while playing Kerplunk!",
   ext_launchpad_options: {
-    ext_launchpad_prepend_pdf: "./symbol-chart-cover.pdf",
+    ext_launchpad_prepend_pdf: { type: "TemplateItem", id: "cover" },
     gap: { type: "TemplateItem", id: "gap" },
     padding: { type: "TemplateItem", id: "padding" },
     button_border_width: 1,
@@ -233,14 +123,9 @@ export const kerplunk: Template = {
     {
       id: "first",
       grid: {
-        rows: 4,
-        columns: 6,
-        order: [
-          ["me", "more", "look", "turn", "question", "kerplunk"],
-          ["you", "stop", "want", "this", "play", "kerplunk-stick"],
-          ["go", "different", "help", "fall-over", "push", "marble"],
-          ["like", "wow", "uh-oh", "no", "pull", "win"],
-        ],
+        rows: { type: "TemplateItem", id: "rows" },
+        columns: { type: "TemplateItem", id: "columns" },
+        order: { type: "TemplateItem", id: "order" },
       },
     },
   ],

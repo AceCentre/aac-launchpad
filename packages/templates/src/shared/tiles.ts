@@ -31,6 +31,7 @@ const initialTiles: Array<Tile> = [
   { key: "clothes", label: "clothes", isCore: false },
   { key: "love", label: "love", isCore: false },
   { key: "nappy", label: "nappy", isCore: false },
+  { key: "lose", label: "lose", isCore: false },
 
   { key: "tie-knot", label: "tie knot", isCore: false },
   { key: "throw", label: "throw", isCore: false },
