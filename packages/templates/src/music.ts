@@ -1,58 +1,13 @@
-import { FONT_OPTIONS } from "board-to-pdf";
+import { Template } from "types";
+import { TILES } from "./shared/tiles";
+import { STANDARD_VARIABLES } from "./shared/standard-variables";
+import { generateAllSymbolPresets } from "./shared/generate-symbol-preset";
 import {
-  AllTemplateVariable,
-  PresetVariableValues,
-  Template,
-  ImageWithTemplateItems,
-  ButtonWithTemplateItems,
-} from "types";
-import { TILES, Tile } from "./shared/tiles";
-
-const generateSymbolPreset = (
-  tiles: Array<Tile>,
-  name: string
-): PresetVariableValues => {
-  return tiles.map((tile) => ({
-    id: tile.key,
-    value: `./symbols/${name}/${tile.key}.png`,
-  }));
-};
-
-const generateImageVariables = (
-  tiles: Array<Tile>,
-  name: string
-): Array<AllTemplateVariable> => {
-  return tiles.map((tile) => ({
-    type: "imageUrl",
-    name: tile.key,
-    id: tile.key,
-    description: tile.key,
-    hidden: true,
-    defaultValue: `./symbols/${name}/${tile.key}.png`,
-  }));
-};
-
-const generateImages = (tiles: Array<Tile>): Array<ImageWithTemplateItems> => {
-  return tiles.map((tile) => ({
-    id: tile.key,
-    url: { type: "TemplateItem", id: tile.key },
-  }));
-};
-
-const generateButtons = (
-  tiles: Array<Tile>
-): Array<ButtonWithTemplateItems> => {
-  return tiles.map((tile) => ({
-    id: tile.key,
-    image_id: tile.key,
-    ext_launchpad_label_color: { type: "TemplateItem", id: "label-colour" },
-    ext_launchpad_label_font: { type: "TemplateItem", id: "font" },
-    border_color: "rgb(0, 0, 0)",
-    ext_button_border_width: tile.isCore ? 2 : 1,
-    background_color: { type: "TemplateItem", id: "cell-colour" },
-    label: tile.label,
-  }));
-};
+  generateImageVariables,
+  generateImages,
+} from "./shared/generate-images";
+import { getLayoutPreset } from "./shared/layout-preset";
+import { generateButtons } from "./shared/generate-buttons";
 
 export const music: Template = {
   templateDateCreated: "2022-10-12T12:00:00+01:00",
@@ -64,197 +19,50 @@ export const music: Template = {
 
   templateVariables: [
     {
-      id: "grid",
-      type: "preset",
-      description: "The number of items shown on the chart",
-      defaultValue: "24",
-      name: "Layout",
-      presets: [
-        {
-          value: "24",
-          label: "24",
-          description: "24 Cells",
-          variableValues: [
-            {
-              id: "rows",
-              value: "4",
-            },
-            {
-              id: "columns",
-              value: "6",
-            },
-            {
-              id: "order",
-              value: `[
-                ["me", "more", "look", "question", "music", "happy"],
-                ["you", "stop", "want", "this", "playlist", "sad"],
-                ["go", "different", "help", "dance", "sing-along", "loud"],
-                ["like", "wow", "uh-oh", "no", "favourite", "quiet"]
-              ]`,
-            },
-          ],
-        },
-        {
-          value: "8",
-          label: "8",
-          description: "8 Cells",
-          variableValues: [
-            {
-              id: "rows",
-              value: "2",
-            },
-            {
-              id: "columns",
-              value: "4",
-            },
-            {
-              id: "order",
-              value: `[
-                ["more", "sing-along", "music", "loud"],
-                ["stop", "different", "like", "quiet"]
-              ]`,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: "rows",
-      type: "number",
-      min: 1,
-      max: 10,
-      description: "rows",
-      defaultValue: "1",
-      name: "rows",
-      hidden: true,
-    },
-    {
-      id: "columns",
-      type: "number",
-      min: 1,
-      max: 10,
-      description: "columns",
-      defaultValue: "1",
-      name: "columns",
-      hidden: true,
-    },
-    {
-      id: "order",
       type: "freeText",
-      maxLength: 9999,
-      description: "orders",
-      defaultValue: '[["left"]]',
-      name: "orders",
+      name: "title",
+      id: "title-text",
+      description: "title",
       hidden: true,
+      defaultValue: "Listen to music",
+      maxLength: 100,
     },
-    {
-      id: "background-colour",
-      name: "Background colour",
-      description:
-        "Change the background colour of the chart. Select white to save printer ink.",
-      defaultValue: "rgb(255,255,255)",
-      type: "color",
-    },
-    {
-      id: "cell-colour",
-      name: "Cell colour",
-      description: "Change the colour of all the cells.",
-      defaultValue: "rgb(255,255,255)",
-      type: "color",
-    },
-    {
-      id: "label-colour",
-      name: "Text colour",
-      description: "The colour of text in the cell",
-      defaultValue: "rgb(0,0,0)",
-      type: "color",
-    },
-    {
-      id: "gap",
-      name: "Cell spacing",
-      description:
-        "The space between the cells. This will also affect the size of the cells.",
-      type: "number",
-      min: 0,
-      max: 100,
-      defaultValue: "3",
-    },
-    {
-      id: "padding",
-      name: "Page spacing",
-      description:
-        "The space on the outside edges of the page. This will also affect the size of the cells.",
-      type: "number",
-      min: 0,
-      max: 100,
-      defaultValue: "10",
-    },
-    {
-      id: "invert-text",
-      name: "Label position",
-      description: "Show text above symbol",
-      type: "boolean",
-      defaultValue: "true",
-      trueLabel: "Show label above symbol",
-      falseLabel: "Show label below symbol",
-    },
-    {
-      id: "copyright-notice",
-      name: "Copyright Notice",
-      description: "Copyright notice",
-      type: "freeText",
-      maxLength: 600,
-      defaultValue: "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
-      hidden: true,
-    },
+    ...STANDARD_VARIABLES,
 
-    {
-      id: "symbol-system",
-      type: "preset",
-      name: "Symbol System",
-      defaultValue: "widgit",
-      description: "The symbol system to use for the chart",
-      presets: [
-        {
-          label: "PCS",
-          value: "pcs",
-          description: "PCS Symbols",
-          variableValues: [
-            {
-              id: "copyright-notice",
-              value:
-                "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
-            },
-            ...generateSymbolPreset(TILES, "pcs"),
-          ],
-        },
-
-        {
-          label: "Widgit",
-          value: "widgit",
-          description: "Widgit Symbols",
-          variableValues: [
-            {
-              id: "copyright-notice",
-              value:
-                "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
-            },
-            ...generateSymbolPreset(TILES, "widgit"),
-          ],
-        },
-      ],
-    },
+    generateAllSymbolPresets(TILES),
 
     ...generateImageVariables(TILES, "pcs"),
 
-    {
-      type: "option",
-      id: "font",
-      description: "Choose the font used in the file",
-      name: "Font",
-      defaultValue: "helvetica",
-      options: FONT_OPTIONS,
-    },
+    getLayoutPreset(
+      {
+        intro: [
+          ["MORE", "listen", "different", "song"],
+          ["STOP", "want", "like", "sing-along"],
+        ],
+        stageOne: [
+          ["MORE", "LOOK", "listen", "song"],
+          ["STOP", "WANT", "sing-along", "music"],
+          ["DIFFERENT", "HELP", "good", "bad"],
+          ["LIKE", "NO", "wow", "uh-oh"],
+        ],
+        stageTwo: [
+          ["ME", "MORE", "LOOK", "QUESTION", "playlist", "song"],
+          ["YOU", "STOP", "WANT", "listen", "make", "music"],
+          ["GO", "DIFFERENT", "HELP", "sing-along", "dance", "loud"],
+          ["LIKE", "LITTLE", "BIG", "happy", "sad", "quiet"],
+          ["WOW", "UH-OH", "NO", "good", "bad", "favourite"],
+        ],
+        eyePointing: [
+          ["more", "song", "different"],
+          ["stop", "like", "sing-along"],
+        ],
+        handPointing: [
+          ["more", "song", "different"],
+          ["stop", "like", "sing-along"],
+        ],
+      },
+      "topic"
+    ),
   ],
   templateDescription: ``,
   templateName: "Listen to Music",
@@ -283,12 +91,12 @@ export const music: Template = {
   name: "Listen to Music",
   description_html: "",
   ext_launchpad_options: {
-    ext_launchpad_prepend_pdf: "./symbol-chart-cover.pdf",
+    ext_launchpad_prepend_pdf: { type: "TemplateItem", id: "cover" },
 
     gap: { type: "TemplateItem", id: "gap" },
     padding: { type: "TemplateItem", id: "padding" },
     button_border_width: 1,
-    title_shown_on_board: "Listen to Music",
+    title_shown_on_board: { type: "TemplateItem", id: "title-text" },
     full_background_color: { type: "TemplateItem", id: "background-colour" },
     copyright_notice: { type: "TemplateItem", id: "copyright-notice" },
     invert_symbol_and_label: { type: "TemplateItem", id: "invert-text" },

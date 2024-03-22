@@ -32,6 +32,12 @@ const initialTiles: Array<Tile> = [
   { key: "love", label: "love", isCore: false },
   { key: "nappy", label: "nappy", isCore: false },
   { key: "lose", label: "lose", isCore: false },
+  { key: "listen", label: "listen", isCore: false },
+  { key: "song", label: "song (track)", isCore: false },
+  { key: "selfie", label: "selfie", isCore: false },
+  { key: "delete", label: "delete", isCore: false },
+  { key: "concealer", label: "concealer", isCore: false },
+  { key: "embarrassing", label: "embarrassing", isCore: false },
 
   { key: "tie-knot", label: "tie knot", isCore: false },
   { key: "throw", label: "throw", isCore: false },
