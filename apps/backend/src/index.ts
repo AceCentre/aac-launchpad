@@ -77,7 +77,7 @@ const resolvers = {
       const writeStartTime = process.hrtime();
 
       let analyticsProperties: { [key: string]: string } = {};
-      const keysToCollect = ["language", "symbol-system"];
+      const keysToCollect = ["language", "symbol-system", "grid"];
 
       const fileHash =
         input.templateId +
