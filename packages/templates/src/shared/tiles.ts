@@ -41,6 +41,9 @@ const initialTiles: Array<Tile> = [
   { key: "horn-goes-beep", label: "horn goes beep", isCore: false },
   { key: "wipers-go-swish", label: "wipers go swish", isCore: false },
   { key: "game", label: "game", isCore: false },
+  { key: "horse", label: "horse", isCore: false },
+  { key: "sound", label: "sound", isCore: false },
+  { key: "dog", label: "dog", isCore: false },
 
   { key: "tie-knot", label: "tie knot", isCore: false },
   { key: "throw", label: "throw", isCore: false },
