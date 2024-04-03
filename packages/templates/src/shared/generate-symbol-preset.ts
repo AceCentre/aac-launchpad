@@ -22,7 +22,7 @@ export const generateAllSymbolPresets = (
     id: "symbol-system",
     type: "preset",
     name: "Symbol System",
-    defaultValue: "widgit",
+    defaultValue: "pcs",
     description: "The symbol system to use for the chart",
     presets: [
       {
