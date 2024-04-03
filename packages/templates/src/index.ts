@@ -39,6 +39,7 @@ import { snakesAndLadders } from "./snakes-and-ladders";
 import { kerplunk } from "./kerplunk";
 import { makeUp } from "./make-up";
 import { dressingUpAsAPrincess } from "./dressing-up-as-a-princess";
+import { readDearZoo } from "./read-dear-zoo";
 
 export {
   core,
@@ -80,9 +81,11 @@ export {
   snakesAndLadders,
   makeUp,
   dressingUpAsAPrincess,
+  readDearZoo,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
+  readDearZoo,
   bubbles,
   core,
   portrait,
@@ -126,6 +129,7 @@ export const ALL_TEMPLATES: Array<Template> = [
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
+  readDearZoo,
   core,
   bubbles,
   reading,
