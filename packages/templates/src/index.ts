@@ -40,6 +40,7 @@ import { kerplunk } from "./kerplunk";
 import { makeUp } from "./make-up";
 import { dressingUpAsAPrincess } from "./dressing-up-as-a-princess";
 import { readDearZoo } from "./read-dear-zoo";
+import { watchPeppa } from "./watch-peppa";
 
 export {
   core,
@@ -82,6 +83,7 @@ export {
   makeUp,
   dressingUpAsAPrincess,
   readDearZoo,
+  watchPeppa,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -126,6 +128,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   kerplunk,
   makeUp,
   dressingUpAsAPrincess,
+  watchPeppa,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -154,4 +157,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   kerplunk,
   makeUp,
   dressingUpAsAPrincess,
+  watchPeppa,
 ];
