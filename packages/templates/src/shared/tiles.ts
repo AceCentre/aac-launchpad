@@ -76,6 +76,12 @@ const initialTiles: Array<Tile> = [
   { key: "breathing", label: "breathing", isCore: false },
   { key: "sick", label: "sick", isCore: false },
   { key: "temperature", label: "temperature", isCore: false },
+  { key: "nails", label: "nails (manicure)", isCore: false },
+  { key: "file", label: "file (shape)", isCore: false },
+  { key: "pattern", label: "pattern", isCore: false },
+  { key: "gel", label: "gel", isCore: false },
+  { key: "light", label: "light", isCore: false },
+  { key: "broken", label: "broken", isCore: false },
 
   { key: "tie-knot", label: "tie knot", isCore: false },
   { key: "throw", label: "throw", isCore: false },
