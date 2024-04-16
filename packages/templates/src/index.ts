@@ -41,6 +41,7 @@ import { makeUp } from "./make-up";
 import { dressingUpAsAPrincess } from "./dressing-up-as-a-princess";
 import { readDearZoo } from "./read-dear-zoo";
 import { watchPeppa } from "./watch-peppa";
+import { playWithDoctorKit } from "./play-with-doctor-kit";
 
 export {
   core,
@@ -84,6 +85,7 @@ export {
   dressingUpAsAPrincess,
   readDearZoo,
   watchPeppa,
+  playWithDoctorKit,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -129,6 +131,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   makeUp,
   dressingUpAsAPrincess,
   watchPeppa,
+  playWithDoctorKit,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -158,4 +161,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   makeUp,
   dressingUpAsAPrincess,
   watchPeppa,
+  playWithDoctorKit,
 ];
