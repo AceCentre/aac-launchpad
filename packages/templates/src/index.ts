@@ -45,6 +45,7 @@ import { playWithDoctorKit } from "./play-with-doctor-kit";
 import { manicure } from "./manicure";
 import { bingo } from "./bingo";
 import { trains } from "./trains";
+import { gardening } from "./gardening";
 
 export {
   core,
@@ -92,6 +93,7 @@ export {
   manicure,
   bingo,
   trains,
+  gardening,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -141,6 +143,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   manicure,
   bingo,
   trains,
+  gardening,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -174,4 +177,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   manicure,
   bingo,
   trains,
+  gardening,
 ];
