@@ -90,6 +90,13 @@ const initialTiles: Array<Tile> = [
   { key: "board", label: "board", isCore: false },
   { key: "book", label: "book", isCore: false },
   { key: "dauber", label: "dauber", isCore: false },
+  { key: "train", label: "train", isCore: false },
+  { key: "crash", label: "crash", isCore: false },
+  { key: "station", label: "station", isCore: false },
+  { key: "track", label: "track", isCore: false },
+  { key: "carriage", label: "carriage", isCore: false },
+  { key: "passenger", label: "passenger", isCore: false },
+  { key: "tunnel", label: "tunnel", isCore: false },
 
   { key: "tie-knot", label: "tie knot", isCore: false },
   { key: "throw", label: "throw", isCore: false },

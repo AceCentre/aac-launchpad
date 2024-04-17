@@ -44,6 +44,7 @@ import { watchPeppa } from "./watch-peppa";
 import { playWithDoctorKit } from "./play-with-doctor-kit";
 import { manicure } from "./manicure";
 import { bingo } from "./bingo";
+import { trains } from "./trains";
 
 export {
   core,
@@ -90,6 +91,7 @@ export {
   playWithDoctorKit,
   manicure,
   bingo,
+  trains,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -138,6 +140,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   playWithDoctorKit,
   manicure,
   bingo,
+  trains,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -170,4 +173,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   playWithDoctorKit,
   manicure,
   bingo,
+  trains,
 ];
