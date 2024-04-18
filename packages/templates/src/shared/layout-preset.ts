@@ -39,13 +39,13 @@ export const getLayoutPreset = (
     type: "preset",
     description:
       "Select how you would like the chart to be laid out, ie finger, hand or eye pointing",
-    defaultValue: "intro",
+    defaultValue: "stage-1",
     name: "Layout",
     presets: [
       {
-        value: "intro",
-        label: "Intro - Finger Pointing",
-        description: "Intro - Finger Pointing",
+        value: "stage-1",
+        label: "Stage 1 - Finger Pointing",
+        description: "Stage 1 - Finger Pointing",
         variableValues: [
           {
             id: "cover",
@@ -70,9 +70,9 @@ export const getLayoutPreset = (
         ],
       },
       {
-        value: "stage-1",
-        label: "Stage 1 - Finger Pointing",
-        description: "Stage 1 - Finger Pointing",
+        value: "stage-2",
+        label: "Stage 2 - Finger Pointing",
+        description: "Stage 2 - Finger Pointing",
         variableValues: [
           {
             id: "cover",
@@ -97,9 +97,9 @@ export const getLayoutPreset = (
         ],
       },
       {
-        value: "stage-2",
-        label: "Stage 2 - Finger Pointing",
-        description: "Stage 2 - Finger Pointing",
+        value: "stage-3",
+        label: "Stage 3 - Finger Pointing",
+        description: "Stage 3 - Finger Pointing",
         variableValues: [
           {
             id: "cover",
