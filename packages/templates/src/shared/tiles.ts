@@ -168,7 +168,7 @@ const initialTiles: Array<Tile> = [
   { key: "purple", label: "purple", isCore: false },
   { key: "we", label: "we, us ours", isCore: false },
   { key: "go-round-and-round", label: "Go round and round", isCore: false },
-  { key: "turn", label: "Turn", isCore: false },
+  { key: "turn", label: "turn", isCore: false },
   { key: "they", label: "they, them, their(s)", isCore: false },
   { key: "play", label: "play", isCore: false },
   { key: "she", label: "she, her(s)", isCore: true },
