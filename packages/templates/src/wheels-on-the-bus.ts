@@ -40,14 +40,14 @@ export const wheelsOnTheBus: Template = {
           ["STOP", "go-round-and-round", "like", "children"],
         ],
         stageOne: [
-          ["MORE", "LOOK", "sing-along", "bus-doors"],
+          ["MORE", "LOOK", "sing", "bus-doors"],
           ["STOP", "WANT", "bus", "children"],
           ["DIFFERENT", "HELP", "go-round-and-round", "horn-goes-beep"],
           ["LIKE", "NO", "wow", "uh-oh"],
         ],
         stageTwo: [
           ["ME", "MORE", "LOOK", "QUESTION", "bus-doors", "quiet"],
-          ["YOU", "STOP", "WANT", "sing-along", "children", "loud"],
+          ["YOU", "STOP", "WANT", "sing", "children", "loud"],
           ["GO", "DIFFERENT", "HELP", "bus", "horn-goes-beep", "fast"],
           [
             "LIKE",

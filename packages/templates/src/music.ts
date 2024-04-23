@@ -37,28 +37,28 @@ export const music: Template = {
       {
         intro: [
           ["MORE", "listen", "different", "song"],
-          ["STOP", "want", "like", "sing-along"],
+          ["STOP", "want", "like", "sing"],
         ],
         stageOne: [
           ["MORE", "LOOK", "listen", "song"],
-          ["STOP", "WANT", "sing-along", "music"],
+          ["STOP", "WANT", "sing", "music"],
           ["DIFFERENT", "HELP", "good", "bad"],
           ["LIKE", "NO", "wow", "uh-oh"],
         ],
         stageTwo: [
           ["ME", "MORE", "LOOK", "QUESTION", "playlist", "song"],
           ["YOU", "STOP", "WANT", "listen", "make", "music"],
-          ["GO", "DIFFERENT", "HELP", "sing-along", "dance", "loud"],
+          ["GO", "DIFFERENT", "HELP", "sing", "dance", "loud"],
           ["LIKE", "LITTLE", "BIG", "happy", "sad", "quiet"],
           ["WOW", "UH-OH", "NO", "good", "bad", "favourite"],
         ],
         eyePointing: [
           ["more", "song", "different"],
-          ["stop", "like", "sing-along"],
+          ["stop", "like", "sing"],
         ],
         handPointing: [
           ["more", "song", "different"],
-          ["stop", "like", "sing-along"],
+          ["stop", "like", "sing"],
         ],
       },
       "topic"

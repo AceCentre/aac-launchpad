@@ -267,7 +267,7 @@ const initialTiles: Array<Tile> = [
   { key: "dont-know", label: "don't know", isCore: true },
   { key: "down", label: "down", isCore: false },
   { key: "cross", label: "cross", isCore: false },
-  { key: "bus", label: "Wheels on the bus", isCore: false },
+  { key: "bus", label: "wheels on the bus", isCore: false },
   { key: "bus-doors", label: "Doors open and shut", isCore: false },
   { key: "children", label: "Children bounce up and down", isCore: false },
   { key: "turn-page", label: "turn page", isCore: false },

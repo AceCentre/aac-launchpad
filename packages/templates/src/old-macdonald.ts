@@ -40,14 +40,14 @@ export const oldMacdonald: Template = {
           ["STOP", "cow", "like", "pig"],
         ],
         stageOne: [
-          ["MORE", "LOOK", "sing-along", "sheep"],
+          ["MORE", "LOOK", "sing", "sheep"],
           ["STOP", "WANT", "old-macdonald", "pig"],
           ["DIFFERENT", "HELP", "cow", "horse"],
           ["LIKE", "NO", "wow", "uh-oh"],
         ],
         stageTwo: [
           ["ME", "MORE", "LOOK", "QUESTION", "sheep", "sound"],
-          ["YOU", "STOP", "WANT", "sing-along", "pig", "loud"],
+          ["YOU", "STOP", "WANT", "sing", "pig", "loud"],
           ["GO", "DIFFERENT", "HELP", "old-macdonald", "horse", "fast"],
           ["LIKE", "LITTLE", "BIG", "cow", "dog", "slow"],
           ["WOW", "UH-OH", "NO", "good", "bad", "fun"],
