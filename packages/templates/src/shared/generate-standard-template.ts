@@ -35,13 +35,12 @@ export const generateStandardTemplate = (
         defaultValue: title,
         maxLength: 100,
       },
+      generateAllSymbolPresets(TILES),
+      getLayoutPreset(layouts, "topic"),
+
       ...STANDARD_VARIABLES,
 
-      generateAllSymbolPresets(TILES),
-
       ...generateImageVariables(TILES, "pcs"),
-
-      getLayoutPreset(layouts, "topic"),
     ],
     templateDescription: ``,
     templateName: title,
