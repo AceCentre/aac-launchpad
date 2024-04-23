@@ -178,7 +178,7 @@ const initialTiles: Array<Tile> = [
   { key: "he", label: "he, him, his", isCore: true },
   { key: "it", label: "it(s)", isCore: false },
   { key: "have", label: "have, has", isCore: false },
-  { key: "bad", label: "bad (yucky)", isCore: false },
+  { key: "bad", label: "bad", isCore: false },
   { key: "can", label: "can", isCore: false },
   { key: "first", label: "first", isCore: false },
   { key: "next", label: "then (next)", isCore: false },
