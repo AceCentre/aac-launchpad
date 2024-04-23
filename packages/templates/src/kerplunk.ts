@@ -49,13 +49,13 @@ export const kerplunk: Template = {
         stageOne: [
           ["MORE", "LOOK", "play", "kerplunk"],
           ["STOP", "WANT", "fall-over", "marble"],
-          ["DIFFERENT", "HELP", "pull", "stick"],
+          ["DIFFERENT", "HELP", "pull", "wooden-stick"],
           ["LIKE", "NO", "wow", "uh-oh"],
         ],
         stageTwo: [
           ["ME", "MORE", "LOOK", "QUESTION", "kerplunk", "turn"],
           ["YOU", "STOP", "WANT", "play", "marble", "win"],
-          ["GO", "DIFFERENT", "HELP", "fall-over", "stick", "lose"],
+          ["GO", "DIFFERENT", "HELP", "fall-over", "wooden-stick", "lose"],
           ["LIKE", "LITTLE", "BIG", "push", "count", "some"],
           ["WOW", "UH-OH", "NO", "pull", "fun", "lots"],
         ],

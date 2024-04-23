@@ -109,6 +109,7 @@ const initialTiles: Array<Tile> = [
   { key: "dig", label: "dig", isCore: false },
   { key: "vegetable", label: "vegetable", isCore: false },
   { key: "mow", label: "mow", isCore: false },
+  { key: "wooden-stick", label: "stick", isCore: false },
 
   { key: "tie-knot", label: "tie knot", isCore: false },
   { key: "throw", label: "throw", isCore: false },
