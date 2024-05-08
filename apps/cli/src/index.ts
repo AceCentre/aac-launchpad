@@ -11,6 +11,8 @@ import { writeFileSync, statSync } from "fs";
 import { generateTestScreenshots } from "./generate-test-screenshots";
 import { generateSymbolCountCsv } from "./generate-symbol-count-csv";
 
+inquirer.registerPrompt("search-list", require("inquirer-search-list"));
+
 const convertBytes = function (bytes: number) {
   const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
 
@@ -40,7 +42,7 @@ const main = async () => {
 
   const templateAnswer: { template: string } = await inquirer.prompt([
     {
-      type: "list",
+      type: "search-list",
       name: "template",
       message: "Choose a template",
       choices: ALL_TEMPLATES.map((x) => {

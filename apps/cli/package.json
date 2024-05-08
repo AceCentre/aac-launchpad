@@ -26,6 +26,7 @@
   "dependencies": {
     "board-to-pdf": "*",
     "inquirer": "^8.2.3",
+    "inquirer-search-list": "^1.2.6",
     "pdf2pic": "^2.1.4",
     "template-to-board": "*",
     "templates": "*"
