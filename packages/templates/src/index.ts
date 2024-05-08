@@ -46,6 +46,7 @@ import { manicure } from "./manicure";
 import { bingo } from "./bingo";
 import { trains } from "./trains";
 import { gardening } from "./gardening";
+import { teaParty } from "./tea-party";
 
 export {
   core,
@@ -94,6 +95,7 @@ export {
   bingo,
   trains,
   gardening,
+  teaParty,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -144,6 +146,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   bingo,
   trains,
   gardening,
+  teaParty,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -178,4 +181,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   bingo,
   trains,
   gardening,
+  teaParty,
 ];
