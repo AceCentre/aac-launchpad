@@ -74,7 +74,7 @@ const resolvers = {
       input: GenerateBoardInput,
       context: any
     ) => {
-      const writeStartTime = process.hrtime();
+      const mutationStartTime = process.hrtime();
 
       let analyticsProperties: { [key: string]: string } = {};
       const keysToCollect = ["language", "symbol-system", "grid"];
@@ -94,9 +94,11 @@ const resolvers = {
       if (fs.existsSync(path.join("./public/boards", `${fileHash}.pdf`))) {
         console.log("Board served from cache!", fileHash);
 
-        const [writeSeconds, writeNanoSeconds] = process.hrtime(writeStartTime);
+        const [mutationSeconds, mutationNanoSeconds] =
+          process.hrtime(mutationStartTime);
 
-        const fullTimeInMs = writeSeconds * 1000 + writeNanoSeconds / 1000000;
+        const fullTimeInMs =
+          mutationSeconds * 1000 + mutationNanoSeconds / 1000000;
 
         console.log({
           context,
@@ -159,6 +161,8 @@ const resolvers = {
         `Board generation (${board.id}) ${totalSeconds}.${totalNanoSeconds}s`
       );
 
+      const writeStartTime = process.hrtime();
+
       fs.writeFileSync(
         path.join("./public/boards", `${fileHash}.pdf`),
         Buffer.from(pdf)
@@ -167,10 +171,18 @@ const resolvers = {
       const [writeSeconds, writeNanoSeconds] = process.hrtime(writeStartTime);
 
       console.log(
-        `Board saving took (${board.id}) ${writeSeconds}.${writeNanoSeconds}s`
+        `Write to disk took (${board.id}) ${writeSeconds}.${writeNanoSeconds}s`
       );
 
-      const fullTimeInMs = writeSeconds * 1000 + writeNanoSeconds / 1000000;
+      const [mutationSeconds, mutationNanoSeconds] =
+        process.hrtime(mutationStartTime);
+
+      console.log(
+        `Mutation took (${board.id}) ${mutationSeconds}.${mutationNanoSeconds}s`
+      );
+
+      const fullTimeInMs =
+        mutationSeconds * 1000 + mutationNanoSeconds / 1000000;
 
       console.log({
         context,
