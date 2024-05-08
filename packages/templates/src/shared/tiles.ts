@@ -127,6 +127,10 @@ const initialTiles: Array<Tile> = [
   { key: "cake", label: "cake", isCore: false },
   { key: "drink", label: "drink", isCore: false },
   { key: "afternoon", label: "afternoon", isCore: false },
+  { key: "costume", label: "costume", isCore: false },
+  { key: "mask", label: "mask", isCore: false },
+  { key: "cape", label: "cape", isCore: false },
+  { key: "dress-up", label: "dress-up", isCore: false },
 
   { key: "tie-knot", label: "tie knot", isCore: false },
   { key: "throw", label: "throw", isCore: false },
