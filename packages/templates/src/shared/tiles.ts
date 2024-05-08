@@ -110,6 +110,12 @@ const initialTiles: Array<Tile> = [
   { key: "vegetable", label: "vegetable", isCore: false },
   { key: "mow", label: "mow", isCore: false },
   { key: "wooden-stick", label: "stick", isCore: false },
+  { key: "pink", label: "pink", isCore: false },
+  { key: "orange", label: "orange", isCore: false },
+  { key: "black", label: "black", isCore: false },
+  { key: "silver", label: "silver, grey", isCore: false },
+  { key: "white", label: "white", isCore: false },
+  { key: "dark", label: "dark", isCore: false },
 
   { key: "tie-knot", label: "tie knot", isCore: false },
   { key: "throw", label: "throw", isCore: false },
