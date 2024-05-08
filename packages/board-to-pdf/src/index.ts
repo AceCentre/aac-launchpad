@@ -1,5 +1,5 @@
 /* eslint-disable no-loop-func */
-import { Board, Casing, Image, Option } from "types";
+import { Board, Button, Casing, Image, Option } from "types";
 import { ImageProperties, jsPDF } from "jspdf";
 import path from "path";
 import fs from "fs";
@@ -34,6 +34,18 @@ const DEFAULT_LABEL_FONT_STYLE = "normal";
 const DEFAULT_LABEL_FONT = "helvetica";
 
 const SPACE_RESERVED_FOR_ROW_LABEL = 24;
+
+const timeWork = async (label: string, work: () => {}) => {
+  const startTime = process.hrtime();
+
+  await work();
+
+  const [seconds, nanoSeconds] = process.hrtime(startTime);
+
+  const elapsedTimeSeconds = seconds + nanoSeconds / 1e9;
+
+  console.log(`Timing - ${label} - ${elapsedTimeSeconds}s`);
+};
 
 const calculateButtonSize = (
   pageWidth: number,
@@ -284,175 +296,195 @@ const boardToPdf = async (
 
     const pageStartTime = process.hrtime();
     // The first page doesn't need added as its there by default.
-    if (firstPage) {
-      firstPage = false;
-    } else {
-      doc.addPage("a4", currentPageOrientation);
-    }
+    await timeWork("firstPage", async () => {
+      console.log("Is firstPage", firstPage);
+      if (firstPage) {
+        firstPage = false;
+      } else {
+        doc.addPage("a4", currentPageOrientation);
+      }
+    });
 
     let documentHeight = currentPageHeight;
     let extraTopPadding = 0;
 
-    if (options.full_background_color) {
-      const fullBackgroundColor = getRGB(options.full_background_color);
+    await timeWork("fullBackgrundColour", async () => {
+      if (options.full_background_color) {
+        const fullBackgroundColor = getRGB(options.full_background_color);
 
-      doc
-        .setFillColor(
-          fullBackgroundColor.red,
-          fullBackgroundColor.green,
-          fullBackgroundColor.blue
-        )
-        .rect(0, 0, currentPageWidth, currentPageHeight, "F");
-    }
-
-    if (page.ext_launchpad_title_shown_on_board) {
-      doc.setFont(DEFAULT_LABEL_FONT, DEFAULT_LABEL_FONT_STYLE);
-
-      const titleHeight = doc.getFontSize() * POINT_TO_MM;
-
-      if (options.text_color_on_background) {
-        const textColourOnBackground = getRGB(options.text_color_on_background);
-        doc.setTextColor(
-          textColourOnBackground.red,
-          textColourOnBackground.green,
-          textColourOnBackground.blue
-        );
+        doc
+          .setFillColor(
+            fullBackgroundColor.red,
+            fullBackgroundColor.green,
+            fullBackgroundColor.blue
+          )
+          .rect(0, 0, currentPageWidth, currentPageHeight, "F");
       }
+    });
+    await timeWork("titleOnBoard", async () => {
+      if (page.ext_launchpad_title_shown_on_board) {
+        doc.setFont(DEFAULT_LABEL_FONT, DEFAULT_LABEL_FONT_STYLE);
 
-      doc.text(
-        page.ext_launchpad_title_shown_on_board,
-        currentPageWidth / 2,
-        10,
-        {
-          baseline: "top",
-          align: "center",
+        const titleHeight = doc.getFontSize() * POINT_TO_MM;
+
+        if (options.text_color_on_background) {
+          const textColourOnBackground = getRGB(
+            options.text_color_on_background
+          );
+          doc.setTextColor(
+            textColourOnBackground.red,
+            textColourOnBackground.green,
+            textColourOnBackground.blue
+          );
         }
-      );
 
-      documentHeight = documentHeight - verticalPadding - titleHeight;
-      extraTopPadding += 10 + titleHeight;
-    } else if (options.title_shown_on_board) {
-      doc.setFont(DEFAULT_LABEL_FONT, DEFAULT_LABEL_FONT_STYLE);
-
-      const titleHeight = doc.getFontSize() * POINT_TO_MM;
-
-      if (options.text_color_on_background) {
-        const textColourOnBackground = getRGB(options.text_color_on_background);
-        doc.setTextColor(
-          textColourOnBackground.red,
-          textColourOnBackground.green,
-          textColourOnBackground.blue
-        );
-      }
-
-      doc.text(options.title_shown_on_board, currentPageWidth / 2, 10, {
-        baseline: "top",
-        align: "center",
-      });
-
-      documentHeight = documentHeight - verticalPadding - titleHeight;
-      extraTopPadding += 10 + titleHeight;
-    }
-
-    if (options.copyright_notice && !options.use_ace_branding) {
-      doc
-        .setFontSize(10)
-        .text(
-          options.copyright_notice,
-          currentPageWidth - horizontalPadding,
-          currentPageHeight - verticalPadding,
-          {
-            baseline: "bottom",
-            align: "right",
-          }
-        );
-
-      const fontInMm = doc.getFontSize() * POINT_TO_MM;
-
-      documentHeight = documentHeight - 2 - fontInMm;
-    }
-
-    if (addPageNumbers) {
-      doc
-        .setFontSize(10)
-        .text(
-          "Page " + pageNumber,
-          currentPageWidth - 8,
-          currentPageHeight - 8,
-          {
-            baseline: "bottom",
-            align: "right",
-          }
-        );
-    }
-
-    if (options.use_ace_branding === true) {
-      const logoImageData = getImageFromFile(
-        __dirname,
-        "../../../ace-logo.png"
-      );
-      const logoProperties = doc.getImageProperties(logoImageData);
-
-      const scale = 0.15;
-      const logoWidth = logoProperties.width * scale;
-      const logoHeight = logoProperties.height * scale;
-
-      await doc.addImage(
-        logoImageData,
-        logoProperties.fileType,
-        10,
-        currentPageHeight - logoHeight - 2,
-        logoWidth,
-        logoHeight,
-        "ace-logo",
-        "FAST",
-        0
-      );
-
-      doc
-        .setFontSize(10)
-        .text(
-          "A free resource created by the charity acecentre.org.uk",
-          10 + logoWidth + 2,
-          currentPageHeight - logoHeight / 2 - 2,
+        doc.text(
+          page.ext_launchpad_title_shown_on_board,
+          currentPageWidth / 2,
+          10,
           {
             baseline: "top",
-            align: "left",
+            align: "center",
           }
         );
 
-      if (options.copyright_notice) {
+        documentHeight = documentHeight - verticalPadding - titleHeight;
+        extraTopPadding += 10 + titleHeight;
+      } else if (options.title_shown_on_board) {
+        doc.setFont(DEFAULT_LABEL_FONT, DEFAULT_LABEL_FONT_STYLE);
+
+        const titleHeight = doc.getFontSize() * POINT_TO_MM;
+
+        if (options.text_color_on_background) {
+          const textColourOnBackground = getRGB(
+            options.text_color_on_background
+          );
+          doc.setTextColor(
+            textColourOnBackground.red,
+            textColourOnBackground.green,
+            textColourOnBackground.blue
+          );
+        }
+
+        doc.text(options.title_shown_on_board, currentPageWidth / 2, 10, {
+          baseline: "top",
+          align: "center",
+        });
+
+        documentHeight = documentHeight - verticalPadding - titleHeight;
+        extraTopPadding += 10 + titleHeight;
+      }
+    });
+
+    await timeWork("copyrightNotice", async () => {
+      if (options.copyright_notice && !options.use_ace_branding) {
         doc
           .setFontSize(10)
           .text(
             options.copyright_notice,
             currentPageWidth - horizontalPadding,
-            currentPageHeight - logoHeight / 2 - 2,
+            currentPageHeight - verticalPadding,
             {
-              baseline: "top",
+              baseline: "bottom",
+              align: "right",
+            }
+          );
+
+        const fontInMm = doc.getFontSize() * POINT_TO_MM;
+
+        documentHeight = documentHeight - 2 - fontInMm;
+      }
+    });
+
+    await timeWork("pageNumbers", async () => {
+      if (addPageNumbers) {
+        doc
+          .setFontSize(10)
+          .text(
+            "Page " + pageNumber,
+            currentPageWidth - 8,
+            currentPageHeight - 8,
+            {
+              baseline: "bottom",
               align: "right",
             }
           );
       }
+    });
 
-      // Something funky is happening here but this seems to fix it.
-      // Problem for another day
-      // I suspect the units are messed up
-      documentHeight = documentHeight - 10;
-    }
+    await timeWork("aceBranding", async () => {
+      if (options.use_ace_branding === true) {
+        const logoImageData = getImageFromFile(
+          __dirname,
+          "../../../ace-logo.png"
+        );
+        const logoProperties = doc.getImageProperties(logoImageData);
 
-    const buttonDimensions = calculateButtonSize(
-      currentPageWidth,
-      documentHeight,
-      horizontalPadding,
-      verticalPadding,
-      gap,
-      page.grid.rows,
-      page.grid.columns,
-      withRowLabels
-    );
+        const scale = 0.15;
+        const logoWidth = logoProperties.width * scale;
+        const logoHeight = logoProperties.height * scale;
 
-    let addImageArray = [];
+        await doc.addImage(
+          logoImageData,
+          logoProperties.fileType,
+          10,
+          currentPageHeight - logoHeight - 2,
+          logoWidth,
+          logoHeight,
+          "ace-logo",
+          "FAST",
+          0
+        );
+
+        doc
+          .setFontSize(10)
+          .text(
+            "A free resource created by the charity acecentre.org.uk",
+            10 + logoWidth + 2,
+            currentPageHeight - logoHeight / 2 - 2,
+            {
+              baseline: "top",
+              align: "left",
+            }
+          );
+
+        if (options.copyright_notice) {
+          doc
+            .setFontSize(10)
+            .text(
+              options.copyright_notice,
+              currentPageWidth - horizontalPadding,
+              currentPageHeight - logoHeight / 2 - 2,
+              {
+                baseline: "top",
+                align: "right",
+              }
+            );
+        }
+
+        // Something funky is happening here but this seems to fix it.
+        // Problem for another day
+        // I suspect the units are messed up
+        documentHeight = documentHeight - 10;
+      }
+    });
+
+    let buttonDimensions: ButtonDimensions = { width: 0, height: 0 };
+
+    await timeWork("calcButtonSize", async () => {
+      buttonDimensions = calculateButtonSize(
+        currentPageWidth,
+        documentHeight,
+        horizontalPadding,
+        verticalPadding,
+        gap,
+        page.grid.rows,
+        page.grid.columns,
+        withRowLabels
+      );
+    });
+
+    let addImageArray: Array<any> = [];
     let loadImagesPromises = [];
     let loadedImages: {
       [key: string]: {
@@ -464,56 +496,58 @@ const boardToPdf = async (
 
     // Go through the grid to find all images used to load them all at the same time
     const loadImagesStartTime = process.hrtime();
-    for (let rowCount = 0; rowCount < page.grid.rows; rowCount++) {
-      for (
-        let columnCount = 0;
-        columnCount < page.grid.columns;
-        columnCount++
-      ) {
-        loadImagesPromises.push(
-          (async () => {
-            const currentButtonId = page.grid.order[rowCount][columnCount];
-            if (currentButtonId === null) {
-              return;
-            }
 
-            const currentButton = board.buttons.find(
-              (x) => x.id === currentButtonId
-            );
+    await timeWork("loadAllImages", async () => {
+      for (let rowCount = 0; rowCount < page.grid.rows; rowCount++) {
+        for (
+          let columnCount = 0;
+          columnCount < page.grid.columns;
+          columnCount++
+        ) {
+          loadImagesPromises.push(
+            (async () => {
+              const currentButtonId = page.grid.order[rowCount][columnCount];
+              if (currentButtonId === null) {
+                return;
+              }
 
-            if (currentButton === undefined) {
-              throw new Error(
-                `Button referenced in Grid but not defined ('${currentButtonId}')`
+              const currentButton = board.buttons.find(
+                (x) => x.id === currentButtonId
               );
-            }
 
-            if (currentButton.image_id !== undefined) {
-              const image = board.images.find(
-                (x) => x.id === currentButton.image_id
-              );
-              if (image === undefined) {
+              if (currentButton === undefined) {
                 throw new Error(
-                  `Image referenced in Button but not defined (image: '${currentButton.image_id}', button: ${currentButtonId}, row: ${rowCount}, column: ${columnCount})`
+                  `Button referenced in Grid but not defined ('${currentButtonId}')`
                 );
               }
-              const isUrl = validateUrl(image.url);
-              const imageData = isUrl
-                ? await getImageFromNetwork(image.url)
-                : getImageFromFile(boardToPdfOptions.rootToImages, image.url);
-              const imageProperties = doc.getImageProperties(imageData);
-              loadedImages[currentButtonId] = {
-                imageData,
-                imageProperties,
-                image,
-              };
-            }
-          })()
-        );
+
+              if (currentButton.image_id !== undefined) {
+                const image = board.images.find(
+                  (x) => x.id === currentButton.image_id
+                );
+                if (image === undefined) {
+                  throw new Error(
+                    `Image referenced in Button but not defined (image: '${currentButton.image_id}', button: ${currentButtonId}, row: ${rowCount}, column: ${columnCount})`
+                  );
+                }
+                const isUrl = validateUrl(image.url);
+                const imageData = isUrl
+                  ? await getImageFromNetwork(image.url)
+                  : getImageFromFile(boardToPdfOptions.rootToImages, image.url);
+                const imageProperties = doc.getImageProperties(imageData);
+                loadedImages[currentButtonId] = {
+                  imageData,
+                  imageProperties,
+                  image,
+                };
+              }
+            })()
+          );
+        }
       }
-    }
 
-    await Promise.all(loadImagesPromises);
-
+      await Promise.all(loadImagesPromises);
+    });
     const [loadImagesTotalSeconds, loadImagesTotalNanoSeconds] =
       process.hrtime(loadImagesStartTime);
 
@@ -528,364 +562,373 @@ const boardToPdf = async (
       column: number;
     }> = [];
 
-    for (let rowCount = 0; rowCount < page.grid.rows; rowCount++) {
-      // Draw the row label for this row
-      if (withRowLabels) {
-        const label = rowCount + 1;
+    await timeWork("drawLoop", async () => {
+      for (let rowCount = 0; rowCount < page.grid.rows; rowCount++) {
+        // Draw the row label for this row
+        if (withRowLabels) {
+          const label = rowCount + 1;
 
-        const currentX = horizontalPadding + SPACE_RESERVED_FOR_ROW_LABEL / 2;
+          const currentX = horizontalPadding + SPACE_RESERVED_FOR_ROW_LABEL / 2;
 
-        const currentY =
-          rowCount * (buttonDimensions.height + gap) +
-          verticalPadding +
-          extraTopPadding;
+          const currentY =
+            rowCount * (buttonDimensions.height + gap) +
+            verticalPadding +
+            extraTopPadding;
 
-        doc
-          .setFont(DEFAULT_LABEL_FONT, DEFAULT_LABEL_FONT_STYLE)
-          .setFontSize(30);
+          doc
+            .setFont(DEFAULT_LABEL_FONT, DEFAULT_LABEL_FONT_STYLE)
+            .setFontSize(30);
 
-        if (options.text_color_on_background) {
-          const textColourOnBackground = getRGB(
-            options.text_color_on_background
-          );
-          doc.setTextColor(
-            textColourOnBackground.red,
-            textColourOnBackground.green,
-            textColourOnBackground.blue
-          );
-        }
-
-        doc.text(
-          String(label),
-          currentX,
-          currentY + buttonDimensions.height / 2,
-          {
-            baseline: "middle",
-            align: "center",
+          if (options.text_color_on_background) {
+            const textColourOnBackground = getRGB(
+              options.text_color_on_background
+            );
+            doc.setTextColor(
+              textColourOnBackground.red,
+              textColourOnBackground.green,
+              textColourOnBackground.blue
+            );
           }
-        );
-      }
 
-      for (
-        let columnCount = 0;
-        columnCount < page.grid.columns;
-        columnCount++
-      ) {
-        let cellSeen = false;
-
-        for (const seen of alreadySeen) {
-          if (seen.row === rowCount && seen.column === columnCount) {
-            cellSeen = true;
-          }
-        }
-
-        if (cellSeen) {
-          continue;
-        }
-
-        const buttonStartTime = process.hrtime();
-
-        const currentButtonId = page.grid.order[rowCount][columnCount];
-
-        if (currentButtonId === null) {
-          continue;
-        }
-
-        const currentButton = board.buttons.find(
-          (x) => x.id === currentButtonId
-        );
-
-        if (currentButton === undefined) {
-          throw new Error(
-            `Button referenced in Grid but not defined ('${currentButtonId}')`
-          );
-        }
-
-        let buttonsWide = 0;
-        let buttonsTall = 0;
-
-        // Look forward to see if this is a long button
-        for (let i = columnCount; i < page.grid.columns; i++) {
-          const temp = page.grid.order[rowCount][i];
-          if (temp === currentButtonId) {
-            buttonsWide++;
-
-            alreadySeen.push({ row: rowCount, column: i });
-          } else {
-            break;
-          }
-        }
-
-        // Look forward to see if this is a tall button
-        for (let i = rowCount; i < page.grid.rows; i++) {
-          const temp = page.grid.order[i][columnCount];
-
-          if (temp === currentButtonId) {
-            for (let x = 0; x < buttonsWide; x++) {
-              alreadySeen.push({ row: i, column: columnCount + x });
+          doc.text(
+            String(label),
+            currentX,
+            currentY + buttonDimensions.height / 2,
+            {
+              baseline: "middle",
+              align: "center",
             }
-
-            buttonsTall++;
-          } else {
-            break;
-          }
-        }
-
-        const backgroundColor = getRGB(currentButton.background_color);
-        const borderColor = getRGB(currentButton.border_color);
-        const textColor = getRGB(
-          currentButton.ext_launchpad_label_color ?? DEFAULT_LABEL_COLOR
-        );
-
-        let fontSize =
-          currentButton.ext_launchpad_label_font_size ??
-          DEFAULT_LABEL_FONT_SIZE;
-        const fontStyle =
-          currentButton.ext_launchpad_label_font_style ??
-          DEFAULT_LABEL_FONT_STYLE;
-        const fontName =
-          currentButton.ext_launchpad_label_font ?? DEFAULT_LABEL_FONT;
-        const labelCasing =
-          currentButton.ext_launchpad_label_casing ?? DEFAULT_LABEL_CASING;
-        const labelBelow =
-          currentButton.ext_launchpad_label_below ?? DEFAULT_LABEL_BELOW;
-        const buttonBorderWidth =
-          currentButton.ext_button_border_width ?? documentButtonBorderWidth;
-        const dashedLine = currentButton.dashed_line ?? false;
-
-        const labelText = alterCasing(currentButton.label, labelCasing);
-
-        const fontList = doc.getFontList();
-
-        const selectedFont = fontList[fontName];
-
-        if (!selectedFont || !selectedFont.includes(fontStyle)) {
-          throw new Error(
-            `Font '${fontName}' with style '${fontStyle}' not found`
           );
         }
 
-        const spaceForLabels = withRowLabels ? SPACE_RESERVED_FOR_ROW_LABEL : 0;
+        for (
+          let columnCount = 0;
+          columnCount < page.grid.columns;
+          columnCount++
+        ) {
+          let cellSeen = false;
 
-        const currentX =
-          columnCount * (buttonDimensions.width + gap) +
-          horizontalPadding +
-          spaceForLabels;
-        const currentY =
-          rowCount * (buttonDimensions.height + gap) +
-          verticalPadding +
-          extraTopPadding;
+          for (const seen of alreadySeen) {
+            if (seen.row === rowCount && seen.column === columnCount) {
+              cellSeen = true;
+            }
+          }
 
-        const cellWidth =
-          buttonDimensions.width * buttonsWide + gap * (buttonsWide - 1);
-        const cellHeight =
-          buttonDimensions.height * buttonsTall + gap * (buttonsTall - 1);
+          if (cellSeen) {
+            continue;
+          }
 
-        let rectHeight = cellHeight;
+          const buttonStartTime = process.hrtime();
 
-        if (labelBelow) {
-          const labelHeight = fontSize * POINT_TO_MM;
-          const gapBetweenBoxAndLabel = Math.max(labelHeight * 0.2, 2);
+          const currentButtonId = page.grid.order[rowCount][columnCount];
 
-          rectHeight = cellHeight - labelHeight - gapBetweenBoxAndLabel;
-        }
+          if (currentButtonId === null) {
+            continue;
+          }
 
-        // Skip over the extra buttons
+          const currentButton = board.buttons.find(
+            (x) => x.id === currentButtonId
+          );
 
-        doc.setFont(fontName, fontStyle).setFontSize(fontSize);
+          if (currentButton === undefined) {
+            throw new Error(
+              `Button referenced in Grid but not defined ('${currentButtonId}')`
+            );
+          }
 
-        let longestLine = labelText
-          .split("\n")
-          .map((x) => x.trim())
-          .sort((a, b) => a.length - b.length)[0];
+          let buttonsWide = 0;
+          let buttonsTall = 0;
 
-        if (autoFitLabels) {
-          let textAreaWidth = cellWidth - buttonRadius - 2;
-          let textDimensions = doc.getTextDimensions(longestLine);
+          // Look forward to see if this is a long button
+          for (let i = columnCount; i < page.grid.columns; i++) {
+            const temp = page.grid.order[rowCount][i];
+            if (temp === currentButtonId) {
+              buttonsWide++;
 
-          for (let i = fontSize; i > 1; i--) {
-            doc.setFontSize(i);
-            textDimensions = doc.getTextDimensions(longestLine);
-
-            if (textDimensions.w < textAreaWidth) {
+              alreadySeen.push({ row: rowCount, column: i });
+            } else {
               break;
             }
           }
-        }
 
-        const dashPattern = dashedLine ? [1, 1] : [99999999, 1];
+          // Look forward to see if this is a tall button
+          for (let i = rowCount; i < page.grid.rows; i++) {
+            const temp = page.grid.order[i][columnCount];
 
-        doc
-          .setLineWidth(buttonBorderWidth)
-          .setLineDashPattern(dashPattern, 0)
-          .setDrawColor(borderColor.red, borderColor.green, borderColor.blue)
-          .setFillColor(
-            backgroundColor.red,
-            backgroundColor.green,
-            backgroundColor.blue
-          )
-          .roundedRect(
-            currentX,
-            currentY,
-            cellWidth,
-            rectHeight,
-            buttonRadius,
-            buttonRadius,
-            "FD"
-          )
-          .setTextColor(textColor.red, textColor.green, textColor.blue);
+            if (temp === currentButtonId) {
+              for (let x = 0; x < buttonsWide; x++) {
+                alreadySeen.push({ row: i, column: columnCount + x });
+              }
 
-        if (currentButton.image_id !== undefined) {
-          const currentImage = loadedImages[currentButtonId];
-
-          // The content will max be n% wide or tall
-          const CONTENT_PERCENTAGE = 0.8;
-          const fontHeightInMm = doc.getFontSize() * POINT_TO_MM;
-          const fontImageGap = fontHeightInMm * 0.2;
-
-          const widthToHeightRatio =
-            currentImage.imageProperties.height /
-            currentImage.imageProperties.width;
-          const heightToWidthRatio =
-            currentImage.imageProperties.width /
-            currentImage.imageProperties.height;
-
-          let contentWidth = cellWidth * CONTENT_PERCENTAGE;
-          let contentHeight =
-            contentWidth * widthToHeightRatio + fontHeightInMm + fontImageGap;
-
-          if (labelBelow) {
-            contentHeight = contentWidth * widthToHeightRatio;
+              buttonsTall++;
+            } else {
+              break;
+            }
           }
 
-          const maxHeight = cellHeight * CONTENT_PERCENTAGE;
+          const backgroundColor = getRGB(currentButton.background_color);
+          const borderColor = getRGB(currentButton.border_color);
+          const textColor = getRGB(
+            currentButton.ext_launchpad_label_color ?? DEFAULT_LABEL_COLOR
+          );
 
-          if (contentHeight > maxHeight) {
-            contentHeight = cellHeight * CONTENT_PERCENTAGE;
+          let fontSize =
+            currentButton.ext_launchpad_label_font_size ??
+            DEFAULT_LABEL_FONT_SIZE;
+          const fontStyle =
+            currentButton.ext_launchpad_label_font_style ??
+            DEFAULT_LABEL_FONT_STYLE;
+          const fontName =
+            currentButton.ext_launchpad_label_font ?? DEFAULT_LABEL_FONT;
+          const labelCasing =
+            currentButton.ext_launchpad_label_casing ?? DEFAULT_LABEL_CASING;
+          const labelBelow =
+            currentButton.ext_launchpad_label_below ?? DEFAULT_LABEL_BELOW;
+          const buttonBorderWidth =
+            currentButton.ext_button_border_width ?? documentButtonBorderWidth;
+          const dashedLine = currentButton.dashed_line ?? false;
+
+          const labelText = alterCasing(currentButton.label, labelCasing);
+
+          const fontList = doc.getFontList();
+
+          const selectedFont = fontList[fontName];
+
+          if (!selectedFont || !selectedFont.includes(fontStyle)) {
+            throw new Error(
+              `Font '${fontName}' with style '${fontStyle}' not found`
+            );
+          }
+
+          const spaceForLabels = withRowLabels
+            ? SPACE_RESERVED_FOR_ROW_LABEL
+            : 0;
+
+          const currentX =
+            columnCount * (buttonDimensions.width + gap) +
+            horizontalPadding +
+            spaceForLabels;
+          const currentY =
+            rowCount * (buttonDimensions.height + gap) +
+            verticalPadding +
+            extraTopPadding;
+
+          const cellWidth =
+            buttonDimensions.width * buttonsWide + gap * (buttonsWide - 1);
+          const cellHeight =
+            buttonDimensions.height * buttonsTall + gap * (buttonsTall - 1);
+
+          let rectHeight = cellHeight;
+
+          if (labelBelow) {
+            const labelHeight = fontSize * POINT_TO_MM;
+            const gapBetweenBoxAndLabel = Math.max(labelHeight * 0.2, 2);
+
+            rectHeight = cellHeight - labelHeight - gapBetweenBoxAndLabel;
+          }
+
+          // Skip over the extra buttons
+
+          doc.setFont(fontName, fontStyle).setFontSize(fontSize);
+
+          let longestLine = labelText
+            .split("\n")
+            .map((x) => x.trim())
+            .sort((a, b) => a.length - b.length)[0];
+
+          if (autoFitLabels) {
+            let textAreaWidth = cellWidth - buttonRadius - 2;
+            let textDimensions = doc.getTextDimensions(longestLine);
+
+            for (let i = fontSize; i > 1; i--) {
+              doc.setFontSize(i);
+              textDimensions = doc.getTextDimensions(longestLine);
+
+              if (textDimensions.w < textAreaWidth) {
+                break;
+              }
+            }
+          }
+
+          const dashPattern = dashedLine ? [1, 1] : [99999999, 1];
+
+          doc
+            .setLineWidth(buttonBorderWidth)
+            .setLineDashPattern(dashPattern, 0)
+            .setDrawColor(borderColor.red, borderColor.green, borderColor.blue)
+            .setFillColor(
+              backgroundColor.red,
+              backgroundColor.green,
+              backgroundColor.blue
+            )
+            .roundedRect(
+              currentX,
+              currentY,
+              cellWidth,
+              rectHeight,
+              buttonRadius,
+              buttonRadius,
+              "FD"
+            )
+            .setTextColor(textColor.red, textColor.green, textColor.blue);
+
+          if (currentButton.image_id !== undefined) {
+            const currentImage = loadedImages[currentButtonId];
+
+            // The content will max be n% wide or tall
+            const CONTENT_PERCENTAGE = 0.8;
+            const fontHeightInMm = doc.getFontSize() * POINT_TO_MM;
+            const fontImageGap = fontHeightInMm * 0.2;
+
+            const widthToHeightRatio =
+              currentImage.imageProperties.height /
+              currentImage.imageProperties.width;
+            const heightToWidthRatio =
+              currentImage.imageProperties.width /
+              currentImage.imageProperties.height;
+
+            let contentWidth = cellWidth * CONTENT_PERCENTAGE;
+            let contentHeight =
+              contentWidth * widthToHeightRatio + fontHeightInMm + fontImageGap;
+
+            if (labelBelow) {
+              contentHeight = contentWidth * widthToHeightRatio;
+            }
+
+            const maxHeight = cellHeight * CONTENT_PERCENTAGE;
+
+            if (contentHeight > maxHeight) {
+              contentHeight = cellHeight * CONTENT_PERCENTAGE;
+              let imageHeight = contentHeight - fontHeightInMm - fontImageGap;
+              if (labelBelow) {
+                imageHeight = contentHeight;
+              }
+              contentWidth = imageHeight * heightToWidthRatio;
+            }
+
             let imageHeight = contentHeight - fontHeightInMm - fontImageGap;
+
             if (labelBelow) {
               imageHeight = contentHeight;
             }
-            contentWidth = imageHeight * heightToWidthRatio;
-          }
 
-          let imageHeight = contentHeight - fontHeightInMm - fontImageGap;
+            let imageX = currentX + (cellWidth - contentWidth) / 2;
+            let imageY = currentY + (rectHeight - contentHeight) / 2;
 
-          if (labelBelow) {
-            imageHeight = contentHeight;
-          }
+            let topPadding = (cellHeight - contentHeight) / 2;
+            let textX = currentX + cellWidth / 2;
+            let textY = currentY + topPadding + imageHeight + fontImageGap;
 
-          let imageX = currentX + (cellWidth - contentWidth) / 2;
-          let imageY = currentY + (rectHeight - contentHeight) / 2;
+            if (labelAboveSymbol) {
+              textY = imageY;
+              imageY = textY + fontHeightInMm + fontImageGap;
+            }
 
-          let topPadding = (cellHeight - contentHeight) / 2;
-          let textX = currentX + cellWidth / 2;
-          let textY = currentY + topPadding + imageHeight + fontImageGap;
-
-          if (labelAboveSymbol) {
-            textY = imageY;
-            imageY = textY + fontHeightInMm + fontImageGap;
-          }
-
-          addImageArray.push({
-            imageData: currentImage.imageData,
-            fileType: currentImage.imageProperties.fileType,
-            imageX,
-            imageY,
-            contentWidth,
-            imageHeight,
-            url: currentImage.image.url,
-          });
-
-          if (labelBelow) {
-            doc.text(labelText, textX, currentY + cellHeight, {
-              baseline: "bottom",
-              align: "center",
+            addImageArray.push({
+              imageData: currentImage.imageData,
+              fileType: currentImage.imageProperties.fileType,
+              imageX,
+              imageY,
+              contentWidth,
+              imageHeight,
+              url: currentImage.image.url,
             });
+
+            if (labelBelow) {
+              doc.text(labelText, textX, currentY + cellHeight, {
+                baseline: "bottom",
+                align: "center",
+              });
+            } else {
+              doc.text(labelText, textX, textY, {
+                baseline: "top",
+                align: "center",
+              });
+            }
           } else {
-            doc.text(labelText, textX, textY, {
-              baseline: "top",
-              align: "center",
-            });
+            let lines = labelText.split("\n").map((x) => x.trim());
+
+            // Offset the y coord by half the total height of all the text
+            const centerY = currentY + cellHeight / 2;
+            const lineHeightInMM = doc.getLineHeight() * POINT_TO_MM;
+            const totalTextHeight = lineHeightInMM * lines.length;
+            const halfTextHeight = totalTextHeight / 2;
+            const finalY = centerY - halfTextHeight;
+
+            if (labelBelow) {
+              doc.text(lines, currentX + cellWidth / 2, currentY + cellHeight, {
+                baseline: "bottom",
+                align: "center",
+              });
+            } else {
+              doc.text(lines, currentX + cellWidth / 2, finalY, {
+                baseline: "top",
+                align: "center",
+              });
+            }
           }
-        } else {
-          let lines = labelText.split("\n").map((x) => x.trim());
 
-          // Offset the y coord by half the total height of all the text
-          const centerY = currentY + cellHeight / 2;
-          const lineHeightInMM = doc.getLineHeight() * POINT_TO_MM;
-          const totalTextHeight = lineHeightInMM * lines.length;
-          const halfTextHeight = totalTextHeight / 2;
-          const finalY = centerY - halfTextHeight;
+          const [buttonTotalSeconds, buttonTotalNanoSeconds] =
+            process.hrtime(buttonStartTime);
 
-          if (labelBelow) {
-            doc.text(lines, currentX + cellWidth / 2, currentY + cellHeight, {
-              baseline: "bottom",
-              align: "center",
-            });
-          } else {
-            doc.text(lines, currentX + cellWidth / 2, finalY, {
-              baseline: "top",
-              align: "center",
-            });
+          if (boardToPdfOptions.verboseTimingLogs) {
+            console.log(
+              `Button generation (${board.id} - ${page.id} - ${currentButton.id}) ${buttonTotalSeconds}.${buttonTotalNanoSeconds}s`
+            );
           }
-        }
-
-        const [buttonTotalSeconds, buttonTotalNanoSeconds] =
-          process.hrtime(buttonStartTime);
-
-        if (boardToPdfOptions.verboseTimingLogs) {
-          console.log(
-            `Button generation (${board.id} - ${page.id} - ${currentButton.id}) ${buttonTotalSeconds}.${buttonTotalNanoSeconds}s`
-          );
         }
       }
-    }
+    });
 
-    if (overlayImage) {
-      const overlayImageData = getImageFromFile(
-        boardToPdfOptions.rootToImages,
-        overlayImage.path
-      );
+    await timeWork("overlayImage", async () => {
+      if (overlayImage) {
+        const overlayImageData = getImageFromFile(
+          boardToPdfOptions.rootToImages,
+          overlayImage.path
+        );
 
-      const overlayProperties = doc.getImageProperties(overlayImageData);
-      const scale = overlayImage.scale;
-      const overlayWidth = overlayProperties.width * scale;
-      const overlayHeight = overlayProperties.height * scale;
+        const overlayProperties = doc.getImageProperties(overlayImageData);
+        const scale = overlayImage.scale;
+        const overlayWidth = overlayProperties.width * scale;
+        const overlayHeight = overlayProperties.height * scale;
 
-      const overlayX = currentPageWidth / 2 - overlayWidth / 2;
-      const overlayY = extraTopPadding + verticalPadding - overlayImage.yOffset;
+        const overlayX = currentPageWidth / 2 - overlayWidth / 2;
+        const overlayY =
+          extraTopPadding + verticalPadding - overlayImage.yOffset;
 
-      await doc.addImage(
-        overlayImageData,
-        overlayProperties.fileType,
-        overlayX,
-        overlayY,
-        overlayWidth,
-        overlayHeight,
-        "overlay",
-        "FAST",
-        0
-      );
-    }
+        await doc.addImage(
+          overlayImageData,
+          overlayProperties.fileType,
+          overlayX,
+          overlayY,
+          overlayWidth,
+          overlayHeight,
+          "overlay",
+          "FAST",
+          0
+        );
+      }
+    });
 
     const addImageStartTime = process.hrtime();
 
-    const addImagePromises = addImageArray.map(async (options) => {
-      return doc.addImage(
-        options.imageData,
-        options.fileType,
-        options.imageX,
-        options.imageY,
-        options.contentWidth,
-        options.imageHeight,
-        options.url,
-        "FAST",
-        0
-      );
-    });
+    await timeWork("addImages", async () => {
+      const addImagePromises = addImageArray.map(async (options) => {
+        return doc.addImage(
+          options.imageData,
+          options.fileType,
+          options.imageX,
+          options.imageY,
+          options.contentWidth,
+          options.imageHeight,
+          options.url,
+          "FAST",
+          0
+        );
+      });
 
-    await Promise.all(addImagePromises);
+      await Promise.all(addImagePromises);
+    });
 
     const [addImageTotalSeconds, addImageTotalNanoSeconds] =
       process.hrtime(addImageStartTime);
@@ -907,46 +950,48 @@ const boardToPdf = async (
     pageNumber++;
   }
 
-  if (
-    board.ext_launchpad_options.ext_launchpad_prepend_pdf &&
-    board.ext_launchpad_options.ext_launchpad_prepend_pdf !== undefined
-  ) {
-    const prependPdfName =
-      board.ext_launchpad_options.ext_launchpad_prepend_pdf;
+  await timeWork("prependPdf", async () => {
+    if (
+      board.ext_launchpad_options.ext_launchpad_prepend_pdf &&
+      board.ext_launchpad_options.ext_launchpad_prepend_pdf !== undefined
+    ) {
+      const prependPdfName =
+        board.ext_launchpad_options.ext_launchpad_prepend_pdf;
 
-    const prependStartTime = process.hrtime();
+      const prependStartTime = process.hrtime();
 
-    const buffer: Buffer = await new Promise((resolve, reject) => {
-      pdftk
-        .input({
-          A: path.join(boardToPdfOptions.rootToPdfs, prependPdfName),
-          B: Buffer.from(doc.output("arraybuffer")),
-        })
-        .cat("A B")
-        .output()
-        .then((buffer) => resolve(buffer))
-        .catch((error) => reject(error));
-    });
+      const buffer: Buffer = await new Promise((resolve, reject) => {
+        pdftk
+          .input({
+            A: path.join(boardToPdfOptions.rootToPdfs, prependPdfName),
+            B: Buffer.from(doc.output("arraybuffer")),
+          })
+          .cat("A B")
+          .output()
+          .then((buffer) => resolve(buffer))
+          .catch((error) => reject(error));
+      });
 
-    const [totalSeconds, totalNanoSeconds] = process.hrtime(startTime);
+      const [totalSeconds, totalNanoSeconds] = process.hrtime(startTime);
 
-    const [prependTotalSeconds, prependTotalNanoSeconds] =
-      process.hrtime(prependStartTime);
+      const [prependTotalSeconds, prependTotalNanoSeconds] =
+        process.hrtime(prependStartTime);
 
-    if (boardToPdfOptions.verboseTimingLogs) {
-      console.log(
-        `Page generation (${board.id} - ${board.ext_launchpad_options.ext_launchpad_prepend_pdf}) ${prependTotalSeconds}.${prependTotalNanoSeconds}s`
-      );
+      if (boardToPdfOptions.verboseTimingLogs) {
+        console.log(
+          `Page generation (${board.id} - ${board.ext_launchpad_options.ext_launchpad_prepend_pdf}) ${prependTotalSeconds}.${prependTotalNanoSeconds}s`
+        );
+      }
+
+      return {
+        // This breaks down if we ever prepend more than one page
+        numberOfPages: doc.getNumberOfPages() + 1,
+        pdf: buffer,
+        totalSeconds,
+        totalNanoSeconds,
+      };
     }
-
-    return {
-      // This breaks down if we ever prepend more than one page
-      numberOfPages: doc.getNumberOfPages() + 1,
-      pdf: buffer,
-      totalSeconds,
-      totalNanoSeconds,
-    };
-  }
+  });
 
   const [totalSeconds, totalNanoSeconds] = process.hrtime(startTime);
 
