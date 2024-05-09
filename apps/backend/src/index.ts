@@ -131,6 +131,8 @@ const resolvers = {
           message: "Board generated!",
           fileLocation,
         };
+      } else {
+        console.log("Board not in cache!", fileHash);
       }
 
       for (const currentAnswer of input.answers) {
@@ -326,21 +328,21 @@ setupServer();
 const CLEAR_INTERVAL = 60 * 60 * 1000; // 60 minutes
 const MIN_STORAGE_TIME = 60000; // 60 Seconds
 
-setInterval(async () => {
-  // Get the files then wait a while,
-  // this is incase the user only just got the download link
-  const filesToDelete = fs.readdirSync("./public/boards");
-  await new Promise((res) => setTimeout(res, MIN_STORAGE_TIME));
+// setInterval(async () => {
+//   // Get the files then wait a while,
+//   // this is incase the user only just got the download link
+//   const filesToDelete = fs.readdirSync("./public/boards");
+//   await new Promise((res) => setTimeout(res, MIN_STORAGE_TIME));
 
-  // Delete the files
-  for (const file of filesToDelete) {
-    if (file.includes("sample.pdf")) continue;
+//   // Delete the files
+//   for (const file of filesToDelete) {
+//     if (file.includes("sample.pdf")) continue;
 
-    const filePath = path.join("./public/boards", file);
-    fs.unlinkSync(filePath);
-    console.log(`🗑  Deleting: ${file}`);
-  }
-}, CLEAR_INTERVAL);
+//     const filePath = path.join("./public/boards", file);
+//     fs.unlinkSync(filePath);
+//     console.log(`🗑  Deleting: ${file}`);
+//   }
+// }, CLEAR_INTERVAL);
 
 setInterval(async () => {
   // Get the files then wait a while,
