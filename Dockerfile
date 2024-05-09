@@ -17,6 +17,5 @@ RUN yarn build
 # This will always bust the cache so that images are always freshly downloaded
 ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
 RUN yarn download-images
-RUN yarn global add ./apps/cli
-RUN launchpad --create-cache
+RUN node ./apps/cli/dist/index.js --create-cache
 CMD yarn start
