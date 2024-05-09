@@ -13,7 +13,11 @@ import { initialise as initComicNeueItalic } from "./ComicNeue-italic";
 
 import { Option } from "types";
 
+let hasFontsBeenInitialised = false;
+
 export const initialiseFonts = () => {
+  if (hasFontsBeenInitialised) return;
+
   initOpenDyslexicBold();
   initOpenDyslexicBoldItalic();
   initOpenDyslexicNormal();
@@ -28,6 +32,8 @@ export const initialiseFonts = () => {
   initComicNeueBold();
   initComicNeueBoldItalic();
   initComicNeueItalic();
+
+  hasFontsBeenInitialised = true;
 };
 
 export const FONT_OPTIONS: Array<Option> = [
