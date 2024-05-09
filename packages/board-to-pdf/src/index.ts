@@ -485,7 +485,7 @@ const boardToPdf = async (
     });
 
     let addImageArray: Array<any> = [];
-    let loadImagesPromises: Array<any> = [];
+    let loadImagesPromises = [];
     let loadedImages: {
       [key: string]: {
         imageData: Buffer;
