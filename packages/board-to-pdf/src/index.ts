@@ -518,8 +518,10 @@ const boardToPdf = async (
       process.hrtime(loadImagesStartTime);
 
     if (boardToPdfOptions.verboseTimingLogs) {
+      const elapsedTimeSeconds =
+        loadImagesTotalSeconds + loadImagesTotalNanoSeconds / 1e9;
       console.log(
-        `Load Image (${board.id} - ${page.id}) ${loadImagesTotalSeconds}.${loadImagesTotalNanoSeconds}s`
+        `Load Image (${board.id} - ${page.id}) ${elapsedTimeSeconds}s`
       );
     }
 
@@ -835,8 +837,10 @@ const boardToPdf = async (
           process.hrtime(buttonStartTime);
 
         if (boardToPdfOptions.verboseTimingLogs) {
+          const elapsedTimeSeconds =
+            buttonTotalSeconds + buttonTotalNanoSeconds / 1e9;
           console.log(
-            `Button generation (${board.id} - ${page.id} - ${currentButton.id}) ${buttonTotalSeconds}.${buttonTotalNanoSeconds}s`
+            `Button generation (${board.id} - ${page.id} - ${currentButton.id}) ${elapsedTimeSeconds}s`
           );
         }
       }
@@ -891,8 +895,10 @@ const boardToPdf = async (
       process.hrtime(addImageStartTime);
 
     if (boardToPdfOptions.verboseTimingLogs) {
+      const elapsedTimeSeconds =
+        addImageTotalSeconds + addImageTotalNanoSeconds / 1e9;
       console.log(
-        `Add Image (${board.id} - ${page.id}) ${addImageTotalSeconds}.${addImageTotalNanoSeconds}s`
+        `Add Image (${board.id} - ${page.id}) ${elapsedTimeSeconds}s`
       );
     }
 
@@ -900,8 +906,9 @@ const boardToPdf = async (
       process.hrtime(pageStartTime);
 
     if (boardToPdfOptions.verboseTimingLogs) {
+      const elapsedTimeSeconds = pageTotalSeconds + pageTotalNanoSeconds / 1e9;
       console.log(
-        `Page generation (${board.id} - ${page.id}) ${pageTotalSeconds}.${pageTotalNanoSeconds}s`
+        `Page generation (${board.id} - ${page.id}) ${elapsedTimeSeconds}s`
       );
     }
     pageNumber++;
@@ -934,8 +941,11 @@ const boardToPdf = async (
       process.hrtime(prependStartTime);
 
     if (boardToPdfOptions.verboseTimingLogs) {
+      const elapsedTimeSeconds =
+        prependTotalSeconds + prependTotalNanoSeconds / 1e9;
+
       console.log(
-        `Page generation (${board.id} - ${board.ext_launchpad_options.ext_launchpad_prepend_pdf}) ${prependTotalSeconds}.${prependTotalNanoSeconds}s`
+        `Page generation (${board.id} - ${board.ext_launchpad_options.ext_launchpad_prepend_pdf}) ${elapsedTimeSeconds}s`
       );
     }
 
