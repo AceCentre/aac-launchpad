@@ -268,7 +268,12 @@ type GenerateBoardInput = {
 
 const generateAllChartsForCache = async () => {
   const templates = WEB_TEMPLATES.filter(
-    (x) => x.templateId !== "alphabet-chart-launchpad"
+    (x) =>
+      ![
+        "alphabet-chart-launchpad",
+        "turn-taking-launchpad",
+        "keyguard-launchpad",
+      ].includes(x.templateId)
   );
 
   for (const currentTemplate of templates) {
