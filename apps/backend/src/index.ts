@@ -79,10 +79,18 @@ const resolvers = {
       let analyticsProperties: { [key: string]: string } = {};
       const keysToCollect = ["language", "symbol-system", "grid"];
 
+      const hashable: GenerateBoardInput = {
+        templateId: input.templateId,
+        answers: input.answers.sort((a, b) => a.id.localeCompare(b.id)),
+      };
+
       const fileHash =
         input.templateId +
         "--" +
-        crypto.createHash("sha256").update(JSON.stringify(input)).digest("hex");
+        crypto
+          .createHash("sha256")
+          .update(JSON.stringify(hashable))
+          .digest("hex");
       const fileLocation = new URL(
         `/boards/${fileHash}.pdf`,
         getBaseUrl()
