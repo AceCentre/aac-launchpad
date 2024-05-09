@@ -284,60 +284,64 @@ const generateAllChartsForCache = async () => {
       (x) => x.id === "grid"
     ) as PresetVariable;
 
-    for (const symbolsSystem of symbolsSystems.presets) {
-      for (const layout of layouts.presets) {
-        let presetOverrides: { [key: string]: string } = {
-          grid: layout.value,
-          "symbol-system": symbolsSystem.value,
-        };
+    let presetOverrides: { [key: string]: string } = {
+      grid: layouts.defaultValue,
+      "symbol-system": symbolsSystems.defaultValue,
+    };
 
-        for (const layoutVals of layout.variableValues) {
-          presetOverrides[layoutVals.id] = layoutVals.value;
-        }
+    const layout = layouts.presets.find(
+      (x) => x.value === layouts.defaultValue
+    );
 
-        for (const symbolVals of symbolsSystem.variableValues) {
-          presetOverrides[symbolVals.id] = symbolVals.value;
-        }
+    const symbolsSystem = symbolsSystems.presets.find(
+      (x) => x.value === symbolsSystems.defaultValue
+    );
 
-        const results = getResults(currentTemplate, {}, presetOverrides);
+    if (layout === undefined) return;
+    if (symbolsSystem === undefined) return;
 
-        const board = templateToBoard(currentTemplate, results);
-
-        const hashable: GenerateBoardInput = {
-          templateId: currentTemplate.templateId,
-          answers: results.sort((a, b) => a.id.localeCompare(b.id)),
-        };
-
-        const fileName =
-          currentTemplate.templateId +
-          "--" +
-          crypto
-            .createHash("sha256")
-            .update(JSON.stringify(hashable))
-            .digest("hex");
-
-        const pdfPath = path.join(
-          "./apps/backend/public/boards",
-          `./${fileName}.pdf`
-        );
-
-        const { pdf, totalSeconds, totalNanoSeconds } = await boardToPdf(
-          board,
-          {
-            rootToImages: path.join("./apps/backend/private"),
-            rootToPdfs: path.join("./apps/backend/public"),
-          }
-        );
-        writeFileSync(pdfPath, Buffer.from(pdf));
-
-        const elapsedTimeSeconds = totalSeconds + totalNanoSeconds / 1e9;
-
-        console.log(
-          `${currentTemplate.name} - ${symbolsSystem.label} - ${layout.label} - ${elapsedTimeSeconds}s - ${fileName}`
-        );
-        console.log("");
-      }
+    for (const layoutVals of layout.variableValues) {
+      presetOverrides[layoutVals.id] = layoutVals.value;
     }
+
+    for (const symbolVals of symbolsSystem.variableValues) {
+      presetOverrides[symbolVals.id] = symbolVals.value;
+    }
+
+    const results = getResults(currentTemplate, {}, presetOverrides);
+
+    const board = templateToBoard(currentTemplate, results);
+
+    const hashable: GenerateBoardInput = {
+      templateId: currentTemplate.templateId,
+      answers: results.sort((a, b) => a.id.localeCompare(b.id)),
+    };
+
+    const fileName =
+      currentTemplate.templateId +
+      "--" +
+      crypto
+        .createHash("sha256")
+        .update(JSON.stringify(hashable))
+        .digest("hex");
+
+    const pdfPath = path.join(
+      "./apps/backend/public/boards",
+      `./${fileName}.pdf`
+    );
+
+    const { pdf, totalSeconds, totalNanoSeconds } = await boardToPdf(board, {
+      rootToImages: path.join("./apps/backend/private"),
+      rootToPdfs: path.join("./apps/backend/public"),
+    });
+    writeFileSync(pdfPath, Buffer.from(pdf));
+
+    const elapsedTimeSeconds = totalSeconds + totalNanoSeconds / 1e9;
+
+    console.log(
+      `${currentTemplate.name} - ${symbolsSystem.label} - ${layout.label} - ${elapsedTimeSeconds}s - ${fileName}`
+    );
+    console.log("");
   }
 };
 
