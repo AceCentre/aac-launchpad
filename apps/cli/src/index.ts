@@ -4,7 +4,8 @@ import boardToPdf from "board-to-pdf";
 import templateToBoard from "template-to-board";
 import path from "path";
 import { PresetVariable, PresetVariableValues, Result, Template } from "types";
-import { ALL_TEMPLATES } from "templates";
+import { ALL_TEMPLATES, WEB_TEMPLATES } from "templates";
+import crypto from "crypto";
 
 import inquirer from "inquirer";
 import { writeFileSync, statSync } from "fs";
@@ -37,6 +38,11 @@ const main = async () => {
 
   if (process.argv.includes("--generate-symbol-count-csv")) {
     await generateSymbolCountCsv();
+    return;
+  }
+
+  if (process.argv.includes("--create-cache")) {
+    await generateAllChartsForCache();
     return;
   }
 
@@ -255,12 +261,78 @@ const main = async () => {
   }
 };
 
-const createBoard = async (
-  chosenTemplate: Template,
+type GenerateBoardInput = {
+  templateId: string;
+  answers: Array<{ id: string; value: string }>;
+};
+
+const generateAllChartsForCache = async () => {
+  const templates = WEB_TEMPLATES.filter(
+    (x) => x.templateId !== "alphabet-chart-launchpad"
+  );
+
+  for (const currentTemplate of templates) {
+    let symbolsSystems = currentTemplate.templateVariables.find(
+      (x) => x.id === "symbol-system"
+    ) as PresetVariable;
+    let layouts = currentTemplate.templateVariables.find(
+      (x) => x.id === "grid"
+    ) as PresetVariable;
+
+    for (const symbolsSystem of symbolsSystems.presets) {
+      for (const layout of layouts.presets) {
+        let presetOverrides: { [key: string]: string } = {
+          grid: layout.value,
+          "symbol-system": symbolsSystem.value,
+        };
+
+        for (const layoutVals of layout.variableValues) {
+          presetOverrides[layoutVals.id] = layoutVals.value;
+        }
+
+        for (const symbolVals of symbolsSystem.variableValues) {
+          presetOverrides[symbolVals.id] = symbolVals.value;
+        }
+
+        const results = getResults(currentTemplate, {}, presetOverrides);
+
+        const board = templateToBoard(currentTemplate, results);
+
+        const hashable: GenerateBoardInput = {
+          templateId: currentTemplate.templateId,
+          answers: results.sort((a, b) => a.id.localeCompare(b.id)),
+        };
+
+        const fileName =
+          currentTemplate.templateId +
+          "--" +
+          crypto
+            .createHash("sha256")
+            .update(JSON.stringify(hashable))
+            .digest("hex");
+
+        const pdfPath = path.join(`./${fileName}.pdf`);
+
+        const { pdf, totalSeconds, totalNanoSeconds } = await boardToPdf(board);
+        writeFileSync(pdfPath, Buffer.from(pdf));
+
+        const elapsedTimeSeconds = totalSeconds + totalNanoSeconds / 1e9;
+
+        console.log(
+          `${currentTemplate.name} - ${symbolsSystem.label} - ${layout.label} - ${elapsedTimeSeconds}s - ${fileName}`
+        );
+        console.log("");
+      }
+    }
+  }
+};
+
+const getResults = (
+  template: Template,
   templateResults: any,
   presetOverrides: any
-) => {
-  const results: Array<Result> = chosenTemplate.templateVariables
+): Array<Result> => {
+  return template.templateVariables
     .sort((a, b) => {
       if (a.type === "preset" && b.type !== "preset") {
         return 1;
@@ -293,6 +365,14 @@ const createBoard = async (
         value: currentVariable.defaultValue,
       };
     });
+};
+
+const createBoard = async (
+  chosenTemplate: Template,
+  templateResults: any,
+  presetOverrides: any
+) => {
+  const results = getResults(chosenTemplate, templateResults, presetOverrides);
 
   const board = templateToBoard(chosenTemplate, results);
 
