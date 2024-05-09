@@ -311,9 +311,18 @@ const generateAllChartsForCache = async () => {
             .update(JSON.stringify(hashable))
             .digest("hex");
 
-        const pdfPath = path.join(`./${fileName}.pdf`);
+        const pdfPath = path.join(
+          "./apps/backend/public/boards",
+          `./${fileName}.pdf`
+        );
 
-        const { pdf, totalSeconds, totalNanoSeconds } = await boardToPdf(board);
+        const { pdf, totalSeconds, totalNanoSeconds } = await boardToPdf(
+          board,
+          {
+            rootToImages: path.join("./apps/backend/private"),
+            rootToPdfs: path.join("./apps/backend/public"),
+          }
+        );
         writeFileSync(pdfPath, Buffer.from(pdf));
 
         const elapsedTimeSeconds = totalSeconds + totalNanoSeconds / 1e9;
