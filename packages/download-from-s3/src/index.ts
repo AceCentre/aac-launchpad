@@ -48,15 +48,40 @@ const streamToString = (stream: any) => {
     },
   });
 
-  const { Contents } = await s3Client.send(
-    new ListObjectsCommand({ Bucket: "launchpad-symbols", MaxKeys: 10000 })
-  );
+  let allContents: Array<any> = [];
+  let loopingKeys = true;
+  let localNextMarker: string | undefined = undefined;
 
-  if (Contents === undefined) {
+  while (loopingKeys) {
+    const result: any = await s3Client.send(
+      new ListObjectsCommand({
+        Bucket: "launchpad-symbols",
+        MaxKeys: 10000,
+        Marker: localNextMarker,
+      })
+    );
+
+    const Contents = result.Contents;
+    const NextMarker: string | undefined = result.NextMarker;
+
+    localNextMarker = NextMarker;
+
+    if (!Contents) {
+      return;
+    }
+
+    allContents = [...allContents, ...Contents];
+
+    if (!NextMarker) {
+      loopingKeys = false;
+    }
+  }
+
+  if (allContents === undefined) {
     throw new Error("Contents is undefined");
   }
 
-  for (const content of Contents) {
+  for (const content of allContents) {
     if (
       content !== undefined &&
       content.Size !== undefined &&
