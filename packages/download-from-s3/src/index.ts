@@ -49,7 +49,7 @@ const streamToString = (stream: any) => {
   });
 
   const { Contents } = await s3Client.send(
-    new ListObjectsCommand({ Bucket: "launchpad-symbols" })
+    new ListObjectsCommand({ Bucket: "launchpad-symbols", MaxKeys: 10000 })
   );
 
   if (Contents === undefined) {
