@@ -168,7 +168,6 @@ export const WEB_TEMPLATES: Array<Template> = [
   turnTaking,
   keyguard,
   wheelsOnTheBus,
-  creatingStories,
   oldMacdonald,
   lookAtPhotos,
   snakesAndLadders,
