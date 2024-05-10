@@ -63,12 +63,15 @@ const streamToString = (stream: any) => {
       content.Key !== undefined &&
       content.Size > 20 // Sometimes a folder is bigger than 0
     ) {
+      console.log("Success", content.Key);
       const response = await s3Client.send(
         new GetObjectCommand({ Bucket: "launchpad-symbols", Key: content.Key })
       );
 
       const data: any = await streamToString(response.Body);
       writeFileSync(path.join(symbolsFolder, content.Key), data);
+    } else {
+      console.log("Failure", content);
     }
   }
 })();
