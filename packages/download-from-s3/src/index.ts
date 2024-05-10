@@ -33,10 +33,8 @@ const streamToString = (stream: any) => {
   mkdirSync(symbolsFolder);
   mkdirSync(path.join(symbolsFolder, "./widgit"));
   mkdirSync(path.join(symbolsFolder, "./pcs"));
-  mkdirSync(path.join(symbolsFolder, "./high_contrast_pcs"));
-  mkdirSync(path.join(symbolsFolder, "./ss"));
-  mkdirSync(path.join(symbolsFolder, "./uncompressed_widgit"));
-  mkdirSync(path.join(symbolsFolder, "./uncompressed_pcs"));
+  mkdirSync(path.join(symbolsFolder, "./pcs-uncompressed"));
+  mkdirSync(path.join(symbolsFolder, "./widgit-uncompressed"));
 
   console.log("accessKeyId", !!process.env.ACCESS_KEY_ID);
   console.log("secretAccessKey", !!process.env.SECRET_ACCESS_KEY);
