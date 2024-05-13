@@ -47,6 +47,7 @@ import { bingo } from "./bingo";
 import { trains } from "./trains";
 import { gardening } from "./gardening";
 import { teaParty } from "./tea-party";
+import { listenerMediated } from "./listener-mediated";
 
 export {
   core,
@@ -181,4 +182,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   trains,
   gardening,
   teaParty,
+  listenerMediated,
 ];
