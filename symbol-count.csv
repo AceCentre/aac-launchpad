@@ -1,169 +1,270 @@
-Symbol Name,Count
-me.png,13
-we.png,1
-more.png,22
-look.png,19
-turn.png,4
-question.png,11
-you.png,13
-they.png,1
-stop.png,22
-want.png,15
-make.png,3
-play.png,3
-she.png,2
-do.png,1
-different.png,17
-help.png,15
-big.png,4
-good.png,3
-he.png,2
-it.png,1
-go.png,12
-have.png,2
-little.png,3
-bad.png,3
-like.png,21
-wow.png,13
-uh-oh.png,16
-can.png,2
-this.png,11
-no.png,16
-bubbles.png,1
-blow.png,2
-lots.png,4
-catch.png,1
-pop.png,1
-read.png,1
-story-book.png,1
-turn-page.png,1
-red.png,3
-block.png,1
-green.png,2
-tower.png,1
-blue.png,3
-knock-it-down.png,1
-jump.png,1
-run.png,2
-fall-over.png,2
-funny.png,4
-arm.png,1
-shoes.png,2
-mr-potato-head.png,1
-mrs-potato-head.png,1
-put-on.png,3
-take-off.png,3
-hair.png,1
-hat.png,1
-eyes.png,1
-mouth.png,1
-teeth.png,1
-nose.png,1
-ear.png,1
-earring.png,1
-dont-like.png,1
-sad.png,2
-watch-tv.png,1
-program.png,1
-remote.png,1
-happy.png,1
-favourite.png,1
-sing-along.png,1
-dance.png,1
-music.png,1
-playlist.png,1
-loud.png,1
-quiet.png,1
-yellow.png,2
-purple.png,1
-bottle.png,1
-change-clothes.png,1
-dolly.png,1
-bath.png,2
-feed.png,1
-hug.png,1
-sleep.png,1
-some.png,2
-dont-know.png,2
-give.png,1
-show.png,1
-stick.png,1
-cut.png,1
-pretty.png,2
-rubbish.png,1
-stamp.png,1
-paint.png,1
-picture.png,1
-glue.png,1
-glitter.png,1
-tape.png,1
-paper.png,1
-card.png,1
-felt-tips.png,1
-crayons.png,1
-balloons.png,1
-wash.png,1
-cold.png,1
-splash.png,1
-hot.png,1
-water.png,1
-bath-toy.png,1
-blank.png,2
-bus.png,1
-bus-doors.png,1
-children.png,1
-girl.png,1
-boy.png,1
-cat.png,1
-monster.png,1
-find.png,1
-city.png,1
-home.png,1
-scary.png,1
-school.png,1
-forest.png,1
-naughty.png,2
-magic-wand.png,1
-treasure.png,1
-old-macdonald.png,1
-cow.png,1
-pig.png,1
-sheep.png,1
-photo.png,2
-next.png,1
-take-picture.png,1
-snakes-ladders.png,1
-count.png,1
-ladder.png,1
-roll-dice.png,1
-snake.png,1
-move-my-piece.png,1
-up.png,1
-down.png,1
-cross.png,1
-kerplunk.png,1
-kerplunk-stick.png,1
-push.png,1
-marble.png,1
-pull.png,1
-win.png,1
-colour.png,1
-make-up.png,1
-eye-shadow.png,1
-mascara.png,1
-brush-hair.png,1
-foundation.png,1
-great.png,1
-omg.png,1
-hair-clip.png,1
-blusher.png,1
-nail-varnish.png,1
-mirror.png,2
-lipstick.png,1
-dress.png,1
-dressing-up.png,1
-crown.png,1
-princess.png,1
-necklace.png,1
-handbag.png,1
-wand.png,1
+Symbol Name,Count,Charts
+more,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+look,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+different,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+dear-zoo,1,read-dear-zoo-launchpad
+stop,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+uh-oh,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+like,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+pet,1,read-dear-zoo-launchpad
+read,2,read-dear-zoo-launchpad - reading
+want,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+turn-page,2,read-dear-zoo-launchpad - reading
+help,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+good,15,read-dear-zoo-launchpad - core - reading - simon-says - mr-potato-head - chat-about-tv - listen-to-music - sing-wheels-on-the-bus - old-macdonald - look-at-photos - make-up - watch-peppa - play-with-doctor-kit - manicure - trains
+bad,15,read-dear-zoo-launchpad - core - reading - simon-says - mr-potato-head - chat-about-tv - listen-to-music - sing-wheels-on-the-bus - old-macdonald - look-at-photos - make-up - watch-peppa - play-with-doctor-kit - manicure - trains
+no,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+wow,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+me,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+question,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+elephant,1,read-dear-zoo-launchpad
+you,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+giraffe,1,read-dear-zoo-launchpad
+snake,2,read-dear-zoo-launchpad - snakes-and-ladders
+go,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+lion,1,read-dear-zoo-launchpad
+monkey,1,read-dear-zoo-launchpad
+little,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+big,28,read-dear-zoo-launchpad - core - bubbles - reading - blocks - simon-says - mr-potato-head - chat-about-tv - listen-to-music - colours - dolly - arts-and-craft - balloons - bath - sing-wheels-on-the-bus - old-macdonald - look-at-photos - snakes-and-ladders - kerplunk - make-up - dressing-up - watch-peppa - play-with-doctor-kit - manicure - bingo - trains - gardening - tea-party
+camel,1,read-dear-zoo-launchpad
+frog,1,read-dear-zoo-launchpad
+puppy,1,read-dear-zoo-launchpad
+he,1,core-launchpad
+have,1,core-launchpad
+she,1,core-launchpad
+do,1,core-launchpad
+turn,3,core-launchpad - snakes-and-ladders - kerplunk
+we,1,core-launchpad
+can,1,core-launchpad
+this,1,core-launchpad
+they,1,core-launchpad
+first,1,core-launchpad
+next,2,core-launchpad - look-at-photos
+it,1,core-launchpad
+pop,2,bubbles-launchpad - balloons
+bubbles,2,bubbles-launchpad - bath
+blow,2,bubbles-launchpad - balloons
+pretty,7,bubbles-launchpad - arts-and-craft - balloons - look-at-photos - make-up - manicure - gardening
+bubble-mix,1,bubbles-launchpad
+make,6,bubbles-launchpad - blocks - listen-to-music - arts-and-craft - look-at-photos - trains
+bubble-wand,1,bubbles-launchpad
+hold,2,bubbles-launchpad - balloons
+fast,6,bubbles-launchpad - simon-says - balloons - sing-wheels-on-the-bus - old-macdonald - trains
+pour,2,bubbles-launchpad - tea-party
+slow,6,bubbles-launchpad - simon-says - balloons - sing-wheels-on-the-bus - old-macdonald - trains
+fun,12,bubbles-launchpad - blocks - simon-says - mr-potato-head - balloons - bath - sing-wheels-on-the-bus - old-macdonald - snakes-and-ladders - kerplunk - bingo - trains
+lots,2,bubbles-launchpad - kerplunk
+up,3,bubbles-launchpad - balloons - snakes-and-ladders
+story-book,1,reading-launchpad
+picture,2,reading-launchpad - arts-and-craft
+new,1,reading-launchpad
+character,1,reading-launchpad
+magazine,1,reading-launchpad
+funny,4,reading-launchpad - chat-about-tv - look-at-photos - watch-peppa
+choose,3,reading-launchpad - chat-about-tv - watch-peppa
+bedtime,1,reading-launchpad
+scary,2,reading-launchpad - chat-about-tv
+favourite,7,reading-launchpad - chat-about-tv - listen-to-music - look-at-photos - dressing-up - watch-peppa - gardening
+tower,1,blocks-launchpad
+block,1,blocks-launchpad
+knock-it-down,1,blocks-launchpad
+house,2,blocks-launchpad - bingo
+yellow,2,blocks-launchpad - colours
+circle,1,blocks-launchpad
+red,2,blocks-launchpad - colours
+triangle,1,blocks-launchpad
+blue,2,blocks-launchpad - colours
+bridge,2,blocks-launchpad - trains
+green,2,blocks-launchpad - colours
+brown,2,blocks-launchpad - colours
+jump,1,simon-says-launchpad
+fall-over,2,simon-says-launchpad - kerplunk
+simon-says,1,simon-says-launchpad
+sing,4,simon-says-launchpad - listen-to-music - sing-wheels-on-the-bus - old-macdonald
+silly-face,1,simon-says-launchpad
+run,1,simon-says-launchpad
+quiet,3,simon-says-launchpad - listen-to-music - sing-wheels-on-the-bus
+loud,5,simon-says-launchpad - listen-to-music - balloons - sing-wheels-on-the-bus - old-macdonald
+blow-raspberry,1,simon-says-launchpad
+mr-potato-head,1,mr-potato-head-launchpad
+put-on,4,mr-potato-head-launchpad - make-up - dressing-up - manicure
+take-off,4,mr-potato-head-launchpad - make-up - dressing-up - manicure
+silly,4,mr-potato-head-launchpad - chat-about-tv - look-at-photos - watch-peppa
+eyes,1,mr-potato-head-launchpad
+hat,2,mr-potato-head-launchpad - dressing-up
+nose,1,mr-potato-head-launchpad
+hair,1,mr-potato-head-launchpad
+mouth,1,mr-potato-head-launchpad
+shoes,1,mr-potato-head-launchpad
+arm,1,mr-potato-head-launchpad
+tv,1,chat-about-tv-launchpad
+program,1,chat-about-tv-launchpad
+watch,2,chat-about-tv-launchpad - watch-peppa
+film,1,chat-about-tv-launchpad
+cartoon,1,chat-about-tv-launchpad
+remote,1,chat-about-tv-launchpad
+sad,4,chat-about-tv-launchpad - listen-to-music - dolly - watch-peppa
+listen,2,listen-to-music-launchpad - play-with-doctor-kit
+song,1,listen-to-music-launchpad
+music,1,listen-to-music-launchpad
+playlist,1,listen-to-music-launchpad
+dance,1,listen-to-music-launchpad
+happy,3,listen-to-music-launchpad - dolly - tea-party
+purple,1,colours-launchpad
+colour,6,colours-launchpad - arts-and-craft - balloons - make-up - dressing-up - manicure
+pink,1,colours-launchpad
+orange,1,colours-launchpad
+black,1,colours-launchpad
+silver,1,colours-launchpad
+white,1,colours-launchpad
+light,2,colours-launchpad - manicure
+dark,1,colours-launchpad
+bottle,1,dolly-launchpad
+dolly,1,dolly-launchpad
+change-clothes,2,dolly-launchpad - dressing-up
+bath,2,dolly-launchpad - bath
+clothes,1,dolly-launchpad
+bed,2,dolly-launchpad - play-with-doctor-kit
+hug,1,dolly-launchpad
+hungry,1,dolly-launchpad
+wash,2,dolly-launchpad - bath
+food,1,dolly-launchpad
+tired,1,dolly-launchpad
+change,2,dolly-launchpad - dressing-up
+love,1,dolly-launchpad
+nappy,1,dolly-launchpad
+paint,1,arts-and-craft-launchpad
+show,2,arts-and-craft-launchpad - look-at-photos
+felt-tips,1,arts-and-craft-launchpad
+rubbish,1,arts-and-craft-launchpad
+glue,1,arts-and-craft-launchpad
+paper,1,arts-and-craft-launchpad
+cut,2,arts-and-craft-launchpad - manicure
+crayons,1,arts-and-craft-launchpad
+glitter,1,arts-and-craft-launchpad
+card,1,arts-and-craft-launchpad
+let-it-go,1,balloons-launchpad
+balloons,1,balloons-launchpad
+tie-knot,1,balloons-launchpad
+throw,1,balloons-launchpad
+catch,1,balloons-launchpad
+hot,1,bath-launchpad
+cold,1,bath-launchpad
+bath-toy,1,bath-launchpad
+splash,1,bath-launchpad
+play,4,bath-launchpad - snakes-and-ladders - kerplunk - bingo
+fold,1,bath-launchpad
+water,1,bath-launchpad
+sponge,1,bath-launchpad
+soap,1,bath-launchpad
+shampoo,1,bath-launchpad
+towel,1,bath-launchpad
+bus,1,sing-wheels-on-the-bus-launchpad
+bus-doors,1,sing-wheels-on-the-bus-launchpad
+go-round-and-round,1,sing-wheels-on-the-bus-launchpad
+children,1,sing-wheels-on-the-bus-launchpad
+horn-goes-beep,1,sing-wheels-on-the-bus-launchpad
+wipers-go-swish,1,sing-wheels-on-the-bus-launchpad
+old-macdonald,1,old-macdonald-launchpad
+sheep,1,old-macdonald-launchpad
+cow,1,old-macdonald-launchpad
+pig,1,old-macdonald-launchpad
+horse,1,old-macdonald-launchpad
+sound,1,old-macdonald-launchpad
+dog,1,old-macdonald-launchpad
+photo,2,look-at-photos-launchpad - dressing-up
+take-picture,1,look-at-photos-launchpad
+selfie,1,look-at-photos-launchpad
+delete,1,look-at-photos-launchpad
+embarrassing,1,look-at-photos-launchpad
+roll-dice,1,snakes-and-ladders-launchpad
+ladder,1,snakes-and-ladders-launchpad
+game,1,snakes-and-ladders-launchpad
+win,3,snakes-and-ladders-launchpad - kerplunk - bingo
+lose,3,snakes-and-ladders-launchpad - kerplunk - bingo
+down,1,snakes-and-ladders-launchpad
+count,3,snakes-and-ladders-launchpad - kerplunk - bingo
+cross,1,snakes-and-ladders-launchpad
+move-my-piece,1,snakes-and-ladders-launchpad
+kerplunk,1,kerplunk-launchpad
+marble,1,kerplunk-launchpad
+pull,1,kerplunk-launchpad
+wooden-stick,1,kerplunk-launchpad
+push,1,kerplunk-launchpad
+some,1,kerplunk-launchpad
+make-up,1,make-up-launchpad
+mirror,2,make-up-launchpad - dressing-up
+foundation,1,make-up-launchpad
+eye-shadow,1,make-up-launchpad
+concealer,1,make-up-launchpad
+mascara,1,make-up-launchpad
+blusher,1,make-up-launchpad
+lipstick,1,make-up-launchpad
+costume,1,dressing-up-launchpad
+mask,1,dressing-up-launchpad
+cape,1,dressing-up-launchpad
+wand,1,dressing-up-launchpad
+crown,1,dressing-up-launchpad
+great,1,dressing-up-launchpad
+dress-up,1,dressing-up-launchpad
+peppa-pig,1,watch-peppa-launchpad
+mummy-pig,1,watch-peppa-launchpad
+daddy-pig,1,watch-peppa-launchpad
+george-pig,1,watch-peppa-launchpad
+friend,1,watch-peppa-launchpad
+naughty,1,watch-peppa-launchpad
+call-ambulance,1,play-with-doctor-kit-launchpad
+doctor,1,play-with-doctor-kit-launchpad
+pain,1,play-with-doctor-kit-launchpad
+plaster,1,play-with-doctor-kit-launchpad
+need,1,play-with-doctor-kit-launchpad
+medicine,1,play-with-doctor-kit-launchpad
+heartbeat,1,play-with-doctor-kit-launchpad
+breathing,1,play-with-doctor-kit-launchpad
+sick,1,play-with-doctor-kit-launchpad
+temperature,1,play-with-doctor-kit-launchpad
+nail-varnish,1,manicure-launchpad
+nails,1,manicure-launchpad
+file,1,manicure-launchpad
+pattern,1,manicure-launchpad
+gel,1,manicure-launchpad
+broken,1,manicure-launchpad
+bingo,1,bingo-launchpad
+1-line,1,bingo-launchpad
+2-lines,1,bingo-launchpad
+bingo-game,1,bingo-launchpad
+lucky,1,bingo-launchpad
+board,1,bingo-launchpad
+book,1,bingo-launchpad
+dauber,1,bingo-launchpad
+train,1,trains-launchpad
+crash,1,trains-launchpad
+station,1,trains-launchpad
+track,1,trains-launchpad
+carriage,1,trains-launchpad
+passenger,1,trains-launchpad
+tunnel,1,trains-launchpad
+weed,1,gardening-launchpad
+water-plants,1,gardening-launchpad
+plant,1,gardening-launchpad
+grow,1,gardening-launchpad
+garden,1,gardening-launchpad
+gardening,1,gardening-launchpad
+seed,1,gardening-launchpad
+grass,1,gardening-launchpad
+flower,1,gardening-launchpad
+dig,1,gardening-launchpad
+vegetable,1,gardening-launchpad
+mow,1,gardening-launchpad
+tea,1,tea-party-launchpad
+milk,1,tea-party-launchpad
+biscuit,1,tea-party-launchpad
+sugar,1,tea-party-launchpad
+tea-party,1,tea-party-launchpad
+give,1,tea-party-launchpad
+cup,1,tea-party-launchpad
+plate,1,tea-party-launchpad
+eat,1,tea-party-launchpad
+cake,1,tea-party-launchpad
+drink,1,tea-party-launchpad
+afternoon,1,tea-party-launchpad
