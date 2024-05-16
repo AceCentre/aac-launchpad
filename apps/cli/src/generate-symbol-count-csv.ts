@@ -1,8 +1,10 @@
 import { writeFileSync } from "fs";
 import templateToBoard from "template-to-board";
 import { WEB_TEMPLATES } from "templates";
-import { Image, PresetVariable, Result } from "types";
+import { PresetVariable } from "types";
 import { getResults } from "./get-results";
+import fs from "fs";
+import path from "path";
 
 function notEmpty<TValue>(value: TValue | null | undefined): value is TValue {
   return value !== null && value !== undefined;
@@ -45,8 +47,6 @@ export const generateSymbolCountCsv = async () => {
       const results = getResults(currentTemplate, {}, presetOverrides);
 
       const board = templateToBoard(currentTemplate, results);
-
-      console.log(board.name, layout.description);
 
       if (board.pages.length !== 1) {
         throw new Error(
@@ -111,44 +111,19 @@ export const generateSymbolCountCsv = async () => {
         };
       }
     }
-
-    // let imageCount: any = {};
-
-    // for (let template of WEB_TEMPLATES) {
-    //   const results: Array<Result> = template.templateVariables
-    //     .sort((a, b) => {
-    //       if (a.type === "preset" && b.type !== "preset") {
-    //         return 1;
-    //       }
-    //       if (a.type !== "preset" && b.type === "preset") {
-    //         return -1;
-    //       }
-    //       return 0;
-    //     })
-    //     .map((currentVariable) => {
-    //       // Otherwise use the default value
-    //       return {
-    //         id: currentVariable.id,
-    //         value: currentVariable.defaultValue,
-    //       };
-    //     });
-
-    //   const board = templateToBoard(template, results);
-
-    //   for (let image of board.images) {
-    //     let imagePath = image.url.split("/").slice(-1)[0];
-
-    //     imageCount[imagePath] = imageCount[imagePath]
-    //       ? imageCount[imagePath] + 1
-    //       : 1;
-    //   }
   }
-
-  console.log(JSON.stringify(allSymbols));
 
   let csvContent = "Symbol Name,Count,Charts\n";
 
   for (let [key, value] of Object.entries(allSymbols)) {
+    // const oldPath = path.join(__dirname, "../../../examples/symbols/pcs");
+    // const newPath = path.join(__dirname, "../../../examples/symbols/pcs-used");
+
+    // fs.renameSync(
+    //   path.join(oldPath, `${key}.png`),
+    //   path.join(newPath, `${key}.png`)
+    // );
+
     csvContent += `${key},${value.count},${value.charts.join(" - ")}\n`;
   }
 
