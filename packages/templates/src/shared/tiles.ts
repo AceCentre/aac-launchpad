@@ -238,6 +238,8 @@ const initialTiles: Array<Tile> = [
   { key: "kerplunk", label: "Kerplunk", isCore: false },
   { key: "kerplunk-stick", label: "stick", isCore: false },
   { key: "fall-over", label: "fall over", isCore: false },
+  { key: "fall", label: "fall", isCore: false },
+
   { key: "push", label: "push", isCore: false },
   { key: "marble", label: "marble", isCore: false },
   { key: "pull", label: "pull", isCore: false },
