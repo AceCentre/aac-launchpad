@@ -643,7 +643,7 @@ export const alphabetChart: Template = {
       id: "casing",
       description:
         "Pick if you want the letters to appear in all capital letters or in all lower case letters.",
-      name: "Label Casing",
+      name: "Letter Casing",
       defaultValue: "capital",
       type: "option",
       options: [UPPER_CASE_OPTION, LOWER_CASE_OPTION],
@@ -651,7 +651,7 @@ export const alphabetChart: Template = {
     {
       id: "command-casing",
       description:
-        "Pick if you want the commands to appear in upper or lower case.",
+        "Pick if you want the commands and labels to appear in upper or lower case.",
       name: "Label Casing",
       defaultValue: "capital",
       type: "option",
