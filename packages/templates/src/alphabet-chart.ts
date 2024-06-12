@@ -652,7 +652,7 @@ export const alphabetChart: Template = {
       id: "command-casing",
       description:
         "Pick if you want the commands to appear in upper or lower case.",
-      name: "Command Casing",
+      name: "Label Casing",
       defaultValue: "capital",
       type: "option",
       options: [

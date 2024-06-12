@@ -68,13 +68,13 @@ const calculateButtonSize = (
 };
 
 export const LOWER_CASE_OPTION = {
-  label: "Lowercase",
+  label: "lowercase",
   value: "lower",
   description: "Convert the text to all lowercase",
 };
 
 export const UPPER_CASE_OPTION = {
-  label: "Uppercase",
+  label: "UPPERCASE",
   value: "upper",
   description: "Convert the text to all uppercase",
 };
@@ -86,7 +86,7 @@ export const CAPITAL_CASE_OPTION = {
 };
 
 export const SENTENCE_CASING = {
-  label: "Sentence Case",
+  label: "Sentence case",
   value: "sentence",
   description: "Uppercase the first letter of each sentence",
 };
