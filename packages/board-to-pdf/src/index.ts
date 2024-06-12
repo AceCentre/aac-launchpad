@@ -100,6 +100,7 @@ export const CASING_OPTIONS: Array<Option> = [
   UPPER_CASE_OPTION,
   LOWER_CASE_OPTION,
   CAPITAL_CASE_OPTION,
+  SENTENCE_CASING,
 ];
 
 export const alterCasing = (rawLabel: string, casingType: Casing): string => {
