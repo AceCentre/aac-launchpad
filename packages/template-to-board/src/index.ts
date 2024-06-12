@@ -246,7 +246,7 @@ const getOptionalBooleanFromTemplateItem = (
 const castToCasing = (input: string | undefined): Casing | undefined => {
   if (input === undefined) return undefined;
 
-  const validCasing = ["no-change", "lower", "upper", "capital"];
+  const validCasing = ["no-change", "lower", "upper", "capital", "sentence"];
 
   if (validCasing.includes(input)) {
     return input as Casing;
