@@ -15,6 +15,11 @@ export const generateStandardTemplate = (
     stageTwo: Array<Array<string>>;
     eyePointing: Array<Array<string>>;
     handPointing: Array<Array<string>>;
+  },
+  settings: {
+    includeHighContrast: boolean;
+  } = {
+    includeHighContrast: true,
   }
 ): Template => {
   return {
@@ -35,7 +40,7 @@ export const generateStandardTemplate = (
         defaultValue: title,
         maxLength: 100,
       },
-      generateAllSymbolPresets(TILES),
+      generateAllSymbolPresets(TILES, settings.includeHighContrast),
       getLayoutPreset(layouts, "topic"),
 
       ...STANDARD_VARIABLES,

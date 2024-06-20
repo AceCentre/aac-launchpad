@@ -16,42 +16,61 @@ export const generateSymbolPreset = (
 };
 
 export const generateAllSymbolPresets = (
-  tiles: Array<Tile>
+  tiles: Array<Tile>,
+  includeHighContrast: boolean = true
 ): AllTemplateVariable => {
+  let presets = [
+    {
+      label: "PCS",
+      value: "pcs",
+      description: "PCS Symbols",
+      variableValues: [
+        {
+          id: "copyright-notice",
+          value:
+            "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
+        },
+        ...generateSymbolPreset(tiles, "pcs"),
+      ],
+    },
+
+    {
+      label: "Widgit",
+      value: "widgit",
+      description: "Widgit Symbols",
+      variableValues: [
+        {
+          id: "copyright-notice",
+          value: "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
+        },
+
+        ...generateSymbolPreset(tiles, "widgit"),
+      ],
+    },
+  ];
+
+  if (includeHighContrast) {
+    presets.push({
+      label: "PCS High Contrast",
+      value: "pcs-high-contrast",
+      description: "PCS High Contrast Symbols",
+      variableValues: [
+        {
+          id: "copyright-notice",
+          value:
+            "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
+        },
+        ...generateSymbolPreset(tiles, "pcs-high-contrast"),
+      ],
+    });
+  }
+
   return {
     id: "symbol-system",
     type: "preset",
     name: "Symbol System",
     defaultValue: "pcs",
     description: "The symbol system to use for the chart",
-    presets: [
-      {
-        label: "PCS",
-        value: "pcs",
-        description: "PCS Symbols",
-        variableValues: [
-          {
-            id: "copyright-notice",
-            value:
-              "PCS is a trademark of Tobii Dynavox LLC. All rights reserved. Used with permission.",
-          },
-          ...generateSymbolPreset(tiles, "pcs"),
-        ],
-      },
-
-      {
-        label: "Widgit",
-        value: "widgit",
-        description: "Widgit Symbols",
-        variableValues: [
-          {
-            id: "copyright-notice",
-            value: "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
-          },
-
-          ...generateSymbolPreset(tiles, "widgit"),
-        ],
-      },
-    ],
+    presets,
   };
 };
