@@ -30,5 +30,6 @@ export const lookAtPhotos: Template = generateStandardTemplate(
       ["more", "different", "photo"],
       ["stop", "like", "take-picture"],
     ],
-  }
+  },
+  { includeHighContrast: false }
 );

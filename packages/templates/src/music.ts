@@ -30,5 +30,8 @@ export const music: Template = generateStandardTemplate(
       ["more", "song", "different"],
       ["stop", "like", "sing"],
     ],
+  },
+  {
+    includeHighContrast: false,
   }
 );

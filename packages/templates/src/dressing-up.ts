@@ -30,5 +30,6 @@ export const dressingUp: Template = generateStandardTemplate(
       ["more", "different", "costume"],
       ["stop", "like", "mask"],
     ],
-  }
+  },
+  { includeHighContrast: false }
 );

@@ -30,5 +30,6 @@ export const balloons: Template = generateStandardTemplate(
       ["more", "balloons", "blow"],
       ["stop", "uh-oh", "let-it-go"],
     ],
-  }
+  },
+  { includeHighContrast: false }
 );
