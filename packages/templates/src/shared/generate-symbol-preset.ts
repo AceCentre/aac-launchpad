@@ -55,6 +55,9 @@ export const generateAllSymbolPresets = (
       value: "pcs-high-contrast",
       description: "PCS High Contrast Symbols",
       variableValues: [
+        { id: "background-colour", value: "rgb(255,255,255)" },
+        { id: "cell-colour", value: "rgb(0,0,0)" },
+        { id: "label-colour", value: "rgb(255,255,255)" },
         {
           id: "copyright-notice",
           value:

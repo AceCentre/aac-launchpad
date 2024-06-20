@@ -61,6 +61,7 @@ export const generateStandardTemplate = (
           "gap",
           "padding",
           "invert-text",
+          "text-colour-on-background",
         ],
         name: "More options",
         description: "Edit advanced options about the chart",
@@ -85,7 +86,7 @@ export const generateStandardTemplate = (
       autofit_label_text: true,
       use_ace_branding: true,
       text_color_on_background: {
-        id: "label-colour",
+        id: "text-colour-on-background",
         type: "TemplateItem",
       },
     },

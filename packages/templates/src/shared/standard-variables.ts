@@ -62,6 +62,13 @@ export const STANDARD_VARIABLES: Array<AllTemplateVariable> = [
     type: "color",
   },
   {
+    id: "text-colour-on-background",
+    name: "Title text colour",
+    description: "The colour of title and footer text",
+    defaultValue: "rgb(0,0,0)",
+    type: "color",
+  },
+  {
     id: "gap",
     name: "Cell spacing",
     description:
