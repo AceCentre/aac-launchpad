@@ -31,5 +31,5 @@ export const lookAtPhotos: Template = generateStandardTemplate(
       ["stop", "like", "take-picture"],
     ],
   },
-  { includeHighContrast: false }
+  { includeHighContrast: true }
 );

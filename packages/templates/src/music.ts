@@ -32,6 +32,6 @@ export const music: Template = generateStandardTemplate(
     ],
   },
   {
-    includeHighContrast: false,
+    includeHighContrast: true,
   }
 );

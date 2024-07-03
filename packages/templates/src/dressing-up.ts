@@ -31,5 +31,5 @@ export const dressingUp: Template = generateStandardTemplate(
       ["stop", "like", "mask"],
     ],
   },
-  { includeHighContrast: false }
+  { includeHighContrast: true }
 );

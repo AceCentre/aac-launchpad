@@ -31,5 +31,5 @@ export const playWithDoctorKit: Template = generateStandardTemplate(
       ["stop", "listen", "call-ambulance"],
     ],
   },
-  { includeHighContrast: false }
+  { includeHighContrast: true }
 );

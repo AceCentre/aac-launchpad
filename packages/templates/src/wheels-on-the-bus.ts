@@ -38,5 +38,5 @@ export const wheelsOnTheBus: Template = generateStandardTemplate(
       ["stop", "go-round-and-round", "children"],
     ],
   },
-  { includeHighContrast: false }
+  { includeHighContrast: true }
 );

@@ -31,5 +31,5 @@ export const bingo: Template = generateStandardTemplate(
       ["stop", "uh-oh", "fun"],
     ],
   },
-  { includeHighContrast: false }
+  { includeHighContrast: true }
 );

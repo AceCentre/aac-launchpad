@@ -31,5 +31,5 @@ export const trains: Template = generateStandardTemplate(
       ["stop", "crash", "station"],
     ],
   },
-  { includeHighContrast: false }
+  { includeHighContrast: true }
 );
