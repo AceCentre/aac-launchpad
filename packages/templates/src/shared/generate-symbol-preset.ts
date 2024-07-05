@@ -25,6 +25,9 @@ export const generateAllSymbolPresets = (
       value: "pcs",
       description: "PCS Symbols",
       variableValues: [
+        { id: "background-colour", value: "rgb(255,255,255)" },
+        { id: "cell-colour", value: "rgb(255,255,255)" },
+        { id: "label-colour", value: "rgb(0,0,0)" },
         {
           id: "copyright-notice",
           value:
@@ -39,6 +42,9 @@ export const generateAllSymbolPresets = (
       value: "widgit",
       description: "Widgit Symbols",
       variableValues: [
+        { id: "background-colour", value: "rgb(255,255,255)" },
+        { id: "cell-colour", value: "rgb(255,255,255)" },
+        { id: "label-colour", value: "rgb(0,0,0)" },
         {
           id: "copyright-notice",
           value: "Widgit Symbols © Widgit Software 2002-2023 www.widgit.com",
