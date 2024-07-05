@@ -278,6 +278,8 @@ const generateAllChartsForCache = async () => {
       ].includes(x.templateId)
   );
 
+  let counter = 0;
+
   for (const currentTemplate of templates) {
     let symbolsSystems = currentTemplate.templateVariables.find(
       (x) => x.id === "symbol-system"
@@ -331,16 +333,19 @@ const generateAllChartsForCache = async () => {
           }
         );
         writeFileSync(pdfPath, Buffer.from(pdf));
+        counter += 1;
 
         const elapsedTimeSeconds = totalSeconds + totalNanoSeconds / 1e9;
 
         console.log(
-          `${currentTemplate.name} - ${symbolsSystem.label} - ${layout.label} - ${elapsedTimeSeconds}s - ${fileName}`
+          `${counter} - ${currentTemplate.name} - ${symbolsSystem.label} - ${layout.label} - ${elapsedTimeSeconds}s - ${fileName}`
         );
         console.log("");
       }
     }
   }
+
+  console.log(`⚙️ Cache generated, created ${counter} charts.`);
 };
 
 const createBoard = async (
