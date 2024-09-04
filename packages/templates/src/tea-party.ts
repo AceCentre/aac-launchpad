@@ -2,7 +2,7 @@ import { Template } from "types";
 import { generateStandardTemplate } from "./shared/generate-standard-template";
 
 export const teaParty: Template = generateStandardTemplate(
-  "Tea Party",
+  "Tea Time",
   "tea-party",
   {
     intro: [
