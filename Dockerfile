@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:16-bullseye
 
 ARG ACCESS_KEY_ID
 ARG SECRET_ACCESS_KEY
