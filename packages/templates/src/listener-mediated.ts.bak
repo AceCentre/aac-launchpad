@@ -1,0 +1,159 @@
+import {
+  CAPITAL_CASE_OPTION,
+  FONT_OPTIONS,
+  LOWER_CASE_OPTION,
+  SENTENCE_CASING,
+  UPPER_CASE_OPTION,
+} from "board-to-pdf";
+import { Template } from "types";
+
+export const listenerMediated: Template = {
+  templateFeatured: false,
+  templateCategory: "Listener Mediated",
+  templateSubcategory: "Listener Mediated",
+  templateShortDescription: "Create a listener mediated chart with custom colors",
+  templateName: "Listener Mediated",
+  templateDescription: "A customizable chart for listener mediated communication with colored rows for better visual distinction",
+  templateId: "listener-mediated",
+  templateImageUrl: "",
+  templateDateCreated: "2025-03-11",
+
+  templateVariables: [
+    {
+      id: "colorScheme",
+      description:
+        "Pick a colour theme for the charts to be displayed in. The theme you pick should be easy to see for whoever is using the chart.",
+      defaultValue: "basic",
+      name: "Colour Scheme",
+      type: "preset",
+      presets: [
+        {
+          value: "basic",
+          description: "Black and White",
+          label: "Black and White",
+          variableValues: [
+            { id: "textColorOnBackground", value: "rgb(0,0,0)" },
+            { id: "fullBackgroundColor", value: "rgb(255,255,255)" },
+            { id: "numberBackgroundColor", value: "rgb(255,255,255)" },
+            { id: "consonantBackgroundColor", value: "rgb(255,255,255)" },
+            { id: "vowelBackgroundColor", value: "rgb(255,255,255)" },
+            { id: "punctuationBackgroundColor", value: "rgb(255,255,255)" },
+            { id: "commandBackgroundColor", value: "rgb(255,255,255)" },
+            { id: "emptySpaceBackgroundColor", value: "rgb(255,255,255)" },
+            { id: "numberTextColor", value: "rgb(0,0,0)" },
+            { id: "consonantTextColor", value: "rgb(0,0,0)" },
+            { id: "vowelTextColor", value: "rgb(0,0,0)" },
+            { id: "punctuationTextColor", value: "rgb(0,0,0)" },
+            { id: "commandTextColor", value: "rgb(0,0,0)" },
+            { id: "emptySpaceTextColor", value: "rgb(0,0,0)" },
+            { id: "numberBorderColor", value: "rgb(0,0,0)" },
+            { id: "consonantBorderColor", value: "rgb(0,0,0)" },
+            { id: "vowelBorderColor", value: "rgb(0,0,0)" },
+            { id: "punctuationBorderColor", value: "rgb(0,0,0)" },
+            { id: "commandBorderColor", value: "rgb(0,0,0)" },
+            { id: "emptySpaceBorderColor", value: "rgb(0,0,0)" }
+          ]
+        },
+        {
+          value: "colored-rows",
+          description: "Different colors for each row",
+          label: "Colored Rows",
+          variableValues: [
+            { id: "textColorOnBackground", value: "rgb(0,0,0)" },
+            { id: "fullBackgroundColor", value: "rgb(255,255,255)" },
+            
+            // Row 1 (Commands) - Light Blue
+            { id: "commandBackgroundColor", value: "rgb(220,235,255)" },
+            { id: "commandBorderColor", value: "rgb(150,180,255)" },
+            { id: "commandTextColor", value: "rgb(0,0,0)" },
+            
+            // Row 2 (A-D) - Light Green
+            { id: "consonantBackgroundColor", value: "rgb(220,255,220)" },
+            { id: "consonantBorderColor", value: "rgb(150,255,150)" },
+            { id: "consonantTextColor", value: "rgb(0,0,0)" },
+            { id: "vowelBackgroundColor", value: "rgb(220,255,220)" },
+            { id: "vowelBorderColor", value: "rgb(150,255,150)" },
+            { id: "vowelTextColor", value: "rgb(0,0,0)" },
+            
+            // Row 3 (E-H) - Light Yellow
+            { id: "punctuationBackgroundColor", value: "rgb(255,255,220)" },
+            { id: "punctuationBorderColor", value: "rgb(255,255,150)" },
+            { id: "punctuationTextColor", value: "rgb(0,0,0)" },
+            
+            // Row 4 (I-N) - Light Pink
+            { id: "numberBackgroundColor", value: "rgb(255,220,220)" },
+            { id: "numberBorderColor", value: "rgb(255,150,150)" },
+            { id: "numberTextColor", value: "rgb(0,0,0)" },
+            
+            // Empty spaces
+            { id: "emptySpaceBackgroundColor", value: "rgb(245,245,245)" },
+            { id: "emptySpaceBorderColor", value: "rgb(200,200,200)" },
+            { id: "emptySpaceTextColor", value: "rgb(0,0,0)" }
+          ]
+        }
+      ]
+    }
+  ],
+  templateVariableGroups: [
+    {
+      id: "color-scheme",
+      name: "Color Scheme",
+      description: "Choose the color theme for your chart",
+      variables: ["colorScheme"],
+      openByDefault: true
+    }
+  ],
+  buttons: [
+    {
+      id: "space",
+      label: "Space",
+      border_color: { id: "commandBorderColor", type: "TemplateItem" },
+      background_color: { id: "commandBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: { id: "commandTextColor", type: "TemplateItem" },
+      ext_launchpad_label_font_size: 16,
+      ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" }
+    },
+    {
+      id: "delete",
+      label: "Del",
+      border_color: { id: "commandBorderColor", type: "TemplateItem" },
+      background_color: { id: "commandBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: { id: "commandTextColor", type: "TemplateItem" },
+      ext_launchpad_label_font_size: 16,
+      ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" }
+    },
+    {
+      id: "start-again",
+      label: "Start",
+      border_color: { id: "commandBorderColor", type: "TemplateItem" },
+      background_color: { id: "commandBackgroundColor", type: "TemplateItem" },
+      ext_launchpad_label_color: { id: "commandTextColor", type: "TemplateItem" },
+      ext_launchpad_label_font_size: 16,
+      ext_launchpad_label_font_style: "bold",
+      ext_launchpad_label_casing: { type: "TemplateItem", id: "casing" },
+      ext_launchpad_label_font: { type: "TemplateItem", id: "font" }
+    }
+  ],
+  images: [],
+  pages: [
+    {
+      id: "abc-standard-layout",
+      grid: {
+        rows: 6,
+        columns: 6,
+        order: [
+          ["space", "delete", "start-again", null, null, null],
+          ["a", "b", "c", "d", ".", "!"],
+          ["e", "f", "g", "h", "?", ","],
+          ["i", "j", "k", "l", "m", "n"],
+          ["o", "p", "qu", "r", "s", "t"],
+          ["u", "v", "w", "x", "y", "z"]
+        ]
+      }
+    }
+  ]
+};

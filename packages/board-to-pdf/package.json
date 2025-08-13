@@ -33,6 +33,8 @@
     "axios": "^0.27.2",
     "jest-image-matcher": "^2.0.11",
     "jspdf": "^2.5.1",
-    "node-pdftk": "^2.1.3"
+    "node-pdftk": "^2.1.3",
+    "pdf-lib": "^1.17.1",
+    "sharp": "^0.32.6"
   }
 }

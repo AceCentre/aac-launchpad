@@ -62,6 +62,7 @@ export type GridWithTemplateItems = {
 export type LaunchpadOptions = {
   padding?: number | Padding;
   gap?: number;
+  row_gap?: number;
   button_radius?: number;
   button_border_width?: number;
   ext_launchpad_prepend_pdf?: string;
@@ -73,6 +74,8 @@ export type LaunchpadOptions = {
   text_color_on_background?: Color;
   use_ace_branding?: boolean;
   use_page_numbers?: boolean;
+  font_size?: number;
+  custom_branding_text?: string;
 };
 
 export type Padding = {
@@ -88,6 +91,7 @@ export type PaddingWithTemplateItem = {
 export type LaunchpadOptionsWithTemplateItems = {
   padding?: number | TemplateItem | PaddingWithTemplateItem;
   gap?: number | TemplateItem;
+  row_gap?: number | TemplateItem;
   button_radius?: number | TemplateItem;
   button_border_width?: number | TemplateItem;
   title_shown_on_board?: string | TemplateItem;
@@ -99,6 +103,8 @@ export type LaunchpadOptionsWithTemplateItems = {
   use_ace_branding?: boolean;
   use_page_numbers?: boolean;
   ext_launchpad_prepend_pdf?: string | TemplateItem;
+  font_size?: number | TemplateItem;
+  custom_branding_text?: string;
 };
 
 export interface TemplateVariable {
@@ -267,3 +273,26 @@ export type Board = {
   pages: Array<Page>;
   images: Array<Image>;
 };
+
+// Guide PDF types
+export interface GuideSection {
+  heading?: string;
+  body: string;
+  image?: string; // path or URL
+}
+
+export interface GuideTemplate {
+  templateId: string;
+  templateType: "guide";
+  title: string;
+  category: string;
+  subcategory?: string;
+  /**
+   * @deprecated Use 'gear' instead.
+   */
+  level?: number;
+  gear?: number;
+  badgeText?: string;
+  mainImage?: string; // path or URL
+  sections: GuideSection[];
+}

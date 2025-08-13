@@ -48,6 +48,9 @@ import { trains } from "./trains";
 import { gardening } from "./gardening";
 import { teaParty } from "./tea-party";
 import { listenerMediated } from "./listener-mediated";
+import { danceSelectorGuide } from "./dance-selector";
+// import { GuideTemplate } from "types";
+import { loadAllGuides } from "./activity-book/load-activity-book";
 
 export {
   core,
@@ -97,6 +100,8 @@ export {
   trains,
   gardening,
   teaParty,
+  listenerMediated,
+  danceSelectorGuide,
 };
 
 export const ALL_TEMPLATES: Array<Template> = [
@@ -148,6 +153,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   trains,
   gardening,
   teaParty,
+  listenerMediated,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -184,3 +190,5 @@ export const WEB_TEMPLATES: Array<Template> = [
   teaParty,
   listenerMediated,
 ];
+
+export const GUIDE_TEMPLATES = loadAllGuides();

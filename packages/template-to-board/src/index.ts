@@ -46,6 +46,10 @@ const getExtLaunchpadOptions = (
   return {
     padding: getPadding(launchpadOptions, results),
     gap: getOptionalNumberFromTemplateItem(launchpadOptions.gap, results),
+    row_gap: getOptionalNumberFromTemplateItem(
+      launchpadOptions.row_gap,
+      results
+    ),
     button_border_width: getOptionalNumberFromTemplateItem(
       launchpadOptions.button_border_width,
       results
@@ -78,10 +82,17 @@ const getExtLaunchpadOptions = (
       launchpadOptions.ext_launchpad_prepend_pdf,
       results
     ),
-    use_ace_branding: launchpadOptions.use_ace_branding,
+    use_ace_branding:
+      results.find((x) => x.id === "use_ace_branding")?.value === "true" ||
+      false,
+    custom_branding_text: getCustomBrandingText(template, results),
     use_page_numbers: launchpadOptions.use_page_numbers,
     text_color_on_background: getOptionalStringFromTemplateItem(
       launchpadOptions.text_color_on_background,
+      results
+    ),
+    font_size: getOptionalNumberFromTemplateItem(
+      launchpadOptions.font_size,
       results
     ),
   };
@@ -242,6 +253,18 @@ const getOptionalBooleanFromTemplateItem = (
   }
 
   throw new Error(`You provided an invalid item: ${JSON.stringify(item)}`);
+};
+
+const getCustomBrandingText = (
+  template: Template,
+  results: Array<Result>
+): string | undefined => {
+  // Check if this is the listener-mediated template
+  if (template.templateId === "listener-mediated-launchpad") {
+    return 'To use: (1) Hold the chart so it can be seen. (2) Agree on a signal for "yes" (and one for "no" if possible). (3) Ask if it is okay to guess what they are spelling. (4) Point to and/or read out the first item on each row, one row at a time. When the person says "yes" to a row, go through each item in that row (including the first item) until they say "yes" to the one they want. (5) Say the chosen item out loud, then start again. (6) Write down the letters to keep track. (7) Before you finish, ask if they have more to say.\n\nVisit www.acecentre.org.uk for more information.';
+  }
+
+  return undefined;
 };
 const castToCasing = (input: string | undefined): Casing | undefined => {
   if (input === undefined) return undefined;

@@ -1,0 +1,41 @@
+{
+  "format": "open-board-0.1",
+  "id": "dance-selector",
+  "locale": "en-GB",
+  "description_html": "A fun AAC game to select dancers using switches.",
+  "ext_launchpad_options": {
+    "padding": 10,
+    "gap": 2,
+    "button_border_width": 1,
+    "button_radius": 2,
+    "full_background_color": "rgb(255,255,255)",
+    "use_ace_branding": false,
+    "use_page_numbers": true,
+    "text_color_on_background": "rgb(0,0,0)"
+  },
+  "name": "Dance Selector",
+  "buttons": [
+    {
+      "id": "start",
+      "label": "Let's Dance!",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)"
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 1,
+        "columns": 1,
+        "order": [
+          [
+            "start"
+          ]
+        ]
+      },
+      "id": "main",
+      "orientation": "landscape"
+    }
+  ],
+  "images": []
+}

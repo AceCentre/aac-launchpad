@@ -1,0 +1,21 @@
+{
+  "templateId": "fart-prank",
+  "templateType": "guide",
+  "title": "Fart Prank",
+  "category": "Activity Book",
+  "subcategory": "Social",
+  "gear": 1,
+  "badgeText": "Gear 1",
+  "mainImage": "activity-book/fart-prank.png",
+  "sections": [
+    {
+      "heading": "One switch does one thing (press and release)",
+      "body": "Set up your switch to prank people with a fart noise. Make them laugh, make them say ewww or blame it on someone else!"
+    },
+    {
+      "heading": "What you'll need",
+      "body": "You’ll need to record a fart noise onto a BIGMack talking switch.\n\nPlug one of my switches into the BIGMack and position my switch so I can use it.",
+      "image": "activity-book/bigmack-switch.png"
+    }
+  ]
+}

@@ -147,5 +147,6 @@ export const typeDefs = gql`
 
   type Mutation {
     generateBoard(templateId: String!, answers: [AnswerInput!]!): BoardResult!
+    generateGuide(templateId: String!): BoardResult!
   }
 `;

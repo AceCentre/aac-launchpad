@@ -2,10 +2,12 @@ import { ApolloServer } from "apollo-server-express";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import { typeDefs } from "./type-def";
 import { WEB_TEMPLATES } from "templates";
+import { GUIDE_TEMPLATES } from "templates";
 import express, { Request } from "express";
 import http from "http";
 import { Template, AllTemplateVariable } from "types";
 import boardToPdf from "board-to-pdf";
+import { guideToPdf } from "board-to-pdf";
 import templateToBoard from "template-to-board";
 import crypto from "crypto";
 import path from "path";
@@ -225,6 +227,70 @@ const resolvers = {
         fileLocation,
       };
     },
+
+    generateGuide: async (
+      _: undefined,
+      input: { templateId: string },
+      context: any
+    ) => {
+      const mutationStartTime = process.hrtime();
+
+      const fileHash = `guide-${input.templateId}-${crypto
+        .randomBytes(8)
+        .toString("hex")}`;
+      const fileLocation = new URL(
+        `/boards/${fileHash}.pdf`,
+        getBaseUrl()
+      ).toString();
+
+      // Check if guide already exists in cache
+      if (fs.existsSync(path.join("./public/boards", `${fileHash}.pdf`))) {
+        console.log("Guide served from cache!", fileHash);
+        return {
+          success: true,
+          message: "Guide generated!",
+          fileLocation,
+        };
+      }
+
+      const guide = GUIDE_TEMPLATES.find(
+        (x) => x.templateId === input.templateId
+      );
+
+      if (!guide) {
+        throw new Error(`Could not find guide with id: ${input.templateId}`);
+      }
+
+      console.log(`Generating guide: ${guide.title}`);
+
+      try {
+        const pdfBuffer = await guideToPdf(guide, {
+          rootToImages: path.join(__dirname, "../public"),
+        });
+        fs.writeFileSync(
+          path.join("./public/boards", `${fileHash}.pdf`),
+          pdfBuffer
+        );
+
+        const [mutationSeconds, mutationNanoSeconds] =
+          process.hrtime(mutationStartTime);
+        const fullTimeInMs =
+          mutationSeconds * 1000 + mutationNanoSeconds / 1000000;
+
+        console.log(`Guide generation (${guide.title}) took ${fullTimeInMs}ms`);
+
+        return {
+          success: true,
+          message: "Guide generated!",
+          fileLocation,
+        };
+      } catch (error) {
+        console.error(`Error generating guide ${input.templateId}:`, error);
+        throw new Error(
+          `Failed to generate guide: ${(error as Error).message}`
+        );
+      }
+    },
   },
 };
 
@@ -280,7 +346,12 @@ async function setupServer() {
 
   const upload = multer({ dest: "private/", fileFilter });
 
-  app.use(cors({ credentials: true }));
+  app.use(
+    cors({
+      origin: "http://localhost:3000",
+      credentials: true,
+    })
+  );
   app.use(cookieParser());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
@@ -300,6 +371,59 @@ async function setupServer() {
     }
   });
 
+  app.post(
+    "/api/upload-photos",
+    upload.fields([
+      { name: "userPhoto", maxCount: 1 },
+      { name: "devicePhoto", maxCount: 1 },
+    ]),
+    (req, res) => {
+      try {
+        const files = req.files as {
+          [fieldname: string]: Express.Multer.File[];
+        };
+        const uploadedPaths: { [key: string]: string } = {};
+
+        console.log("Uploaded files:", files);
+
+        if (files.userPhoto && files.userPhoto[0]) {
+          uploadedPaths.userPhotoPath = files.userPhoto[0].path;
+          console.log("User photo saved to:", files.userPhoto[0].path);
+          console.log(
+            "User photo exists:",
+            fs.existsSync(files.userPhoto[0].path)
+          );
+        }
+
+        if (files.devicePhoto && files.devicePhoto[0]) {
+          uploadedPaths.devicePhotoPath = files.devicePhoto[0].path;
+          console.log("Device photo saved to:", files.devicePhoto[0].path);
+          console.log(
+            "Device photo exists:",
+            fs.existsSync(files.devicePhoto[0].path)
+          );
+        }
+
+        console.log("Returning paths:", uploadedPaths);
+
+        res.json({
+          success: true,
+          paths: uploadedPaths,
+        });
+      } catch (error) {
+        console.error("Error uploading photos:", error);
+        res.status(500).json({
+          success: false,
+          error: "Failed to upload photos",
+        });
+      }
+    }
+  );
+
+  app.get("/test-cors", (req, res) => {
+    res.json({ ok: true });
+  });
+
   app.get("/boards/:id", (req, res) => {
     const date = new Date();
 
@@ -308,6 +432,282 @@ async function setupServer() {
     res.download(req.params.id, `${boardId}-${date.toISOString()}.pdf`, {
       root: "./public/boards",
     });
+  });
+
+  app.get("/boards/:id.docx", (req, res) => {
+    const date = new Date();
+    const boardId = req.params.id.split("--")[0];
+
+    res.download(
+      req.params.id + ".docx",
+      `${boardId}-${date.toISOString()}.docx`,
+      {
+        root: "./public/boards",
+      }
+    );
+  });
+
+  app.get("/boards/:id.zip", (req, res) => {
+    const date = new Date();
+    const boardId = req.params.id.split("--")[0];
+
+    res.download(
+      req.params.id + ".zip",
+      `${boardId}-${date.toISOString()}.zip`,
+      {
+        root: "./public/boards",
+      }
+    );
+  });
+
+  app.get("/api/activity-book", (req, res) => {
+    try {
+      const guides = GUIDE_TEMPLATES.map((guide) => ({
+        templateId: guide.templateId,
+        title: guide.title,
+        category: guide.category,
+        subcategory: guide.subcategory,
+        gear: guide.gear ?? guide.level,
+        badgeText: guide.badgeText,
+        mainImage: guide.mainImage,
+        sections: guide.sections,
+      }));
+
+      res.json(guides);
+    } catch (error) {
+      console.error("Error fetching guides:", error);
+      res.status(500).json({ error: "Failed to fetch guides" });
+    }
+  });
+
+  app.get("/api/activity-book/categories", (req, res) => {
+    try {
+      const categories = Array.from(
+        new Set(GUIDE_TEMPLATES.map((guide) => guide.category))
+      ).filter(Boolean);
+      res.json(categories);
+    } catch (error) {
+      console.error("Error fetching guide categories:", error);
+      res.status(500).json({ error: "Failed to fetch guide categories" });
+    }
+  });
+
+  app.get("/api/activity-book/gears", (req, res) => {
+    try {
+      const gears = Array.from(
+        new Set(GUIDE_TEMPLATES.map((guide) => guide.gear ?? guide.level))
+      )
+        .filter((gear): gear is number => gear !== undefined)
+        .sort((a, b) => a - b);
+      res.json(gears);
+    } catch (error) {
+      console.error("Error fetching guide gears:", error);
+      res.status(500).json({ error: "Failed to fetch guide gears" });
+    }
+  });
+
+  app.get("/api/activity-book/subcategories", (req, res) => {
+    try {
+      const subcategories = Array.from(
+        new Set(GUIDE_TEMPLATES.map((guide) => guide.subcategory))
+      ).filter(Boolean);
+      res.json(subcategories);
+    } catch (error) {
+      console.error("Error fetching guide subcategories:", error);
+      res.status(500).json({ error: "Failed to fetch guide subcategories" });
+    }
+  });
+
+  app.post("/api/activity-book/with-cover", async (req, res) => {
+    try {
+      const { templateId, userName } = req.body;
+
+      if (!templateId) {
+        return res.status(400).json({ error: "templateId is required" });
+      }
+
+      const guide = GUIDE_TEMPLATES.find((g) => g.templateId === templateId);
+      if (!guide) {
+        return res.status(404).json({ error: "Guide not found" });
+      }
+
+      // Import the function dynamically to avoid circular dependencies
+      const { generateCoverPagePdf, guideToPdf } = await import("board-to-pdf");
+
+      // Debug logging
+      console.log("Photo paths received:", {
+        userPhotoPath: req.body.userPhotoPath,
+        devicePhotoPath: req.body.devicePhotoPath,
+        userName: userName,
+      });
+
+      // Generate the cover PDF (2 pages) and activity book, then merge into one PDF
+      const coverPdfBuffer = await generateCoverPagePdf({
+        userName,
+        activityBookTitle: guide.title,
+        activityBookLevel: guide.badgeText,
+        activityBookCategory: guide.category,
+        userPhotoPath: req.body.userPhotoPath,
+        devicePhotoPath: req.body.devicePhotoPath,
+      });
+
+      // Generate the activity book PDF
+      const activityBookPdf = await guideToPdf(guide, {
+        rootToImages: path.resolve(__dirname, "../public"),
+      });
+
+      // Merge the cover PDF (2 pages) with the activity book PDF
+      const { PDFDocument } = await import("pdf-lib");
+      const mergedPdf = await PDFDocument.create();
+
+      // Load and copy cover pages (2 pages)
+      const coverPdf = await PDFDocument.load(coverPdfBuffer);
+      const coverPages = await mergedPdf.copyPages(
+        coverPdf,
+        coverPdf.getPageIndices()
+      );
+      coverPages.forEach((page) => mergedPdf.addPage(page));
+
+      // Load and copy activity book pages
+      const activityPdf = await PDFDocument.load(activityBookPdf);
+      const activityPages = await mergedPdf.copyPages(
+        activityPdf,
+        activityPdf.getPageIndices()
+      );
+      activityPages.forEach((page) => mergedPdf.addPage(page));
+
+      // Save the merged PDF
+      const mergedPdfBytes = await mergedPdf.save();
+
+      // Generate unique filename
+      const fileHash = `activity-book-with-cover-${templateId}-${crypto
+        .randomBytes(8)
+        .toString("hex")}`;
+
+      // Save the merged PDF file
+      const pdfPath = path.join("./public/boards", `${fileHash}.pdf`);
+      fs.writeFileSync(pdfPath, Buffer.from(mergedPdfBytes));
+
+      res.json({
+        success: true,
+        message: "Activity book with cover generated!",
+        pdfLocation: new URL(
+          `/boards/${fileHash}.pdf`,
+          getBaseUrl()
+        ).toString(),
+      });
+    } catch (error) {
+      console.error("Error generating activity book with cover:", error);
+      res.status(500).json({
+        error: "Failed to generate activity book with cover",
+        details: error instanceof Error ? error.message : "Unknown error",
+      });
+    }
+  });
+
+  app.post("/api/activity-book/bulk-download", async (req, res) => {
+    try {
+      const { templateIds, userName, userPhotoPath, devicePhotoPath } =
+        req.body;
+
+      if (
+        !templateIds ||
+        !Array.isArray(templateIds) ||
+        templateIds.length === 0
+      ) {
+        return res.status(400).json({ error: "templateIds array is required" });
+      }
+
+      // Generate the cover PDF (2 pages) and activity guides, then merge into one PDF
+      const { generateCoverPagePdf, guideToPdf } = await import("board-to-pdf");
+      const { PDFDocument } = await import("pdf-lib");
+
+      console.log("Starting PDF generation...");
+
+      // Create the final merged PDF
+      const finalPdf = await PDFDocument.create();
+      console.log("Created PDF document");
+
+      // Add cover pages (2 pages) FIRST
+      console.log("Generating cover PDF...");
+      const coverPdfBuffer = await generateCoverPagePdf({
+        userName: userName || "My",
+        activityBookTitle: "Switch Activity Book",
+        activityBookLevel: "Mixed",
+        activityBookCategory: "Switch Activities",
+        userPhotoPath,
+        devicePhotoPath,
+      });
+      console.log("Cover PDF generated, size:", coverPdfBuffer.length, "bytes");
+
+      console.log("Loading cover PDF into final document...");
+      const coverPdf = await PDFDocument.load(coverPdfBuffer);
+      const coverPages = await finalPdf.copyPages(
+        coverPdf,
+        coverPdf.getPageIndices()
+      );
+      coverPages.forEach((page) => finalPdf.addPage(page));
+      console.log("Cover pages added to final PDF");
+
+      // Generate and add all guide PDFs
+      console.log("Generating activity guide PDFs...");
+      for (const templateId of templateIds) {
+        const guide = GUIDE_TEMPLATES.find((g) => g.templateId === templateId);
+        if (!guide) {
+          console.log(`Guide not found: ${templateId}`);
+          continue;
+        }
+
+        console.log(`Processing guide: ${guide.title}`);
+        const pdfBuffer = await guideToPdf(guide, {
+          rootToImages: path.join(__dirname, "../public"),
+        });
+        console.log(
+          `Guide PDF generated for ${guide.title}, size:`,
+          pdfBuffer.length,
+          "bytes"
+        );
+
+        console.log(`Loading guide PDF into final document...`);
+        const guidePdf = await PDFDocument.load(pdfBuffer);
+        const guidePages = await finalPdf.copyPages(
+          guidePdf,
+          guidePdf.getPageIndices()
+        );
+        guidePages.forEach((page) => finalPdf.addPage(page));
+        console.log(`Guide pages added to final PDF: ${guide.title}`);
+      }
+
+      // Save the final merged PDF
+      console.log("Saving final PDF...");
+      const finalPdfBuffer = Buffer.from(await finalPdf.save());
+      console.log("Final PDF saved, size:", finalPdfBuffer.length, "bytes");
+
+      // Generate unique filename for the PDF
+      const pdfHash = `activity-book-with-customization-${crypto
+        .randomBytes(8)
+        .toString("hex")}`;
+      const pdfPath = path.join("./public/boards", `${pdfHash}.pdf`);
+
+      // Save the PDF file
+      fs.writeFileSync(pdfPath, finalPdfBuffer);
+
+      console.log(
+        `PDF created: ${pdfHash}.pdf (${finalPdfBuffer.length} bytes)`
+      );
+
+      res.json({
+        success: true,
+        message: "PDF created successfully!",
+        pdfLocation: new URL(`/boards/${pdfHash}.pdf`, getBaseUrl()).toString(),
+      });
+    } catch (error) {
+      console.error("Error creating PDF:", error);
+      res.status(500).json({
+        success: false,
+        error: "Failed to create PDF",
+      });
+    }
   });
 
   app.use(express.static("public"));
@@ -325,7 +725,15 @@ async function setupServer() {
     plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
   });
   await server.start();
-  server.applyMiddleware({ app, path: "/" });
+  // server.applyMiddleware({ app, path: "/" });  remove 227
+  server.applyMiddleware({
+    app,
+    path: "/",
+    cors: {
+      origin: "http://localhost:3000",
+      credentials: true,
+    },
+  });
   await new Promise<void>((resolve) => httpServer.listen({ port }, resolve));
 
   console.log(`🚀 Server ready at ${getBaseUrl()}${server.graphqlPath}`);

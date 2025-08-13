@@ -1,0 +1,21 @@
+{
+  "templateId": "news-sharing",
+  "templateType": "guide",
+  "title": "News Sharing",
+  "category": "Activity Book",
+  "subcategory": "Social",
+  "gear": 1,
+  "badgeText": "Gear 1",
+  "mainImage": "activity-book/news-sharing.png",
+  "sections": [
+    {
+      "heading": "One switch does one thing (press and release)",
+      "body": "Share news about what you've been doing, such as telling your classmates what you got up to on the weekend."
+    },
+    {
+      "heading": "What you'll need",
+      "body": "You'll need to record the news onto a BIGMack talking switch.\n\nPlug one of my switches into the BIGMack and position my switch so I can use it.",
+      "image": "activity-book/bigmack-switch.png"
+    }
+  ]
+}

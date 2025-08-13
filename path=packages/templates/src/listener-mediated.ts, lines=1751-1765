@@ -1,0 +1,14 @@
+    {
+      id: "frequency-layout",
+      grid: {
+        rows: 5,
+        columns: 6,
+        order: [
+          ["-", "e", "a", "r", "d", "u"],
+          ["t", "o", "i", "l", "g", "v"],
+          ["n", "s", "f", "y", "x", "?"],
+          ["h", "c", "p", "k", "j", "?"],
+          ["m", "b", "w", "qu", "z", "run"],
+        ],
+      },
+    }, 

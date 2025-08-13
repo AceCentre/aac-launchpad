@@ -555,7 +555,7 @@ export const alphabetChart: Template = {
     {
       id: "empty-cell-two-text",
       description:
-        "This is the text that will appear in the second empty space on any chart. Leave blank to fill in on the printed version",
+        "This is the textt that will appear in the second empty space on any chart. Leave blank to fill in on the printed version",
       name: "Second Empty Space Label",
       defaultValue: "",
       type: "freeText",

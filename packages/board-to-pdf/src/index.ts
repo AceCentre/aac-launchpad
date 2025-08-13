@@ -41,6 +41,7 @@ const calculateButtonSize = (
   horizontalPadding: number,
   verticalPadding: number,
   gap: number,
+  rowGap: number,
   rows: number,
   columns: number,
   withRowLabels: boolean
@@ -52,7 +53,7 @@ const calculateButtonSize = (
   const buttonWidth = totalButtonWidth / columns;
 
   const heightLostToPadding = verticalPadding * 2;
-  const heightLostToGap = (rows - 1) * gap;
+  const heightLostToGap = (rows - 1) * rowGap;
   const totalButtonHeight = pageHeight - heightLostToGap - heightLostToPadding;
   const buttonHeight = totalButtonHeight / rows;
 
@@ -188,7 +189,12 @@ const getImageFromFile = (imageRoot: string, url: string) => {
     return fs.readFileSync(imagePath);
   } catch (error: any) {
     if (error && error.code && error.code === "ENOENT") {
-      throw Error(`Image URL '${url}' does not exist as a path or as a URL`);
+      throw Error(
+        `Unable to find file. Looking for image at path: ${path.join(
+          imageRoot,
+          url
+        )}`
+      );
     } else {
       throw error;
     }
@@ -248,6 +254,14 @@ const boardToPdf = async (
 
   const options = board.ext_launchpad_options;
 
+  // Add custom branding text for listener-mediated template
+  // Check if this is the listener-mediated template by looking at the board name
+  if (board.name === "Listener Mediated Template") {
+    options.use_ace_branding = true;
+    options.custom_branding_text =
+      'To use: (1) Hold the chart so it can be seen. (2) Agree on a signal for "yes" (and one for "no" if possible). (3) Ask if it is okay to guess what they are spelling. (4) Point to and/or read out the first item on each row, one row at a time. When the person says "yes" to a row, go through each item in that row (including the first item) until they say "yes" to the one they want. (5) Say the chosen item out loud, then start again. (6) Write down the letters to keep track. (7) Before you finish, ask if they have more to say.\n\nVisit www.acecentre.org.uk for more information.';
+  }
+
   let horizontalPadding = DEFAULT_PADDING;
   let verticalPadding = DEFAULT_PADDING;
 
@@ -263,7 +277,12 @@ const boardToPdf = async (
     verticalPadding = options.padding.vertical;
   }
 
-  const gap = options.gap ?? DEFAULT_GAP;
+  const gap = Number(options.gap);
+  const rowGap = Number(options.row_gap);
+
+  const safeGap = isNaN(gap) ? DEFAULT_GAP : gap;
+  const safeRowGap = isNaN(rowGap) ? safeGap : rowGap;
+
   const buttonRadius = options.button_radius ?? DEFAULT_BUTTON_RADIUS;
   const documentButtonBorderWidth =
     options.button_border_width ?? DEFAULT_BUTTON_BORDER_WIDTH;
@@ -410,17 +429,138 @@ const boardToPdf = async (
         0
       );
 
-      doc
-        .setFontSize(10)
-        .text(
-          "A free resource created by the charity acecentre.org.uk",
-          10 + logoWidth + 2,
-          currentPageHeight - logoHeight / 2 - 2,
-          {
-            baseline: "top",
-            align: "left",
+      if (options.custom_branding_text) {
+        // Split the custom branding text into main instructions and website URL
+        const textParts = options.custom_branding_text.split("\n\n");
+        const mainInstructions = textParts[0];
+        const websiteUrl = textParts[1];
+
+        // Add main instructions
+        doc
+          .setFontSize(8)
+          .setFont("helvetica", "normal")
+          .text(
+            mainInstructions,
+            10 + logoWidth + 2,
+            currentPageHeight - logoHeight / 2 - 8,
+            {
+              baseline: "top",
+              align: "left",
+              maxWidth: currentPageWidth - 30 - logoWidth - 4,
+            }
+          );
+
+        // Add website URL on a new line
+        if (websiteUrl) {
+          // Check if the text contains a URL to format as a link
+          if (websiteUrl.includes("www.acecentre.org.uk")) {
+            // Split the text to separate the URL from the rest
+            const parts = websiteUrl.split("www.acecentre.org.uk");
+            const beforeUrl = parts[0];
+            const afterUrl = parts[1] || "";
+
+            let currentX = 10 + logoWidth + 2;
+
+            // Add text before the URL
+            if (beforeUrl) {
+              doc
+                .setFontSize(8)
+                .setFont("helvetica", "normal")
+                .setTextColor(0, 0, 0); // Black text
+              doc.text(
+                beforeUrl,
+                currentX,
+                currentPageHeight - logoHeight / 2 + 3,
+                {
+                  baseline: "top",
+                  align: "left",
+                }
+              );
+              currentX += doc.getTextWidth(beforeUrl);
+            }
+
+            // Add the URL as a blue underlined link
+            doc
+              .setFontSize(8)
+              .setFont("helvetica", "normal")
+              .setTextColor(0, 0, 255); // Blue text
+            doc.text(
+              "www.acecentre.org.uk",
+              currentX,
+              currentPageHeight - logoHeight / 2 + 3,
+              {
+                baseline: "top",
+                align: "left",
+              }
+            );
+            currentX += doc.getTextWidth("www.acecentre.org.uk");
+
+            // Add text after the URL
+            if (afterUrl) {
+              doc
+                .setFontSize(8)
+                .setFont("helvetica", "normal")
+                .setTextColor(0, 0, 0); // Black text
+              doc.text(
+                afterUrl,
+                currentX,
+                currentPageHeight - logoHeight / 2 + 3,
+                {
+                  baseline: "top",
+                  align: "left",
+                }
+              );
+            }
+
+            // Add underline for the URL
+            const urlWidth = doc.getTextWidth("www.acecentre.org.uk");
+            const urlStartX =
+              10 +
+              logoWidth +
+              2 +
+              (beforeUrl ? doc.getTextWidth(beforeUrl) : 0);
+            doc
+              .setDrawColor(0, 0, 255) // Blue line
+              .line(
+                urlStartX,
+                currentPageHeight - logoHeight / 2 + 6,
+                urlStartX + urlWidth,
+                currentPageHeight - logoHeight / 2 + 6
+              );
+          } else {
+            // Regular text if no URL found
+            doc
+              .setFontSize(8)
+              .setFont("helvetica", "normal")
+              .setTextColor(0, 0, 0); // Black text
+            doc.text(
+              websiteUrl,
+              10 + logoWidth + 2,
+              currentPageHeight - logoHeight / 2 + 3,
+              {
+                baseline: "top",
+                align: "left",
+                maxWidth: currentPageWidth - 20 - logoWidth - 4,
+              }
+            );
           }
-        );
+        }
+      } else {
+        // Default branding text
+        doc
+          .setFontSize(8)
+          .setFont("helvetica", "normal")
+          .text(
+            "A free resource created by the charity acecentre.org.uk",
+            10 + logoWidth + 2,
+            currentPageHeight - logoHeight / 2 - 2,
+            {
+              baseline: "top",
+              align: "left",
+              maxWidth: currentPageWidth - 30 - logoWidth - 4,
+            }
+          );
+      }
 
       if (options.copyright_notice) {
         doc
@@ -439,7 +579,7 @@ const boardToPdf = async (
       // Something funky is happening here but this seems to fix it.
       // Problem for another day
       // I suspect the units are messed up
-      documentHeight = documentHeight - 10;
+      documentHeight = documentHeight - 15;
     }
 
     const buttonDimensions = calculateButtonSize(
@@ -447,7 +587,8 @@ const boardToPdf = async (
       documentHeight,
       horizontalPadding,
       verticalPadding,
-      gap,
+      safeGap,
+      safeRowGap,
       page.grid.rows,
       page.grid.columns,
       withRowLabels
@@ -539,7 +680,7 @@ const boardToPdf = async (
         const currentX = horizontalPadding + SPACE_RESERVED_FOR_ROW_LABEL / 2;
 
         const currentY =
-          rowCount * (buttonDimensions.height + gap) +
+          rowCount * (buttonDimensions.height + safeRowGap) +
           verticalPadding +
           extraTopPadding;
 
@@ -642,6 +783,7 @@ const boardToPdf = async (
 
         let fontSize =
           currentButton.ext_launchpad_label_font_size ??
+          options.font_size ??
           DEFAULT_LABEL_FONT_SIZE;
         const fontStyle =
           currentButton.ext_launchpad_label_font_style ??
@@ -671,18 +813,19 @@ const boardToPdf = async (
         const spaceForLabels = withRowLabels ? SPACE_RESERVED_FOR_ROW_LABEL : 0;
 
         const currentX =
-          columnCount * (buttonDimensions.width + gap) +
+          columnCount * (buttonDimensions.width + safeGap) +
           horizontalPadding +
           spaceForLabels;
         const currentY =
-          rowCount * (buttonDimensions.height + gap) +
+          rowCount * (buttonDimensions.height + safeRowGap) +
           verticalPadding +
           extraTopPadding;
 
         const cellWidth =
-          buttonDimensions.width * buttonsWide + gap * (buttonsWide - 1);
+          buttonDimensions.width * buttonsWide + safeGap * (buttonsWide - 1);
         const cellHeight =
-          buttonDimensions.height * buttonsTall + gap * (buttonsTall - 1);
+          buttonDimensions.height * buttonsTall +
+          safeRowGap * (buttonsTall - 1);
 
         let rectHeight = cellHeight;
 
@@ -971,3 +1114,6 @@ const boardToPdf = async (
 
 export default boardToPdf;
 export { FONT_OPTIONS };
+export * from "./guide-to-pdf";
+
+export * from "./cover-page-generator";
