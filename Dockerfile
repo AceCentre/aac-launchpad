@@ -16,6 +16,8 @@ RUN yarn build
 
 # This will always bust the cache so that images are always freshly downloaded
 ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
-RUN yarn download-images
-RUN node ./apps/cli/dist/index.js --create-cache
+# Image download disabled - requires AWS credentials
+# RUN yarn download-images
+# Cache generation removed to prevent Docker build timeouts
+# RUN node ./apps/cli/dist/index.js --create-cache
 CMD yarn start
