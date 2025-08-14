@@ -344,7 +344,14 @@ const customSessionMiddleware = (req: any, res: any, next: any) => {
 async function setupServer() {
   const app = express();
 
-  const upload = multer({ dest: "private/", fileFilter });
+  const upload = multer({
+    dest: "private/",
+    fileFilter,
+    limits: {
+      fileSize: 50 * 1024 * 1024, // 50MB limit
+      files: 2, // Maximum 2 files (userPhoto and devicePhoto)
+    },
+  });
 
   app.use(
     cors({
@@ -357,6 +364,29 @@ async function setupServer() {
   app.use(express.urlencoded({ extended: true }));
 
   app.use(customSessionMiddleware);
+
+  // Error handling middleware for multer
+  app.use((error: any, req: any, res: any, next: any) => {
+    if (error instanceof multer.MulterError) {
+      if (error.code === "LIMIT_FILE_SIZE") {
+        return res.status(400).json({
+          success: false,
+          error: "File too large. Maximum size is 50MB.",
+        });
+      }
+      if (error.code === "LIMIT_FILE_COUNT") {
+        return res.status(400).json({
+          success: false,
+          error: "Too many files uploaded.",
+        });
+      }
+      return res.status(400).json({
+        success: false,
+        error: "File upload error: " + error.message,
+      });
+    }
+    next(error);
+  });
 
   app.post("/image-upload", upload.single("image"), (req, res) => {
     if (!req.file) {
@@ -630,15 +660,6 @@ async function setupServer() {
 
       // Add cover pages (2 pages) FIRST
       console.log("Generating cover PDF...");
-
-      // Check if photo files still exist before processing
-      if (userPhotoPath && !fs.existsSync(userPhotoPath)) {
-        console.warn("User photo file no longer exists:", userPhotoPath);
-      }
-      if (devicePhotoPath && !fs.existsSync(devicePhotoPath)) {
-        console.warn("Device photo file no longer exists:", devicePhotoPath);
-      }
-
       const coverPdfBuffer = await generateCoverPagePdf({
         userName: userName || "My",
         activityBookTitle: "Switch Activity Book",
@@ -710,8 +731,13 @@ async function setupServer() {
         message: "PDF created successfully!",
         pdfLocation: new URL(`/boards/${pdfHash}.pdf`, getBaseUrl()).toString(),
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error creating PDF:", error);
+      console.error("Error details:", {
+        message: error?.message || "Unknown error",
+        stack: error?.stack,
+        name: error?.name,
+      });
       res.status(500).json({
         success: false,
         error: "Failed to create PDF",
@@ -751,7 +777,7 @@ async function setupServer() {
 setupServer();
 
 const CLEAR_INTERVAL = 60 * 60 * 1000; // 60 minutes
-const MIN_STORAGE_TIME = 150000; // 2.5 minutes - increased to prevent premature deletion of uploaded photos
+const MIN_STORAGE_TIME = 60000; // 60 Seconds
 
 // setInterval(async () => {
 //   // Get the files then wait a while,
