@@ -630,6 +630,15 @@ async function setupServer() {
 
       // Add cover pages (2 pages) FIRST
       console.log("Generating cover PDF...");
+
+      // Check if photo files still exist before processing
+      if (userPhotoPath && !fs.existsSync(userPhotoPath)) {
+        console.warn("User photo file no longer exists:", userPhotoPath);
+      }
+      if (devicePhotoPath && !fs.existsSync(devicePhotoPath)) {
+        console.warn("Device photo file no longer exists:", devicePhotoPath);
+      }
+
       const coverPdfBuffer = await generateCoverPagePdf({
         userName: userName || "My",
         activityBookTitle: "Switch Activity Book",
@@ -742,7 +751,7 @@ async function setupServer() {
 setupServer();
 
 const CLEAR_INTERVAL = 60 * 60 * 1000; // 60 minutes
-const MIN_STORAGE_TIME = 60000; // 60 Seconds
+const MIN_STORAGE_TIME = 150000; // 2.5 minutes - increased to prevent premature deletion of uploaded photos
 
 // setInterval(async () => {
 //   // Get the files then wait a while,
