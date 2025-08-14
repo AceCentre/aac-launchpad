@@ -9,7 +9,7 @@ WORKDIR /app
 COPY . .
 
 RUN apt-get update && \
-	apt-get install -y pdftk
+	apt-get install -y pdftk libvips-dev
 
 RUN yarn install
 RUN yarn build
