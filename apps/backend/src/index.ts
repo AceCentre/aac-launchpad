@@ -355,7 +355,11 @@ async function setupServer() {
 
   app.use(
     cors({
-      origin: "http://localhost:3000",
+      origin: [
+        "http://localhost:3000",
+        "https://acecentre.org.uk",
+        "https://www.acecentre.org.uk"
+      ],
       credentials: true,
     })
   );
@@ -765,7 +769,11 @@ async function setupServer() {
     app,
     path: "/",
     cors: {
-      origin: "http://localhost:3000",
+      origin: [
+        "http://localhost:3000",
+        "https://acecentre.org.uk",
+        "https://www.acecentre.org.uk"
+      ],
       credentials: true,
     },
   });
