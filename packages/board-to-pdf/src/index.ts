@@ -189,11 +189,16 @@ const getImageFromFile = (imageRoot: string, url: string) => {
     return fs.readFileSync(imagePath);
   } catch (error: any) {
     if (error && error.code && error.code === "ENOENT") {
-      throw Error(
+      console.warn(
         `Unable to find file. Looking for image at path: ${path.join(
           imageRoot,
           url
         )}`
+      );
+      // Return a default/placeholder image or throw a more graceful error
+      // For now, we'll throw a more informative error
+      throw Error(
+        `Image not found: ${url}. This symbol may not be available in the current build.`
       );
     } else {
       throw error;

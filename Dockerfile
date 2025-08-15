@@ -8,9 +8,7 @@ ARG COLLECT_ANALYTICS
 WORKDIR /app
 COPY . .
 
-# Copy symbols to the backend private directory
-RUN mkdir -p apps/backend/private/symbols/pcs && \
-    cp symbols/pcs/more.png apps/backend/private/symbols/pcs/more.png
+# Symbols will be downloaded from S3 during runtime if AWS credentials are provided
 
 RUN apt-get update && \
 	apt-get install -y pdftk libvips-dev
