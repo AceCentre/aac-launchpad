@@ -82,9 +82,7 @@ const getExtLaunchpadOptions = (
       launchpadOptions.ext_launchpad_prepend_pdf,
       results
     ),
-    use_ace_branding:
-      results.find((x) => x.id === "use_ace_branding")?.value === "true" ||
-      false,
+    use_ace_branding: launchpadOptions.use_ace_branding ?? true,
     custom_branding_text: getCustomBrandingText(template, results),
     use_page_numbers: launchpadOptions.use_page_numbers,
     text_color_on_background: getOptionalStringFromTemplateItem(
