@@ -5,6 +5,12 @@ ARG SECRET_ACCESS_KEY
 ARG BASE_URL
 ARG COLLECT_ANALYTICS
 
+# Set environment variables for the build process
+ENV ACCESS_KEY_ID=$ACCESS_KEY_ID
+ENV SECRET_ACCESS_KEY=$SECRET_ACCESS_KEY
+ENV BASE_URL=$BASE_URL
+ENV COLLECT_ANALYTICS=$COLLECT_ANALYTICS
+
 WORKDIR /app
 COPY . .
 
@@ -18,8 +24,8 @@ RUN yarn build
 
 # This will always bust the cache so that images are always freshly downloaded
 ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
-# Image download disabled - requires AWS credentials
-# RUN yarn download-images
+# Download symbols from S3 if credentials are provided
+RUN yarn download-images
 # Cache generation removed to prevent Docker build timeouts
 # RUN node ./apps/cli/dist/index.js --create-cache
 CMD yarn start
