@@ -47,7 +47,9 @@ import { bingo } from "./bingo";
 import { trains } from "./trains";
 import { gardening } from "./gardening";
 import { teaParty } from "./tea-party";
-import { listenerMediated } from "./listener-mediated";
+
+import { listenerMediatedFrequency } from "./listener-mediated-frequency";
+import { listenerMediatedAbc } from "./listener-mediated-abc";
 import { danceSelectorGuide } from "./dance-selector";
 // import { GuideTemplate } from "types";
 import { loadAllGuides } from "./activity-book/load-activity-book";
@@ -100,7 +102,8 @@ export {
   trains,
   gardening,
   teaParty,
-  listenerMediated,
+  listenerMediatedFrequency,
+  listenerMediatedAbc,
   danceSelectorGuide,
 };
 
@@ -153,7 +156,8 @@ export const ALL_TEMPLATES: Array<Template> = [
   trains,
   gardening,
   teaParty,
-  listenerMediated,
+  listenerMediatedFrequency,
+  listenerMediatedAbc,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -188,7 +192,8 @@ export const WEB_TEMPLATES: Array<Template> = [
   trains,
   gardening,
   teaParty,
-  listenerMediated,
+  listenerMediatedFrequency,
+  listenerMediatedAbc,
 ];
 
 export const GUIDE_TEMPLATES = loadAllGuides();

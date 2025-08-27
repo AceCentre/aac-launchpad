@@ -7,12 +7,12 @@ import {
 } from "board-to-pdf";
 import { Template } from "types";
 
-export const listenerMediated: Template = {
+export const listenerMediatedFrequency: Template = {
   templateFeatured: false,
   templateCategory: "Listener Mediated",
   templateSubcategory: "Listener Mediated",
   templateShortDescription:
-    "Create an listener mediated chart with custom colors",
+    "Create a listener mediated chart with frequency-based letter arrangement",
 
   templateVariables: [
     {
@@ -563,6 +563,60 @@ export const listenerMediated: Template = {
       maxLength: 100,
     },
     {
+      id: "empty-cell-three-text",
+      description:
+        "This is the text that will appear in the third empty space on any chart. Leave blank to fill in on the printed version",
+      name: "Third Empty Space Label",
+      defaultValue: "",
+      type: "freeText",
+      maxLength: 100,
+    },
+    {
+      id: "empty-cell-four-text",
+      description:
+        "This is the text that will appear in the fourth empty space on any chart. Leave blank to fill in on the printed version",
+      name: "Fourth Empty Space Label",
+      defaultValue: "",
+      type: "freeText",
+      maxLength: 100,
+    },
+    {
+      id: "empty-cell-five-text",
+      description:
+        "This is the text that will appear in the fifth empty space on any chart. Leave blank to fill in on the printed version",
+      name: "Fifth Empty Space Label",
+      defaultValue: "",
+      type: "freeText",
+      maxLength: 100,
+    },
+    {
+      id: "empty-cell-six-text",
+      description:
+        "This is the text that will appear in the sixth empty space on any chart. Leave blank to fill in on the printed version",
+      name: "Sixth Empty Space Label",
+      defaultValue: "",
+      type: "freeText",
+      maxLength: 100,
+    },
+    {
+      id: "empty-cell-seven-text",
+      description:
+        "This is the text that will appear in the seventh empty space on any chart. Leave blank to fill in on the printed version",
+      name: "Seventh Empty Space Label",
+      defaultValue: "",
+      type: "freeText",
+      maxLength: 100,
+    },
+    {
+      id: "empty-cell-eight-text",
+      description:
+        "This is the text that will appear in the eighth empty space on any chart. Leave blank to fill in on the printed version",
+      name: "Eighth Empty Space Label",
+      defaultValue: "",
+      type: "freeText",
+      maxLength: 100,
+    },
+    {
       id: "empty-cells",
       description: "What would you like to appear in the empty cells",
       name: "Empty Spaces",
@@ -854,6 +908,25 @@ export const listenerMediated: Template = {
       min: 8,
       max: 70,
     },
+    {
+      id: "with-row-labels",
+      description: "Show row numbers as labels outside the grid",
+      name: "Show Row Labels",
+      type: "option",
+      defaultValue: "true",
+      options: [
+        {
+          value: "true",
+          label: "Yes",
+          description: "Show row numbers as text labels outside the grid",
+        },
+        {
+          value: "false",
+          label: "No",
+          description: "Hide row number labels",
+        },
+      ],
+    },
   ],
   templateVariableGroups: [
     {
@@ -871,6 +944,12 @@ export const listenerMediated: Template = {
         "space-text",
         "empty-cell-one-text",
         "empty-cell-two-text",
+        "empty-cell-three-text",
+        "empty-cell-four-text",
+        "empty-cell-five-text",
+        "empty-cell-six-text",
+        "empty-cell-seven-text",
+        "empty-cell-eight-text",
       ],
       name: "Labels",
       description: "Edit the labels that appear on the chart",
@@ -921,21 +1000,22 @@ export const listenerMediated: Template = {
       ],
     },
   ],
-  templateId: "listener-mediated-launchpad",
+  templateId: "listener-mediated-frequency-launchpad",
   templateDateCreated: "2022-07-20T12:00:00+01:00",
-  templateDescription: "Create an listener mediated chart with custom colors",
-  templateName: "Listener Mediated Template",
+  templateDescription:
+    "Create a listener mediated chart with frequency-based letter arrangement",
+  templateName: "Listener Mediated Frequency Template",
   templateImageUrl: "listener-mediated1.png",
 
   format: "open-board-0.1",
-  id: "listener-mediated-launchpad",
+  id: "listener-mediated-frequency-launchpad",
   locale: "en-GB",
-  name: "Listener Mediated Template",
-  description_html: "Listener Mediated board",
+  name: "Listener Mediated Frequency Template",
+  description_html: "Listener Mediated Frequency board",
   ext_launchpad_options: {
-    ext_launchpad_prepend_pdf: "./listener-mediated-chart-cover.pdf",
+    ext_launchpad_prepend_pdf: "./listener-mediated-frequency-chart-cover.pdf",
 
-    use_page_numbers: true,
+    use_page_numbers: false,
     use_ace_branding: true,
     padding: 10,
     gap: { id: "gap", type: "TemplateItem" },
@@ -948,6 +1028,7 @@ export const listenerMediated: Template = {
     },
     full_background_color: { id: "fullBackgroundColor", type: "TemplateItem" },
     font_size: { id: "font-size", type: "TemplateItem" },
+    autofit_label_text: true,
   },
   buttons: [
     {
@@ -1674,7 +1755,10 @@ export const listenerMediated: Template = {
     },
     {
       id: "empty-cell-three",
-      label: "",
+      label: {
+        id: "empty-cell-three-text",
+        type: "TemplateItem",
+      },
       border_color: { id: "emptySpaceBorderColor", type: "TemplateItem" },
       background_color: {
         id: "emptySpaceBackgroundColor",
@@ -1691,7 +1775,10 @@ export const listenerMediated: Template = {
     },
     {
       id: "empty-cell-four",
-      label: "",
+      label: {
+        id: "empty-cell-four-text",
+        type: "TemplateItem",
+      },
       border_color: { id: "emptySpaceBorderColor", type: "TemplateItem" },
       background_color: {
         id: "emptySpaceBackgroundColor",
@@ -1708,7 +1795,10 @@ export const listenerMediated: Template = {
     },
     {
       id: "empty-cell-five",
-      label: "",
+      label: {
+        id: "empty-cell-five-text",
+        type: "TemplateItem",
+      },
       border_color: { id: "emptySpaceBorderColor", type: "TemplateItem" },
       background_color: {
         id: "emptySpaceBackgroundColor",
@@ -1725,7 +1815,10 @@ export const listenerMediated: Template = {
     },
     {
       id: "empty-cell-six",
-      label: "",
+      label: {
+        id: "empty-cell-six-text",
+        type: "TemplateItem",
+      },
       border_color: { id: "emptySpaceBorderColor", type: "TemplateItem" },
       background_color: {
         id: "emptySpaceBackgroundColor",
@@ -1742,7 +1835,10 @@ export const listenerMediated: Template = {
     },
     {
       id: "empty-cell-seven",
-      label: "",
+      label: {
+        id: "empty-cell-seven-text",
+        type: "TemplateItem",
+      },
       border_color: { id: "emptySpaceBorderColor", type: "TemplateItem" },
       background_color: {
         id: "emptySpaceBackgroundColor",
@@ -1759,7 +1855,10 @@ export const listenerMediated: Template = {
     },
     {
       id: "empty-cell-eight",
-      label: "",
+      label: {
+        id: "empty-cell-eight-text",
+        type: "TemplateItem",
+      },
       border_color: { id: "emptySpaceBorderColor", type: "TemplateItem" },
       background_color: {
         id: "emptySpaceBackgroundColor",
@@ -1777,23 +1876,12 @@ export const listenerMediated: Template = {
   ],
   images: [],
   pages: [
-    // {
-    //   id: "abc-standard-layout",
-    //   grid: {
-    //     rows: 6,
-    //     columns: 6,
-    //     order: [
-    //       ["space", "delete", "start-again", "empty-cell-one", "empty-cell-two", "empty-cell-three"],
-    //       ["a", "b", "c", "d", ".", "!"],
-    //       ["e", "f", "g", "h", "?", ","],
-    //       ["i", "j", "k", "l", "m", "n"],
-    //       ["o", "p", "qu", "r", "s", "t"],
-    //       ["u", "v", "w", "x", "y", "z"],
-    //     ],
-    //   },
-    // },
     {
       id: "frequency-layout-with-commands",
+      ext_launchpad_with_row_labels: {
+        id: "with-row-labels",
+        type: "TemplateItem",
+      },
       grid: {
         rows: 6,
         columns: 6,
@@ -1805,7 +1893,7 @@ export const listenerMediated: Template = {
           ["m", "b", "w", "qu", "z", ","],
           [
             "delete",
-            "start-again",
+            "start-again-new-line",
             "empty-cell-one",
             "empty-cell-two",
             "empty-cell-three",
@@ -1816,6 +1904,10 @@ export const listenerMediated: Template = {
     },
     {
       id: "frequency-layout-without-commands",
+      ext_launchpad_with_row_labels: {
+        id: "with-row-labels",
+        type: "TemplateItem",
+      },
       grid: {
         rows: 6,
         columns: 6,
@@ -1827,7 +1919,7 @@ export const listenerMediated: Template = {
           ["m", "b", "w", "qu", "z", "empty-cell-two"],
           [
             "delete",
-            "start-again",
+            "start-again-new-line",
             "empty-cell-three",
             "empty-cell-four",
             "empty-cell-five",
@@ -1838,6 +1930,10 @@ export const listenerMediated: Template = {
     },
     {
       id: "frequency-layout-with-commands-and-numbers",
+      ext_launchpad_with_row_labels: {
+        id: "with-row-labels",
+        type: "TemplateItem",
+      },
       grid: {
         rows: 8,
         columns: 6,
@@ -1849,7 +1945,7 @@ export const listenerMediated: Template = {
           ["m", "b", "w", "qu", "z", ","],
           [
             "delete",
-            "start-again",
+            "start-again-new-line",
             "empty-cell-one",
             "empty-cell-two",
             "empty-cell-three",
@@ -1862,6 +1958,10 @@ export const listenerMediated: Template = {
     },
     {
       id: "frequency-layout-without-commands-but-with-numbers",
+      ext_launchpad_with_row_labels: {
+        id: "with-row-labels",
+        type: "TemplateItem",
+      },
       grid: {
         rows: 8,
         columns: 6,
@@ -1873,7 +1973,7 @@ export const listenerMediated: Template = {
           ["m", "b", "w", "qu", "z", "empty-cell-two"],
           [
             "delete",
-            "start-again",
+            "start-again-new-line",
             "empty-cell-three",
             "empty-cell-four",
             "empty-cell-five",
@@ -1886,6 +1986,10 @@ export const listenerMediated: Template = {
     },
     {
       id: "frequency-layout-using-Q-with-commands",
+      ext_launchpad_with_row_labels: {
+        id: "with-row-labels",
+        type: "TemplateItem",
+      },
       grid: {
         rows: 6,
         columns: 6,
@@ -1897,7 +2001,7 @@ export const listenerMediated: Template = {
           ["m", "b", "w", "q", "z", ","],
           [
             "delete",
-            "start-again",
+            "start-again-new-line",
             "empty-cell-one",
             "empty-cell-two",
             "empty-cell-three",
@@ -1908,6 +2012,10 @@ export const listenerMediated: Template = {
     },
     {
       id: "frequency-layout-using-Q-without-commands",
+      ext_launchpad_with_row_labels: {
+        id: "with-row-labels",
+        type: "TemplateItem",
+      },
       grid: {
         rows: 6,
         columns: 6,
@@ -1919,7 +2027,7 @@ export const listenerMediated: Template = {
           ["m", "b", "w", "q", "z", "empty-cell-two"],
           [
             "delete",
-            "start-again",
+            "start-again-new-line",
             "empty-cell-three",
             "empty-cell-four",
             "empty-cell-five",
@@ -1930,6 +2038,10 @@ export const listenerMediated: Template = {
     },
     {
       id: "frequency-layout-using-Q-with-commands-and-numbers",
+      ext_launchpad_with_row_labels: {
+        id: "with-row-labels",
+        type: "TemplateItem",
+      },
       grid: {
         rows: 8,
         columns: 6,
@@ -1941,7 +2053,7 @@ export const listenerMediated: Template = {
           ["m", "b", "w", "q", "z", ","],
           [
             "delete",
-            "start-again",
+            "start-again-new-line",
             "empty-cell-one",
             "empty-cell-two",
             "empty-cell-three",
@@ -1954,6 +2066,10 @@ export const listenerMediated: Template = {
     },
     {
       id: "frequency-layout-using-Q-without-commands-and-with-numbers",
+      ext_launchpad_with_row_labels: {
+        id: "with-row-labels",
+        type: "TemplateItem",
+      },
       grid: {
         rows: 8,
         columns: 6,
@@ -1965,7 +2081,7 @@ export const listenerMediated: Template = {
           ["m", "b", "w", "q", "z", "empty-cell-two"],
           [
             "delete",
-            "start-again",
+            "start-again-new-line",
             "empty-cell-three",
             "empty-cell-four",
             "empty-cell-five",
@@ -1976,284 +2092,5 @@ export const listenerMediated: Template = {
         ],
       },
     },
-    {
-      id: "abc-with-commands",
-      grid: {
-        rows: 6,
-        columns: 6,
-        order: [
-          [
-            "space",
-            "delete",
-            "start-again",
-            "empty-cell-one",
-            "empty-cell-two",
-            "empty-cell-three",
-          ],
-          ["a", "b", "c", "d", "?", ","],
-          ["e", "f", "g", "h", ".", "empty-cell-four"],
-          ["i", "j", "k", "l", "m", "n"],
-          ["o", "p", "qu", "r", "s", "t"],
-          ["u", "v", "w", "x", "y", "z"],
-        ],
-      },
-    },
-    {
-      id: "abc-without-commands",
-      grid: {
-        rows: 6,
-        columns: 6,
-        order: [
-          [
-            "space",
-            "delete",
-            "start-again",
-            "empty-cell-one",
-            "empty-cell-two",
-            "empty-cell-three",
-          ],
-          ["a", "b", "c", "d", "?", "empty-cell-four"],
-          ["e", "f", "g", "h", "empty-cell-five", "empty-cell-six"],
-          ["i", "j", "k", "l", "m", "n"],
-          ["o", "p", "qu", "r", "s", "t"],
-          ["u", "v", "w", "x", "y", "z"],
-        ],
-      },
-    },
-    {
-      id: "abc-with-commands-numbered",
-      grid: {
-        rows: 8,
-        columns: 6,
-        order: [
-          [
-            "space",
-            "delete",
-            "start-again",
-            "empty-cell-one",
-            "empty-cell-two",
-            "empty-cell-three",
-          ],
-          ["a", "b", "c", "d", "?", ","],
-          ["e", "f", "g", "h", ".", "empty-cell-four"],
-          ["i", "j", "k", "l", "m", "n"],
-          ["o", "p", "qu", "r", "s", "t"],
-          ["u", "v", "w", "x", "y", "z"],
-          ["1", "2", "3", "4", "5", "6"],
-          ["7", "8", "9", "0", "empty-cell-five", "empty-cell-six"],
-        ],
-      },
-    },
-    {
-      id: "abc-without-commands-numbered",
-      grid: {
-        rows: 8,
-        columns: 6,
-        order: [
-          [
-            "space",
-            "delete",
-            "start-again",
-            "empty-cell-one",
-            "empty-cell-two",
-            "empty-cell-three",
-          ],
-          ["a", "b", "c", "d", "?", "empty-cell-four"],
-          ["e", "f", "g", "h", "empty-cell-five", "empty-cell-six"],
-          ["i", "j", "k", "l", "m", "n"],
-          ["o", "p", "qu", "r", "s", "t"],
-          ["u", "v", "w", "x", "y", "z"],
-          ["1", "2", "3", "4", "5", "6"],
-          ["7", "8", "9", "0", "empty-cell-seven", "empty-cell-eight"],
-        ],
-      },
-    },
-    {
-      id: "abc-using-q-with-commands",
-      grid: {
-        rows: 6,
-        columns: 6,
-        order: [
-          [
-            "space",
-            "delete",
-            "start-again",
-            "empty-cell-one",
-            "empty-cell-two",
-            "empty-cell-three",
-          ],
-          ["a", "b", "c", "d", "?", ","],
-          ["e", "f", "g", "h", ".", "empty-cell-four"],
-          ["i", "j", "k", "l", "m", "n"],
-          ["o", "p", "q", "r", "s", "t"],
-          ["u", "v", "w", "x", "y", "z"],
-        ],
-      },
-    },
-    {
-      id: "abc-using-q-without-commands",
-      grid: {
-        rows: 6,
-        columns: 6,
-        order: [
-          [
-            "space",
-            "delete",
-            "start-again",
-            "empty-cell-one",
-            "empty-cell-two",
-            "empty-cell-three",
-          ],
-          ["a", "b", "c", "d", "?", "empty-cell-four"],
-          ["e", "f", "g", "h", "empty-cell-five", "empty-cell-six"],
-          ["i", "j", "k", "l", "m", "n"],
-          ["o", "p", "q", "r", "s", "t"],
-          ["u", "v", "w", "x", "y", "z"],
-        ],
-      },
-    },
-    {
-      id: "abc-using-q-with-commands-numbered",
-      grid: {
-        rows: 8,
-        columns: 6,
-        order: [
-          [
-            "space",
-            "delete",
-            "start-again",
-            "empty-cell-one",
-            "empty-cell-two",
-            "empty-cell-three",
-          ],
-          ["a", "b", "c", "d", "?", ","],
-          ["e", "f", "g", "h", ".", "empty-cell-four"],
-          ["i", "j", "k", "l", "m", "n"],
-          ["o", "p", "q", "r", "s", "t"],
-          ["u", "v", "w", "x", "y", "z"],
-          ["1", "2", "3", "4", "5", "6"],
-          ["7", "8", "9", "0", "empty-cell-five", "empty-cell-six"],
-        ],
-      },
-    },
-    {
-      id: "abc-using-q-without-commands-numbered",
-      grid: {
-        rows: 8,
-        columns: 6,
-        order: [
-          [
-            "space",
-            "delete",
-            "start-again",
-            "empty-cell-one",
-            "empty-cell-two",
-            "empty-cell-three",
-          ],
-          ["a", "b", "c", "d", "?", "empty-cell-four"],
-          ["e", "f", "g", "h", "empty-cell-five", "empty-cell-six"],
-          ["i", "j", "k", "l", "m", "n"],
-          ["o", "p", "q", "r", "s", "t"],
-          ["u", "v", "w", "x", "y", "z"],
-          ["1", "2", "3", "4", "5", "6"],
-          ["7", "8", "9", "0", "empty-cell-seven", "empty-cell-eight"],
-        ],
-      },
-    },
-    //   {
-    //     id: "abc-with-numbers",
-    //     grid: {
-    //       rows: 7,
-    //       columns: 6,
-    //       order: [
-    //         ["space", "delete", "start-again", "empty-cell-one", "empty-cell-two", "empty-cell-three"],
-    //         ["1", "2", "3", "4", "5", "0"],
-    //         ["a", "b", "c", "d", ".", "!"],
-    //         ["e", "f", "g", "h", "?", ","],
-    //         ["i", "j", "k", "l", "m", "n"],
-    //         ["o", "p", "qu", "r", "s", "t"],
-    //         ["u", "v", "w", "x", "y", "z"],
-    //       ],
-    //     },
-    //   },
-    //   // {
-    //   //   id: "abc-with-yes-no",
-    //   //   grid: {
-    //   //     rows: 7,
-    //   //     columns: 6,
-    //   //     order: [
-    //   //       ["delete", "space", "start-again", null, null, null],
-    //   //       ["yes", "no", null, null, null, null],
-    //   //       ["a", "b", "c", "d", ".", "!"],
-    //   //       ["e", "f", "g", "h", "?", ","],
-    //   //       ["i", "j", "k", "l", "m", "n"],
-    //   //       ["o", "p", "qu", "r", "s", "t"],
-    //   //       ["u", "v", "w", "x", "y", "z"],
-    //   //     ],
-    //   //   },
-    //   // },
-    //   {
-    //     id: "abc-with-rows-numbered",
-    //     grid: {
-    //       rows: 6,
-    //       columns: 6,
-    //       order: [
-    //         ["space", "a", "b", "c", "d", "."],
-    //         ["e", "f", "g", "h", "?", "!"],
-    //         ["i", "j", "k", "l", "m", "n"],
-    //         ["o", "p", "qu", "r", "s", "t"],
-    //         ["u", "v", "w", "x", "y", "z"],
-    //         ["delete", "start-again", "empty-cell-one", "empty-cell-two", "empty-cell-three", "empty-cell-four"],
-    //       ],
-    //       // rowLabels: ["1", "2", "3", "4", "5", "6"]
-    //     },
-    //   },
-    //   {
-    //     id: "abc-with-colored-rows",
-    //     grid: {
-    //       rows: 6,
-    //       columns: 6,
-    //       order: [
-    //         ["space", "a", "b", "c", "d", "."],
-    //         ["e", "f", "g", "h", "?", "!"],
-    //         ["i", "j", "k", "l", "m", "n"],
-    //         ["o", "p", "qu", "r", "s", "t"],
-    //         ["u", "v", "w", "x", "y", "z"],
-    //         ["delete", "start-again", "empty-cell-one", "empty-cell-two", "empty-cell-three", "empty-cell-four"],
-    //       ],
-    //       // rowColors: ["#FFFFFF", "#FFFF00", "#87CEEB", "#90EE90", "#FFB6C1", "#D3D3D3"]
-    //     },
-    //   },
-    //   {
-    //     id: "qwerty-layout",
-    //     grid: {
-    //       rows: 4,
-    //       columns: 10,
-    //       order: [
-    //         ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
-    //         ["a", "s", "d", "f", "g", "h", "j", "k", "l", "?"],
-    //         ["!", "z", "x", "c", "v", "b", "n", "m", ",", "."],
-    //         ["delete", "space", "start-again", "empty-cell-one", "empty-cell-two", "empty-cell-three", "empty-cell-four", null, null, null],
-    //       ],
-    //     },
-    //   },
-    //   {
-    //     id: "abc-portrait",
-    //     orientation: "portrait",
-    //     grid: {
-    //       rows: 8,
-    //       columns: 4,
-    //       order: [
-    //         ["a", "b", "c", "d"],
-    //         ["e", "f", "g", "h"],
-    //         ["i", "j", "k", "l"],
-    //         ["m", "n", "o", "p"],
-    //         ["q", "r", "s", "t"],
-    //         ["u", "v", "w", "x"],
-    //         ["y", "z", ".", "?"],
-    //         ["delete", "space", "start-again", "empty-cell-one"],
-    //       ],
-    //     },
-    //   },
   ],
 };
