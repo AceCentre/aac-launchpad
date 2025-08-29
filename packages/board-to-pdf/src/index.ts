@@ -104,6 +104,75 @@ export const CASING_OPTIONS: Array<Option> = [
   SENTENCE_CASING,
 ];
 
+// Helper function to determine text color based on background color
+const getBrandingTextColor = (backgroundColor: string | undefined): { r: number; g: number; b: number } => {
+  if (!backgroundColor) {
+    return { r: 0, g: 0, b: 0 }; // Default to black
+  }
+
+  // Check for purple background: rgb(68,8,125)
+  if (backgroundColor === "rgb(68,8,125)") {
+    return { r: 255, g: 255, b: 255 }; // White text
+  }
+
+  // Check for blue background: rgb(60,70,108)
+  if (backgroundColor === "rgb(60,70,108)") {
+    return { r: 255, g: 255, b: 255 }; // White text
+  }
+
+  return { r: 0, g: 0, b: 0 }; // Default to black
+};
+
+// Helper function to wrap text to fit within a given width
+const wrapText = (text: string, maxWidth: number, doc: jsPDF): string[] => {
+  // First split by existing line breaks
+  const paragraphs = text.split("\n");
+  const wrappedLines: string[] = [];
+
+  for (const paragraph of paragraphs) {
+    const trimmedParagraph = paragraph.trim();
+    if (!trimmedParagraph) {
+      wrappedLines.push("");
+      continue;
+    }
+
+    // Split paragraph into words
+    const words = trimmedParagraph.split(" ");
+    let currentLine = "";
+
+    for (const word of words) {
+      const testLine = currentLine ? `${currentLine} ${word}` : word;
+      const testWidth = doc.getTextWidth(testLine);
+
+      if (testWidth <= maxWidth) {
+        currentLine = testLine;
+      } else {
+        if (currentLine) {
+          wrappedLines.push(currentLine);
+          currentLine = word;
+        } else {
+          // Single word is too long, split it
+          let remainingWord = word;
+          while (remainingWord.length > 0) {
+            let testWord = remainingWord;
+            while (doc.getTextWidth(testWord) > maxWidth && testWord.length > 1) {
+              testWord = testWord.slice(0, -1);
+            }
+            wrappedLines.push(testWord);
+            remainingWord = remainingWord.slice(testWord.length);
+          }
+        }
+      }
+    }
+
+    if (currentLine) {
+      wrappedLines.push(currentLine);
+    }
+  }
+
+  return wrappedLines;
+};
+
 export const alterCasing = (rawLabel: string, casingType: Casing): string => {
   const capitalCaseWord = (word: string): string => {
     if (word === "") return "";
@@ -441,9 +510,11 @@ const boardToPdf = async (
         const websiteUrl = textParts[1];
 
         // Add main instructions
+        const brandingTextColor = getBrandingTextColor(options.full_background_color);
         doc
           .setFontSize(8)
           .setFont("helvetica", "normal")
+          .setTextColor(brandingTextColor.r, brandingTextColor.g, brandingTextColor.b)
           .text(
             mainInstructions,
             10 + logoWidth + 2,
@@ -468,10 +539,11 @@ const boardToPdf = async (
 
             // Add text before the URL
             if (beforeUrl) {
+              const brandingTextColor = getBrandingTextColor(options.full_background_color);
               doc
                 .setFontSize(8)
                 .setFont("helvetica", "normal")
-                .setTextColor(0, 0, 0); // Black text
+                .setTextColor(brandingTextColor.r, brandingTextColor.g, brandingTextColor.b)
               doc.text(
                 beforeUrl,
                 currentX,
@@ -502,10 +574,11 @@ const boardToPdf = async (
 
             // Add text after the URL
             if (afterUrl) {
+              const brandingTextColor = getBrandingTextColor(options.full_background_color);
               doc
                 .setFontSize(8)
                 .setFont("helvetica", "normal")
-                .setTextColor(0, 0, 0); // Black text
+                .setTextColor(brandingTextColor.r, brandingTextColor.g, brandingTextColor.b)
               doc.text(
                 afterUrl,
                 currentX,
@@ -526,6 +599,7 @@ const boardToPdf = async (
               (beforeUrl ? doc.getTextWidth(beforeUrl) : 0);
             doc
               .setDrawColor(0, 0, 255) // Blue line
+              .setLineWidth(0.1) // Set thin line width for URL underline
               .line(
                 urlStartX,
                 currentPageHeight - logoHeight / 2 + 6,
@@ -534,10 +608,11 @@ const boardToPdf = async (
               );
           } else {
             // Regular text if no URL found
+            const brandingTextColor = getBrandingTextColor(options.full_background_color);
             doc
               .setFontSize(8)
               .setFont("helvetica", "normal")
-              .setTextColor(0, 0, 0); // Black text
+              .setTextColor(brandingTextColor.r, brandingTextColor.g, brandingTextColor.b)
             doc.text(
               websiteUrl,
               10 + logoWidth + 2,
@@ -552,9 +627,11 @@ const boardToPdf = async (
         }
       } else {
         // Default branding text
+        const brandingTextColor = getBrandingTextColor(options.full_background_color);
         doc
           .setFontSize(8)
           .setFont("helvetica", "normal")
+          .setTextColor(brandingTextColor.r, brandingTextColor.g, brandingTextColor.b)
           .text(
             "A free resource created by the charity acecentre.org.uk",
             10 + logoWidth + 2,
@@ -568,8 +645,10 @@ const boardToPdf = async (
       }
 
       if (options.copyright_notice) {
+        const brandingTextColor = getBrandingTextColor(options.full_background_color);
         doc
           .setFontSize(10)
+          .setTextColor(brandingTextColor.r, brandingTextColor.g, brandingTextColor.b)
           .text(
             options.copyright_notice,
             currentPageWidth - horizontalPadding,
@@ -949,18 +1028,26 @@ const boardToPdf = async (
           });
 
           if (labelBelow) {
-            doc.text(labelText, textX, currentY + cellHeight, {
+            // Auto-wrap text to fit within the cell width
+            const maxTextWidth = cellWidth * 0.9; // Leave 10% margin
+            const wrappedLines = wrapText(labelText, maxTextWidth, doc);
+            doc.text(wrappedLines, textX, currentY + cellHeight, {
               baseline: "bottom",
               align: "center",
             });
           } else {
-            doc.text(labelText, textX, textY, {
+            // Auto-wrap text to fit within the cell width
+            const maxTextWidth = cellWidth * 0.9; // Leave 10% margin
+            const wrappedLines = wrapText(labelText, maxTextWidth, doc);
+            doc.text(wrappedLines, textX, textY, {
               baseline: "top",
               align: "center",
             });
           }
         } else {
-          let lines = labelText.split("\n").map((x) => x.trim());
+          // Auto-wrap text to fit within the cell width
+          const maxTextWidth = cellWidth * 0.9; // Leave 10% margin
+          let lines = wrapText(labelText, maxTextWidth, doc);
 
           // Offset the y coord by half the total height of all the text
           const centerY = currentY + cellHeight / 2;
