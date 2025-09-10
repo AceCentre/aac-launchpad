@@ -105,7 +105,9 @@ export const CASING_OPTIONS: Array<Option> = [
 ];
 
 // Helper function to determine text color based on background color
-const getBrandingTextColor = (backgroundColor: string | undefined): { r: number; g: number; b: number } => {
+const getBrandingTextColor = (
+  backgroundColor: string | undefined
+): { r: number; g: number; b: number } => {
   if (!backgroundColor) {
     return { r: 0, g: 0, b: 0 }; // Default to black
   }
@@ -117,6 +119,11 @@ const getBrandingTextColor = (backgroundColor: string | undefined): { r: number;
 
   // Check for blue background: rgb(60,70,108)
   if (backgroundColor === "rgb(60,70,108)") {
+    return { r: 255, g: 255, b: 255 }; // White text
+  }
+
+  // Check for black background: rgb(0,0,0) (high contrast yellow on black)
+  if (backgroundColor === "rgb(0,0,0)") {
     return { r: 255, g: 255, b: 255 }; // White text
   }
 
@@ -155,7 +162,10 @@ const wrapText = (text: string, maxWidth: number, doc: jsPDF): string[] => {
           let remainingWord = word;
           while (remainingWord.length > 0) {
             let testWord = remainingWord;
-            while (doc.getTextWidth(testWord) > maxWidth && testWord.length > 1) {
+            while (
+              doc.getTextWidth(testWord) > maxWidth &&
+              testWord.length > 1
+            ) {
               testWord = testWord.slice(0, -1);
             }
             wrappedLines.push(testWord);
@@ -510,11 +520,17 @@ const boardToPdf = async (
         const websiteUrl = textParts[1];
 
         // Add main instructions
-        const brandingTextColor = getBrandingTextColor(options.full_background_color);
+        const brandingTextColor = getBrandingTextColor(
+          options.full_background_color
+        );
         doc
           .setFontSize(8)
           .setFont("helvetica", "normal")
-          .setTextColor(brandingTextColor.r, brandingTextColor.g, brandingTextColor.b)
+          .setTextColor(
+            brandingTextColor.r,
+            brandingTextColor.g,
+            brandingTextColor.b
+          )
           .text(
             mainInstructions,
             10 + logoWidth + 2,
@@ -539,11 +555,17 @@ const boardToPdf = async (
 
             // Add text before the URL
             if (beforeUrl) {
-              const brandingTextColor = getBrandingTextColor(options.full_background_color);
+              const brandingTextColor = getBrandingTextColor(
+                options.full_background_color
+              );
               doc
                 .setFontSize(8)
                 .setFont("helvetica", "normal")
-                .setTextColor(brandingTextColor.r, brandingTextColor.g, brandingTextColor.b)
+                .setTextColor(
+                  brandingTextColor.r,
+                  brandingTextColor.g,
+                  brandingTextColor.b
+                );
               doc.text(
                 beforeUrl,
                 currentX,
@@ -574,11 +596,17 @@ const boardToPdf = async (
 
             // Add text after the URL
             if (afterUrl) {
-              const brandingTextColor = getBrandingTextColor(options.full_background_color);
+              const brandingTextColor = getBrandingTextColor(
+                options.full_background_color
+              );
               doc
                 .setFontSize(8)
                 .setFont("helvetica", "normal")
-                .setTextColor(brandingTextColor.r, brandingTextColor.g, brandingTextColor.b)
+                .setTextColor(
+                  brandingTextColor.r,
+                  brandingTextColor.g,
+                  brandingTextColor.b
+                );
               doc.text(
                 afterUrl,
                 currentX,
@@ -608,11 +636,17 @@ const boardToPdf = async (
               );
           } else {
             // Regular text if no URL found
-            const brandingTextColor = getBrandingTextColor(options.full_background_color);
+            const brandingTextColor = getBrandingTextColor(
+              options.full_background_color
+            );
             doc
               .setFontSize(8)
               .setFont("helvetica", "normal")
-              .setTextColor(brandingTextColor.r, brandingTextColor.g, brandingTextColor.b)
+              .setTextColor(
+                brandingTextColor.r,
+                brandingTextColor.g,
+                brandingTextColor.b
+              );
             doc.text(
               websiteUrl,
               10 + logoWidth + 2,
@@ -627,11 +661,17 @@ const boardToPdf = async (
         }
       } else {
         // Default branding text
-        const brandingTextColor = getBrandingTextColor(options.full_background_color);
+        const brandingTextColor = getBrandingTextColor(
+          options.full_background_color
+        );
         doc
           .setFontSize(8)
           .setFont("helvetica", "normal")
-          .setTextColor(brandingTextColor.r, brandingTextColor.g, brandingTextColor.b)
+          .setTextColor(
+            brandingTextColor.r,
+            brandingTextColor.g,
+            brandingTextColor.b
+          )
           .text(
             "A free resource created by the charity acecentre.org.uk",
             10 + logoWidth + 2,
@@ -645,10 +685,16 @@ const boardToPdf = async (
       }
 
       if (options.copyright_notice) {
-        const brandingTextColor = getBrandingTextColor(options.full_background_color);
+        const brandingTextColor = getBrandingTextColor(
+          options.full_background_color
+        );
         doc
           .setFontSize(10)
-          .setTextColor(brandingTextColor.r, brandingTextColor.g, brandingTextColor.b)
+          .setTextColor(
+            brandingTextColor.r,
+            brandingTextColor.g,
+            brandingTextColor.b
+          )
           .text(
             options.copyright_notice,
             currentPageWidth - horizontalPadding,
