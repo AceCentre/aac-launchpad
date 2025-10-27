@@ -5,7 +5,7 @@ import { WEB_TEMPLATES } from "templates";
 import { GUIDE_TEMPLATES } from "templates";
 import express, { Request } from "express";
 import http from "http";
-import { Template, AllTemplateVariable } from "types";
+import { Template, AllTemplateVariable, Result } from "types";
 import boardToPdf from "board-to-pdf";
 import { guideToPdf } from "board-to-pdf";
 import templateToBoard from "template-to-board";
@@ -19,6 +19,76 @@ import PostHog from "posthog-node";
 import { onShutdown } from "node-graceful-shutdown";
 
 const client = new PostHog("phc_Nlj20BgEB3vtw36wCPHFpTTVqpmvEzfD3IrG5zw7B2h");
+
+// Helper function to resolve preset values
+const getResults = (
+  template: Template,
+  templateResults: any,
+  presetOverrides: any
+): Array<Result> => {
+  // First, resolve preset values
+  const resolvedPresets: { [key: string]: string } = {};
+
+  for (const variable of template.templateVariables) {
+    if (variable.type === "preset" && templateResults[variable.id]) {
+      const presetValue = templateResults[variable.id];
+      const presetVariable = variable as any; // Cast to access presets
+
+      const selectedPreset = presetVariable.presets.find(
+        (preset: any) => preset.value === presetValue
+      );
+
+      if (selectedPreset) {
+        // Apply all variable values from the selected preset
+        for (const presetVarValue of selectedPreset.variableValues) {
+          resolvedPresets[presetVarValue.id] = presetVarValue.value;
+        }
+      }
+    }
+  }
+
+  return template.templateVariables
+    .sort((a, b) => {
+      if (a.type === "preset" && b.type !== "preset") {
+        return 1;
+      }
+      if (a.type !== "preset" && b.type !== "preset") {
+        return -1;
+      }
+      return 0;
+    })
+    .map((currentVariable) => {
+      // If the user gave an explicit answer use that
+      if (templateResults[currentVariable.id]) {
+        return {
+          id: currentVariable.id,
+          value: templateResults[currentVariable.id],
+        };
+      }
+
+      // If there was a preset answer give that
+      if (presetOverrides[currentVariable.id]) {
+        return {
+          id: currentVariable.id,
+          value: presetOverrides[currentVariable.id],
+        };
+      }
+
+      // If there was a resolved preset value use that
+      if (resolvedPresets[currentVariable.id]) {
+        return {
+          id: currentVariable.id,
+          value: resolvedPresets[currentVariable.id],
+        };
+      }
+
+      // Otherwise use the default value
+      return {
+        id: currentVariable.id,
+        value: currentVariable.defaultValue,
+      };
+    });
+};
 
 onShutdown(async () => {
   client.shutdown();
@@ -159,7 +229,16 @@ const resolvers = {
         throw new Error(`Could not find template with id: ${input.templateId}`);
       }
 
-      const board = templateToBoard(template, input.answers);
+      // Convert answers to a map for getResults
+      const templateResults: { [key: string]: string } = {};
+      for (const answer of input.answers) {
+        templateResults[answer.id] = answer.value;
+      }
+
+      // Process preset values using getResults
+      const results = getResults(template, templateResults, {});
+
+      const board = templateToBoard(template, results);
 
       const rootToImages = path.join(__dirname, "../private");
       const rootToPdfs = path.join(__dirname, "../public");
