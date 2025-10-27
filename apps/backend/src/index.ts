@@ -254,6 +254,12 @@ const resolvers = {
 
       const writeStartTime = process.hrtime();
 
+      // Ensure the boards directory exists
+      const boardsDir = path.join("./public/boards");
+      if (!fs.existsSync(boardsDir)) {
+        fs.mkdirSync(boardsDir, { recursive: true });
+      }
+
       fs.writeFileSync(
         path.join("./public/boards", `${fileHash}.pdf`),
         Buffer.from(pdf)
