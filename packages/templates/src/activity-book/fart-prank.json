@@ -3,19 +3,18 @@
   "templateType": "guide",
   "title": "Fart Prank",
   "category": "Activity Book",
-  "subcategory": "Social",
-  "gear": 1,
+  "subcategory": "Funny",
   "badgeText": "Gear 1",
-  "mainImage": "activity-book/fart-prank.png",
+  "mainImage": "activity-book/trump-prank.png",
+  "numberOfSwitches": 1,
   "sections": [
     {
-      "heading": "One switch does one thing (press and release)",
-      "body": "Set up your switch to prank people with a fart noise. Make them laugh, make them say ewww or blame it on someone else!"
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
     },
     {
-      "heading": "What you'll need",
-      "body": "You’ll need to record a fart noise onto a BIGMack talking switch.\n\nPlug one of my switches into the BIGMack and position my switch so I can use it.",
-      "image": "activity-book/bigmack-switch.png"
+      "heading": "HOW TO PLAY",
+      "body": "• Record a trump/fart noise onto the switch\n• Have the switch user prank people by hitting the switch and making a trump noise\n• When they hit the switch say things such \"I hope that wasn't a smelly one!\" \"Excuse you!\" Or blame other people"
     }
   ]
 }

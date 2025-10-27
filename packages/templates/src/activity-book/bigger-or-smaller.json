@@ -1,0 +1,21 @@
+{
+  "templateId": "bigger-or-smaller",
+  "templateType": "guide",
+  "title": "Bigger or Smaller?",
+  "category": "Activity Book",
+  "subcategory": "Games",
+  "badgeText": "Gear 3",
+  "mainImage": "activity-book/bigger-or-smaller.png",
+  "numberOfSwitches": 2,
+  "thirdImage": "activity-book/thirdImages/bigger-or-smaller-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Record \"bigger\" on one switch and \"smaller\" on the other\n• Hold up a card with a motivating image/symbol e.g pictures of animals\n• Ask the switch user e.g \"do you think the animal on the next card is going to be bigger or smaller than this one?\"\n• The switch user must then guess if the image on the next card is going to be \"bigger\" or \"smaller\" by using their switches"
+    }
+  ]
+}

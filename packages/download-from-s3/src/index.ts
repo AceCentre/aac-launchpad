@@ -1,7 +1,10 @@
 import { GetObjectCommand, ListObjectsCommand, S3 } from "@aws-sdk/client-s3";
 import { rmSync, mkdirSync, writeFileSync } from "fs";
 import path from "path";
-import "dotenv/config";
+import dotenv from "dotenv";
+
+// Load .env file from the project root
+dotenv.config({ path: path.join(__dirname, "../../../.env") });
 
 const streamToString = (stream: any) => {
   return new Promise((resolve, reject) => {

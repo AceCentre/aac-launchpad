@@ -20,7 +20,6 @@ import { bubbles } from "./bubbles";
 import { reading } from "./reading";
 import { portrait } from "./portrait";
 import { blocks } from "./blocks";
-import { simonSays } from "./simon-says";
 import { mrPotatoHead } from "./mr-potato-head";
 import { chatAboutTv } from "./chat-about-tv";
 import { music } from "./music";
@@ -50,6 +49,7 @@ import { teaParty } from "./tea-party";
 
 import { listenerMediatedFrequency } from "./listener-mediated-frequency";
 import { listenerMediatedAbc } from "./listener-mediated-abc";
+import { listenerMediatedLegacy } from "./listener-mediated-legacy";
 import { danceSelectorGuide } from "./dance-selector";
 // import { GuideTemplate } from "types";
 import { loadAllGuides } from "./activity-book/load-activity-book";
@@ -76,7 +76,6 @@ export {
   bubbles,
   reading,
   blocks,
-  simonSays,
   mrPotatoHead,
   chatAboutTv,
   music,
@@ -104,6 +103,7 @@ export {
   teaParty,
   listenerMediatedFrequency,
   listenerMediatedAbc,
+  listenerMediatedLegacy,
   danceSelectorGuide,
 };
 
@@ -130,7 +130,6 @@ export const ALL_TEMPLATES: Array<Template> = [
   gridOptions,
   reading,
   blocks,
-  simonSays,
   mrPotatoHead,
   chatAboutTv,
   music,
@@ -158,6 +157,7 @@ export const ALL_TEMPLATES: Array<Template> = [
   teaParty,
   listenerMediatedFrequency,
   listenerMediatedAbc,
+  listenerMediatedLegacy,
 ];
 
 export const WEB_TEMPLATES: Array<Template> = [
@@ -167,7 +167,6 @@ export const WEB_TEMPLATES: Array<Template> = [
   reading,
   alphabetChart,
   blocks,
-  simonSays,
   mrPotatoHead,
   chatAboutTv,
   music,
@@ -194,6 +193,7 @@ export const WEB_TEMPLATES: Array<Template> = [
   teaParty,
   listenerMediatedFrequency,
   listenerMediatedAbc,
+  listenerMediatedLegacy,
 ];
 
 export const GUIDE_TEMPLATES = loadAllGuides();

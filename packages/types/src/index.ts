@@ -275,10 +275,17 @@ export type Board = {
 };
 
 // Guide PDF types
+export interface GuideLink {
+  text: string;
+  target: string; // e.g., "page-2", "your-device"
+  type: "page" | "section";
+}
+
 export interface GuideSection {
   heading?: string;
   body: string;
   image?: string; // path or URL
+  links?: GuideLink[]; // array of links within this section
 }
 
 export interface GuideTemplate {
@@ -294,5 +301,9 @@ export interface GuideTemplate {
   gear?: number;
   badgeText?: string;
   mainImage?: string; // path or URL
+  numberOfSwitches?: number; // number of switches needed (1, 2, 3, etc.)
+  thirdImage?: string; // path or URL for additional image below horizontal layout
+  fourthImage?: string; // path or URL for second row image (used with thirdImage)
+  actionCardImages?: string[]; // array of action card image paths for additional pages
   sections: GuideSection[];
 }

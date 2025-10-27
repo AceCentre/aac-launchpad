@@ -1,0 +1,21 @@
+{
+  "templateId": "whos-most-likely-to",
+  "templateType": "guide",
+  "title": "Who's Most Likely To?",
+  "category": "Activity Book",
+  "subcategory": "Social",
+  "badgeText": "Gear 3",
+  "mainImage": "activity-book/whos-most-likely-to.png",
+  "numberOfSwitches": 2,
+  "thirdImage": "activity-book/thirdImages/whos-most-likely-to-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY ",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Decide who the switch user is going to answer the questions about e.g \"mum\" recorded on one switch and \"dad\" recorded on the other switch\n• Ask the switch user a silly question e.g \"who's most likely to fall asleep on the sofa?\"\n• The switch user then answers who's most likely to with their switches"
+    }
+  ]
+}

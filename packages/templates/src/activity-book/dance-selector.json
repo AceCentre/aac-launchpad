@@ -1,0 +1,22 @@
+{
+  "templateId": "dance-selector",
+  "templateType": "guide",
+  "title": "Dance Selector",
+  "category": "Activity Book",
+  "subcategory": "Games",
+  "badgeText": "Gear 4",
+  "mainImage": "activity-book/dance-selector.png",
+  "numberOfSwitches": 2,
+  "thirdImage": "activity-book/thirdImages/dance-selector-2.png",
+  "fourthImage": "activity-book/thirdImages/freeze-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Record \"next\" on one switch and \"dance!\" on the other\n• Play some music and have the 'dancers' sit on chairs in front of the switch user\n• The person sat on the very left chair stands up\n• If the switch user hits the switch to say \"next\" that person sits down and the person in the next chair stands up\n• If the switch user hits the switch to say \"dance!\" whoever is stood up must strut their stuff for 10 seconds"
+    }
+  ]
+}

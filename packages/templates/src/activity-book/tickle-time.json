@@ -1,21 +1,20 @@
 {
   "templateId": "tickle-time",
   "templateType": "guide",
-  "title": "Tickle Time",
+  "title": "Tickle Time!",
   "category": "Activity Book",
   "subcategory": "Social",
-  "gear": 4,
-  "badgeText": "Gear 4",
-  "mainImage": "activity-book/tickle-time.png",
+  "badgeText": "Gear 1",
+  "mainImage": "activity-book/tickle-time-1.png",
+  "numberOfSwitches": 1,
   "sections": [
     {
-      "heading": "One switch does one thing (press and release)",
-      "body": "I love being tickled! When I press my switch start tickling me straight away very lightly on my sides. Tickle me for four seconds and then stop! You can tickle me again if I ask for it"
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
     },
     {
-      "heading": "What you'll need",
-      "body": "You'll need to record a \"Tickle Me\" message onto a BIGMack talking switch.\n\nPlug one of my switches into the BIGMack and position my switch so I can use it.",
-      "image": "activity-book/bigmack-switch.png"
+      "heading": "HOW TO PLAY",
+      "body": "• Record \"tickle me!\" onto the switch\n• Each time the switch user hits their switch, tickle them for 5 seconds\n• Prompt the switch user to press the switch again by asking questions such as \"Shall we do more tickles?\" or \"I wonder if you want to do that again!\""
     }
   ]
 }

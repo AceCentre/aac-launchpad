@@ -1,0 +1,20 @@
+{
+  "templateId": "applause-and-boo",
+  "templateType": "guide",
+  "title": "Applause and Boo",
+  "category": "Activity Book",
+  "subcategory": "Funny",
+  "badgeText": "Gear 3",
+  "mainImage": "activity-book/applause-and-boo.png",
+  "numberOfSwitches": 2,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Record clapping or \"woo!\" on one switch and \"booo\" on the other switch\n• Have the switch user be the judge of your jokes, talents, dancing or anything that they will find funny!\n• Tell the switch user your joke or show them your dance moves and they can hit their switch to give you a round of applause or boo you"
+    }
+  ]
+}

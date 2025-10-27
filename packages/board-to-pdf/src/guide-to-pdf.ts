@@ -27,25 +27,187 @@ export async function guideToPdf(
 ): Promise<Buffer> {
   const rootToImages = path.resolve(__dirname, "../../../apps/backend/public");
   const doc = new jsPDF();
+  const pageWidth = doc.internal.pageSize.width;
 
-  // Title
+  // Function to add logo to current page
+  const addLogoToPage = () => {
+    try {
+      const logoPath = path.join(
+        rootToImages,
+        "activity-book/Ace&Cenmac-logo.png"
+      );
+      if (fs.existsSync(logoPath)) {
+        const logoData = fs.readFileSync(logoPath);
+        const logoBase64 =
+          "data:image/png;base64," + logoData.toString("base64");
+        const logoProps = doc.getImageProperties(logoBase64);
+        const logoWidth = 32;
+        const logoHeight = (logoWidth * logoProps.height) / logoProps.width;
+        const logoX = pageWidth - logoWidth - 13; // 50px from right edge (same as page 2)
+        const logoY = +280; // Bottom of page (same as page 2)
+        doc.addImage(logoBase64, "PNG", logoX, logoY, logoWidth, logoHeight);
+      }
+    } catch (error) {
+      console.warn("Could not add logo to page:", error);
+    }
+  };
+
+  // Title - centered
   doc.setFontSize(28);
-  doc.text(template.title, 15, 25);
+  doc.text(template.title, pageWidth / 2, 20, {
+    align: "center",
+  });
 
-  // Badge
-  if (template.badgeText) {
-    doc.setFillColor(0, 102, 204);
-    doc.circle(180, 20, 15, "F");
-    doc.setTextColor(255, 255, 0);
-    doc.setFontSize(16);
-    doc.text(
-      template.badgeText,
-      180, // x center of circle
-      20, // y center of circle
-      { align: "center", baseline: "middle" }
-    );
-    doc.setTextColor(0, 0, 0);
-  }
+  // Add logo to first page
+  addLogoToPage();
+
+  // Function to create horizontal layout: coral badge + "AND" + switch image
+  // For second row: thirdImage + "AND" + fourthImage
+  const createHorizontalLayout = async (
+    y: number,
+    switchImagePath?: string,
+    numberOfSwitches?: number,
+    fourthImagePath?: string
+  ) => {
+    const pageWidth = doc.internal.pageSize.width;
+    const centerY = y;
+
+    if (fourthImagePath) {
+      // Second row: thirdImage + "AND" + fourthImage
+      const imageSize = 40; // Same size as original thirdImage
+
+      // Third image (left side)
+      if (switchImagePath) {
+        const thirdImgData = await getImageBase64(
+          switchImagePath,
+          rootToImages
+        );
+        if (thirdImgData) {
+          const thirdImgProps = doc.getImageProperties(thirdImgData);
+          const aspectRatio = thirdImgProps.width / thirdImgProps.height;
+          const thirdImgWidth = imageSize * aspectRatio;
+          const thirdImgX = pageWidth / 2 - 60; // Same position as badge
+          const thirdImgY = centerY - imageSize / 2;
+
+          doc.addImage(
+            thirdImgData,
+            "PNG",
+            thirdImgX,
+            thirdImgY,
+            thirdImgWidth,
+            imageSize
+          );
+        }
+      }
+
+      // "and" text in the center
+      doc.setFontSize(16);
+      doc.setFont("helvetica", "bold");
+      doc.text("and", pageWidth / 2, centerY, {
+        align: "center",
+        baseline: "middle",
+      });
+
+      // Fourth image (right side)
+      const fourthImgData = await getImageBase64(fourthImagePath, rootToImages);
+      if (fourthImgData) {
+        const fourthImgProps = doc.getImageProperties(fourthImgData);
+        const aspectRatio = fourthImgProps.width / fourthImgProps.height;
+        const fourthImgWidth = imageSize * aspectRatio;
+        const fourthImgX = pageWidth / 2 + 15; // Same position as switch
+        const fourthImgY = centerY - imageSize / 2;
+
+        doc.addImage(
+          fourthImgData,
+          "PNG",
+          fourthImgX,
+          fourthImgY,
+          fourthImgWidth,
+          imageSize
+        );
+      }
+    } else {
+      // First row: Coral badge + "AND" + switch image
+      const badgeRadius = 20;
+      const badgeX = pageWidth / 2 - 60; // Position badge to the left of center
+      doc.setFillColor(255, 127, 80); // Coral color
+      doc.circle(badgeX, centerY, badgeRadius, "F");
+      doc.setTextColor(0, 0, 0); // Black text
+      doc.setFontSize(14);
+      doc.setFont("helvetica", "normal");
+
+      // Split text into 3 lines
+      const line1 = "See Page 2";
+      const line2 = "for my one";
+      const line3 = "switch setup";
+
+      // Position each line within the circle with slight rotation
+      const lineHeight = 5;
+      const startY = centerY - lineHeight;
+
+      // Rotate text to follow the curve of the circle
+      doc.text(line1, badgeX, startY, {
+        align: "center",
+        baseline: "middle",
+        angle: 10,
+      });
+      doc.text(line2, badgeX, startY + lineHeight, {
+        align: "center",
+        baseline: "middle",
+        angle: 10,
+      });
+      doc.text(line3, badgeX, startY + lineHeight * 2, {
+        align: "center",
+        baseline: "middle",
+        angle: 10,
+      });
+
+      // "and" text in the center
+      doc.setFontSize(16);
+      doc.setFont("helvetica", "bold");
+      doc.text("and", pageWidth / 2, centerY, {
+        align: "center",
+        baseline: "middle",
+      });
+
+      // Switch image to the right of center
+      const switchImageX = pageWidth / 2 + 15;
+      const switchImageWidth = 90; // Width of the switch image
+      const switchImageHeight = 110; // Height of the switch image (adjust this to change only height)
+      const switchImageY = centerY - switchImageHeight / 2; // Center vertically based on actual height
+
+      // Add switch image if available
+      if (switchImagePath) {
+        const imgData = await getImageBase64(switchImagePath, rootToImages);
+        if (imgData) {
+          doc.addImage(
+            imgData,
+            "PNG",
+            switchImageX,
+            switchImageY,
+            switchImageWidth,
+            switchImageHeight
+          );
+
+          // Add switch count text below the image if numberOfSwitches is specified
+          if (numberOfSwitches && numberOfSwitches >= 1) {
+            doc.setFontSize(16);
+            doc.setFont("helvetica", "bold");
+            doc.setTextColor(0, 0, 0); // Black text
+
+            const countText = `x${numberOfSwitches}`;
+            const countTextX = switchImageX + switchImageWidth - 15; // Center horizontally with image
+            const countTextY = switchImageY + switchImageHeight - 55; // Below the image
+
+            doc.text(countText, countTextX, countTextY, {
+              align: "center",
+              baseline: "middle",
+            });
+          }
+        }
+      }
+    }
+  };
 
   // Main image
   let y = 80; // default if no main image
@@ -55,35 +217,196 @@ export async function guideToPdf(
       const imgProps = doc.getImageProperties(imgData);
       const desiredHeight = 80;
       const aspectRatio = imgProps.width / imgProps.height;
-      const desiredWidth = desiredHeight * aspectRatio;
-      doc.addImage(imgData, "PNG", 60, 30, desiredWidth, desiredHeight);
+      let desiredWidth = desiredHeight * aspectRatio;
+
+      // Ensure image fits within page width (with margins)
+      const maxWidth = pageWidth - 40; // 20px margin on each side
+      if (desiredWidth > maxWidth) {
+        desiredWidth = maxWidth;
+      }
+
+      // Center the image horizontally
+      const imgX = (pageWidth - desiredWidth) / 2;
+      doc.addImage(imgData, "PNG", imgX, 25, desiredWidth, desiredHeight);
       y = Math.max(y, 30 + desiredHeight + 10); // set y below the image, with 10 units padding
     }
   }
 
-  for (const section of template.sections) {
+  for (let i = 0; i < template.sections.length; i++) {
+    const section = template.sections[i];
     if (section.heading) {
       doc.setFontSize(16);
       doc.setFont("helvetica", "bold");
-      doc.text(section.heading, 15, y);
+      doc.text(section.heading, pageWidth / 2, y, {
+        align: "center",
+      });
       y += 8;
     }
     doc.setFontSize(12);
     doc.setFont("helvetica", "normal");
-    doc.text(doc.splitTextToSize(section.body, 120), 15, y);
-    y += 15;
 
-    if (section.image && typeof section.image === "string") {
-      const imgData = await getImageBase64(section.image, rootToImages);
-      if (imgData) {
-        doc.addImage(imgData, "PNG", 15, y, 40, 30);
-        y += 25;
+    // Only render body text if it exists
+    if (section.body) {
+      // Center text for "WHAT YOU'LL NEED TO PLAY" section, left-align for others
+      if (section.heading === "WHAT YOU'LL NEED TO PLAY") {
+        doc.text(doc.splitTextToSize(section.body, 120), pageWidth / 2, y, {
+          align: "center",
+        });
+      } else {
+        // Use wider text width for "HOW TO PLAY" section to utilize more page width
+        const textWidth = section.heading === "HOW TO PLAY" ? 180 : 120;
+        doc.text(doc.splitTextToSize(section.body, textWidth), 20, y, {
+          align: "left",
+        });
       }
     }
+    y += 15;
+
+    // Add horizontal layout after "WHAT YOU'LL NEED TO PLAY" section
+    if (
+      section.heading === "WHAT YOU'LL NEED TO PLAY" ||
+      section.heading === "WHAT YOU'LL NEED TO PLAY THIS GAME"
+    ) {
+      y += 1; // Add some spacing
+      await createHorizontalLayout(y, section.image, template.numberOfSwitches);
+      y += 35; // Move down after the horizontal layout
+
+      // Add second row if fourthImage exists, otherwise add thirdImage if it exists
+      if (template.fourthImage) {
+        // Create second row with thirdImage + "AND" + fourthImage
+        y += 8; // Add some spacing before the second row
+        await createHorizontalLayout(
+          y,
+          template.thirdImage,
+          template.numberOfSwitches,
+          template.fourthImage
+        );
+        y += 40; // Move down after the second horizontal layout
+      } else if (template.thirdImage) {
+        // Original thirdImage logic for guides without fourthImage
+        y += -20; // Add some spacing before the third image
+        const thirdImgData = await getImageBase64(
+          template.thirdImage,
+          rootToImages
+        );
+        if (thirdImgData) {
+          const thirdImgProps = doc.getImageProperties(thirdImgData);
+          const thirdImgSize = 40; // Small size for the third image
+          const aspectRatio = thirdImgProps.width / thirdImgProps.height;
+          const thirdImgWidth = thirdImgSize * aspectRatio;
+          const thirdImgX = pageWidth / 2 - thirdImgWidth / 2; // Center horizontally
+          doc.addImage(
+            thirdImgData,
+            "PNG",
+            thirdImgX,
+            y,
+            thirdImgWidth,
+            thirdImgSize
+          );
+          y += thirdImgSize + 15; // Adjust this value to change padding between thirdImage and "HOW TO PLAY"
+        }
+      }
+    }
+
+    // Add links if they exist
+    if (section.links && section.links.length > 0) {
+      for (const link of section.links) {
+        // Set link styling (blue and underlined)
+        doc.setTextColor(0, 0, 255); // Blue text
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(12);
+
+        // Add the link text on a new line with better positioning
+        const linkText = link.text;
+        doc.text(linkText, 15, y);
+
+        // Add underline for the link with better positioning
+        const linkWidth = doc.getTextWidth(linkText);
+        doc.setDrawColor(0, 0, 255); // Blue line
+        doc.line(15, y + 1, 15 + linkWidth, y + 1);
+
+        // Add clickable annotation (PDF link) with better positioning
+        // For "your-device" links, point to page 2 (which is the device page in the merged PDF)
+        // Try using a different format that might work better with PDF viewers
+        const linkUrl =
+          link.target === "your-device" ? "#page=2" : `#${link.target}`;
+        doc.link(15, y - 2, linkWidth, 4, {
+          url: linkUrl,
+          color: [0, 0, 255],
+        });
+
+        y += 8; // Add a bit more spacing after the link
+      }
+
+      // Reset text color to black
+      doc.setTextColor(0, 0, 0);
+    }
+
+    // Skip rendering section images since they're now in the header
+    // if (section.image && typeof section.image === "string") {
+    //   const imgData = await getImageBase64(section.image, rootToImages);
+    //   if (imgData) {
+    //     doc.addImage(imgData, "PNG", 15, y, 40, 30);
+    //     y += 25;
+    //   }
+    // }
     y += 5;
-    if (y > 260) {
+
+    // Only add a new page if there are more sections to process and we need the space
+    if (y > 260 && i < template.sections.length - 1) {
       doc.addPage();
-      y = 20;
+      y = 0;
+      // Add logo to new page
+      addLogoToPage();
+    }
+  }
+
+  // Add action card pages if they exist
+  if (template.actionCardImages && template.actionCardImages.length > 0) {
+    for (const actionCardImage of template.actionCardImages) {
+      doc.addPage();
+
+      // Add logo to action card page
+      addLogoToPage();
+
+      // Load and add the action card image to fill the entire page
+      const actionCardData = await getImageBase64(
+        actionCardImage,
+        rootToImages
+      );
+      if (actionCardData) {
+        const actionCardProps = doc.getImageProperties(actionCardData);
+        const pageWidth = doc.internal.pageSize.width;
+        const pageHeight = doc.internal.pageSize.height;
+
+        // Calculate dimensions to fit the image on the page with margins
+        const margin = 20;
+        const maxWidth = pageWidth - margin * 2;
+        const maxHeight = pageHeight - margin * 2;
+
+        const aspectRatio = actionCardProps.width / actionCardProps.height;
+        let imageWidth = maxWidth;
+        let imageHeight = maxWidth / aspectRatio;
+
+        // If height exceeds max height, scale down by height instead
+        if (imageHeight > maxHeight) {
+          imageHeight = maxHeight;
+          imageWidth = maxHeight * aspectRatio;
+        }
+
+        // Center the image on the page
+        const imageX = (pageWidth - imageWidth) / 2;
+        const imageY = (pageHeight - imageHeight) / 2;
+
+        doc.addImage(
+          actionCardData,
+          "PNG",
+          imageX,
+          imageY,
+          imageWidth,
+          imageHeight
+        );
+      }
     }
   }
 

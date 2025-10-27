@@ -358,7 +358,7 @@ async function setupServer() {
       origin: [
         "http://localhost:3000",
         "https://acecentre.org.uk",
-        "https://www.acecentre.org.uk"
+        "https://www.acecentre.org.uk",
       ],
       credentials: true,
     })
@@ -501,7 +501,6 @@ async function setupServer() {
         title: guide.title,
         category: guide.category,
         subcategory: guide.subcategory,
-        gear: guide.gear ?? guide.level,
         badgeText: guide.badgeText,
         mainImage: guide.mainImage,
         sections: guide.sections,
@@ -526,20 +525,6 @@ async function setupServer() {
     }
   });
 
-  app.get("/api/activity-book/gears", (req, res) => {
-    try {
-      const gears = Array.from(
-        new Set(GUIDE_TEMPLATES.map((guide) => guide.gear ?? guide.level))
-      )
-        .filter((gear): gear is number => gear !== undefined)
-        .sort((a, b) => a - b);
-      res.json(gears);
-    } catch (error) {
-      console.error("Error fetching guide gears:", error);
-      res.status(500).json({ error: "Failed to fetch guide gears" });
-    }
-  });
-
   app.get("/api/activity-book/subcategories", (req, res) => {
     try {
       const subcategories = Array.from(
@@ -549,6 +534,33 @@ async function setupServer() {
     } catch (error) {
       console.error("Error fetching guide subcategories:", error);
       res.status(500).json({ error: "Failed to fetch guide subcategories" });
+    }
+  });
+
+  app.get("/api/activity-book/switches", (req, res) => {
+    try {
+      const switchesDir = path.join(
+        __dirname,
+        "../public/activity-book/switches"
+      );
+      const files = fs.readdirSync(switchesDir);
+      const imageFiles = files.filter(
+        (file) =>
+          file.toLowerCase().endsWith(".png") ||
+          file.toLowerCase().endsWith(".jpg") ||
+          file.toLowerCase().endsWith(".jpeg")
+      );
+
+      const switchImages = imageFiles.map((file) => ({
+        filename: file,
+        displayName: file.replace(/\.(png|jpg|jpeg)$/i, "").replace(/_/g, " "),
+        path: `activity-book/switches/${file}`,
+      }));
+
+      res.json(switchImages);
+    } catch (error) {
+      console.error("Error fetching switch images:", error);
+      res.status(500).json({ error: "Failed to fetch switch images" });
     }
   });
 
@@ -641,8 +653,13 @@ async function setupServer() {
 
   app.post("/api/activity-book/bulk-download", async (req, res) => {
     try {
-      const { templateIds, userName, userPhotoPath, devicePhotoPath } =
-        req.body;
+      const {
+        templateIds,
+        userName,
+        userPhotoPath,
+        devicePhotoPath,
+        selectedSwitchImage,
+      } = req.body;
 
       if (
         !templateIds ||
@@ -693,7 +710,19 @@ async function setupServer() {
         }
 
         console.log(`Processing guide: ${guide.title}`);
-        const pdfBuffer = await guideToPdf(guide, {
+
+        // Create a modified guide with the selected switch image
+        const modifiedGuide = selectedSwitchImage
+          ? {
+              ...guide,
+              sections: guide.sections.map((section) => ({
+                ...section,
+                image: section.image ? selectedSwitchImage : section.image,
+              })),
+            }
+          : guide;
+
+        const pdfBuffer = await guideToPdf(modifiedGuide, {
           rootToImages: path.join(__dirname, "../public"),
         });
         console.log(
@@ -772,7 +801,7 @@ async function setupServer() {
       origin: [
         "http://localhost:3000",
         "https://acecentre.org.uk",
-        "https://www.acecentre.org.uk"
+        "https://www.acecentre.org.uk",
       ],
       credentials: true,
     },

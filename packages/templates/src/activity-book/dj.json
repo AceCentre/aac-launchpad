@@ -1,0 +1,21 @@
+{
+  "templateId": "dj",
+  "templateType": "guide",
+  "title": "DJ",
+  "category": "Activity Book",
+  "subcategory": "Music",
+  "badgeText": "Gear 5",
+  "mainImage": "activity-book/dj.png",
+  "numberOfSwitches": 2,
+  "thirdImage": "activity-book/thirdImages/freeze-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• In this game the switch user can create a playlist of songs. The playlist could be made for a party, golden time or to listen to in the car!\n• Record \"next\" on one switch and \"Add to the list\" on the other\n• Use a music streaming service to create a playlist that can be saved\n• Begin to play a song or say an artists name\n• If the switch user hits their switch that says \"next\" skip to the next song or say another artists name\n• If the switch user hits their switch that says \"add it to the list\" add the song or add a song by the artisit named to the playlist"
+    }
+  ]
+}

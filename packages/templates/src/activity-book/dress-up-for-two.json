@@ -1,0 +1,21 @@
+{
+  "templateId": "dress-up-for-two",
+  "templateType": "guide",
+  "title": "Dress Up for Two",
+  "category": "Activity Book",
+  "subcategory": "Funny",
+  "badgeText": "Gear 3",
+  "mainImage": "activity-book/dress-up-for-two.png",
+  "numberOfSwitches": 2,
+  "thirdImage": "activity-book/thirdImages/dress-up-for-two-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• You need two players for this game (could be the switch user plus one other person)\n• Record the names of the players onto the switches e.g one switch says \"Mum\" one switch says \"Dad\"\n• Hold up a dress up item e.g funky sunglasses\n• The switch user can then choose who wears that dress up item by activating their switches e.g if the switch user hits their switch that says \"Mum\" when the funky sunglasses are held up, then Mum must put them on!"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "templateId": "match-the-song",
+  "templateType": "guide",
+  "title": "Match the Song",
+  "category": "Activity Book",
+  "subcategory": "Music",
+  "badgeText": "Gear 5",
+  "mainImage": "activity-book/match-the-song.png",
+  "numberOfSwitches": 2,
+  "thirdImage": "activity-book/thirdImages/freeze-2.png",
+  "fourthImage": "activity-book/thirdImages/match-the-song-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• In this game the switch users music knowledge will be tested!\n• Record \"next\" on one switch and \"That's the singer!\" on the other\n• Play a song and hold up one of the pictures of the singers/bands and say who it is e.g \"Little Mix\"\n• If the switch user hits their switch that says \"next\" lay the picture you are holding down and hold up the next one in the pile\n• If the switch user hits their switch that says \"Thats the singer!\" then check if they are correct\n• If they guess the singer correctly they get a point! If they get to 5 points they get a prize"
+    }
+  ]
+}

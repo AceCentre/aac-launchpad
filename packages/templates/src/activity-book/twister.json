@@ -1,0 +1,21 @@
+{
+  "templateId": "twister",
+  "templateType": "guide",
+  "title": "Twister",
+  "category": "Activity Book",
+  "subcategory": "Games",
+  "badgeText": "Gear 1",
+  "mainImage": "activity-book/twister.png",
+  "numberOfSwitches": 1,
+  "thirdImage": "activity-book/thirdImages/twister.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/all-turn-it-spinner.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Connect the switch to the all-turn-it spinner\n• Stick images of body parts around the outside of the All-Turn-It spinner and prompt the switch user to hit the switch to make a random selection of which body part the player needs to use e.g right hand\n• Next stick colours around the outside of the All-Turn-It spinner for the switch user to make another random selection of which colour spot the player must find for their body part e.g right hand on green"
+    }
+  ]
+}

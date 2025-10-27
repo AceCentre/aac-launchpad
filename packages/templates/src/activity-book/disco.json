@@ -1,0 +1,22 @@
+{
+  "templateId": "disco",
+  "templateType": "guide",
+  "title": "Disco",
+  "category": "Activity Book",
+  "subcategory": "Music",
+  "badgeText": "Gear 3",
+  "mainImage": "activity-book/disco.png",
+  "numberOfSwitches": 2,
+  "thirdImage": "activity-book/thirdImages/disco-2.png",
+  "fourthImage": "activity-book/thirdImages/freeze-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/i-click-on-disco-bubble.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Play some music (Youtube, Spotify etc)\n• Connect switches to the bubble machine and disco light (if switch adapted) If not, plug the mains controlled disco light and bubble machine into the I-Click-On and plug in the switches\n• The switch user can control the lights and bubbles for the disco"
+    }
+  ]
+}

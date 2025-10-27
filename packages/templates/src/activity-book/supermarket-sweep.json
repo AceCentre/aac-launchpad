@@ -1,0 +1,22 @@
+{
+  "templateId": "supermarket-sweep",
+  "templateType": "guide",
+  "title": "Supermarket Sweep",
+  "category": "Activity Book",
+  "subcategory": "Games",
+  "badgeText": "Gear 5",
+  "mainImage": "activity-book/shopping-list.png",
+  "numberOfSwitches": 2,
+  "thirdImage": "activity-book/thirdImages/shopping-list-2.png",
+  "fourthImage": "activity-book/thirdImages/shopping-list-3.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Record \"next\" on one switch and \"put it in the basket!\" on the other\n• Read out the shopping list to the switch user (max 5 items)\n• Hold up physical items e.g fake food and ask the switch user \"was this on our list?\"\n• If they hit the switch that says \"next\" hold up the next item\n• If they hit the switch that says \"put it in the basket!\" then add it to the basket\n• At the end of the game go through the items in the basket and check them off the list, for every correct item they get a point!"
+    }
+  ]
+}

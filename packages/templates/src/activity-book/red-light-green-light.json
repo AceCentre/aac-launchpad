@@ -1,0 +1,21 @@
+{
+  "templateId": "red-light-green-light",
+  "templateType": "guide",
+  "title": "Red Light, Green Light",
+  "category": "Activity Book",
+  "subcategory": "Games",
+  "badgeText": "Gear 3",
+  "mainImage": "activity-book/red-light-green-light.png",
+  "numberOfSwitches": 2,
+  "thirdImage": "activity-book/thirdImages/Ready-steady-go-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Record \"red light\" on one switch and \"green light\" on the other\n• The person playing the game with the switch user moves to the opposite end of the room\n• When the switch user hits the switch that says \"green light\" the person playing with them begins to walk/run towards them\n• When they say \"red light\" they must stop and not move, or they lose a point!"
+    }
+  ]
+}

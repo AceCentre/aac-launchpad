@@ -300,7 +300,7 @@ const generateAllChartsForCache = async () => {
         "alphabet-chart-launchpad",
         "turn-taking-launchpad",
         "keyguard-launchpad",
-        "listener-mediated-launchpad",
+        "listener-mediated-abc-launchpad",
       ].includes(x.templateId)
   );
 

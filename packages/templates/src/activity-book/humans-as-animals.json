@@ -1,0 +1,21 @@
+{
+  "templateId": "humans-as-animals",
+  "templateType": "guide",
+  "title": "Humans as Animals",
+  "category": "Activity Book",
+  "subcategory": "Funny",
+  "badgeText": "Gear 4",
+  "mainImage": "activity-book/humans-as-animals.png",
+  "numberOfSwitches": 2,
+  "thirdImage": "activity-book/thirdImages/humans-as-animals-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Record \"next\" on one switch and \"Speak!\" on the other\n• Hold up the animal pictures one by one and speak out what is on the card e.g \"lion\"\n• When the switch user hits their switch that says \"next\" place the picture you are holding down and hold up the next picture in the pile\n• When the switch user hits their switch that says \"Say it!\" you must make the noise of whatever animal you are holding e.g if you're holding a picture of a duck say \"quack quack!\""
+    }
+  ]
+}

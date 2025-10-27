@@ -1,0 +1,35 @@
+{
+  "templateId": "simon-says",
+  "templateType": "guide",
+  "title": "Simon Says",
+  "category": "Activity Book",
+  "subcategory": "Social",
+  "badgeText": "Gear 3",
+  "mainImage": "activity-book/simon-says.png",
+  "numberOfSwitches": 2,
+  "thirdImage": "activity-book/thirdImages/simon-says-2.png",
+  "actionCardImages": [
+    "activity-book/action-cards/Simon-Says-action-card.png",
+    "activity-book/action-cards/Simon-Says-action-card2.png",
+    "activity-book/action-cards/Simon-Says-action-card3.png",
+    "activity-book/action-cards/Simon-Says-action-card4.png",
+    "activity-book/action-cards/Simon-Says-action-card5.png",
+    "activity-book/action-cards/Simon-Says-action-card6.png",
+    "activity-book/action-cards/Simon-Says-action-card7.png",
+    "activity-book/action-cards/Simon-Says-action-card8.png",
+    "activity-book/action-cards/Simon-Says-action-card9.png",
+    "activity-book/action-cards/Simon-Says-action-card10.png",
+    "activity-book/action-cards/Simon-Says-action-card11.png",
+    "activity-book/action-cards/Simon-Says-action-card12.png"
+  ],
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Record \"next\" on one switch and \"simon says\" on the other\n• Show an action card to the switch user and read out the action\n• If they hit the switch that says \"next\", move onto the next card\n• If they hit the switch that says \"simon says!\" perform the action on that card"
+    }
+  ]
+}

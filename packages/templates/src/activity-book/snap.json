@@ -1,0 +1,21 @@
+{
+  "templateId": "snap",
+  "templateType": "guide",
+  "title": "SNAP!",
+  "category": "Activity Book",
+  "subcategory": "Games",
+  "badgeText": "Gear 5",
+  "mainImage": "activity-book/snap.png",
+  "numberOfSwitches": 2,
+  "thirdImage": "activity-book/thirdImages/snap-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Record \"next\" on one switch and \"Snap!\" on the other\n• Lay down a card/motivating image\n• When the switch user hits their switch to say \"next\" lay down another on top of the previous card to make a pile\n• When there are two of the same cards/images presented straight after each other, the switch user should hit the switch that says \"Snap!\" to win a point"
+    }
+  ]
+}

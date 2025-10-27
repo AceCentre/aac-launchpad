@@ -1,0 +1,21 @@
+{
+  "templateId": "headbandz",
+  "templateType": "guide",
+  "title": "Headbandz",
+  "category": "Activity Book",
+  "subcategory": "Games",
+  "badgeText": "Gear 3",
+  "mainImage": "activity-book/headbandz.png",
+  "numberOfSwitches": 2,
+  "thirdImage": "activity-book/thirdImages/headbandz-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Record \"yes\" on one switch and \"no\" on the other\n• The switch user has to work with you to help you guess what image you have on your card by answering your yes/no questions with their switches\n• The more more answers the switch user helps you to guess the more points!\n• You could also play this game in two teams to create competition"
+    }
+  ]
+}

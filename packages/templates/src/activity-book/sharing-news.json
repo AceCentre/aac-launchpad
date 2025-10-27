@@ -1,0 +1,20 @@
+{
+  "templateId": "sharing-news",
+  "templateType": "guide",
+  "title": "Sharing News",
+  "category": "Activity Book",
+  "subcategory": "Social",
+  "badgeText": "Gear 3",
+  "mainImage": "activity-book/sharing-news.png",
+  "numberOfSwitches": 2,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Record some news about the switch user that they might like to share with others e.g on one switch record \"guess what I did at the weekend?\" to evoke a response from the person they are talking to and record on the other switch \"I went to the beach and had so much fun!\"\n• You could also end the recording with a question such as \"what did you get up to at the weekend?\" to prompt a response from the person they are sharing the news with"
+    }
+  ]
+}

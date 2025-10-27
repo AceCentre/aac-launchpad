@@ -1,0 +1,22 @@
+{
+  "templateId": "vomiting-vincent",
+  "templateType": "guide",
+  "title": "Vomiting Vincent",
+  "category": "Activity Book",
+  "subcategory": "Funny",
+  "badgeText": "Gear 2",
+  "mainImage": "activity-book/vomiting-vincent.png",
+  "numberOfSwitches": 1,
+  "thirdImage": "activity-book/thirdImages/vomiting-vincent-2.png",
+  "fourthImage": "activity-book/thirdImages/vomiting-vincent-3.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• The purpose of this game is to discover new body parts that can be used to activate a switch\n• Record \"Dinner time!\" onto the switch and plug in the wired switch\n• Use the hand puppet (Vincent) to pick up the wired switch and pretend he has eaten it!\n• Then place the wired switch next to a new body part e.g next to the switch user's head and pretend Vincent has vomited up the switch\n• When the switch user activates the switch to say \"dinner time!\" Vincent eats the wired switch and vomits it out next to a new body part"
+    }
+  ]
+}

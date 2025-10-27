@@ -2,66 +2,25 @@ import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 import fs from "fs";
 import sharp from "sharp";
 
-// Function to compress and resize image before embedding
-async function compressAndResizeImage(
+// Function to use original image without any processing
+async function processImage(
   imagePath: string,
   maxWidth: number = 1200,
   maxHeight: number = 1000
 ): Promise<Buffer> {
   try {
-    console.log(`Starting compression for: ${imagePath}`);
+    console.log(`Using original image: ${imagePath}`);
     console.log(`Original file size: ${fs.statSync(imagePath).size} bytes`);
 
-    const image = sharp(imagePath);
-    const metadata = await image.metadata();
+    // Just return the original image without any processing
+    const originalBuffer = fs.readFileSync(imagePath);
+    console.log(`Using original image without processing`);
 
-    console.log(`Original dimensions: ${metadata.width}x${metadata.height}`);
-
-    // Calculate new dimensions while maintaining aspect ratio
-    let { width, height } = metadata;
-
-    if (width && height) {
-      if (width > maxWidth || height > maxHeight) {
-        const aspectRatio = width / height;
-
-        if (width > height) {
-          width = maxWidth;
-          height = Math.round(width / aspectRatio);
-        } else {
-          height = maxHeight;
-          width = Math.round(height * aspectRatio);
-        }
-
-        console.log(`Resizing to: ${width}x${height}`);
-      } else {
-        console.log(`Image already within size limits, no resizing needed`);
-      }
-    }
-
-    // Resize and compress the image, with orientation correction
-    const compressedBuffer = await image
-      .rotate() // This automatically corrects orientation based on EXIF data
-      .resize(width, height)
-      .jpeg({ quality: 80, progressive: true })
-      .toBuffer();
-
-    console.log(
-      `Compressed image from ${fs.statSync(imagePath).size} bytes to ${
-        compressedBuffer.length
-      } bytes`
-    );
-    console.log(
-      `Compression ratio: ${(
-        (1 - compressedBuffer.length / fs.statSync(imagePath).size) *
-        100
-      ).toFixed(1)}%`
-    );
-
-    return compressedBuffer;
+    return originalBuffer;
   } catch (error) {
-    console.error("Error compressing image:", error);
+    console.error("Error reading image:", error);
     console.log("Falling back to original image");
-    // Fallback to original image if compression fails
+    // Fallback to original image if reading fails
     return fs.readFileSync(imagePath);
   }
 }
@@ -126,8 +85,8 @@ export async function generateCoverPagePdf(
   const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
   const boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
-  // Title
-  const title = `${userName || "My"} ${activityBookTitle}`;
+  // Title - Include user's name
+  const title = `${userName || "USER"} SWITCH ACTIVITY BOOK`;
   const titleFontSize = 24;
   const titleWidth = font.widthOfTextAtSize(title, titleFontSize);
   page1.drawText(title, {
@@ -138,112 +97,161 @@ export async function generateCoverPagePdf(
     color: rgb(0, 0, 0),
   });
 
-  // User Photo Section
+  // Add FUNctional Switching logo image first
   let currentY = height - 200;
 
-  page1.drawText("Your Photo:", {
-    x: 50,
+  // Add FUNctional Switching logo image
+  try {
+    const logoPath = "public/activity-book/functional-switching-logo.png";
+    console.log("Checking for FUNctional Switching logo at:", logoPath);
+    console.log("File exists:", fs.existsSync(logoPath));
+    if (fs.existsSync(logoPath)) {
+      const processedLogoBuffer = await processImage(logoPath, 500, 300);
+
+      let logoImage;
+      try {
+        logoImage = await pdfDoc.embedPng(processedLogoBuffer);
+      } catch (pngError) {
+        // Try as JPG if PNG fails
+        logoImage = await pdfDoc.embedJpg(processedLogoBuffer);
+      }
+
+      const logoDims = getImageDimensions(logoImage, 1.0, 500, 300);
+      const logoX = (width - logoDims.width) / 2; // Center the logo
+
+      page1.drawImage(logoImage, {
+        x: logoX,
+        y: currentY - logoDims.height,
+        width: logoDims.width,
+        height: logoDims.height,
+      });
+
+      currentY -= logoDims.height + 20;
+    }
+  } catch (error) {
+    console.error("Error embedding FUNctional Switching logo:", error);
+  }
+
+  // Add "a collaboration between" text
+  const collaborationText = "a collaboration between";
+  const collaborationFontSize = 14;
+  const collaborationWidth = font.widthOfTextAtSize(
+    collaborationText,
+    collaborationFontSize
+  );
+  page1.drawText(collaborationText, {
+    x: (width - collaborationWidth) / 2,
     y: currentY,
-    size: 16,
-    font: boldFont,
+    size: collaborationFontSize,
+    font: font,
     color: rgb(0, 0, 0),
   });
 
-  currentY -= 30;
+  currentY -= 10; // No spacing after "a collaboration between" text to move logo even higher
 
-  if (userPhotoPath && fs.existsSync(userPhotoPath)) {
-    console.log("Processing user photo at path:", userPhotoPath);
-    console.log("File size:", fs.statSync(userPhotoPath).size, "bytes");
-    try {
-      // Compress and resize the image first
-      const compressedImageBuffer = await compressAndResizeImage(
-        userPhotoPath,
-        1200,
-        1000
+  // Add AceCentre and CENMAC logo
+  try {
+    const aceCenmacLogoPath = "public/activity-book/Ace&Cenmac-logo.png";
+    console.log("Checking for AceCentre/CENMAC logo at:", aceCenmacLogoPath);
+    console.log("File exists:", fs.existsSync(aceCenmacLogoPath));
+    if (fs.existsSync(aceCenmacLogoPath)) {
+      const processedAceCenmacLogoBuffer = await processImage(
+        aceCenmacLogoPath,
+        400,
+        200
       );
 
-      let image;
-
-      // Try to determine image type and embed accordingly
-      if (userPhotoPath.toLowerCase().endsWith(".png")) {
-        console.log("Embedding user photo as PNG");
-        image = await pdfDoc.embedPng(compressedImageBuffer);
-      } else if (
-        userPhotoPath.toLowerCase().endsWith(".jpg") ||
-        userPhotoPath.toLowerCase().endsWith(".jpeg")
-      ) {
-        console.log("Embedding user photo as JPG");
-        image = await pdfDoc.embedJpg(compressedImageBuffer);
-      } else {
-        // Try PNG first, then JPG as fallback
-        console.log("Trying PNG first, then JPG as fallback for user photo");
-        try {
-          image = await pdfDoc.embedPng(compressedImageBuffer);
-          console.log("Successfully embedded user photo as PNG");
-        } catch (pngError) {
-          console.log("PNG failed for user photo, trying JPG:", pngError);
-          image = await pdfDoc.embedJpg(compressedImageBuffer);
-          console.log("Successfully embedded user photo as JPG");
-        }
+      let aceCenmacLogoImage;
+      try {
+        aceCenmacLogoImage = await pdfDoc.embedPng(
+          processedAceCenmacLogoBuffer
+        );
+      } catch (pngError) {
+        // Try as JPG if PNG fails
+        aceCenmacLogoImage = await pdfDoc.embedJpg(
+          processedAceCenmacLogoBuffer
+        );
       }
 
-      console.log("Original image dimensions:", image.width, "x", image.height);
-
-      const imageDims = getImageDimensions(
-        image,
+      const aceCenmacLogoDims = getImageDimensions(
+        aceCenmacLogoImage,
         1.0,
-        width * 1.0,
-        height * 1.2
+        200,
+        100
       );
+      const aceCenmacLogoX = (width - aceCenmacLogoDims.width) / 2; // Center the logo
 
-      console.log(
-        "Final image dimensions:",
-        imageDims.width,
-        "x",
-        imageDims.height
-      );
-
-      console.log("Using compressed image for PDF embedding");
-
-      // Calculate position to center the image
-      const imageX = (width - imageDims.width) / 2;
-      const imageY = currentY - imageDims.height;
-
-      page1.drawImage(image, {
-        x: imageX,
-        y: imageY,
-        width: imageDims.width,
-        height: imageDims.height,
+      page1.drawImage(aceCenmacLogoImage, {
+        x: aceCenmacLogoX,
+        y: currentY - aceCenmacLogoDims.height,
+        width: aceCenmacLogoDims.width,
+        height: aceCenmacLogoDims.height,
       });
 
-      currentY -= imageDims.height + 50;
-    } catch (error) {
-      console.error("Error embedding user photo:", error);
-      page1.drawText(
-        "[Photo could not be embedded - " + (error as Error).message + "]",
-        {
-          x: 50,
-          y: currentY,
-          size: 12,
-          font: font,
-          color: rgb(0.5, 0.5, 0.5),
-        }
-      );
-      currentY -= 30;
+      currentY -= aceCenmacLogoDims.height + 50; // Increased spacing after logo to push description text down
     }
-  } else {
-    page1.drawText("[Insert your photo here]", {
-      x: 50,
+  } catch (error) {
+    console.error("Error embedding AceCentre/CENMAC logo:", error);
+    // Fallback to text if logo fails
+    page1.drawText("AceCentre", {
+      x: width / 2 - 100,
       y: currentY,
       size: 12,
       font: font,
-      color: rgb(0.5, 0.5, 0.5),
+      color: rgb(0, 0, 0),
     });
-    currentY -= 30;
+
+    page1.drawText("CENMAC", {
+      x: width / 2 + 50,
+      y: currentY,
+      size: 12,
+      font: font,
+      color: rgb(0, 0, 0),
+    });
   }
 
+  // Add description text at the bottom of the page
+  const descriptionText =
+    "This book contains ideas of how to introduce switches, learn how they work and what they can do by using fun and motivating activities. The activities use and build different skills that the switch user can reapply to other FUNctional activities such as controlling a communication device, accessing the school curriculum, accessing a computer and so much more!";
+
+  // Split text manually for pdf-lib
+  const words = descriptionText.split(" ");
+  const lines: string[] = [];
+  let currentLine = "";
+
+  for (const word of words) {
+    const testLine = currentLine + (currentLine ? " " : "") + word;
+    const testWidth = font.widthOfTextAtSize(testLine, 10);
+    if (testWidth > width - 100) {
+      lines.push(currentLine);
+      currentLine = word;
+    } else {
+      currentLine = testLine;
+    }
+  }
+  if (currentLine) {
+    lines.push(currentLine);
+  }
+
+  // Calculate starting Y position to place text at bottom of page
+  const totalTextHeight = lines.length * 15;
+  const startY = 100 + totalTextHeight; // 100px from bottom
+
+  lines.forEach((line, index) => {
+    const lineWidth = font.widthOfTextAtSize(line, 10);
+    const centerX = (width - lineWidth) / 2; // Center the line
+
+    page1.drawText(line, {
+      x: centerX,
+      y: startY - index * 15,
+      size: 10,
+      font: font,
+      color: rgb(0, 0, 0),
+    });
+  });
+
   // Footer on page 1
-  page1.drawText("Generated by AAC Launchpad - acecentre.org.uk", {
+  page1.drawText("Generated by  - acecentre.org.uk", {
     x: 50,
     y: 50,
     size: 10,
@@ -251,82 +259,117 @@ export async function generateCoverPagePdf(
     color: rgb(0.5, 0.5, 0.5),
   });
 
-  // Page 2: Device photo page
+  // Page 2: Information sheet with switch setup sections
   const page2 = pdfDoc.addPage([595, 842]); // A4 size
 
-  // Device Photo Section
-  page2.drawText("Your Device:", {
+  // Page 2 Title
+  page2.drawText("PAGE 2: INFORMATION SHEET", {
     x: 50,
-    y: height - 100,
-    size: 20,
+    y: height - 50,
+    size: 18,
     font: boldFont,
     color: rgb(0, 0, 0),
   });
 
-  let deviceY = height - 150;
+  // Add horizontal line under title
+  page2.drawLine({
+    start: { x: 50, y: height - 60 },
+    end: { x: width - 50, y: height - 60 },
+    thickness: 1,
+    color: rgb(0, 0, 0),
+  });
 
-  if (devicePhotoPath && fs.existsSync(devicePhotoPath)) {
-    console.log("Processing device photo at path:", devicePhotoPath);
-    console.log("File size:", fs.statSync(devicePhotoPath).size, "bytes");
+  // Add informational text
+  let infoY = height - 100;
+
+  const infoText1 =
+    "The activities in this book fall under different ‘Gears’. In Gear 1 activities, you only need one switch, Gear 2 looks at finding a second movement/body part to activate a switch and all other Gears require 2 switches to be used at the same time.";
+  const infoText2 =
+    "Please insert images of how the person that this book belongs to uses one switch (for Gear 1 activities) and how they use two switches (for activities in Gears 3-5).";
+  const infoText3 =
+    "If a second body part/movement has not been found yet, leave the 2 switch set up blank until you have explored Gear 1 and 2 activities. For more information check out FUNctionalswitching.com";
+
+  // Split and draw text lines
+  const splitText = (text: string, maxWidth: number) => {
+    const words = text.split(" ");
+    const lines: string[] = [];
+    let currentLine = "";
+
+    for (const word of words) {
+      const testLine = currentLine + (currentLine ? " " : "") + word;
+      const testWidth = font.widthOfTextAtSize(testLine, 10);
+      if (testWidth > maxWidth) {
+        lines.push(currentLine);
+        currentLine = word;
+      } else {
+        currentLine = testLine;
+      }
+    }
+    if (currentLine) {
+      lines.push(currentLine);
+    }
+    return lines;
+  };
+
+  const lines1 = splitText(infoText1, width - 100);
+  const lines2 = splitText(infoText2, width - 100);
+  const lines3 = splitText(infoText3, width - 100);
+
+  [...lines1, ...lines2, ...lines3].forEach((line, index) => {
+    page2.drawText(line, {
+      x: 50,
+      y: infoY - index * 15,
+      size: 10,
+      font: font,
+      color: rgb(0, 0, 0),
+    });
+  });
+
+  infoY -= (lines1.length + lines2.length + lines3.length) * 15 + 30;
+
+  // Add 1 SWITCH SET UP section
+  const switch1Text = "1 SWITCH SET UP:";
+  const switch1Width = font.widthOfTextAtSize(switch1Text, 14);
+  page2.drawText(switch1Text, {
+    x: (width - switch1Width) / 2,
+    y: infoY,
+    size: 14,
+    font: boldFont,
+    color: rgb(0, 0, 0),
+  });
+
+  infoY -= 30;
+
+  // Draw yellow border for 1 switch setup (increased height by 45%)
+  page2.drawRectangle({
+    x: 50,
+    y: infoY - 217, // 150 * 1.45 = 217.5, rounded to 217
+    width: width - 100,
+    height: 217, // 150 * 1.45 = 217.5, rounded to 217
+    borderColor: rgb(1, 1, 0), // Yellow border
+    borderWidth: 2,
+  });
+
+  // Add user photo to 1 switch setup section
+  if (userPhotoPath && fs.existsSync(userPhotoPath)) {
     try {
-      // Compress and resize the image first
-      const compressedImageBuffer = await compressAndResizeImage(
-        devicePhotoPath,
+      const processedImageBuffer = await processImage(
+        userPhotoPath,
         1200,
         1000
       );
 
       let image;
-
-      // Try to determine image type and embed accordingly
-      if (devicePhotoPath.toLowerCase().endsWith(".png")) {
-        console.log("Embedding device photo as PNG");
-        image = await pdfDoc.embedPng(compressedImageBuffer);
-      } else if (
-        devicePhotoPath.toLowerCase().endsWith(".jpg") ||
-        devicePhotoPath.toLowerCase().endsWith(".jpeg")
-      ) {
-        console.log("Embedding device photo as JPG");
-        image = await pdfDoc.embedJpg(compressedImageBuffer);
+      if (userPhotoPath.toLowerCase().endsWith(".png")) {
+        image = await pdfDoc.embedPng(processedImageBuffer);
       } else {
-        // Try PNG first, then JPG as fallback
-        console.log("Trying PNG first, then JPG as fallback for device photo");
-        try {
-          image = await pdfDoc.embedPng(compressedImageBuffer);
-          console.log("Successfully embedded device photo as PNG");
-        } catch (pngError) {
-          console.log("PNG failed for device photo, trying JPG:", pngError);
-          image = await pdfDoc.embedJpg(compressedImageBuffer);
-          console.log("Successfully embedded device photo as JPG");
-        }
+        image = await pdfDoc.embedJpg(processedImageBuffer);
       }
 
-      console.log(
-        "Original device image dimensions:",
-        image.width,
-        "x",
-        image.height
-      );
+      const imageDims = getImageDimensions(image, 1.0, width - 120, 203); // 140 * 1.45 = 203
 
-      const imageDims = getImageDimensions(
-        image,
-        1.0,
-        width * 1.0,
-        height * 1.2
-      );
-
-      console.log(
-        "Final device image dimensions:",
-        imageDims.width,
-        "x",
-        imageDims.height
-      );
-
-      console.log("Using compressed device image for PDF embedding");
-
-      // Calculate position to center the image
-      const imageX = (width - imageDims.width) / 2;
-      const imageY = deviceY - imageDims.height;
+      const imageX = (width - imageDims.width) / 2; // Center the image horizontally
+      const imageY = infoY - 203; // 140 * 1.45 = 203
 
       page2.drawImage(image, {
         x: imageX,
@@ -334,41 +377,161 @@ export async function generateCoverPagePdf(
         width: imageDims.width,
         height: imageDims.height,
       });
-
-      deviceY -= imageDims.height + 50;
     } catch (error) {
-      console.error("Error embedding device photo:", error);
-      page2.drawText(
-        "[Photo could not be embedded - " + (error as Error).message + "]",
-        {
-          x: 50,
-          y: deviceY,
-          size: 12,
-          font: font,
-          color: rgb(0.5, 0.5, 0.5),
-        }
-      );
-      deviceY -= 30;
+      const errorText = "[Photo could not be embedded]";
+      const errorWidth = font.widthOfTextAtSize(errorText, 12);
+      page2.drawText(errorText, {
+        x: (width - errorWidth) / 2,
+        y: infoY - 108, // Centered vertically in the larger area
+        size: 12,
+        font: font,
+        color: rgb(0.5, 0.5, 0.5),
+      });
     }
   } else {
-    page2.drawText("[Insert your device photo here]", {
-      x: 50,
-      y: deviceY,
+    const placeholder1Text = "[INSERT 1 SWITCH SET UP HERE]";
+    const placeholder1Width = font.widthOfTextAtSize(placeholder1Text, 12);
+    page2.drawText(placeholder1Text, {
+      x: (width - placeholder1Width) / 2,
+      y: infoY - 108, // Centered vertically in the larger area
       size: 12,
       font: font,
       color: rgb(0.5, 0.5, 0.5),
     });
-    deviceY -= 30;
   }
 
-  // Footer on page 2
-  page2.drawText("Generated by AAC Launchpad - acecentre.org.uk", {
-    x: 50,
-    y: 50,
-    size: 10,
-    font: font,
-    color: rgb(0.5, 0.5, 0.5),
+  infoY -= 247; // 180 + 67 (additional height from 45% increase)
+
+  // Add 2 SWITCH SET UP section
+  const switch2Text = "2 SWITCH SET UP:";
+  const switch2Width = font.widthOfTextAtSize(switch2Text, 14);
+  page2.drawText(switch2Text, {
+    x: (width - switch2Width) / 2,
+    y: infoY,
+    size: 14,
+    font: boldFont,
+    color: rgb(0, 0, 0),
   });
+
+  infoY -= 30;
+
+  // Draw yellow border for 2 switch setup (increased height by 45%)
+  page2.drawRectangle({
+    x: 50,
+    y: infoY - 217, // 150 * 1.45 = 217.5, rounded to 217
+    width: width - 100,
+    height: 217, // 150 * 1.45 = 217.5, rounded to 217
+    borderColor: rgb(1, 1, 0), // Yellow border
+    borderWidth: 2,
+  });
+
+  // Add device photo to 2 switch setup section
+  if (devicePhotoPath && fs.existsSync(devicePhotoPath)) {
+    try {
+      const processedImageBuffer = await processImage(
+        devicePhotoPath,
+        1200,
+        1000
+      );
+
+      let image;
+      if (devicePhotoPath.toLowerCase().endsWith(".png")) {
+        image = await pdfDoc.embedPng(processedImageBuffer);
+      } else {
+        image = await pdfDoc.embedJpg(processedImageBuffer);
+      }
+
+      const imageDims = getImageDimensions(image, 1.0, width - 120, 203); // 140 * 1.45 = 203
+
+      const imageX = (width - imageDims.width) / 2; // Center the image horizontally
+      const imageY = infoY - 203; // 140 * 1.45 = 203
+
+      page2.drawImage(image, {
+        x: imageX,
+        y: imageY,
+        width: imageDims.width,
+        height: imageDims.height,
+      });
+    } catch (error) {
+      const errorText = "[Photo could not be embedded]";
+      const errorWidth = font.widthOfTextAtSize(errorText, 12);
+      page2.drawText(errorText, {
+        x: (width - errorWidth) / 2,
+        y: infoY - 108, // Centered vertically in the larger area
+        size: 12,
+        font: font,
+        color: rgb(0.5, 0.5, 0.5),
+      });
+    }
+  } else {
+    const placeholder2Text = "[INSERT 2 SWITCH SET UP HERE]";
+    const placeholder2Width = font.widthOfTextAtSize(placeholder2Text, 12);
+    page2.drawText(placeholder2Text, {
+      x: (width - placeholder2Width) / 2,
+      y: infoY - 108, // Centered vertically in the larger area
+      size: 12,
+      font: font,
+      color: rgb(0.5, 0.5, 0.5),
+    });
+  }
+
+  // Add combined logo at bottom of page 2
+  try {
+    const combinedLogoPath = "public/activity-book/Ace&Cenmac-logo.png";
+    console.log(
+      "Checking for combined logo at bottom of page 2:",
+      combinedLogoPath
+    );
+    console.log("File exists:", fs.existsSync(combinedLogoPath));
+    if (fs.existsSync(combinedLogoPath)) {
+      const processedCombinedLogoBuffer = await processImage(
+        combinedLogoPath,
+        350,
+        180
+      );
+
+      let combinedLogoImage;
+      try {
+        combinedLogoImage = await pdfDoc.embedPng(processedCombinedLogoBuffer);
+      } catch (pngError) {
+        // Try as JPG if PNG fails
+        combinedLogoImage = await pdfDoc.embedJpg(processedCombinedLogoBuffer);
+      }
+
+      const combinedLogoDims = getImageDimensions(
+        combinedLogoImage,
+        1.0,
+        100,
+        50
+      );
+      const combinedLogoX = width - combinedLogoDims.width - 50; // Position on the right with 50px margin
+
+      page2.drawImage(combinedLogoImage, {
+        x: combinedLogoX,
+        y: 0, // Even lower - positioned below the page edge
+        width: combinedLogoDims.width,
+        height: combinedLogoDims.height,
+      });
+    }
+  } catch (error) {
+    console.error("Error embedding combined logo:", error);
+    // Fallback to text if logo fails
+    page2.drawText("AceCentre", {
+      x: 50,
+      y: 50,
+      size: 12,
+      font: font,
+      color: rgb(0, 0, 0),
+    });
+
+    page2.drawText("CENMAC", {
+      x: width - 150,
+      y: 50,
+      size: 12,
+      font: font,
+      color: rgb(0, 0, 0),
+    });
+  }
 
   // Save the PDF
   const pdfBytes = await pdfDoc.save();

@@ -1,0 +1,21 @@
+{
+  "templateId": "snakes-and-ladders",
+  "templateType": "guide",
+  "title": "Snakes and Ladders",
+  "category": "Activity Book",
+  "subcategory": "Games",
+  "badgeText": "Gear 1",
+  "mainImage": "activity-book/snakes-and-ladders.png",
+  "numberOfSwitches": 1,
+  "thirdImage": "activity-book/thirdImages/snakes-and-ladders-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/all-turn-it-spinner.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Connect the switch to the All-Turn-It Spinner\n• Set up a game of snakes and ladders (could put the game onto a smartboard in a classroom for the whole class to play)\n• The switch user can play the game by hitting their switch to roll the dice on the All-Turn-It Spinner"
+    }
+  ]
+}

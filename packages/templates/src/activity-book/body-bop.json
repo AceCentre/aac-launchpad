@@ -1,0 +1,21 @@
+{
+  "templateId": "body-bop",
+  "templateType": "guide",
+  "title": "Body Bop",
+  "category": "Activity Book",
+  "subcategory": "Music",
+  "badgeText": "Gear 2",
+  "mainImage": "activity-book/body-bop.png",
+  "numberOfSwitches": 1,
+  "thirdImage": "activity-book/thirdImages/freeze-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• The purpose of this game is to discover new body parts that can be used to activate a switch\n• Record \"more\" onto the switch\n• Play motivating music for 10 seconds and then pause it\n• Each time the music stops, move the switch to a different body part e.g head, hand, foot etc and prompt the switch user to ask for more music\n• When the switch user hits the switch, restart the music for another 10 seconds"
+    }
+  ]
+}

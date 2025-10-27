@@ -1,0 +1,20 @@
+{
+  "templateId": "whos-calling",
+  "templateType": "guide",
+  "title": "Who's Calling?!",
+  "category": "Activity Book",
+  "subcategory": "Funny",
+  "badgeText": "Gear 1",
+  "mainImage": "activity-book/whos-calling.png",
+  "numberOfSwitches": 1,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Record a phone ringtone onto the switch\n• Have the switch user prank people by hitting the switch and making the ringtone play out loud\n• When they hit the switch start to look for where the noise could be coming from and say things such as \"who's phone keeps ringing?!\" and \"not again!\""
+    }
+  ]
+}

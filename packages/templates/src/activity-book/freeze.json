@@ -1,0 +1,21 @@
+{
+  "templateId": "freeze",
+  "templateType": "guide",
+  "title": "Freeze!",
+  "category": "Activity Book",
+  "subcategory": "Music",
+  "badgeText": "Gear 1",
+  "mainImage": "activity-book/freeze.png",
+  "numberOfSwitches": 1,
+  "thirdImage": "activity-book/thirdImages/freeze-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Play some music and dance (Youtube, Spotify etc)\n• Record \"Freeze!\" onto the switch\n• When the switch user hits the switch, pause the music and everyone must stop dancing\n• Restart the music after a 5 second pause"
+    }
+  ]
+}

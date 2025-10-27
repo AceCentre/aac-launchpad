@@ -1,0 +1,21 @@
+{
+  "templateId": "spin-to-position",
+  "templateType": "guide",
+  "title": "Spin to Position",
+  "category": "Activity Book",
+  "subcategory": "Games",
+  "badgeText": "Gear 2",
+  "mainImage": "activity-book/spin-to-position.png",
+  "numberOfSwitches": 1,
+  "thirdImage": "activity-book/thirdImages/spin-to-position-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/all-turn-it-spinner.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• The purpose of this game is to discover new body parts that can be used to activate a switch\n• Connect the switch to the All-Turn-It Spinner (plug in)\n• Stick images of body parts to the outside of the All-Turn-It Spinner e.g right hand, head, left foot etc\n• When the switch user hits their switch the spinner will spin\n• Whichever body part the spinner points to they must use to activate the switch next e.g if the spinner points to left hand move the switch so that they can use their left hand to activate it"
+    }
+  ]
+}

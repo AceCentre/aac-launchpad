@@ -1,0 +1,21 @@
+{
+  "templateId": "smoothie-maker",
+  "templateType": "guide",
+  "title": "Smoothie Maker",
+  "category": "Activity Book",
+  "subcategory": "Cooking/arts and Crafts",
+  "badgeText": "Activity",
+  "mainImage": "activity-book/smoothie-maker.png",
+  "numberOfSwitches": 1,
+  "thirdImage": "activity-book/thirdImages/BlenderFruit.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "•Record \"next\" onto one switch and \"put it in the blender\" on the other \n•Hold up the ingredients one at a time, if the switch user hits their switch that says \"next\" lay the ingredient that you’re holding down and hold up the next one \n•If the switch user hits their switch that says \"put it in the blender\" then put the ingredient that you are holding into the blender \n•Once the switch user has chosen all of their ingredients, plug the blender into the It-Click-On and use their one switch set up to so they can blend their smoothie together"
+    }
+  ]
+}

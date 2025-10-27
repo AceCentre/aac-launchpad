@@ -1,0 +1,20 @@
+{
+  "templateId": "next-page",
+  "templateType": "guide",
+  "title": "Next Page",
+  "category": "Activity Book",
+  "subcategory": "Reading",
+  "badgeText": "Gear 1",
+  "mainImage": "activity-book/next-page.png",
+  "numberOfSwitches": 1,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Let the switch user choose a book that they would like you to read to them\n• Record \"turn the page\" onto the switch\n• Read the book and pause at the end of each page to prompt the switch user to hit their switch to tell you to \"turn the page\"\n• If the switch user hits their switch before you finished reading the page, still turn the page so that they learn that pressing their switch has an outcome and effects the activity"
+    }
+  ]
+}

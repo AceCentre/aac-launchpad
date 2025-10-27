@@ -1,0 +1,21 @@
+{
+  "templateId": "musical-statues",
+  "templateType": "guide",
+  "title": "Musical Statues",
+  "category": "Activity Book",
+  "subcategory": "Music",
+  "badgeText": "Gear 3",
+  "mainImage": "activity-book/musical-statues.png",
+  "numberOfSwitches": 2,
+  "thirdImage": "activity-book/thirdImages/freeze-2.png",
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/bigmack-switch.png"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "• Play some music and dance (Youtube, Spotify etc)\n• Record \"Freeze!\" onto one switch and \"dance!\" onto the other\n• When the switch user hits the switch that says \"freeze\", pause the music and everyone must stop dancing\n• Only restart the music and start dancing again once the switch user hits their switch that says \"dance\""
+    }
+  ]
+}
