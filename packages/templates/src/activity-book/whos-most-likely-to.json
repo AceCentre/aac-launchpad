@@ -4,6 +4,7 @@
   "title": "Who's Most Likely To?",
   "category": "Activity Book",
   "subcategory": "Social",
+  "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/whos-most-likely-to.png",
   "numberOfSwitches": 2,
@@ -16,6 +17,37 @@
     {
       "heading": "HOW TO PLAY",
       "body": "• Decide who the switch user is going to answer the questions about e.g \"mum\" recorded on one switch and \"dad\" recorded on the other switch\n• Ask the switch user a silly question e.g \"who's most likely to fall asleep on the sofa?\"\n• The switch user then answers who's most likely to with their switches"
+    }
+  ],
+  "tooltipText": "Use 2 switches to answer silly questions about people",
+  "extraPages": [
+    {
+      "title": "WHO'S MOST LIKELY TO: QUESTION IDEAS",
+      "subtitle": "WHO'S MOST LIKELY TO...",
+      "items": [
+        "Fall asleep on the couch?",
+        "Eat the last biscuit?",
+        "Do a smelly trump?",
+        "Become a superhero?",
+        "Sing in the shower?",
+        "Spend all their money on something silly?",
+        "Ride a scary rollercoaster?",
+        "Win at bowling?",
+        "Photobomb someone's picture?",
+        "Scream at a scary movie?",
+        "Be late?",
+        "Become famous?",
+        "Wear their clothes inside out?",
+        "Win a race?",
+        "Have a lion as a pet?",
+        "Dance in the rain?",
+        "Listen to loud music?",
+        "Fall asleep in class?",
+        "Eat dessert before dinner?",
+        "Pet a dinosaur?",
+        "Prank someone?",
+        "Eat all the sweets?"
+      ]
     }
   ]
 }

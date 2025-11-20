@@ -3,8 +3,9 @@
   "templateType": "guide",
   "title": "Yum or Yuck",
   "category": "Activity Book",
-  "subcategory": "Social",
-  "badgeText": "Activity",
+  "subcategory": "Cooking/arts and Crafts",
+  "gear": 3,
+  "badgeText": "Gear 3",
   "mainImage": "activity-book/yum-or-yuck.png",
   "numberOfSwitches": 1,
   "thirdImage": "activity-book/thirdImages/yum-or-yuck-2.png",
@@ -17,5 +18,6 @@
       "heading": "HOW TO PLAY",
       "body": "•In this game the switch user can make a fake snack/meal as yummy or yucky as they like! They get to choose the ingredients to go in their sandwich/icecream/salad \n•Record \"yum\" on one switch and \"yuck\" on the other \n•Hold up two play items, one that’s yum and one that’s yuck! E.g a Yummy piece of cheese and a Yucky spider \n•Say to the switch user for example “shall we have some yum cheese on our sandwich or a yuck spider?!” \n•If the switch user hits the switch that says Yum, the nice ingredient is added to their snack \n•If the switch user hits the switch that says yuck, the nasty ingredient is added to their snack"
     }
-  ]
+  ],
+  "tooltipText": "Use 2 switches to create a fake snack, choosing between a \"yum\" ingredient like a slice of cheese or a \"yuck\" ingredient like a spider!"
 }

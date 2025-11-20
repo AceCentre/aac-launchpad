@@ -589,6 +589,7 @@ async function setupServer() {
         badgeText: guide.badgeText,
         mainImage: guide.mainImage,
         sections: guide.sections,
+        tooltipText: (guide as any).tooltipText, // Include tooltipText from guide data
       }));
 
       res.json(guides);
@@ -797,12 +798,18 @@ async function setupServer() {
         console.log(`Processing guide: ${guide.title}`);
 
         // Create a modified guide with the selected switch image
+        // Skip replacement for set-switches (all-turn-it.png, it-click-on.png, etc.)
         const modifiedGuide = selectedSwitchImage
           ? {
               ...guide,
               sections: guide.sections.map((section) => ({
                 ...section,
-                image: section.image ? selectedSwitchImage : section.image,
+                image:
+                  section.image && section.image.includes("set-switches")
+                    ? section.image // Keep set-switch images unchanged
+                    : section.image
+                    ? selectedSwitchImage
+                    : section.image,
               })),
             }
           : guide;

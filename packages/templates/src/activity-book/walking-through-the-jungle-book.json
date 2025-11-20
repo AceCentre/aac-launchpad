@@ -4,6 +4,7 @@
   "title": "Walking Through the Jungle Book",
   "category": "Activity Book",
   "subcategory": "Reading",
+  "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/walking-through-the-jungle-book.png",
   "numberOfSwitches": 2,
@@ -17,5 +18,6 @@
       "heading": "HOW TO PLAY",
       "body": "• The switch user can join in when reading the book by using their switches to say the repeated line in the story!\n• Record \"what\" on one switch and \"see\" on the other\n• Read the story to the switch user and on the first repeated line, press their switches to show them what they need to do e.g \"Walking through the jungle\" what \"do you\" see\n• Continue the story and pause on the repeated lines for the switch user to fill in the gap"
     }
-  ]
+  ],
+  "tooltipText": "Use 2 switches to say the repeated line in the book"
 }

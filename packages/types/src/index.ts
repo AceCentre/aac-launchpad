@@ -305,5 +305,11 @@ export interface GuideTemplate {
   thirdImage?: string; // path or URL for additional image below horizontal layout
   fourthImage?: string; // path or URL for second row image (used with thirdImage)
   actionCardImages?: string[]; // array of action card image paths for additional pages
+  extraPages?: Array<{
+    title: string;
+    subtitle?: string;
+    items: string[]; // array of text items (e.g., questions, ideas)
+  }>; // array of text-based extra pages
   sections: GuideSection[];
+  tooltipText?: string; // custom text to display in tooltip on hover
 }

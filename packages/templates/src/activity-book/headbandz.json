@@ -4,6 +4,7 @@
   "title": "Headbandz",
   "category": "Activity Book",
   "subcategory": "Games",
+  "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/headbandz.png",
   "numberOfSwitches": 2,
@@ -17,5 +18,6 @@
       "heading": "HOW TO PLAY",
       "body": "• Record \"yes\" on one switch and \"no\" on the other\n• The switch user has to work with you to help you guess what image you have on your card by answering your yes/no questions with their switches\n• The more more answers the switch user helps you to guess the more points!\n• You could also play this game in two teams to create competition"
     }
-  ]
+  ],
+  "tooltipText": "Use 2 switches to answer yes/no questions in a game of HeadBandz"
 }

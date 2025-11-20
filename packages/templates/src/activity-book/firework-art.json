@@ -1,21 +1,23 @@
 {
   "templateId": "firework-art",
   "templateType": "guide",
-  "title": "Firework Arrt",
+  "title": "Firework Art",
   "category": "Activity Book",
   "subcategory": "Cooking/arts and Crafts",
-  "badgeText": "Activity",
+  "gear": 1,
+  "badgeText": "Gear 1",
   "mainImage": "activity-book/firework-art.png",
   "numberOfSwitches": 1,
   "thirdImage": "activity-book/thirdImages/firework-art-2.png",
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/set-switches/it-click-on.png"
     },
     {
       "heading": "HOW TO PLAY",
       "body": "•Plug a hairdryer into the It-Click-On and change the settings to direct so the appliance is activated as long as the switch is held down for \n • Plug the switch into the It-Click-On \n • Pour a small blob of paint onto the black paper \n • Hold the hair dryer above the paint blob and prompt the switch user to hold down their switch to create a firework! \n • Repeat the process to create a picture of a night sky filled with fireworks!"
     }
-  ]
+  ],
+  "tooltipText": "Use a Click-It-On (or similar) to turn on a fan and blow paint on paper to look like fireworks"
 }

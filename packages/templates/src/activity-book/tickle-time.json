@@ -4,6 +4,7 @@
   "title": "Tickle Time!",
   "category": "Activity Book",
   "subcategory": "Social",
+  "gear": 1,
   "badgeText": "Gear 1",
   "mainImage": "activity-book/tickle-time-1.png",
   "numberOfSwitches": 1,
@@ -16,5 +17,6 @@
       "heading": "HOW TO PLAY",
       "body": "• Record \"tickle me!\" onto the switch\n• Each time the switch user hits their switch, tickle them for 5 seconds\n• Prompt the switch user to press the switch again by asking questions such as \"Shall we do more tickles?\" or \"I wonder if you want to do that again!\""
     }
-  ]
+  ],
+  "tooltipText": "Activate a switch to ask for tickles!"
 }

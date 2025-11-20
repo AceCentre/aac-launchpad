@@ -1,9 +1,10 @@
 {
-  "templateId": "fart-prank",
+  "templateId": "trump-prank",
   "templateType": "guide",
-  "title": "Fart Prank",
+  "title": "Trump Prank",
   "category": "Activity Book",
   "subcategory": "Funny",
+  "gear": 1,
   "badgeText": "Gear 1",
   "mainImage": "activity-book/trump-prank.png",
   "numberOfSwitches": 1,
@@ -16,5 +17,6 @@
       "heading": "HOW TO PLAY",
       "body": "• Record a trump/fart noise onto the switch\n• Have the switch user prank people by hitting the switch and making a trump noise\n• When they hit the switch say things such \"I hope that wasn't a smelly one!\" \"Excuse you!\" Or blame other people"
     }
-  ]
+  ],
+  "tooltipText": "Prank people by making a fart noise with the switch!"
 }

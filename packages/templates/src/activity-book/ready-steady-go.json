@@ -4,6 +4,7 @@
   "title": "Ready, Steady, Go!",
   "category": "Activity Book",
   "subcategory": "Games",
+  "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/ready-steady-go.png",
   "numberOfSwitches": 2,
@@ -17,5 +18,6 @@
       "heading": "HOW TO PLAY",
       "body": "• Record \"Ready, steady\" on one switch and \"Go!\" on the other\n• When the switch user hits the switch that says \"ready, steady\" get the activity ready e.g shake their wheelchair like the engine in a car has started\n• When the switch user hits the switch that says \"go!\" complete the action e.g push their wheelchair towards a finish line"
     }
-  ]
+  ],
+  "tooltipText": "Activate 2 switches to say \"ready, steady\" and \"GO!\" to join in a race"
 }

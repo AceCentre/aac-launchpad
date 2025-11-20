@@ -4,18 +4,20 @@
   "title": "Create a Ghost",
   "category": "Activity Book",
   "subcategory": "Cooking/arts and Crafts",
-  "badgeText": "Activity",
+  "gear": 1,
+  "badgeText": "Gear 1",
   "mainImage": "activity-book/create-a-ghost.png",
   "numberOfSwitches": 1,
   "thirdImage": "activity-book/thirdImages/create-a-ghost-2.png",
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/set-switches/it-click-on.png"
     },
     {
       "heading": "HOW TO PLAY",
       "body": "• Plug a fan or hairdryer into the It-Click-On and change the settings to direct so the appliance is activated as long as the switch is held down for\n• Pour a blob of white paint onto the bottom of the black paper and place it on a surface close to the fan/hairdryer so the air will blow the paint up the paper\n• Attach the switch to the It-Click-On so the switch user can hold down their switch to create their ghost!\n• Add googly eyes or glitter as an optional extra"
     }
-  ]
+  ],
+  "tooltipText": "Use a Click-It-On (or similar) to turn on a fan and blow paint on paper to look like a ghost"
 }

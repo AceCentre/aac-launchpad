@@ -4,6 +4,7 @@
   "title": "Bug Splat",
   "category": "Activity Book",
   "subcategory": "Funny",
+  "gear": 2,
   "badgeText": "Gear 2",
   "mainImage": "activity-book/bug-splat.png",
   "numberOfSwitches": 1,
@@ -17,5 +18,6 @@
       "heading": "HOW TO PLAY",
       "body": "• The purpose of this game is to discover new body parts that can be used to activate a switch\n• Record \"Splat!\" or a squishy noise onto the switch\n• Add an image of a fly/bug onto the switch (optional)\n• Move the switch around making a buzzing/fly sound\n• Move the switch next to a body part e.g head, hand, foot and prompt the switch user to splat the bug!"
     }
-  ]
+  ],
+  "tooltipText": "This silly game helps you find a second body part to activate a switch, so you can begin exploring Gear 3 activities."
 }

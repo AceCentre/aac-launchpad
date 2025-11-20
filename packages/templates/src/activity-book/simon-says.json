@@ -3,8 +3,9 @@
   "templateType": "guide",
   "title": "Simon Says",
   "category": "Activity Book",
-  "subcategory": "Social",
-  "badgeText": "Gear 3",
+  "subcategory": "Funny",
+  "gear": 4,
+  "badgeText": "Gear 4",
   "mainImage": "activity-book/simon-says.png",
   "numberOfSwitches": 2,
   "thirdImage": "activity-book/thirdImages/simon-says-2.png",
@@ -31,5 +32,6 @@
       "heading": "HOW TO PLAY",
       "body": "• Record \"next\" on one switch and \"simon says\" on the other\n• Show an action card to the switch user and read out the action\n• If they hit the switch that says \"next\", move onto the next card\n• If they hit the switch that says \"simon says!\" perform the action on that card"
     }
-  ]
+  ],
+  "tooltipText": "Use 2 switches to scan through action cards and pick a silly action for other players to perform e.g jump like a frog!"
 }

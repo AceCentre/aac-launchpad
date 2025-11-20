@@ -3,7 +3,8 @@
   "templateType": "guide",
   "title": "Dance Selector",
   "category": "Activity Book",
-  "subcategory": "Games",
+  "subcategory": "Music",
+  "gear": 4,
   "badgeText": "Gear 4",
   "mainImage": "activity-book/dance-selector.png",
   "numberOfSwitches": 2,
@@ -18,5 +19,6 @@
       "heading": "HOW TO PLAY",
       "body": "• Record \"next\" on one switch and \"dance!\" on the other\n• Play some music and have the 'dancers' sit on chairs in front of the switch user\n• The person sat on the very left chair stands up\n• If the switch user hits the switch to say \"next\" that person sits down and the person in the next chair stands up\n• If the switch user hits the switch to say \"dance!\" whoever is stood up must strut their stuff for 10 seconds"
     }
-  ]
+  ],
+  "tooltipText": "Use 2 switches to scan through at least 3 people willing to dance. Whoever is chosen must strut their stuff!"
 }

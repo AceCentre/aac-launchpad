@@ -25,7 +25,9 @@ export async function guideToPdf(
   template: GuideTemplate,
   options: { rootToImages?: string } = {}
 ): Promise<Buffer> {
-  const rootToImages = path.resolve(__dirname, "../../../apps/backend/public");
+  const rootToImages =
+    options.rootToImages ||
+    path.resolve(__dirname, "../../../apps/backend/public");
   const doc = new jsPDF();
   const pageWidth = doc.internal.pageSize.width;
 
@@ -52,11 +54,27 @@ export async function guideToPdf(
     }
   };
 
-  // Title - centered
+  // Title - centered, with gear text on the right
+  const titleY = 20;
   doc.setFontSize(28);
-  doc.text(template.title, pageWidth / 2, 20, {
+  doc.text(template.title, pageWidth / 2, titleY, {
     align: "center",
   });
+
+  // Add gear text
+  if (template.gear) {
+    const gearText = `Gear ${template.gear}`;
+    const gearFontSize = 15;
+    doc.setFontSize(gearFontSize);
+    doc.setFont("helvetica", "italic");
+    doc.setTextColor(255, 0, 0); // Red color
+    doc.text(gearText, pageWidth - 10, titleY, {
+      align: "right",
+    });
+    // Reset to default font and color
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(0, 0, 0); // Black
+  }
 
   // Add logo to first page
   addLogoToPage();
@@ -67,7 +85,8 @@ export async function guideToPdf(
     y: number,
     switchImagePath?: string,
     numberOfSwitches?: number,
-    fourthImagePath?: string
+    fourthImagePath?: string,
+    gear?: number
   ) => {
     const pageWidth = doc.internal.pageSize.width;
     const centerY = y;
@@ -136,14 +155,38 @@ export async function guideToPdf(
       doc.setFontSize(14);
       doc.setFont("helvetica", "normal");
 
-      // Split text into 3 lines
-      const line1 = "See Page 2";
-      const line2 = "for my one";
-      const line3 = "switch setup";
+      // Determine badge text based on gear value
+      let line1: string, line2: string, line3: string;
+      let line4: string | undefined;
+
+      if (gear === 1) {
+        // gear = 1: "see page 2 for my one switch setup"
+        line1 = "See Page 2";
+        line2 = "for my one";
+        line3 = "switch setup";
+      } else if (gear === 2) {
+        // gear = 2: "move the switch to different body parts"
+        line1 = "move the ";
+        line2 = "switch to ";
+        line3 = "different";
+        line4 = "body parts";
+      } else if (gear && gear > 2) {
+        // gear > 2: "see page 2 for my two switch setup"
+        line1 = "See Page 2";
+        line2 = "for my two";
+        line3 = "switch setup";
+      } else {
+        // Default fallback (if gear is not set)
+        line1 = "See Page 2";
+        line2 = "for my one";
+        line3 = "switch setup";
+      }
 
       // Position each line within the circle with slight rotation
       const lineHeight = 5;
-      const startY = centerY - lineHeight;
+      // Adjust startY based on number of lines (3 or 4)
+      const numLines = line4 ? 4 : 3;
+      const startY = centerY - (lineHeight * (numLines - 1)) / 2;
 
       // Rotate text to follow the curve of the circle
       doc.text(line1, badgeX, startY, {
@@ -161,6 +204,14 @@ export async function guideToPdf(
         baseline: "middle",
         angle: 10,
       });
+      // Add 4th line if it exists (for gear = 2)
+      if (line4) {
+        doc.text(line4, badgeX, startY + lineHeight * 3, {
+          align: "center",
+          baseline: "middle",
+          angle: 10,
+        });
+      }
 
       // "and" text in the center
       doc.setFontSize(16);
@@ -171,9 +222,15 @@ export async function guideToPdf(
       });
 
       // Switch image to the right of center
-      const switchImageX = pageWidth / 2 + 15;
-      const switchImageWidth = 90; // Width of the switch image
-      const switchImageHeight = 110; // Height of the switch image (adjust this to change only height)
+      // Check if this is a set-switch image (all-turn-it, it-click-on) - use smaller dimensions
+      const isSetSwitch =
+        switchImagePath && switchImagePath.includes("set-switches");
+      // Move set switch image further to the right
+      const switchImageX = isSetSwitch
+        ? pageWidth / 2 + 35
+        : pageWidth / 2 + 12;
+      const switchImageWidth = isSetSwitch ? 45 : 90; // Smaller width for set switches
+      const switchImageHeight = isSetSwitch ? 40 : 110; // Smaller height for set switches
       const switchImageY = centerY - switchImageHeight / 2; // Center vertically based on actual height
 
       // Add switch image if available
@@ -196,8 +253,15 @@ export async function guideToPdf(
             doc.setTextColor(0, 0, 0); // Black text
 
             const countText = `x${numberOfSwitches}`;
-            const countTextX = switchImageX + switchImageWidth - 15; // Center horizontally with image
-            const countTextY = switchImageY + switchImageHeight - 55; // Below the image
+            // Position text at the same absolute position regardless of image type
+            // Use the regular switch image dimensions (90x110) as the reference point
+            const regularSwitchX = pageWidth / 2 + 15;
+            const regularSwitchWidth = 90;
+            const regularSwitchHeight = 110;
+            const regularSwitchY = centerY - regularSwitchHeight / 2;
+
+            const countTextX = regularSwitchX + regularSwitchWidth - 15; // Fixed X position
+            const countTextY = regularSwitchY + regularSwitchHeight - 55; // Fixed Y position
 
             doc.text(countText, countTextX, countTextY, {
               align: "center",
@@ -268,7 +332,13 @@ export async function guideToPdf(
       section.heading === "WHAT YOU'LL NEED TO PLAY THIS GAME"
     ) {
       y += 1; // Add some spacing
-      await createHorizontalLayout(y, section.image, template.numberOfSwitches);
+      await createHorizontalLayout(
+        y,
+        section.image,
+        template.numberOfSwitches,
+        undefined,
+        template.gear
+      );
       y += 35; // Move down after the horizontal layout
 
       // Add second row if fourthImage exists, otherwise add thirdImage if it exists
@@ -279,7 +349,8 @@ export async function guideToPdf(
           y,
           template.thirdImage,
           template.numberOfSwitches,
-          template.fourthImage
+          template.fourthImage,
+          template.gear
         );
         y += 40; // Move down after the second horizontal layout
       } else if (template.thirdImage) {
@@ -406,6 +477,63 @@ export async function guideToPdf(
           imageWidth,
           imageHeight
         );
+      }
+    }
+  }
+
+  // Add text-based extra pages if they exist
+  if (template.extraPages && template.extraPages.length > 0) {
+    for (const extraPage of template.extraPages) {
+      doc.addPage();
+
+      // Add logo to extra page
+      addLogoToPage();
+
+      const pageWidth = doc.internal.pageSize.width;
+      const margin = 20;
+      let currentY = 30;
+
+      // Add main title
+      doc.setFontSize(20);
+      doc.setFont("helvetica", "bold");
+      doc.text(extraPage.title, margin, currentY);
+      currentY += 10;
+
+      // Add underline for title
+      doc.setLineWidth(0.5);
+      doc.line(margin, currentY, pageWidth - margin, currentY);
+      currentY += 15;
+
+      // Add subtitle if it exists
+      if (extraPage.subtitle) {
+        doc.setFontSize(16);
+        doc.setFont("helvetica", "bold");
+        doc.text(extraPage.subtitle, margin, currentY);
+        currentY += 12;
+      }
+
+      // Add items as bulleted list
+      doc.setFontSize(12);
+      doc.setFont("helvetica", "normal");
+      const lineHeight = 8;
+      const bulletX = margin + 5;
+      const textX = margin + 12;
+
+      for (const item of extraPage.items) {
+        // Check if we need a new page
+        if (currentY > 260) {
+          doc.addPage();
+          addLogoToPage();
+          currentY = 30;
+        }
+
+        // Add bullet point
+        doc.circle(bulletX, currentY - 2, 1.5, "F");
+        // Add text (split if too long)
+        const maxWidth = pageWidth - textX - margin;
+        const lines = doc.splitTextToSize(item, maxWidth);
+        doc.text(lines, textX, currentY);
+        currentY += lines.length * lineHeight + 3;
       }
     }
   }

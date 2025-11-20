@@ -4,6 +4,7 @@
   "title": "Follow the Cup",
   "category": "Activity Book",
   "subcategory": "Games",
+  "gear": 5,
   "badgeText": "Gear 5",
   "mainImage": "activity-book/follow-the-cup.png",
   "numberOfSwitches": 2,
@@ -17,5 +18,6 @@
       "heading": "HOW TO PLAY",
       "body": "• Record \"next\" on one switch and \"Its under there!\" on the other\n• Lay the 4 cups upside down in a row on a surface where the switch user can see\n• Put the chocolate coin under one of the cups and mix them up (make sure the switch user can see this happening)\n• The switch user must help locate which cup the coin is under\n• Point to the first cup in the line, if the switch user hits their switch that says \"next\" point to the next cup\n• If they hit their switch that says \"its under there!\" lift the cup\n• The switch user gets to eat the chocolate coin if they can find it!"
     }
-  ]
+  ],
+  "tooltipText": "Use 2 switches to scan through cups to find the hidden chocolate coin!"
 }
