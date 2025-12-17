@@ -413,9 +413,9 @@ const createBoard = async (
 };
 
 async function runGuideFlow() {
-  // Get all unique subcategories and levels
-  const subcategories = Array.from(
-    new Set(GUIDE_TEMPLATES.map((g) => g.subcategory).filter(Boolean))
+  // Get all unique categories and levels
+  const categories = Array.from(
+    new Set(GUIDE_TEMPLATES.map((g) => g.category).filter(Boolean))
   ).sort();
   const levels = Array.from(
     new Set(
@@ -426,29 +426,29 @@ async function runGuideFlow() {
   ).sort((a, b) => a - b);
 
   // Add "All" options
-  const subcategoryChoices = [
-    { name: "All subcategories", value: "__ALL__" },
-    ...subcategories.map((s) => ({ name: s, value: s })),
+  const categoryChoices = [
+    { name: "All categories", value: "__ALL__" },
+    ...categories.map((s) => ({ name: s, value: s })),
   ];
   const levelChoices = [
     { name: "All levels", value: "__ALL__" },
     ...levels.map((lvl) => ({ name: `Level ${lvl}`, value: lvl })),
   ];
 
-  // Prompt for subcategories (multi-select)
-  const { chosenSubcategories } = await inquirer.prompt([
+  // Prompt for categories (multi-select)
+  const { chosenCategories } = await inquirer.prompt([
     {
       type: "checkbox",
-      name: "chosenSubcategories",
-      message: "Filter by subcategory (select one or more, or All):",
-      choices: subcategoryChoices,
+      name: "chosenCategories",
+      message: "Filter by category (select one or more, or All):",
+      choices: categoryChoices,
       validate: (input) =>
-        input.length > 0 || "Please select at least one subcategory or All.",
+        input.length > 0 || "Please select at least one category or All.",
     },
   ]);
 
   // If "All" is selected, ignore other selections
-  const useAllSubcategories = chosenSubcategories.includes("__ALL__");
+  const useAllCategories = chosenCategories.includes("__ALL__");
 
   // Prompt for levels (multi-select)
   const { chosenLevels } = await inquirer.prompt([
@@ -466,12 +466,12 @@ async function runGuideFlow() {
 
   // Filter guides
   const filteredGuides = GUIDE_TEMPLATES.filter((g) => {
-    const subcategoryMatch =
-      useAllSubcategories ||
-      (g.subcategory && chosenSubcategories.includes(g.subcategory));
+    const categoryMatch =
+      useAllCategories ||
+      (g.category && chosenCategories.includes(g.category));
     const levelMatch =
       useAllLevels || (g.level && chosenLevels.includes(g.level));
-    return subcategoryMatch && levelMatch;
+    return categoryMatch && levelMatch;
   });
 
   if (filteredGuides.length === 0) {

@@ -584,8 +584,8 @@ async function setupServer() {
       const guides = GUIDE_TEMPLATES.map((guide) => ({
         templateId: guide.templateId,
         title: guide.title,
+        activityType: guide.activityType,
         category: guide.category,
-        subcategory: guide.subcategory,
         badgeText: guide.badgeText,
         mainImage: guide.mainImage,
         sections: guide.sections,
@@ -608,18 +608,6 @@ async function setupServer() {
     } catch (error) {
       console.error("Error fetching guide categories:", error);
       res.status(500).json({ error: "Failed to fetch guide categories" });
-    }
-  });
-
-  app.get("/api/activity-book/subcategories", (req, res) => {
-    try {
-      const subcategories = Array.from(
-        new Set(GUIDE_TEMPLATES.map((guide) => guide.subcategory))
-      ).filter(Boolean);
-      res.json(subcategories);
-    } catch (error) {
-      console.error("Error fetching guide subcategories:", error);
-      res.status(500).json({ error: "Failed to fetch guide subcategories" });
     }
   });
 

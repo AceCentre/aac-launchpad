@@ -292,8 +292,8 @@ export interface GuideTemplate {
   templateId: string;
   templateType: "guide";
   title: string;
-  category: string;
-  subcategory?: string;
+  activityType?: string;
+  category?: string;
   /**
    * @deprecated Use 'gear' instead.
    */
