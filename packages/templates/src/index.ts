@@ -17,6 +17,7 @@ import { jubilee } from "./jubilee";
 import { gridOptions } from "./grid-options";
 import { core } from "./core";
 import { bubbles } from "./bubbles";
+import { simonSays } from "./simon-says";
 import { reading } from "./reading";
 import { portrait } from "./portrait";
 import { blocks } from "./blocks";
@@ -74,6 +75,7 @@ export {
   jubilee,
   gridOptions,
   bubbles,
+  simonSays,
   reading,
   blocks,
   mrPotatoHead,
@@ -110,6 +112,7 @@ export {
 export const ALL_TEMPLATES: Array<Template> = [
   readDearZoo,
   bubbles,
+  simonSays,
   core,
   portrait,
   alphabetChart,
@@ -164,6 +167,7 @@ export const WEB_TEMPLATES: Array<Template> = [
   readDearZoo,
   core,
   bubbles,
+  simonSays,
   reading,
   alphabetChart,
   blocks,
