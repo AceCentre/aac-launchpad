@@ -1698,7 +1698,7 @@ export const listenerMediatedAbc: Template = {
     },
     {
       id: "start-again-new-line",
-      label: "START\nAGAIN",
+      label: { id: "start-again-text", type: "TemplateItem" },
       border_color: { id: "commandBorderColor", type: "TemplateItem" },
       background_color: { id: "commandBackgroundColor", type: "TemplateItem" },
       ext_launchpad_label_color: {
