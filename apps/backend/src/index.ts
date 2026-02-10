@@ -5,6 +5,7 @@ import { WEB_TEMPLATES } from "templates";
 import { GUIDE_TEMPLATES } from "templates";
 import express, { Request } from "express";
 import http from "http";
+import Redis from "ioredis";
 import { Template, AllTemplateVariable, Result } from "types";
 import boardToPdf from "board-to-pdf";
 import { guideToPdf } from "board-to-pdf";
@@ -19,6 +20,8 @@ import PostHog from "posthog-node";
 import { onShutdown } from "node-graceful-shutdown";
 
 const client = new PostHog("phc_Nlj20BgEB3vtw36wCPHFpTTVqpmvEzfD3IrG5zw7B2h");
+const redis = new Redis(process.env.REDIS_URL || "redis://127.0.0.1:6379");
+const BULK_JOB_TTL_SECONDS = 60 * 60; // 1 hour
 
 // Helper function to resolve preset values
 const getResults = (
@@ -739,10 +742,17 @@ async function setupServer() {
     devicePhotoPath?: string;
     selectedSwitchImage?: string | null;
   }
+  
+  const runBulkDownloadJob = async (jobId: string) => {
+    const jobKey = `bulk-job:${jobId}`;
+    const json = await redis.get(jobKey);
+    if (!json) {
+      console.warn("Bulk job not found in Redis", jobId);
+      return;
+    }
 
-  const bulkDownloadJobs = new Map<string, BulkDownloadJob>();
+    const job: BulkDownloadJob = JSON.parse(json);
 
-  const runBulkDownloadJob = async (job: BulkDownloadJob) => {
     try {
       const {
         templateIds,
@@ -835,11 +845,15 @@ async function setupServer() {
       const finalPdfBuffer = Buffer.from(await finalPdf.save());
       console.log("Final PDF saved, size:", finalPdfBuffer.length, "bytes");
 
+      // Ensure the boards directory exists (important in fresh production containers)
+      const boardsDir = path.join("./public/boards");
+      fs.mkdirSync(boardsDir, { recursive: true });
+
       // Generate unique filename for the PDF
       const pdfHash = `activity-book-with-customization-${crypto
         .randomBytes(8)
         .toString("hex")}`;
-      const pdfPath = path.join("./public/boards", `${pdfHash}.pdf`);
+      const pdfPath = path.join(boardsDir, `${pdfHash}.pdf`);
 
       // Save the PDF file
       fs.writeFileSync(pdfPath, finalPdfBuffer);
@@ -853,25 +867,28 @@ async function setupServer() {
         getBaseUrl()
       ).toString();
 
-      const existing = bulkDownloadJobs.get(job.id);
-      if (existing) {
-        existing.status = "done";
-        existing.pdfLocation = pdfLocation;
-        bulkDownloadJobs.set(job.id, existing);
-      }
+      const updated: BulkDownloadJob = {
+        ...job,
+        status: "done",
+        pdfLocation,
+      };
+
+      await redis.set(jobKey, JSON.stringify(updated), "EX", BULK_JOB_TTL_SECONDS);
     } catch (error: any) {
-      console.error("Error creating PDF for job", job.id, error);
+      console.error("Error creating PDF for job", jobId, error);
       console.error("Error details:", {
         message: error?.message || "Unknown error",
         stack: error?.stack,
         name: error?.name,
       });
-      const existing = bulkDownloadJobs.get(job.id);
-      if (existing) {
-        existing.status = "error";
-        existing.error = error?.message || "Failed to create PDF";
-        bulkDownloadJobs.set(job.id, existing);
-      }
+
+      const updated: BulkDownloadJob = {
+        ...job,
+        status: "error",
+        error: error?.message || "Failed to create PDF",
+      };
+
+      await redis.set(jobKey, JSON.stringify(updated), "EX", BULK_JOB_TTL_SECONDS);
     }
   };
 
@@ -904,16 +921,12 @@ async function setupServer() {
       selectedSwitchImage,
     };
 
-    bulkDownloadJobs.set(jobId, job);
+    const jobKey = `bulk-job:${jobId}`;
+    await redis.set(jobKey, JSON.stringify(job), "EX", BULK_JOB_TTL_SECONDS);
 
     // Fire-and-forget the heavy work
-    runBulkDownloadJob(job).catch(() => {
-      const existing = bulkDownloadJobs.get(jobId);
-      if (existing) {
-        existing.status = "error";
-        existing.error = "Failed to create PDF";
-        bulkDownloadJobs.set(jobId, existing);
-      }
+    runBulkDownloadJob(jobId).catch((err) => {
+      console.error("Bulk job failed to start", jobId, err);
     });
 
     return res.status(202).json({ jobId });
@@ -921,11 +934,14 @@ async function setupServer() {
 
   app.get("/api/activity-book/bulk-download/:jobId", async (req, res) => {
     const { jobId } = req.params;
-    const job = bulkDownloadJobs.get(jobId);
+    const jobKey = `bulk-job:${jobId}`;
+    const json = await redis.get(jobKey);
 
-    if (!job) {
+    if (!json) {
       return res.status(404).json({ error: "Job not found" });
     }
+
+    const job: BulkDownloadJob = JSON.parse(json);
 
     return res.json({
       id: job.id,
