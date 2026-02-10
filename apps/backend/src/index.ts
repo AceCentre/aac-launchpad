@@ -845,11 +845,15 @@ async function setupServer() {
       const finalPdfBuffer = Buffer.from(await finalPdf.save());
       console.log("Final PDF saved, size:", finalPdfBuffer.length, "bytes");
 
+      // Ensure the boards directory exists (important in fresh production containers)
+      const boardsDir = path.join("./public/boards");
+      fs.mkdirSync(boardsDir, { recursive: true });
+
       // Generate unique filename for the PDF
       const pdfHash = `activity-book-with-customization-${crypto
         .randomBytes(8)
         .toString("hex")}`;
-      const pdfPath = path.join("./public/boards", `${pdfHash}.pdf`);
+      const pdfPath = path.join(boardsDir, `${pdfHash}.pdf`);
 
       // Save the PDF file
       fs.writeFileSync(pdfPath, finalPdfBuffer);
