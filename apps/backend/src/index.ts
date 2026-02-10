@@ -725,7 +725,24 @@ async function setupServer() {
     }
   });
 
-  app.post("/api/activity-book/bulk-download", async (req, res) => {
+  type BulkDownloadStatus = "pending" | "done" | "error";
+
+  interface BulkDownloadJob {
+    id: string;
+    status: BulkDownloadStatus;
+    createdAt: number;
+    pdfLocation?: string;
+    error?: string;
+    templateIds: string[];
+    userName?: string;
+    userPhotoPath?: string;
+    devicePhotoPath?: string;
+    selectedSwitchImage?: string | null;
+  }
+
+  const bulkDownloadJobs = new Map<string, BulkDownloadJob>();
+
+  const runBulkDownloadJob = async (job: BulkDownloadJob) => {
     try {
       const {
         templateIds,
@@ -733,21 +750,13 @@ async function setupServer() {
         userPhotoPath,
         devicePhotoPath,
         selectedSwitchImage,
-      } = req.body;
-
-      if (
-        !templateIds ||
-        !Array.isArray(templateIds) ||
-        templateIds.length === 0
-      ) {
-        return res.status(400).json({ error: "templateIds array is required" });
-      }
+      } = job;
 
       // Generate the cover PDF (2 pages) and activity guides, then merge into one PDF
       const { generateCoverPagePdf, guideToPdf } = await import("board-to-pdf");
       const { PDFDocument } = await import("pdf-lib");
 
-      console.log("Starting PDF generation...");
+      console.log("Starting PDF generation for job", job.id);
 
       // Create the final merged PDF
       const finalPdf = await PDFDocument.create();
@@ -839,23 +848,91 @@ async function setupServer() {
         `PDF created: ${pdfHash}.pdf (${finalPdfBuffer.length} bytes)`
       );
 
-      res.json({
-        success: true,
-        message: "PDF created successfully!",
-        pdfLocation: new URL(`/boards/${pdfHash}.pdf`, getBaseUrl()).toString(),
-      });
+      const pdfLocation = new URL(
+        `/boards/${pdfHash}.pdf`,
+        getBaseUrl()
+      ).toString();
+
+      const existing = bulkDownloadJobs.get(job.id);
+      if (existing) {
+        existing.status = "done";
+        existing.pdfLocation = pdfLocation;
+        bulkDownloadJobs.set(job.id, existing);
+      }
     } catch (error: any) {
-      console.error("Error creating PDF:", error);
+      console.error("Error creating PDF for job", job.id, error);
       console.error("Error details:", {
         message: error?.message || "Unknown error",
         stack: error?.stack,
         name: error?.name,
       });
-      res.status(500).json({
-        success: false,
-        error: "Failed to create PDF",
-      });
+      const existing = bulkDownloadJobs.get(job.id);
+      if (existing) {
+        existing.status = "error";
+        existing.error = error?.message || "Failed to create PDF";
+        bulkDownloadJobs.set(job.id, existing);
+      }
     }
+  };
+
+  app.post("/api/activity-book/bulk-download", async (req, res) => {
+    const {
+      templateIds,
+      userName,
+      userPhotoPath,
+      devicePhotoPath,
+      selectedSwitchImage,
+    } = req.body;
+
+    if (
+      !templateIds ||
+      !Array.isArray(templateIds) ||
+      templateIds.length === 0
+    ) {
+      return res.status(400).json({ error: "templateIds array is required" });
+    }
+
+    const jobId = crypto.randomBytes(8).toString("hex");
+    const job: BulkDownloadJob = {
+      id: jobId,
+      status: "pending",
+      createdAt: Date.now(),
+      templateIds,
+      userName,
+      userPhotoPath: userPhotoPath || undefined,
+      devicePhotoPath: devicePhotoPath || undefined,
+      selectedSwitchImage,
+    };
+
+    bulkDownloadJobs.set(jobId, job);
+
+    // Fire-and-forget the heavy work
+    runBulkDownloadJob(job).catch(() => {
+      const existing = bulkDownloadJobs.get(jobId);
+      if (existing) {
+        existing.status = "error";
+        existing.error = "Failed to create PDF";
+        bulkDownloadJobs.set(jobId, existing);
+      }
+    });
+
+    return res.status(202).json({ jobId });
+  });
+
+  app.get("/api/activity-book/bulk-download/:jobId", async (req, res) => {
+    const { jobId } = req.params;
+    const job = bulkDownloadJobs.get(jobId);
+
+    if (!job) {
+      return res.status(404).json({ error: "Job not found" });
+    }
+
+    return res.json({
+      id: job.id,
+      status: job.status,
+      pdfLocation: job.pdfLocation,
+      error: job.error,
+    });
   });
 
   app.use(express.static("public"));

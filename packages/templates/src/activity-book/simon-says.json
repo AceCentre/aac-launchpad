@@ -30,7 +30,7 @@
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Record \"next\" on one switch and \"simon says\" on the other\n• Show an action card to the switch user and read out the action\n• If they hit the switch that says \"next\", move onto the next card\n• If they hit the switch that says \"simon says!\" perform the action on that card"
+      "body": "• Record \"next\" on one switch and \"Simon says\" on the other.\n• Show an action card to the switch user and read the action aloud.\n• If they press the \"next\" switch, move on to the next card.\n• If they press the \"Simon says!\" switch, perform the action shown on the card."
     }
   ],
   "tooltipText": "Use 2 switches to scan through action cards and pick a silly action for other players to perform e.g jump like a frog!"
