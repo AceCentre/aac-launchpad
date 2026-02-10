@@ -16,8 +16,8 @@
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Plug the switch and blender into the It-Click-On-Plus\n• Use the settings on the It-Click-On Plus to activate the blender for 5 seconds (timed setting)\n• Prompt the switch user to activate the switch to make sure their smoothie/soup is blended properly, this make take a few presses to complete!"
+      "body": "• Connect a wired or wireless switch and a blender to an appliance controller.\n• Use the settings on the appliance controller to activate the blender for 5 seconds (timed setting).\n• Prompt the switch user to press the switch to make sure their smoothie or soup is blended properly, this may take a few presses to complete!"
     }
   ],
-  "tooltipText": "Use a Click-It-On (or similar) to turn on a blender and make a smoothie"
+  "tooltipText": "Use an appliance controller to turn on a blender and make a smoothie"
 }

@@ -6,7 +6,7 @@ import sharp from "sharp";
 async function processImage(
   imagePath: string,
   maxWidth: number = 1200,
-  maxHeight: number = 1000
+  maxHeight: number = 1000,
 ): Promise<Buffer> {
   try {
     console.log(`Using original image: ${imagePath}`);
@@ -30,7 +30,7 @@ function getImageDimensions(
   image: any,
   scale: number,
   maxWidth: number,
-  maxHeight: number
+  maxHeight: number,
 ) {
   const dims = image.scale(scale);
 
@@ -69,7 +69,7 @@ export interface CoverPageOptions {
 }
 
 export async function generateCoverPagePdf(
-  options: CoverPageOptions
+  options: CoverPageOptions,
 ): Promise<Buffer> {
   const { userName, activityBookTitle, userPhotoPath, devicePhotoPath } =
     options;
@@ -137,7 +137,7 @@ export async function generateCoverPagePdf(
   const collaborationFontSize = 14;
   const collaborationWidth = font.widthOfTextAtSize(
     collaborationText,
-    collaborationFontSize
+    collaborationFontSize,
   );
   page1.drawText(collaborationText, {
     x: (width - collaborationWidth) / 2,
@@ -158,18 +158,18 @@ export async function generateCoverPagePdf(
       const processedAceCenmacLogoBuffer = await processImage(
         aceCenmacLogoPath,
         400,
-        200
+        200,
       );
 
       let aceCenmacLogoImage;
       try {
         aceCenmacLogoImage = await pdfDoc.embedPng(
-          processedAceCenmacLogoBuffer
+          processedAceCenmacLogoBuffer,
         );
       } catch (pngError) {
         // Try as JPG if PNG fails
         aceCenmacLogoImage = await pdfDoc.embedJpg(
-          processedAceCenmacLogoBuffer
+          processedAceCenmacLogoBuffer,
         );
       }
 
@@ -177,7 +177,7 @@ export async function generateCoverPagePdf(
         aceCenmacLogoImage,
         1.0,
         200,
-        100
+        100,
       );
       const aceCenmacLogoX = (width - aceCenmacLogoDims.width) / 2; // Center the logo
 
@@ -212,7 +212,7 @@ export async function generateCoverPagePdf(
 
   // Add description text at the bottom of the page
   const descriptionText =
-    "This book contains ideas of how to introduce switches, learn how they work and what they can do by using fun and motivating activities. The activities use and build different skills that the switch user can reapply to other FUNctional activities such as controlling a communication device, accessing the school curriculum, accessing a computer and so much more!";
+    "This book contains activity ideas that introduce switches and help build understanding of how they work and what they can do through fun, motivating activities. Each activity is designed to develop a range of skills that the learner can apply to other FUNctional tasks like controlling a communication device, accessing the school curriculum, using a computer, and much more.";
 
   // Split text manually for pdf-lib
   const words = descriptionText.split(" ");
@@ -283,11 +283,9 @@ export async function generateCoverPagePdf(
   let infoY = height - 100;
 
   const infoText1 =
-    "The activities in this book fall under different ‘Gears’. In Gear 1 activities, you only need one switch, Gear 2 looks at finding a second movement/body part to activate a switch and all other Gears require 2 switches to be used at the same time.";
+    "The activities in this book fall under different ‘Gears’. In First Gear activities, only one switch is needed. Second Gear looks at finding a second movement/body part to activate a switch. Second to Fifth Gear activities require 2 switches to be used at the same time.";
   const infoText2 =
-    "Please insert images of how the person that this book belongs to uses one switch (for Gear 1 activities) and how they use two switches (for activities in Gears 3-5).";
-  const infoText3 =
-    "If a second body part/movement has not been found yet, leave the 2 switch set up blank until you have explored Gear 1 and 2 activities. For more information check out FUNctionalswitching.com";
+    "Insert images of how the person that this book belongs to uses one switch and two switches. If a second body part/movement has not been found yet, leave the 2 switch set up blank until you have explored First and Second Gear Activities. To learn more about the Gears and building switch skills visit FUNctionalswitching.com ";
 
   // Split and draw text lines
   const splitText = (text: string, maxWidth: number) => {
@@ -313,9 +311,8 @@ export async function generateCoverPagePdf(
 
   const lines1 = splitText(infoText1, width - 100);
   const lines2 = splitText(infoText2, width - 100);
-  const lines3 = splitText(infoText3, width - 100);
 
-  [...lines1, ...lines2, ...lines3].forEach((line, index) => {
+  [...lines1, ...lines2].forEach((line, index) => {
     page2.drawText(line, {
       x: 50,
       y: infoY - index * 15,
@@ -325,7 +322,7 @@ export async function generateCoverPagePdf(
     });
   });
 
-  infoY -= (lines1.length + lines2.length + lines3.length) * 15 + 30;
+  infoY -= (lines1.length + lines2.length) * 15 + 30;
 
   // Add 1 SWITCH SET UP section
   const switch1Text = "1 SWITCH SET UP:";
@@ -356,7 +353,7 @@ export async function generateCoverPagePdf(
       const processedImageBuffer = await processImage(
         userPhotoPath,
         1200,
-        1000
+        1000,
       );
 
       let image;
@@ -431,7 +428,7 @@ export async function generateCoverPagePdf(
       const processedImageBuffer = await processImage(
         devicePhotoPath,
         1200,
-        1000
+        1000,
       );
 
       let image;
@@ -480,14 +477,14 @@ export async function generateCoverPagePdf(
     const combinedLogoPath = "public/activity-book/Ace&Cenmac-logo.png";
     console.log(
       "Checking for combined logo at bottom of page 2:",
-      combinedLogoPath
+      combinedLogoPath,
     );
     console.log("File exists:", fs.existsSync(combinedLogoPath));
     if (fs.existsSync(combinedLogoPath)) {
       const processedCombinedLogoBuffer = await processImage(
         combinedLogoPath,
         350,
-        180
+        180,
       );
 
       let combinedLogoImage;
@@ -502,7 +499,7 @@ export async function generateCoverPagePdf(
         combinedLogoImage,
         1.0,
         100,
-        50
+        50,
       );
       const combinedLogoX = width - combinedLogoDims.width - 50; // Position on the right with 50px margin
 

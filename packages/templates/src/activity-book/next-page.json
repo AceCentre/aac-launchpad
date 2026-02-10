@@ -15,7 +15,7 @@
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Let the switch user choose a book that they would like you to read to them\n• Record \"turn the page\" onto the switch\n• Read the book and pause at the end of each page to prompt the switch user to hit their switch to tell you to \"turn the page\"\n• If the switch user hits their switch before you finished reading the page, still turn the page so that they learn that pressing their switch has an outcome and effects the activity"
+      "body": "• Record \"turn the page\" onto the switch.\n• Let the switch user choose a book they would like to read.\n• Read the book aloud, pausing at the end of each page to prompt the switch user to press their switch to \"turn the page.\"\n• If the switch user presses their switch before you finish reading the page, still turn the page. This helps them learn that pressing the switch has an effect on the activity."
     }
   ],
   "tooltipText": "Activate the switch to turn the page of a book"
