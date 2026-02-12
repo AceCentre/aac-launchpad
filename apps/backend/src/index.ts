@@ -5,7 +5,6 @@ import { WEB_TEMPLATES } from "templates";
 import { GUIDE_TEMPLATES } from "templates";
 import express, { Request } from "express";
 import http from "http";
-import Redis from "ioredis";
 import { Template, AllTemplateVariable, Result } from "types";
 import boardToPdf from "board-to-pdf";
 import { guideToPdf } from "board-to-pdf";
@@ -20,8 +19,6 @@ import PostHog from "posthog-node";
 import { onShutdown } from "node-graceful-shutdown";
 
 const client = new PostHog("phc_Nlj20BgEB3vtw36wCPHFpTTVqpmvEzfD3IrG5zw7B2h");
-const redis = new Redis(process.env.REDIS_URL || "redis://127.0.0.1:6379");
-const BULK_JOB_TTL_SECONDS = 60 * 60; // 1 hour
 
 // Helper function to resolve preset values
 const getResults = (
@@ -728,31 +725,7 @@ async function setupServer() {
     }
   });
 
-  type BulkDownloadStatus = "pending" | "done" | "error";
-
-  interface BulkDownloadJob {
-    id: string;
-    status: BulkDownloadStatus;
-    createdAt: number;
-    pdfLocation?: string;
-    error?: string;
-    templateIds: string[];
-    userName?: string;
-    userPhotoPath?: string;
-    devicePhotoPath?: string;
-    selectedSwitchImage?: string | null;
-  }
-  
-  const runBulkDownloadJob = async (jobId: string) => {
-    const jobKey = `bulk-job:${jobId}`;
-    const json = await redis.get(jobKey);
-    if (!json) {
-      console.warn("Bulk job not found in Redis", jobId);
-      return;
-    }
-
-    const job: BulkDownloadJob = JSON.parse(json);
-
+  app.post("/api/activity-book/bulk-download", async (req, res) => {
     try {
       const {
         templateIds,
@@ -760,13 +733,21 @@ async function setupServer() {
         userPhotoPath,
         devicePhotoPath,
         selectedSwitchImage,
-      } = job;
+      } = req.body;
+
+      if (
+        !templateIds ||
+        !Array.isArray(templateIds) ||
+        templateIds.length === 0
+      ) {
+        return res.status(400).json({ error: "templateIds array is required" });
+      }
 
       // Generate the cover PDF (2 pages) and activity guides, then merge into one PDF
       const { generateCoverPagePdf, guideToPdf } = await import("board-to-pdf");
       const { PDFDocument } = await import("pdf-lib");
 
-      console.log("Starting PDF generation for job", job.id);
+      console.log("Starting PDF generation...");
 
       // Create the final merged PDF
       const finalPdf = await PDFDocument.create();
@@ -845,15 +826,11 @@ async function setupServer() {
       const finalPdfBuffer = Buffer.from(await finalPdf.save());
       console.log("Final PDF saved, size:", finalPdfBuffer.length, "bytes");
 
-      // Ensure the boards directory exists (important in fresh production containers)
-      const boardsDir = path.join("./public/boards");
-      fs.mkdirSync(boardsDir, { recursive: true });
-
       // Generate unique filename for the PDF
       const pdfHash = `activity-book-with-customization-${crypto
         .randomBytes(8)
         .toString("hex")}`;
-      const pdfPath = path.join(boardsDir, `${pdfHash}.pdf`);
+      const pdfPath = path.join("./public/boards", `${pdfHash}.pdf`);
 
       // Save the PDF file
       fs.writeFileSync(pdfPath, finalPdfBuffer);
@@ -862,93 +839,23 @@ async function setupServer() {
         `PDF created: ${pdfHash}.pdf (${finalPdfBuffer.length} bytes)`
       );
 
-      const pdfLocation = new URL(
-        `/boards/${pdfHash}.pdf`,
-        getBaseUrl()
-      ).toString();
-
-      const updated: BulkDownloadJob = {
-        ...job,
-        status: "done",
-        pdfLocation,
-      };
-
-      await redis.set(jobKey, JSON.stringify(updated), "EX", BULK_JOB_TTL_SECONDS);
+      res.json({
+        success: true,
+        message: "PDF created successfully!",
+        pdfLocation: new URL(`/boards/${pdfHash}.pdf`, getBaseUrl()).toString(),
+      });
     } catch (error: any) {
-      console.error("Error creating PDF for job", jobId, error);
+      console.error("Error creating PDF:", error);
       console.error("Error details:", {
         message: error?.message || "Unknown error",
         stack: error?.stack,
         name: error?.name,
       });
-
-      const updated: BulkDownloadJob = {
-        ...job,
-        status: "error",
-        error: error?.message || "Failed to create PDF",
-      };
-
-      await redis.set(jobKey, JSON.stringify(updated), "EX", BULK_JOB_TTL_SECONDS);
+      res.status(500).json({
+        success: false,
+        error: "Failed to create PDF",
+      });
     }
-  };
-
-  app.post("/api/activity-book/bulk-download", async (req, res) => {
-    const {
-      templateIds,
-      userName,
-      userPhotoPath,
-      devicePhotoPath,
-      selectedSwitchImage,
-    } = req.body;
-
-    if (
-      !templateIds ||
-      !Array.isArray(templateIds) ||
-      templateIds.length === 0
-    ) {
-      return res.status(400).json({ error: "templateIds array is required" });
-    }
-
-    const jobId = crypto.randomBytes(8).toString("hex");
-    const job: BulkDownloadJob = {
-      id: jobId,
-      status: "pending",
-      createdAt: Date.now(),
-      templateIds,
-      userName,
-      userPhotoPath: userPhotoPath || undefined,
-      devicePhotoPath: devicePhotoPath || undefined,
-      selectedSwitchImage,
-    };
-
-    const jobKey = `bulk-job:${jobId}`;
-    await redis.set(jobKey, JSON.stringify(job), "EX", BULK_JOB_TTL_SECONDS);
-
-    // Fire-and-forget the heavy work
-    runBulkDownloadJob(jobId).catch((err) => {
-      console.error("Bulk job failed to start", jobId, err);
-    });
-
-    return res.status(202).json({ jobId });
-  });
-
-  app.get("/api/activity-book/bulk-download/:jobId", async (req, res) => {
-    const { jobId } = req.params;
-    const jobKey = `bulk-job:${jobId}`;
-    const json = await redis.get(jobKey);
-
-    if (!json) {
-      return res.status(404).json({ error: "Job not found" });
-    }
-
-    const job: BulkDownloadJob = JSON.parse(json);
-
-    return res.json({
-      id: job.id,
-      status: job.status,
-      pdfLocation: job.pdfLocation,
-      error: job.error,
-    });
   });
 
   app.use(express.static("public"));
