@@ -450,7 +450,7 @@ export async function generateCoverPagePdf(
         height: imageDims.height,
       });
     } catch (error) {
-      const errorText = "[Photo could not be embedded]";
+      const errorText = "[The photo could not be embedded]";
       const errorWidth = font.widthOfTextAtSize(errorText, 12);
       page2.drawText(errorText, {
         x: (width - errorWidth) / 2,
