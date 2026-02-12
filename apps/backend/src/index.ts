@@ -352,8 +352,12 @@ const resolvers = {
         const pdfBuffer = await guideToPdf(guide, {
           rootToImages: path.join(__dirname, "../public"),
         });
+        const boardsDir = path.join("./public/boards");
+        if (!fs.existsSync(boardsDir)) {
+          fs.mkdirSync(boardsDir, { recursive: true });
+        }
         fs.writeFileSync(
-          path.join("./public/boards", `${fileHash}.pdf`),
+          path.join(boardsDir, `${fileHash}.pdf`),
           pdfBuffer
         );
 
@@ -704,8 +708,12 @@ async function setupServer() {
         .randomBytes(8)
         .toString("hex")}`;
 
-      // Save the merged PDF file
-      const pdfPath = path.join("./public/boards", `${fileHash}.pdf`);
+      // Save the merged PDF file - ensure directory exists
+      const boardsDir = path.join("./public/boards");
+      if (!fs.existsSync(boardsDir)) {
+        fs.mkdirSync(boardsDir, { recursive: true });
+      }
+      const pdfPath = path.join(boardsDir, `${fileHash}.pdf`);
       fs.writeFileSync(pdfPath, Buffer.from(mergedPdfBytes));
 
       res.json({
@@ -830,7 +838,13 @@ async function setupServer() {
       const pdfHash = `activity-book-with-customization-${crypto
         .randomBytes(8)
         .toString("hex")}`;
-      const pdfPath = path.join("./public/boards", `${pdfHash}.pdf`);
+
+      // Ensure boards directory exists before writing
+      const boardsDir = path.join("./public/boards");
+      if (!fs.existsSync(boardsDir)) {
+        fs.mkdirSync(boardsDir, { recursive: true });
+      }
+      const pdfPath = path.join(boardsDir, `${pdfHash}.pdf`);
 
       // Save the PDF file
       fs.writeFileSync(pdfPath, finalPdfBuffer);
