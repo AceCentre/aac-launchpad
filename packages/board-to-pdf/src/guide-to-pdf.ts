@@ -6,7 +6,7 @@ import path from "path";
 // Helper to load images as base64 (for local files)
 async function getImageBase64(
   imgPath: string,
-  rootToImages: string
+  rootToImages: string,
 ): Promise<string | undefined> {
   try {
     const absPath = path.isAbsolute(imgPath)
@@ -23,7 +23,7 @@ async function getImageBase64(
 
 export async function guideToPdf(
   template: GuideTemplate,
-  options: { rootToImages?: string } = {}
+  options: { rootToImages?: string } = {},
 ): Promise<Buffer> {
   const rootToImages =
     options.rootToImages ||
@@ -36,7 +36,7 @@ export async function guideToPdf(
     try {
       const logoPath = path.join(
         rootToImages,
-        "activity-book/Ace&Cenmac-logo.png"
+        "activity-book/Ace&Cenmac-logo.png",
       );
       if (fs.existsSync(logoPath)) {
         const logoData = fs.readFileSync(logoPath);
@@ -86,7 +86,7 @@ export async function guideToPdf(
     switchImagePath?: string,
     numberOfSwitches?: number,
     fourthImagePath?: string,
-    gear?: number
+    gear?: number,
   ) => {
     const pageWidth = doc.internal.pageSize.width;
     const centerY = y;
@@ -99,7 +99,7 @@ export async function guideToPdf(
       if (switchImagePath) {
         const thirdImgData = await getImageBase64(
           switchImagePath,
-          rootToImages
+          rootToImages,
         );
         if (thirdImgData) {
           const thirdImgProps = doc.getImageProperties(thirdImgData);
@@ -114,7 +114,7 @@ export async function guideToPdf(
             thirdImgX,
             thirdImgY,
             thirdImgWidth,
-            imageSize
+            imageSize,
           );
         }
       }
@@ -142,7 +142,7 @@ export async function guideToPdf(
           fourthImgX,
           fourthImgY,
           fourthImgWidth,
-          imageSize
+          imageSize,
         );
       }
     } else {
@@ -243,7 +243,7 @@ export async function guideToPdf(
             switchImageX,
             switchImageY,
             switchImageWidth,
-            switchImageHeight
+            switchImageHeight,
           );
 
           // Add switch count text below the image if numberOfSwitches is specified
@@ -337,7 +337,7 @@ export async function guideToPdf(
         section.image,
         template.numberOfSwitches,
         undefined,
-        template.gear
+        template.gear,
       );
       y += 35; // Move down after the horizontal layout
 
@@ -350,7 +350,7 @@ export async function guideToPdf(
           template.thirdImage,
           template.numberOfSwitches,
           template.fourthImage,
-          template.gear
+          template.gear,
         );
         y += 40; // Move down after the second horizontal layout
       } else if (template.thirdImage) {
@@ -358,7 +358,7 @@ export async function guideToPdf(
         y += -20; // Add some spacing before the third image
         const thirdImgData = await getImageBase64(
           template.thirdImage,
-          rootToImages
+          rootToImages,
         );
         if (thirdImgData) {
           const thirdImgProps = doc.getImageProperties(thirdImgData);
@@ -372,7 +372,7 @@ export async function guideToPdf(
             thirdImgX,
             y,
             thirdImgWidth,
-            thirdImgSize
+            thirdImgSize,
           );
           y += thirdImgSize + 15; // Adjust this value to change padding between thirdImage and "HOW TO PLAY"
         }
@@ -443,7 +443,7 @@ export async function guideToPdf(
       // Load and add the action card image to fill the entire page
       const actionCardData = await getImageBase64(
         actionCardImage,
-        rootToImages
+        rootToImages,
       );
       if (actionCardData) {
         const actionCardProps = doc.getImageProperties(actionCardData);
@@ -475,7 +475,7 @@ export async function guideToPdf(
           imageX,
           imageY,
           imageWidth,
-          imageHeight
+          imageHeight,
         );
       }
     }

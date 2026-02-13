@@ -751,15 +751,30 @@ async function setupServer() {
         return res.status(400).json({ error: "templateIds array is required" });
       }
 
-      // Generate the cover PDF (2 pages) and activity guides, then merge into one PDF
       const { generateCoverPagePdf, guideToPdf } = await import("board-to-pdf");
       const { PDFDocument } = await import("pdf-lib");
 
-      console.log("Starting PDF generation...");
+      const allTemplateIds = GUIDE_TEMPLATES.map((g) => g.templateId).sort();
+      const requestedTemplateIds = [...templateIds].sort();
+      const isSelectAll =
+        templateIds.length === GUIDE_TEMPLATES.length &&
+        allTemplateIds.every((id, i) => id === requestedTemplateIds[i]);
 
-      // Create the final merged PDF
+      const preStoredPath = path.join(
+        __dirname,
+        "../public/boards/activity-book-all-guides.pdf"
+      );
+
+      const usePreStored =
+        isSelectAll &&
+        !selectedSwitchImage &&
+        fs.existsSync(preStoredPath);
+
+      if (usePreStored) {
+        console.log("Using pre-stored all-guides PDF (fast path)");
+      }
+
       const finalPdf = await PDFDocument.create();
-      console.log("Created PDF document");
 
       // Add cover pages (2 pages) FIRST
       console.log("Generating cover PDF...");
@@ -771,87 +786,76 @@ async function setupServer() {
         userPhotoPath,
         devicePhotoPath,
       });
-      console.log("Cover PDF generated, size:", coverPdfBuffer.length, "bytes");
 
-      console.log("Loading cover PDF into final document...");
       const coverPdf = await PDFDocument.load(coverPdfBuffer);
       const coverPages = await finalPdf.copyPages(
         coverPdf,
         coverPdf.getPageIndices()
       );
       coverPages.forEach((page) => finalPdf.addPage(page));
-      console.log("Cover pages added to final PDF");
 
-      // Generate and add all guide PDFs
-      console.log("Generating activity guide PDFs...");
-      for (const templateId of templateIds) {
-        const guide = GUIDE_TEMPLATES.find((g) => g.templateId === templateId);
-        if (!guide) {
-          console.log(`Guide not found: ${templateId}`);
-          continue;
+      if (usePreStored) {
+        // Append pre-stored PDF (all guides, no customization)
+        const preStoredBuffer = fs.readFileSync(preStoredPath);
+        const preStoredPdf = await PDFDocument.load(preStoredBuffer);
+        const preStoredPages = await finalPdf.copyPages(
+          preStoredPdf,
+          preStoredPdf.getPageIndices()
+        );
+        preStoredPages.forEach((page) => finalPdf.addPage(page));
+        console.log("Pre-stored pages added to final PDF");
+      } else {
+        // Generate and add all guide PDFs
+        for (const templateId of templateIds) {
+          const guide = GUIDE_TEMPLATES.find((g) => g.templateId === templateId);
+          if (!guide) {
+            console.log(`Guide not found: ${templateId}`);
+            continue;
+          }
+
+          const modifiedGuide = selectedSwitchImage
+            ? {
+                ...guide,
+                sections: guide.sections.map((section) => ({
+                  ...section,
+                  image:
+                    section.image && section.image.includes("set-switches")
+                      ? section.image
+                      : section.image
+                      ? selectedSwitchImage
+                      : section.image,
+                })),
+              }
+            : guide;
+
+          const pdfBuffer = await guideToPdf(modifiedGuide, {
+            rootToImages: path.join(__dirname, "../public"),
+          });
+
+          const guidePdf = await PDFDocument.load(pdfBuffer);
+          const guidePages = await finalPdf.copyPages(
+            guidePdf,
+            guidePdf.getPageIndices()
+          );
+          guidePages.forEach((page) => finalPdf.addPage(page));
         }
-
-        console.log(`Processing guide: ${guide.title}`);
-
-        // Create a modified guide with the selected switch image
-        // Skip replacement for set-switches (all-turn-it.png, it-click-on.png, etc.)
-        const modifiedGuide = selectedSwitchImage
-          ? {
-              ...guide,
-              sections: guide.sections.map((section) => ({
-                ...section,
-                image:
-                  section.image && section.image.includes("set-switches")
-                    ? section.image // Keep set-switch images unchanged
-                    : section.image
-                    ? selectedSwitchImage
-                    : section.image,
-              })),
-            }
-          : guide;
-
-        const pdfBuffer = await guideToPdf(modifiedGuide, {
-          rootToImages: path.join(__dirname, "../public"),
-        });
-        console.log(
-          `Guide PDF generated for ${guide.title}, size:`,
-          pdfBuffer.length,
-          "bytes"
-        );
-
-        console.log(`Loading guide PDF into final document...`);
-        const guidePdf = await PDFDocument.load(pdfBuffer);
-        const guidePages = await finalPdf.copyPages(
-          guidePdf,
-          guidePdf.getPageIndices()
-        );
-        guidePages.forEach((page) => finalPdf.addPage(page));
-        console.log(`Guide pages added to final PDF: ${guide.title}`);
       }
 
-      // Save the final merged PDF
-      console.log("Saving final PDF...");
       const finalPdfBuffer = Buffer.from(await finalPdf.save());
-      console.log("Final PDF saved, size:", finalPdfBuffer.length, "bytes");
 
-      // Generate unique filename for the PDF
       const pdfHash = `activity-book-with-customization-${crypto
         .randomBytes(8)
         .toString("hex")}`;
 
-      // Ensure boards directory exists before writing
       const boardsDir = path.join("./public/boards");
       if (!fs.existsSync(boardsDir)) {
         fs.mkdirSync(boardsDir, { recursive: true });
       }
       const pdfPath = path.join(boardsDir, `${pdfHash}.pdf`);
 
-      // Save the PDF file
       fs.writeFileSync(pdfPath, finalPdfBuffer);
 
-      console.log(
-        `PDF created: ${pdfHash}.pdf (${finalPdfBuffer.length} bytes)`
-      );
+      console.log(`PDF created: ${pdfHash}.pdf (${finalPdfBuffer.length} bytes)`);
 
       res.json({
         success: true,

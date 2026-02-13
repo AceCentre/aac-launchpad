@@ -22,6 +22,9 @@ RUN apt-get update && \
 RUN yarn install
 RUN yarn build
 
+# Generate pre-stored "all guides" PDF for fast bulk download (select all)
+RUN yarn --cwd apps/backend generate-all-guides
+
 # This will always bust the cache so that images are always freshly downloaded
 ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
 # Download symbols from S3 if credentials are provided
