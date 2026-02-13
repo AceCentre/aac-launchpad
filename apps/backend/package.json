@@ -11,7 +11,8 @@
     "dev": "nodemon --exec \"tsc && node dist/index.js\" -e .ts -i dist",
     "lint": "tsc --noEmit && TIMING=1 eslint src --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "generate-previews": "ts-node scripts/generate-previews.ts"
+    "generate-previews": "ts-node scripts/generate-previews.ts",
+    "generate-all-guides": "ts-node scripts/generate-activity-book-all-guides.ts"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.3",
