@@ -12,6 +12,7 @@ import templateToBoard from "template-to-board";
 import crypto from "crypto";
 import path from "path";
 import fs from "fs";
+import { execSync } from "child_process";
 import multer from "multer";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -771,10 +772,8 @@ async function setupServer() {
         fs.existsSync(preStoredPath);
 
       if (usePreStored) {
-        console.log("Using pre-stored all-guides PDF (fast path)");
+        console.log("Using pre-stored all-guides PDF (fast path, pdftk merge)");
       }
-
-      const finalPdf = await PDFDocument.create();
 
       // Add cover pages (2 pages) FIRST
       console.log("Generating cover PDF...");
@@ -787,25 +786,41 @@ async function setupServer() {
         devicePhotoPath,
       });
 
-      const coverPdf = await PDFDocument.load(coverPdfBuffer);
-      const coverPages = await finalPdf.copyPages(
-        coverPdf,
-        coverPdf.getPageIndices()
-      );
-      coverPages.forEach((page) => finalPdf.addPage(page));
+      const boardsDir = path.join("./public/boards");
+      if (!fs.existsSync(boardsDir)) {
+        fs.mkdirSync(boardsDir, { recursive: true });
+      }
+
+      const pdfHash = `activity-book-with-customization-${crypto
+        .randomBytes(8)
+        .toString("hex")}`;
+      const pdfPath = path.join(boardsDir, `${pdfHash}.pdf`);
 
       if (usePreStored) {
-        // Append pre-stored PDF (all guides, no customization)
-        const preStoredBuffer = fs.readFileSync(preStoredPath);
-        const preStoredPdf = await PDFDocument.load(preStoredBuffer);
-        const preStoredPages = await finalPdf.copyPages(
-          preStoredPdf,
-          preStoredPdf.getPageIndices()
+        // Use pdftk to merge on disk - avoids loading 424MB into memory (OOM)
+        const coverTempPath = path.join(
+          boardsDir,
+          `cover-temp-${crypto.randomBytes(8).toString("hex")}.pdf`
         );
-        preStoredPages.forEach((page) => finalPdf.addPage(page));
-        console.log("Pre-stored pages added to final PDF");
+        fs.writeFileSync(coverTempPath, coverPdfBuffer);
+        try {
+          execSync(
+            `pdftk "${coverTempPath}" "${preStoredPath}" cat output "${pdfPath}"`,
+            { maxBuffer: 50 * 1024 * 1024 }
+          );
+        } finally {
+          fs.unlinkSync(coverTempPath);
+        }
+        console.log("Pre-stored pages merged via pdftk");
       } else {
-        // Generate and add all guide PDFs
+        const finalPdf = await PDFDocument.create();
+        const coverPdf = await PDFDocument.load(coverPdfBuffer);
+        const coverPages = await finalPdf.copyPages(
+          coverPdf,
+          coverPdf.getPageIndices()
+        );
+        coverPages.forEach((page) => finalPdf.addPage(page));
+
         for (const templateId of templateIds) {
           const guide = GUIDE_TEMPLATES.find((g) => g.templateId === templateId);
           if (!guide) {
@@ -839,23 +854,13 @@ async function setupServer() {
           );
           guidePages.forEach((page) => finalPdf.addPage(page));
         }
+
+        const finalPdfBuffer = Buffer.from(await finalPdf.save());
+        fs.writeFileSync(pdfPath, finalPdfBuffer);
       }
 
-      const finalPdfBuffer = Buffer.from(await finalPdf.save());
-
-      const pdfHash = `activity-book-with-customization-${crypto
-        .randomBytes(8)
-        .toString("hex")}`;
-
-      const boardsDir = path.join("./public/boards");
-      if (!fs.existsSync(boardsDir)) {
-        fs.mkdirSync(boardsDir, { recursive: true });
-      }
-      const pdfPath = path.join(boardsDir, `${pdfHash}.pdf`);
-
-      fs.writeFileSync(pdfPath, finalPdfBuffer);
-
-      console.log(`PDF created: ${pdfHash}.pdf (${finalPdfBuffer.length} bytes)`);
+      const stats = fs.statSync(pdfPath);
+      console.log(`PDF created: ${pdfHash}.pdf (${stats.size} bytes)`);
 
       res.json({
         success: true,
