@@ -761,15 +761,37 @@ async function setupServer() {
         templateIds.length === GUIDE_TEMPLATES.length &&
         allTemplateIds.every((id, i) => id === requestedTemplateIds[i]);
 
-      const preStoredPath = path.join(
-        __dirname,
-        "../public/boards/activity-book-all-guides.pdf"
-      );
+      const boardsDirAbs = path.join(__dirname, "../public/boards");
+      let preStoredPath: string | null = null;
 
-      const usePreStored =
-        isSelectAll &&
-        !selectedSwitchImage &&
-        fs.existsSync(preStoredPath);
+      if (isSelectAll) {
+        const defaultPath = path.join(
+          boardsDirAbs,
+          "activity-book-all-guides.pdf"
+        );
+        if (selectedSwitchImage) {
+          const switchName = path.basename(
+            selectedSwitchImage,
+            path.extname(selectedSwitchImage)
+          );
+          // BIGmack is the default in guides – use default PDF
+          if (switchName === "BIGmack" && fs.existsSync(defaultPath)) {
+            preStoredPath = defaultPath;
+          } else {
+            const candidatePath = path.join(
+              boardsDirAbs,
+              `activity-book-all-guides-switch-${switchName}.pdf`
+            );
+            if (fs.existsSync(candidatePath)) {
+              preStoredPath = candidatePath;
+            }
+          }
+        } else if (fs.existsSync(defaultPath)) {
+          preStoredPath = defaultPath;
+        }
+      }
+
+      const usePreStored = preStoredPath !== null;
 
       if (usePreStored) {
         console.log("Using pre-stored all-guides PDF (fast path, pdftk merge)");
@@ -930,7 +952,7 @@ setInterval(async () => {
 
   for (const file of filesToDelete) {
     if (file.includes("sample.pdf")) continue;
-    if (file === "activity-book-all-guides.pdf") continue;
+    if (file.startsWith("activity-book-all-guides")) continue;
 
     const filePath = path.join(boardsDir, file);
     try {

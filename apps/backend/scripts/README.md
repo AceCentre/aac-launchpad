@@ -2,19 +2,21 @@
 
 This script generates PNG preview images from the first page of each activity book guide PDF.
 
-# Generate Activity Book All-Guides PDF
+# Generate Activity Book All-Guides PDFs
 
-This script generates a pre-stored PDF containing all activity book guides. Used for fast "select all" bulk downloads (avoids timeout).
+This script generates pre-stored PDFs containing all activity book guides. Used for fast "select all" bulk downloads (avoids timeout).
 
-**When to run:** Whenever guides are added or updated.
+**When to run:** Whenever guides or switch images are added or updated.
 
 ```bash
 yarn --cwd apps/backend generate-all-guides
 ```
 
-Output: `public/boards/activity-book-all-guides.pdf`
+**Outputs:**
+- `activity-book-all-guides.pdf` – default (no switch)
+- `activity-book-all-guides-switch-{name}.pdf` – one per switch (BIGmack, little_mack, etc.)
 
-**Note:** The bulk-download endpoint uses this file when the user selects all guides without a custom switch image. If the file is missing, it falls back to generating all guides on demand (which may timeout).
+**Note:** The bulk-download endpoint uses these when the user selects all guides. The appropriate PDF is chosen based on whether a switch image is selected. If missing, it falls back to on-demand generation (which may timeout).
 
 ## Prerequisites
 
