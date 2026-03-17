@@ -12,11 +12,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/switches/set-switches/all-turn-it.png"
+      "image": "activity-book/switches/set-switches/all-turn-it.png",
+      "middleText1": "<b>switch-accessible spinner or die \n connect a switch</b>",
+      "middleText2": "snakes and ladders game"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Connect a switch to a switch‑accessible spinner or die*.\n• Set up a game of Snakes and Ladders, or display the game on a classroom smartboard for the whole class to join in.\n• The switch user rolls the die by pressing their switch during the game.\n* If a spinner/die isn’t available, search YouTube for a \"Roll a die\" video and use a wired or wireless switch with a switch interface to start and pause the video which simulates a die being thrown."
+      "body": "1. Set up a game of Snakes and Ladders or display it on the smartboard for the class.\n2. The switch user rolls the die by pressing their switch during the game.\nNB: If a spinner or die is not available, search YouTube for \u201cRoll a die\u201d. Use a wired or wireless switch with a switch interface to start and pause the video so it acts like a die being thrown."
     }
   ],
   "tooltipText": "Use a switch accessible spinner or die to join in a game of Snakes and Ladders"

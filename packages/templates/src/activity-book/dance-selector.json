@@ -13,11 +13,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "two switches\nrecord:\n\"next\" on one switch \n\"dance!\" on the other",
+      "middleText2": "music \nchairs\n3 or more dancers"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Record \"next\" on one switch and \"dance!\" on the other.\n• Play some music and have the dancers sit on chairs in a row in front of the switch user.\n• The person sitting in the first (left-most) chair stands up.\n• If the switch user presses \"next,\" that person sits down and the person in the next chair stands up.\n• If the switch user presses \"dance!\", whoever is currently standing must show off their best dance moves for 10 seconds."
+      "body": "1.  Play music and seat dancers in a row before the switch user.\n2.  The person in the first chair stands.\n3.  If the user presses \"next\", that person sits and the next stands.\n4.  If the user presses \"dance!\", the standing person dances for 10 seconds."
     }
   ],
   "tooltipText": "Use 2 switches to scan through at least 3 people willing to dance. Whoever is chosen must strut their stuff!"

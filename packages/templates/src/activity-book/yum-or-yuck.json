@@ -12,11 +12,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "two switches\nrecord:\n\"yuck\" on one switch \n\"yum\" on the other",
+      "middleText2": "play food\nplastic bus, socks or anything yuck!"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• In this game, the switch user can create a fake snack that is as yummy or yucky as they like. They choose the ingredients to go in their sandwich, ice cream or salad.\n• Record \"yum\" on one switch and \"yuck\" on the other.\n• Hold up two play items, one yummy and one yucky e.g. a tasty piece of cheese and a yucky toy spider.\n• Ask the switch user \"shall we put the yummy cheese on our sandwich or the yucky spider?!\"\n• If the switch user presses the \"yum\" switch, add the yummy item to their snack.\n• If they press the \"yuck\" switch, add the yucky item instead."
+      "body": "1. The switch user creates a yummy or yucky snack by choosing ingredients.\n2. Hold up one yummy and one yucky item, e.g. cheese and a toy spider.\n3. Ask, \"Shall we put the yummy cheese on our sandwich or the yucky spider?\"\n4. If the switch user presses \"yum\", add the yummy item.\n5. If they press \"yuck\", add the yucky item instead."
     }
   ],
   "tooltipText": "Use 2 switches to create a fake snack that is as yummy or yucky as they like."

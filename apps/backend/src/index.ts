@@ -25,7 +25,7 @@ const client = new PostHog("phc_Nlj20BgEB3vtw36wCPHFpTTVqpmvEzfD3IrG5zw7B2h");
 const getResults = (
   template: Template,
   templateResults: any,
-  presetOverrides: any
+  presetOverrides: any,
 ): Array<Result> => {
   // First, resolve preset values
   const resolvedPresets: { [key: string]: string } = {};
@@ -36,7 +36,7 @@ const getResults = (
       const presetVariable = variable as any; // Cast to access presets
 
       const selectedPreset = presetVariable.presets.find(
-        (preset: any) => preset.value === presetValue
+        (preset: any) => preset.value === presetValue,
       );
 
       if (selectedPreset) {
@@ -114,7 +114,7 @@ const addTypenameToTemplate = (template: Template): any => {
           ...templateVariable,
           __typename: templateMap[templateVariable.type],
         };
-      }
+      },
     ),
   };
 };
@@ -136,7 +136,7 @@ const resolvers = {
     },
     template: (_: null, { id }: { id: string }) => {
       return WEB_TEMPLATES.map(addTypenameToTemplate).find(
-        (x: { templateId: string }) => x.templateId === id
+        (x: { templateId: string }) => x.templateId === id,
       );
     },
   },
@@ -145,7 +145,7 @@ const resolvers = {
     generateBoard: async (
       _: undefined,
       input: GenerateBoardInput,
-      context: any
+      context: any,
     ) => {
       const mutationStartTime = process.hrtime();
 
@@ -166,7 +166,7 @@ const resolvers = {
           .digest("hex");
       const fileLocation = new URL(
         `/boards/${fileHash}.pdf`,
-        getBaseUrl()
+        getBaseUrl(),
       ).toString();
 
       // Technically, this is vulnerable to a timing attack. I think the data we are risking
@@ -223,7 +223,7 @@ const resolvers = {
       }
 
       const template = WEB_TEMPLATES.find(
-        (x) => x.templateId === input.templateId
+        (x) => x.templateId === input.templateId,
       );
 
       if (!template) {
@@ -250,7 +250,7 @@ const resolvers = {
       });
 
       console.log(
-        `Board generation (${board.id}) ${totalSeconds}.${totalNanoSeconds}s`
+        `Board generation (${board.id}) ${totalSeconds}.${totalNanoSeconds}s`,
       );
 
       const writeStartTime = process.hrtime();
@@ -263,20 +263,20 @@ const resolvers = {
 
       fs.writeFileSync(
         path.join("./public/boards", `${fileHash}.pdf`),
-        Buffer.from(pdf)
+        Buffer.from(pdf),
       );
 
       const [writeSeconds, writeNanoSeconds] = process.hrtime(writeStartTime);
 
       console.log(
-        `Write to disk took (${board.id}) ${writeSeconds}.${writeNanoSeconds}s`
+        `Write to disk took (${board.id}) ${writeSeconds}.${writeNanoSeconds}s`,
       );
 
       const [mutationSeconds, mutationNanoSeconds] =
         process.hrtime(mutationStartTime);
 
       console.log(
-        `Mutation took (${board.id}) ${mutationSeconds}.${mutationNanoSeconds}s`
+        `Mutation took (${board.id}) ${mutationSeconds}.${mutationNanoSeconds}s`,
       );
 
       const fullTimeInMs =
@@ -317,7 +317,7 @@ const resolvers = {
     generateGuide: async (
       _: undefined,
       input: { templateId: string },
-      context: any
+      context: any,
     ) => {
       const mutationStartTime = process.hrtime();
 
@@ -326,7 +326,7 @@ const resolvers = {
         .toString("hex")}`;
       const fileLocation = new URL(
         `/boards/${fileHash}.pdf`,
-        getBaseUrl()
+        getBaseUrl(),
       ).toString();
 
       // Check if guide already exists in cache
@@ -340,7 +340,7 @@ const resolvers = {
       }
 
       const guide = GUIDE_TEMPLATES.find(
-        (x) => x.templateId === input.templateId
+        (x) => x.templateId === input.templateId,
       );
 
       if (!guide) {
@@ -357,10 +357,7 @@ const resolvers = {
         if (!fs.existsSync(boardsDir)) {
           fs.mkdirSync(boardsDir, { recursive: true });
         }
-        fs.writeFileSync(
-          path.join(boardsDir, `${fileHash}.pdf`),
-          pdfBuffer
-        );
+        fs.writeFileSync(path.join(boardsDir, `${fileHash}.pdf`), pdfBuffer);
 
         const [mutationSeconds, mutationNanoSeconds] =
           process.hrtime(mutationStartTime);
@@ -377,7 +374,7 @@ const resolvers = {
       } catch (error) {
         console.error(`Error generating guide ${input.templateId}:`, error);
         throw new Error(
-          `Failed to generate guide: ${(error as Error).message}`
+          `Failed to generate guide: ${(error as Error).message}`,
         );
       }
     },
@@ -397,7 +394,7 @@ const ACCEPTED_MIME_TYPES = ["image/jpeg", "image/png"];
 const fileFilter = (
   req: Request,
   file: Express.Multer.File,
-  cb: multer.FileFilterCallback
+  cb: multer.FileFilterCallback,
 ): void => {
   const mimeType = file.mimetype.toLowerCase();
 
@@ -451,7 +448,7 @@ async function setupServer() {
         "https://www.acecentre.org.uk",
       ],
       credentials: true,
-    })
+    }),
   );
   app.use(cookieParser());
   app.use(express.json());
@@ -515,7 +512,7 @@ async function setupServer() {
           console.log("User photo saved to:", files.userPhoto[0].path);
           console.log(
             "User photo exists:",
-            fs.existsSync(files.userPhoto[0].path)
+            fs.existsSync(files.userPhoto[0].path),
           );
         }
 
@@ -524,7 +521,7 @@ async function setupServer() {
           console.log("Device photo saved to:", files.devicePhoto[0].path);
           console.log(
             "Device photo exists:",
-            fs.existsSync(files.devicePhoto[0].path)
+            fs.existsSync(files.devicePhoto[0].path),
           );
         }
 
@@ -541,7 +538,7 @@ async function setupServer() {
           error: "Failed to upload photos",
         });
       }
-    }
+    },
   );
 
   app.get("/test-cors", (req, res) => {
@@ -567,7 +564,7 @@ async function setupServer() {
       `${boardId}-${date.toISOString()}.docx`,
       {
         root: "./public/boards",
-      }
+      },
     );
   });
 
@@ -580,7 +577,7 @@ async function setupServer() {
       `${boardId}-${date.toISOString()}.zip`,
       {
         root: "./public/boards",
-      }
+      },
     );
   });
 
@@ -607,7 +604,7 @@ async function setupServer() {
   app.get("/api/activity-book/categories", (req, res) => {
     try {
       const categories = Array.from(
-        new Set(GUIDE_TEMPLATES.map((guide) => guide.category))
+        new Set(GUIDE_TEMPLATES.map((guide) => guide.category)),
       ).filter(Boolean);
       res.json(categories);
     } catch (error) {
@@ -620,14 +617,14 @@ async function setupServer() {
     try {
       const switchesDir = path.join(
         __dirname,
-        "../public/activity-book/switches"
+        "../public/activity-book/switches",
       );
       const files = fs.readdirSync(switchesDir);
       const imageFiles = files.filter(
         (file) =>
           file.toLowerCase().endsWith(".png") ||
           file.toLowerCase().endsWith(".jpg") ||
-          file.toLowerCase().endsWith(".jpeg")
+          file.toLowerCase().endsWith(".jpeg"),
       );
 
       const switchImages = imageFiles.map((file) => ({
@@ -689,7 +686,7 @@ async function setupServer() {
       const coverPdf = await PDFDocument.load(coverPdfBuffer);
       const coverPages = await mergedPdf.copyPages(
         coverPdf,
-        coverPdf.getPageIndices()
+        coverPdf.getPageIndices(),
       );
       coverPages.forEach((page) => mergedPdf.addPage(page));
 
@@ -697,7 +694,7 @@ async function setupServer() {
       const activityPdf = await PDFDocument.load(activityBookPdf);
       const activityPages = await mergedPdf.copyPages(
         activityPdf,
-        activityPdf.getPageIndices()
+        activityPdf.getPageIndices(),
       );
       activityPages.forEach((page) => mergedPdf.addPage(page));
 
@@ -722,7 +719,7 @@ async function setupServer() {
         message: "Activity book with cover generated!",
         pdfLocation: new URL(
           `/boards/${fileHash}.pdf`,
-          getBaseUrl()
+          getBaseUrl(),
         ).toString(),
       });
     } catch (error) {
@@ -767,12 +764,12 @@ async function setupServer() {
       if (isSelectAll) {
         const defaultPath = path.join(
           boardsDirAbs,
-          "activity-book-all-guides.pdf"
+          "activity-book-all-guides.pdf",
         );
         if (selectedSwitchImage) {
           const switchName = path.basename(
             selectedSwitchImage,
-            path.extname(selectedSwitchImage)
+            path.extname(selectedSwitchImage),
           );
           // BIGmack is the default in guides – use default PDF
           if (switchName === "BIGmack" && fs.existsSync(defaultPath)) {
@@ -780,7 +777,7 @@ async function setupServer() {
           } else {
             const candidatePath = path.join(
               boardsDirAbs,
-              `activity-book-all-guides-switch-${switchName}.pdf`
+              `activity-book-all-guides-switch-${switchName}.pdf`,
             );
             if (fs.existsSync(candidatePath)) {
               preStoredPath = candidatePath;
@@ -822,13 +819,13 @@ async function setupServer() {
         // Use pdftk to merge on disk - avoids loading 424MB into memory (OOM)
         const coverTempPath = path.join(
           boardsDir,
-          `cover-temp-${crypto.randomBytes(8).toString("hex")}.pdf`
+          `cover-temp-${crypto.randomBytes(8).toString("hex")}.pdf`,
         );
         fs.writeFileSync(coverTempPath, coverPdfBuffer);
         try {
           execSync(
             `pdftk "${coverTempPath}" "${preStoredPath}" cat output "${pdfPath}"`,
-            { maxBuffer: 50 * 1024 * 1024 }
+            { maxBuffer: 50 * 1024 * 1024 },
           );
         } finally {
           fs.unlinkSync(coverTempPath);
@@ -839,12 +836,14 @@ async function setupServer() {
         const coverPdf = await PDFDocument.load(coverPdfBuffer);
         const coverPages = await finalPdf.copyPages(
           coverPdf,
-          coverPdf.getPageIndices()
+          coverPdf.getPageIndices(),
         );
         coverPages.forEach((page) => finalPdf.addPage(page));
 
         for (const templateId of templateIds) {
-          const guide = GUIDE_TEMPLATES.find((g) => g.templateId === templateId);
+          const guide = GUIDE_TEMPLATES.find(
+            (g) => g.templateId === templateId,
+          );
           if (!guide) {
             console.log(`Guide not found: ${templateId}`);
             continue;
@@ -872,7 +871,7 @@ async function setupServer() {
           const guidePdf = await PDFDocument.load(pdfBuffer);
           const guidePages = await finalPdf.copyPages(
             guidePdf,
-            guidePdf.getPageIndices()
+            guidePdf.getPageIndices(),
           );
           guidePages.forEach((page) => finalPdf.addPage(page));
         }
@@ -938,7 +937,7 @@ async function setupServer() {
 
 setupServer();
 
-const CLEAR_INTERVAL = 60 * 60 * 1000; // 60 minutes
+const CLEAR_INTERVAL = 15 * 60 * 1000; // 15 minutes
 const MIN_STORAGE_TIME = 60000; // 60 Seconds
 
 setInterval(async () => {

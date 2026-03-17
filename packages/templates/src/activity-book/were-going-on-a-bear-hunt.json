@@ -8,15 +8,17 @@
   "badgeText": "Gear 3",
   "mainImage": "activity-book/were-going-on-a-bear-hunt-book.png",
   "numberOfSwitches": 2,
-  "thirdImage": "activity-book/thirdImages/were-going-on-a-bear-hunt-2.png",
+  "thirdImage": "activity-book/thirdImages/were-going-on-a-bear-hunt-book-2.png",
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "two switches\nrecord:\n\"over\" on one switch \n\"under\" on the other",
+      "middleText2": "the book We're Going on a Bear Hunt by Michael Rosen"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• The switch user can join in by using their switches to fill in the gaps of repeated lines in the book We're Going on a Bear Hunt Book.\n• Record \"over\" on one switch and \"under\" on the other.\n• Read the story to the switch user and on the first repeated line, press their switches to show them how they can fill in the gaps of the repeated line e.g. \"We can't go (over) it, we can't go (under) it, oh no we'll have to go through it!\"\n• Continue the story and pause on the repeated lines for the switch user to fill in the gap."
+      "body": "1. Use switches to complete repeated lines of We're going on a Bear Hunt. \n2. Begin reading the book. \n3. Model switch use on the first repeated line \"We can't go (over) it, we can't go (under) it, oh no we'll have to go through it!\"\n4. Continue reading and pause so the switch user can fill in the gap."
     }
   ],
   "tooltipText": "Use 2 switches to say the repeated line in the book"

@@ -12,11 +12,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "two switches\nrecord:\n\"next\" on one switch \n\"wear it\" on the other",
+      "middleText2": "selection of dress up items\nsomeone to dress up, which could be the switch user"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Record 'next' on one switch and 'wear it!' on the other.\n• Decide who is going to be dressed up e.g. switch user or family member.\n• Hold up one of the dress-up items for the switch user to choose.\n• If they press the switch that says 'next', hold up the next item.\n• If they press the switch that says 'wear it!' whoever was chosen to dress up must wear the item."
+      "body": "1. Hold up a dress-up item.\n2. If the switch user presses \"next\", show the next item.\n3. If they press \"wear it\", the chosen person wears that item."
     }
   ],
   "tooltipText": "Use 2 switches to scan through dress up items"

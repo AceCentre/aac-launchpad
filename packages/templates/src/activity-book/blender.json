@@ -12,11 +12,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/switches/set-switches/it-click-on.png"
+      "image": "activity-book/switches/set-switches/it-click-on.png",
+      "middleText1": "<b>appliance controller \nconnect:\nwired/wireless switch\nblender</b>",
+      "middleText2": "ingredients for smoothie or soup "
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Connect a wired or wireless switch and a blender to an appliance controller.\n• Use the settings on the appliance controller to activate the blender for 5 seconds (timed setting).\n• Prompt the switch user to press the switch to make sure their smoothie or soup is blended properly, this may take a few presses to complete!"
+      "body": "1. Set the appliance controller to run the blender for 5 seconds using the timed setting.\n2. Prompt the switch user to press their switch to blend their smoothie or soup.\n3. They may need to press it a few times until it is fully blended."
     }
   ],
   "tooltipText": "Use an appliance controller to turn on a blender and make a smoothie"

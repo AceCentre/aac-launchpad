@@ -13,11 +13,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "two switches\nrecord:\n\"next\" on one switch \n\"put it in the blender\" on the other",
+      "middleText2": "<b>appliance controller \nconnect:\nwired or wireless switch\nblender\nsmoothie ingredients</b>"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Record \"next\" onto one switch and \"put it in the blender\" onto the other.\n• Hold up the ingredients one at a time. If the switch user presses \"next,\" put the current ingredient down and show the next one.\n• If the switch user presses \"put it in the blender,\" place the ingredient you are holding into the blender.\n• Once the switch user has chosen all their ingredients, connect a wired or wireless switch and the blender to an appliance controller.\n• The switch user can then use their switch to blend their smoothie."
+      "body": "1. Hold up one ingredient at a time. \n2. If the switch user presses \"next,\" put it down and show the next one. \n3. If they press \"put it in the blender,\" place it into the blender. \n4. When all chosen ingredients are in the blender, the switch user can press the switch connected to the appliance controller to blend the smoothie."
     }
   ],
   "tooltipText": "Use 2 switches to scan through ingredients. Then use an appliance controller to turn the blender on."

@@ -26,11 +26,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "two switches\nrecord:\n\"next\" on one switch \n\"Simon says\" on the other",
+      "middleText2": "action cards"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Record \"next\" on one switch and \"Simon says\" on the other.\n• Show an action card to the switch user and read the action aloud.\n• If they press the \"next\" switch, move on to the next card.\n• If they press the \"Simon says!\" switch, perform the action shown on the card."
+      "body": "1. Show an action card to the switch user and read the action aloud.\n2. If they press the \"next\", move on to the next card.\n3. If they press the \"Simon says!\", perform the action shown on the card."
     }
   ],
   "tooltipText": "Use 2 switches to scan through action cards and pick a silly action for other players to perform e.g jump like a frog!"

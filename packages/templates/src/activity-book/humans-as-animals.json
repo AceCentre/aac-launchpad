@@ -12,11 +12,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "two switches\nrecord:\n\"next\" on one switch \n\"speak!\" on the other",
+      "middleText2": "pictures of animals"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Record \"next\" on one switch and \"speak!\" on the other.\n• Hold up the animal pictures one by one and speak out what is on the card e.g. \"lion.\"\n• When the switch chooses \"next\" put the current picture down and show the next one in the pile.\n• When the switch user chooses \"say it!\" you must make the sound of the animal on the card you’re holding e.g. if you’re holding a duck, say \"quack quack!\""
+      "body": "1. Hold up each animal picture and say what's on the card, e.g. \"lion\".\n2. If the switch user presses \"next\", put the picture down and show the next one.\n3. If the switch user presses \"say it!\", make the animal sound for the picture you are holding, e.g. \"quack quack!\""
     }
   ],
   "tooltipText": "Use 2 switches to scan through pictures of animals and choose which animal the other player must impersonate e.g choosing a cow the player must say \"moo\""
