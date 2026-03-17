@@ -1,7 +1,19 @@
 import { jsPDF } from "jspdf";
-import { GuideTemplate } from "types";
+import { GuideTemplate, GuideSection } from "types";
 import fs from "fs";
 import path from "path";
+
+// Sanitise text so it only contains characters in jsPDF's WinAnsi charset.
+function sanitiseText(text: string): string {
+  return text
+    .replace(/\u2011/g, "-") // non-breaking hyphen → hyphen
+    .replace(/\u2013/g, "-") // en-dash → hyphen
+    .replace(/\u2014/g, "-") // em-dash → hyphen
+    .replace(/\u2018/g, "'") // left single quote → apostrophe
+    .replace(/\u2019/g, "'") // right single quote → apostrophe
+    .replace(/\u201C/g, '"') // left double quote → straight quote
+    .replace(/\u201D/g, '"'); // right double quote → straight quote
+}
 
 // Helper to load images as base64 (for local files)
 async function getImageBase64(
@@ -21,6 +33,246 @@ async function getImageBase64(
   }
 }
 
+// Table layout for "WHAT YOU'LL NEED TO PLAY" section
+// Used for all guides; certain text content is currently only defined
+
+async function renderWhatYouNeedTable(params: {
+  doc: jsPDF;
+  template: GuideTemplate;
+  section: GuideSection;
+  startY: number;
+  rootToImages: string;
+}): Promise<number> {
+  const { doc, template, section, startY, rootToImages } = params;
+  const pageWidth = doc.internal.pageSize.width;
+
+  const marginX = 10;
+  const tableWidth = pageWidth - marginX * 2;
+
+  // 3 columns – image / text / badge or image
+  const col1Width = tableWidth * 0.25;
+  const col2Width = tableWidth * 0.5;
+  const col3Width = tableWidth * 0.25;
+
+  const headerHeight = 10;
+  const rowHeight = 45;
+  const tableHeight = headerHeight + rowHeight * 2;
+
+  const topY = startY;
+
+  // Outer border
+  doc.setLineWidth(0.5);
+  doc.rect(marginX, topY, tableWidth, tableHeight);
+
+  // Horizontal lines (header + between rows)
+  const headerBottomY = topY + headerHeight;
+  const row1BottomY = headerBottomY + rowHeight;
+  doc.line(marginX, headerBottomY, marginX + tableWidth, headerBottomY);
+  doc.line(marginX, row1BottomY, marginX + tableWidth, row1BottomY);
+
+  // Vertical lines (between columns) – start *below* header so header looks like one merged cell
+  const col1RightX = marginX + col1Width;
+  const col2RightX = marginX + col1Width + col2Width;
+  doc.line(col1RightX, headerBottomY, col1RightX, topY + tableHeight);
+  doc.line(col2RightX, headerBottomY, col2RightX, topY + tableHeight);
+
+  // Header text centered
+  doc.setFontSize(12);
+  doc.setFont("helvetica", "bold");
+  const headerText = "WHAT YOU'LL NEED TO PLAY:";
+  doc.text(headerText, pageWidth / 2, topY + headerHeight - 4, {
+    align: "center",
+  });
+
+  // Common values for cells
+  const cellPadding = 3;
+
+  // -------- Row 1: switches + optional text + badge --------
+  const row1TopY = headerBottomY;
+
+  // Left image cell (main switch image)
+  const leftImagePath =
+    section.image && section.image.trim().length > 0
+      ? section.image
+      : "activity-book/switches/BIGmack.png";
+  if (leftImagePath) {
+    const imgData = await getImageBase64(leftImagePath, rootToImages);
+    if (imgData) {
+      const imgProps = doc.getImageProperties(imgData);
+      const maxWidth = col1Width - cellPadding * 2;
+      const maxHeight = rowHeight - cellPadding * 2;
+      let drawWidth = maxWidth;
+      let drawHeight = (imgProps.height / imgProps.width) * drawWidth;
+      if (drawHeight > maxHeight) {
+        drawHeight = maxHeight;
+        drawWidth = (imgProps.width / imgProps.height) * drawHeight;
+      }
+      const imgX = marginX + (col1Width - drawWidth) / 2;
+      const imgY = row1TopY + (rowHeight - drawHeight) / 2;
+      doc.addImage(imgData, "PNG", imgX, imgY, drawWidth, drawHeight);
+    }
+  }
+
+  // Middle text cell – switches description (driven by middleText1 when present)
+  if (section.middleText1) {
+    const row1TextX = marginX + col1Width + cellPadding;
+    const row1TextMaxWidth = col2Width - cellPadding * 2;
+    let currentY = row1TopY + 8;
+
+    let mt1Text = sanitiseText(section.middleText1);
+    const forceAllBold = mt1Text.includes("<b>");
+    if (forceAllBold) {
+      mt1Text = mt1Text.replace(/<\/?b>/g, "");
+    }
+
+    const rawLines = mt1Text.split("\n").map((l) => l.trimEnd());
+
+    const isBoldLine = (lower: string) =>
+      lower.includes("two switches") ||
+      lower.startsWith("a switch") ||
+      lower.startsWith("record") ||
+      lower.includes("appliance controller");
+
+    const hasPattern = rawLines.some((line) => isBoldLine(line.toLowerCase()));
+
+    for (const line of rawLines) {
+      if (!line) continue;
+      const lower = line.toLowerCase();
+      const shouldBold = forceAllBold || isBoldLine(lower) || !hasPattern;
+
+      doc.setFontSize(12);
+      doc.setFont("helvetica", shouldBold ? "bold" : "normal");
+
+      const wrapped = doc.splitTextToSize(line, row1TextMaxWidth);
+      doc.text(wrapped, row1TextX, currentY);
+      currentY += wrapped.length * 5.5;
+    }
+
+    // Reset font back to normal for the rest of the page
+    doc.setFont("helvetica", "normal");
+  }
+
+  // Right badge cell – gear-specific circle + text
+  const badgeCenterX = marginX + col1Width + col2Width + col3Width / 2;
+  const badgeCenterY = row1TopY + rowHeight / 2;
+  const badgeRadius = 20;
+
+  const hexToRgb = (hex: string): [number, number, number] => {
+    const normalized = hex.trim().replace(/^#/, "");
+    const r = parseInt(normalized.slice(0, 2), 16);
+    const g = parseInt(normalized.slice(2, 4), 16);
+    const b = parseInt(normalized.slice(4, 6), 16);
+    return [r, g, b];
+  };
+
+  const gear = template.gear ?? 0;
+  const badgeConfig =
+    gear === 1
+      ? {
+          text: "Look at page 2 for my ONE switch set-up.",
+          color: "#74a976",
+        }
+      : gear === 2
+      ? {
+          text: "move the switch to different body parts.",
+          color: "#f1c867",
+        }
+      : gear >= 3 && gear <= 5
+      ? {
+          text: "Look at page 2 for my two switch set-up.",
+          color: "#5075b1",
+        }
+      : {
+          text: "Look at page 2 for my two switch set-up.",
+          color: "#5075b1",
+        };
+
+  const [badgeR, badgeG, badgeB] = hexToRgb(badgeConfig.color);
+  doc.setFillColor(badgeR, badgeG, badgeB);
+  doc.circle(badgeCenterX, badgeCenterY, badgeRadius, "F");
+
+  doc.setTextColor(0, 0, 0);
+  doc.setFontSize(12);
+  doc.setFont("helvetica", "normal");
+
+  const badgeLines = doc.splitTextToSize(
+    sanitiseText(badgeConfig.text),
+    badgeRadius * 1.7,
+  );
+  const lineHeight = 5;
+  const badgeStartY =
+    badgeCenterY - ((badgeLines.length - 1) * lineHeight) / 2 + lineHeight / 2;
+  badgeLines.forEach((line: string, index: number) => {
+    doc.text(line, badgeCenterX, badgeStartY + index * lineHeight, {
+      align: "center",
+    });
+  });
+
+  // -------- Row 2: controller/ingredients (where defined) --------
+  const row2TopY = row1BottomY;
+
+  // Left image cell – third image if available
+  if (template.thirdImage) {
+    const thirdData = await getImageBase64(template.thirdImage, rootToImages);
+    if (thirdData) {
+      const thirdProps = doc.getImageProperties(thirdData);
+      const maxWidth = col1Width - cellPadding * 2;
+      const maxHeight = rowHeight - cellPadding * 2;
+      let drawWidth = maxWidth;
+      let drawHeight = (thirdProps.height / thirdProps.width) * drawWidth;
+      if (drawHeight > maxHeight) {
+        drawHeight = maxHeight;
+        drawWidth = (thirdProps.width / thirdProps.height) * drawHeight;
+      }
+      const imgX = marginX + (col1Width - drawWidth) / 2;
+      const imgY = row2TopY + (rowHeight - drawHeight) / 2;
+      doc.addImage(thirdData, "PNG", imgX, imgY, drawWidth, drawHeight);
+    }
+  }
+
+  // Middle text cell – list of equipment (driven by middleText2 when present)
+  if (section.middleText2) {
+    const row2TextX = marginX + col1Width + cellPadding;
+    const row2MaxWidth = col2Width - cellPadding * 2;
+
+    // Strip <b> tags and check if the text was wrapped in them
+    let row2Text = sanitiseText(section.middleText2);
+    const forceBold = row2Text.includes("<b>");
+    if (forceBold) {
+      row2Text = row2Text.replace(/<\/?b>/g, "");
+    }
+
+    doc.setFontSize(12);
+    doc.setFont("helvetica", forceBold ? "bold" : "normal");
+    const row2Lines = doc.splitTextToSize(row2Text, row2MaxWidth);
+    const row2TextY = row2TopY + 8;
+    doc.text(row2Lines, row2TextX, row2TextY);
+    doc.setFont("helvetica", "normal");
+  }
+
+  // Right image cell – fourth image if available
+  if (template.fourthImage) {
+    const fourthData = await getImageBase64(template.fourthImage, rootToImages);
+    if (fourthData) {
+      const fourthProps = doc.getImageProperties(fourthData);
+      const maxWidth = col3Width - cellPadding * 2;
+      const maxHeight = rowHeight - cellPadding * 2;
+      let drawWidth = maxWidth;
+      let drawHeight = (fourthProps.height / fourthProps.width) * drawWidth;
+      if (drawHeight > maxHeight) {
+        drawHeight = maxHeight;
+        drawWidth = (fourthProps.width / fourthProps.height) * drawHeight;
+      }
+      const imgX = col2RightX + (col3Width - drawWidth) / 2;
+      const imgY = row2TopY + (rowHeight - drawHeight) / 2;
+      doc.addImage(fourthData, "PNG", imgX, imgY, drawWidth, drawHeight);
+    }
+  }
+
+  // Leave some space below the table before the next content
+  return topY + tableHeight + 10;
+}
+
 export async function guideToPdf(
   template: GuideTemplate,
   options: { rootToImages?: string } = {},
@@ -34,247 +286,90 @@ export async function guideToPdf(
   // Function to add logo to current page
   const addLogoToPage = () => {
     try {
-      const logoPath = path.join(
-        rootToImages,
-        "activity-book/Ace&Cenmac-logo.png",
-      );
+      const logoPath =
+        "/Users/admin.stephen/Documents/Work/web/acecentre.org.uk/public/activity-book/activity-book-logo.png";
       if (fs.existsSync(logoPath)) {
         const logoData = fs.readFileSync(logoPath);
         const logoBase64 =
           "data:image/png;base64," + logoData.toString("base64");
         const logoProps = doc.getImageProperties(logoBase64);
-        const logoWidth = 32;
+        const logoWidth = 48;
         const logoHeight = (logoWidth * logoProps.height) / logoProps.width;
-        const logoX = pageWidth - logoWidth - 13; // 50px from right edge (same as page 2)
-        const logoY = +280; // Bottom of page (same as page 2)
+        const logoX = 10; // Left aligned
+        const logoY = 280; // Near bottom of page
         doc.addImage(logoBase64, "PNG", logoX, logoY, logoWidth, logoHeight);
+
+        // Add accompanying text to the right of the logo
+        const textX = logoX + logoWidth + 9;
+        const textY = logoY + logoHeight / 2 + 2;
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "normal");
+        doc.setTextColor(120, 120, 120);
+        doc.text(
+          "For more information visit functionalswitching.com",
+          textX,
+          textY,
+        );
+
+        // Reset text color
+        doc.setTextColor(0, 0, 0);
       }
     } catch (error) {
       console.warn("Could not add logo to page:", error);
     }
   };
 
-  // Title - centered, with gear text on the right
-  const titleY = 20;
-  doc.setFontSize(28);
-  doc.text(template.title, pageWidth / 2, titleY, {
-    align: "center",
-  });
-
-  // Add gear text
+  // Gear text at very top, left aligned
+  const gearY = 8;
   if (template.gear) {
-    const gearText = `Gear ${template.gear}`;
-    const gearFontSize = 15;
+    let gearText: string;
+    switch (template.gear) {
+      case 1:
+        gearText = "First Gear: Existing movements";
+        break;
+      case 2:
+        gearText = "Second Gear: New Movements";
+        break;
+      case 3:
+        gearText = "Third Gear: Two Switches";
+        break;
+      case 4:
+        gearText = "Fourth Gear: Build or Scan Failure Free";
+        break;
+      case 5:
+        gearText = "Fifth Gear: Scanning with Purpose";
+        break;
+      default:
+        gearText = `Gear ${template.gear}`;
+    }
+
+    const gearFontSize = 11;
     doc.setFontSize(gearFontSize);
     doc.setFont("helvetica", "italic");
-    doc.setTextColor(255, 0, 0); // Red color
-    doc.text(gearText, pageWidth - 10, titleY, {
-      align: "right",
+    doc.setTextColor(82, 82, 82); // Red color
+    doc.text(gearText, 10, gearY, {
+      align: "left",
     });
     // Reset to default font and color
     doc.setFont("helvetica", "normal");
     doc.setTextColor(0, 0, 0); // Black
   }
 
+  // Title - centered, placed below gear text
+  const titleY = 20;
+  doc.setFontSize(28);
+  doc.text(template.title, pageWidth / 2, titleY, {
+    align: "center",
+  });
+
   // Add logo to first page
   addLogoToPage();
 
-  // Function to create horizontal layout: coral badge + "AND" + switch image
-  // For second row: thirdImage + "AND" + fourthImage
-  const createHorizontalLayout = async (
-    y: number,
-    switchImagePath?: string,
-    numberOfSwitches?: number,
-    fourthImagePath?: string,
-    gear?: number,
-  ) => {
-    const pageWidth = doc.internal.pageSize.width;
-    const centerY = y;
-
-    if (fourthImagePath) {
-      // Second row: thirdImage + "AND" + fourthImage
-      const imageSize = 40; // Same size as original thirdImage
-
-      // Third image (left side)
-      if (switchImagePath) {
-        const thirdImgData = await getImageBase64(
-          switchImagePath,
-          rootToImages,
-        );
-        if (thirdImgData) {
-          const thirdImgProps = doc.getImageProperties(thirdImgData);
-          const aspectRatio = thirdImgProps.width / thirdImgProps.height;
-          const thirdImgWidth = imageSize * aspectRatio;
-          const thirdImgX = pageWidth / 2 - 60; // Same position as badge
-          const thirdImgY = centerY - imageSize / 2;
-
-          doc.addImage(
-            thirdImgData,
-            "PNG",
-            thirdImgX,
-            thirdImgY,
-            thirdImgWidth,
-            imageSize,
-          );
-        }
-      }
-
-      // "and" text in the center
-      doc.setFontSize(16);
-      doc.setFont("helvetica", "bold");
-      doc.text("and", pageWidth / 2, centerY, {
-        align: "center",
-        baseline: "middle",
-      });
-
-      // Fourth image (right side)
-      const fourthImgData = await getImageBase64(fourthImagePath, rootToImages);
-      if (fourthImgData) {
-        const fourthImgProps = doc.getImageProperties(fourthImgData);
-        const aspectRatio = fourthImgProps.width / fourthImgProps.height;
-        const fourthImgWidth = imageSize * aspectRatio;
-        const fourthImgX = pageWidth / 2 + 15; // Same position as switch
-        const fourthImgY = centerY - imageSize / 2;
-
-        doc.addImage(
-          fourthImgData,
-          "PNG",
-          fourthImgX,
-          fourthImgY,
-          fourthImgWidth,
-          imageSize,
-        );
-      }
-    } else {
-      // First row: Coral badge + "AND" + switch image
-      const badgeRadius = 20;
-      const badgeX = pageWidth / 2 - 60; // Position badge to the left of center
-      doc.setFillColor(255, 127, 80); // Coral color
-      doc.circle(badgeX, centerY, badgeRadius, "F");
-      doc.setTextColor(0, 0, 0); // Black text
-      doc.setFontSize(14);
-      doc.setFont("helvetica", "normal");
-
-      // Determine badge text based on gear value
-      let line1: string, line2: string, line3: string;
-      let line4: string | undefined;
-
-      if (gear === 1) {
-        // gear = 1: "see page 2 for my one switch setup"
-        line1 = "See Page 2";
-        line2 = "for my one";
-        line3 = "switch setup";
-      } else if (gear === 2) {
-        // gear = 2: "move the switch to different body parts"
-        line1 = "move the ";
-        line2 = "switch to ";
-        line3 = "different";
-        line4 = "body parts";
-      } else if (gear && gear > 2) {
-        // gear > 2: "see page 2 for my two switch setup"
-        line1 = "See Page 2";
-        line2 = "for my two";
-        line3 = "switch setup";
-      } else {
-        // Default fallback (if gear is not set)
-        line1 = "See Page 2";
-        line2 = "for my one";
-        line3 = "switch setup";
-      }
-
-      // Position each line within the circle with slight rotation
-      const lineHeight = 5;
-      // Adjust startY based on number of lines (3 or 4)
-      const numLines = line4 ? 4 : 3;
-      const startY = centerY - (lineHeight * (numLines - 1)) / 2;
-
-      // Rotate text to follow the curve of the circle
-      doc.text(line1, badgeX, startY, {
-        align: "center",
-        baseline: "middle",
-        angle: 10,
-      });
-      doc.text(line2, badgeX, startY + lineHeight, {
-        align: "center",
-        baseline: "middle",
-        angle: 10,
-      });
-      doc.text(line3, badgeX, startY + lineHeight * 2, {
-        align: "center",
-        baseline: "middle",
-        angle: 10,
-      });
-      // Add 4th line if it exists (for gear = 2)
-      if (line4) {
-        doc.text(line4, badgeX, startY + lineHeight * 3, {
-          align: "center",
-          baseline: "middle",
-          angle: 10,
-        });
-      }
-
-      // "and" text in the center
-      doc.setFontSize(16);
-      doc.setFont("helvetica", "bold");
-      doc.text("and", pageWidth / 2, centerY, {
-        align: "center",
-        baseline: "middle",
-      });
-
-      // Switch image to the right of center
-      // Check if this is a set-switch image (all-turn-it, it-click-on) - use smaller dimensions
-      const isSetSwitch =
-        switchImagePath && switchImagePath.includes("set-switches");
-      // Move set switch image further to the right
-      const switchImageX = isSetSwitch
-        ? pageWidth / 2 + 35
-        : pageWidth / 2 + 12;
-      const switchImageWidth = isSetSwitch ? 45 : 90; // Smaller width for set switches
-      const switchImageHeight = isSetSwitch ? 40 : 110; // Smaller height for set switches
-      const switchImageY = centerY - switchImageHeight / 2; // Center vertically based on actual height
-
-      // Add switch image if available
-      if (switchImagePath) {
-        const imgData = await getImageBase64(switchImagePath, rootToImages);
-        if (imgData) {
-          doc.addImage(
-            imgData,
-            "PNG",
-            switchImageX,
-            switchImageY,
-            switchImageWidth,
-            switchImageHeight,
-          );
-
-          // Add switch count text below the image if numberOfSwitches is specified
-          if (numberOfSwitches && numberOfSwitches >= 1) {
-            doc.setFontSize(16);
-            doc.setFont("helvetica", "bold");
-            doc.setTextColor(0, 0, 0); // Black text
-
-            const countText = `x${numberOfSwitches}`;
-            // Position text at the same absolute position regardless of image type
-            // Use the regular switch image dimensions (90x110) as the reference point
-            const regularSwitchX = pageWidth / 2 + 15;
-            const regularSwitchWidth = 90;
-            const regularSwitchHeight = 110;
-            const regularSwitchY = centerY - regularSwitchHeight / 2;
-
-            const countTextX = regularSwitchX + regularSwitchWidth - 15; // Fixed X position
-            const countTextY = regularSwitchY + regularSwitchHeight - 55; // Fixed Y position
-
-            doc.text(countText, countTextX, countTextY, {
-              align: "center",
-              baseline: "middle",
-            });
-          }
-        }
-      }
-    }
-  };
+  // (Old horizontal layout helper removed – "WHAT YOU'LL NEED TO PLAY" now
+  // uses the table layout defined in renderWhatYouNeedTable for all guides.)
 
   // Main image
-  let y = 80; // default if no main image
+  let y = 75; // default if no main image
   if (template.mainImage && typeof template.mainImage === "string") {
     const imgData = await getImageBase64(template.mainImage, rootToImages);
     if (imgData) {
@@ -291,13 +386,30 @@ export async function guideToPdf(
 
       // Center the image horizontally
       const imgX = (pageWidth - desiredWidth) / 2;
-      doc.addImage(imgData, "PNG", imgX, 25, desiredWidth, desiredHeight);
-      y = Math.max(y, 30 + desiredHeight + 10); // set y below the image, with 10 units padding
+      doc.addImage(imgData, "PNG", imgX, 23, desiredWidth, desiredHeight);
+      y = Math.max(y, 25 + desiredHeight + 10); // set y below the image, with 10 units padding
     }
   }
 
   for (let i = 0; i < template.sections.length; i++) {
     const section = template.sections[i];
+
+    // Table layout for any "WHAT YOU'LL NEED TO PLAY" section
+    const trimmedHeading = (section.heading || "").trim();
+    if (
+      trimmedHeading === "WHAT YOU'LL NEED TO PLAY" ||
+      trimmedHeading === "WHAT YOU'LL NEED TO PLAY THIS GAME"
+    ) {
+      y = await renderWhatYouNeedTable({
+        doc,
+        template,
+        section,
+        startY: y,
+        rootToImages,
+      });
+      continue;
+    }
+
     if (section.heading) {
       doc.setFontSize(16);
       doc.setFont("helvetica", "bold");
@@ -311,73 +423,53 @@ export async function guideToPdf(
 
     // Only render body text if it exists
     if (section.body) {
-      // Center text for "WHAT YOU'LL NEED TO PLAY" section, left-align for others
       if (section.heading === "WHAT YOU'LL NEED TO PLAY") {
-        doc.text(doc.splitTextToSize(section.body, 120), pageWidth / 2, y, {
-          align: "center",
-        });
-      } else {
-        // Use wider text width for "HOW TO PLAY" section to utilize more page width
-        const textWidth = section.heading === "HOW TO PLAY" ? 180 : 120;
-        doc.text(doc.splitTextToSize(section.body, textWidth), 20, y, {
-          align: "left",
-        });
-      }
-    }
-    y += 15;
-
-    // Add horizontal layout after "WHAT YOU'LL NEED TO PLAY" section
-    if (
-      section.heading === "WHAT YOU'LL NEED TO PLAY" ||
-      section.heading === "WHAT YOU'LL NEED TO PLAY THIS GAME"
-    ) {
-      y += 1; // Add some spacing
-      await createHorizontalLayout(
-        y,
-        section.image,
-        template.numberOfSwitches,
-        undefined,
-        template.gear,
-      );
-      y += 35; // Move down after the horizontal layout
-
-      // Add second row if fourthImage exists, otherwise add thirdImage if it exists
-      if (template.fourthImage) {
-        // Create second row with thirdImage + "AND" + fourthImage
-        y += 8; // Add some spacing before the second row
-        await createHorizontalLayout(
+        // Center text for "WHAT YOU'LL NEED TO PLAY" in non-custom layouts
+        doc.text(
+          doc.splitTextToSize(sanitiseText(section.body), 120),
+          pageWidth / 2,
           y,
-          template.thirdImage,
-          template.numberOfSwitches,
-          template.fourthImage,
-          template.gear,
+          { align: "center" },
         );
-        y += 40; // Move down after the second horizontal layout
-      } else if (template.thirdImage) {
-        // Original thirdImage logic for guides without fourthImage
-        y += -20; // Add some spacing before the third image
-        const thirdImgData = await getImageBase64(
-          template.thirdImage,
-          rootToImages,
+        y += 15;
+      } else if (section.heading === "HOW TO PLAY") {
+        // Render HOW TO PLAY using the numbering already present in the text
+        const lines = sanitiseText(section.body)
+          .split("\n")
+          .filter((l) => l.trim() !== "");
+        const maxWidth = 180;
+        let currentY = y;
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "normal");
+
+        lines.forEach((raw) => {
+          const cleaned = raw.replace(/^•\s*/, "").trimEnd();
+          if (!cleaned) return;
+          const wrapped = doc.splitTextToSize(cleaned, maxWidth);
+          doc.text(wrapped, 20, currentY, {
+            align: "left",
+          });
+          currentY += wrapped.length * 6 + 2;
+        });
+
+        y = currentY + 5;
+      } else {
+        // Default: left-aligned paragraph text
+        const textWidth = 120;
+        doc.text(
+          doc.splitTextToSize(sanitiseText(section.body), textWidth),
+          20,
+          y,
+          { align: "left" },
         );
-        if (thirdImgData) {
-          const thirdImgProps = doc.getImageProperties(thirdImgData);
-          const thirdImgSize = 40; // Small size for the third image
-          const aspectRatio = thirdImgProps.width / thirdImgProps.height;
-          const thirdImgWidth = thirdImgSize * aspectRatio;
-          const thirdImgX = pageWidth / 2 - thirdImgWidth / 2; // Center horizontally
-          doc.addImage(
-            thirdImgData,
-            "PNG",
-            thirdImgX,
-            y,
-            thirdImgWidth,
-            thirdImgSize,
-          );
-          y += thirdImgSize + 15; // Adjust this value to change padding between thirdImage and "HOW TO PLAY"
-        }
+        y += 15;
       }
+    } else {
+      y += 15;
     }
+
+    // (Previous horizontal layout for "WHAT YOU'LL NEED TO PLAY" has been
+    // replaced by the table layout above for all guides.)
 
     // Add links if they exist
     if (section.links && section.links.length > 0) {

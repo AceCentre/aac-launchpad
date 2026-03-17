@@ -12,11 +12,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "two switches\nrecord:\n\"next\" on one switch \n\"add to list\" on the other",
+      "middleText2": "music-streaming service to create a playlist that can be saved"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• In this game, the switch user creates their own playlist of songs. The playlist could be for a party, golden time, or even for listening in the car.\n• Record \"next\" on one switch and \"add to the list\" on the other.\n• Use a music‑streaming service to create a playlist that can be saved.\n• Start playing a song or say the name of an artist.\n• If the switch user chooses \"next\" skip to the next song or name a different artist.\n• If the switch user chooses \"add to the list\", add the current song (or a song by the artist you just named) to the playlist."
+      "body": "1.  The switch user creates their own playlist for any occasion.\n2.  Play a song or say an artist's name.\n3.  If they choose \"next\", move to a new song or artist.\n4.  If they choose \"add to the list\", add the current song or artist to the playlist."
     }
   ],
   "tooltipText": "Use 2 switches to scan through different songs and create a custom playlist"

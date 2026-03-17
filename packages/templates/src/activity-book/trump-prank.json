@@ -11,11 +11,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "a switch\nrecord:\na trump/fart noise on it ",
+      "middleText2": ""
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Record a trump/fart noise onto the switch.\n• Have the switch user prank people by pressing the switch and making a trump noise.\n• Prompt the switch user to press the switch again by making statements such as \"I hope there’s no more of that!\" or \"Who did that come from?\""
+      "body": "1. Let the switch user prank people by pressing the switch to make a trump noise.\n2. Encourage them to press again with comments like \"I hope there's no more of that!\" or \"Who did that come from?\""
     }
   ],
   "tooltipText": "Prank people by making a fart noise with the switch!"

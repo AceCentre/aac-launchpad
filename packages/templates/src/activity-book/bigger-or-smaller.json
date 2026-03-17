@@ -12,11 +12,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "two switches \nrecord:\n\"bigger\" on one switch \n\"smaller\" on the other",
+      "middleText2": "cards with a motivating image or symbol e.g. animals"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Record \"bigger\" on one switch and \"smaller\" on the other.\n• Hold up a card with a motivating image or symbol e.g. pictures of animals.\n• Ask the switch user e.g. \"do you think the animal on the next card is going to be bigger or smaller than this one?\"\n• The switch user must then guess if the image on the next card is going to be \"bigger\" or \"smaller\" by using their switches."
+      "body": "1. Hold up a card. \n2. Ask the switch user \"Do you think the next card will show a bigger or smaller animal?\"\n3. The switch user makes their guess \"bigger\" or \"smaller\" using their switches."
     }
   ],
   "tooltipText": "Use 2 switches to guess whether the next animal is going to be \"bigger\" or \"smaller\" than the one shown"

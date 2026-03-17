@@ -12,11 +12,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "two switches\nrecord:\n\"freeze!\" on one switch \n\"dance!\" on the other",
+      "middleText2": "music"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Record \"freeze!\" onto one switch and \"dance!\" onto the other.\n• Play some music and start dancing.\n• When the switch user presses the \"freeze!\" switch, pause the music, everyone must stop dancing immediately.\n• Only restart the music and begin dancing again when the switch user presses the \"dance!\" switch."
+      "body": "1. Play some music and start dancing.\n2. When the switch user presses \"freeze!\", pause the music and everyone stops.\n3. Restart the music and dance again when the switch user presses \"dance!\""
     }
   ],
   "tooltipText": "Use 2 switches to play a game of musical statues, controlling when the music starts and stops"

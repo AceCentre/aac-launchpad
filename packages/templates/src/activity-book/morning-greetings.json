@@ -11,11 +11,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "a switch\nrecord:\na greeting on it \ne.g. \"good morning\" ",
+      "middleText2": ""
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Record a greeting onto a switch e.g. \"good morning!\"\n• The switch user greets people each morning, such as friends at school or family members.\n• Take it out on a morning walk and greet people as they pass by!"
+      "body": "1. The switch user greets people each morning, such as friends or family.\n2. Take it on a morning walk and greet people as they pass by."
     }
   ],
   "tooltipText": "Greet people with the switch!"

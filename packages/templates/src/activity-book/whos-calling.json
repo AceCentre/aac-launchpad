@@ -11,11 +11,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "a switch\nrecord:\na phone ringtone noise on it",
+      "middleText2": ""
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Record a phone ringtone onto the switch.\n• Have the switch user prank people by pressing the switch to make the ringtone play.\n• Prompt the switch user to press the switch again by making statements such as \"who's phone keeps ringing?\" or \"not again!\""
+      "body": "1. Let the switch user prank people by pressing the switch to make the ring tone play.\n2. Encourage them to press again with comments like \"who's phone\nkeeps ringing?\" or \"not again!\""
     }
   ],
   "tooltipText": "Prank people by making a phone ringtone noise with the switch!"

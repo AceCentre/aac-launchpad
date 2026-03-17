@@ -84,7 +84,7 @@ async function main() {
     ]);
 
     const chosenTemplate = ALL_TEMPLATES.find(
-      (x) => x.id === templateAnswer.template
+      (x) => x.id === templateAnswer.template,
     );
 
     if (chosenTemplate === undefined) {
@@ -93,10 +93,10 @@ async function main() {
 
     if (process.argv.includes("--all-layouts-and-symbols")) {
       let symbolsSystems = chosenTemplate.templateVariables.find(
-        (x) => x.id === "symbol-system"
+        (x) => x.id === "symbol-system",
       ) as PresetVariable;
       let layouts = chosenTemplate.templateVariables.find(
-        (x) => x.id === "grid"
+        (x) => x.id === "grid",
       ) as PresetVariable;
 
       for (const symbolsSystem of symbolsSystems.presets) {
@@ -135,7 +135,7 @@ async function main() {
                 short: preset.description,
               })),
             };
-          })
+          }),
       )) as { [key: string]: PresetVariableValues };
 
       let presetOverrides: { [key: string]: string } = {};
@@ -276,9 +276,9 @@ async function main() {
             }
 
             throw new Error(
-              `You gave an invalid variable type: ${variable.type}`
+              `You gave an invalid variable type: ${variable.type}`,
             );
-          })
+          }),
       );
 
       await createBoard(chosenTemplate, templateResults, presetOverrides);
@@ -301,17 +301,17 @@ const generateAllChartsForCache = async () => {
         "turn-taking-launchpad",
         "keyguard-launchpad",
         "listener-mediated-abc-launchpad",
-      ].includes(x.templateId)
+      ].includes(x.templateId),
   );
 
   let counter = 0;
 
   for (const currentTemplate of templates) {
     let symbolsSystems = currentTemplate.templateVariables.find(
-      (x) => x.id === "symbol-system"
+      (x) => x.id === "symbol-system",
     ) as PresetVariable;
     let layouts = currentTemplate.templateVariables.find(
-      (x) => x.id === "grid"
+      (x) => x.id === "grid",
     ) as PresetVariable;
 
     for (const symbolsSystem of symbolsSystems.presets) {
@@ -332,10 +332,10 @@ const generateAllChartsForCache = async () => {
         const results = getResults(currentTemplate, {}, presetOverrides);
 
         const filteredResults: Result[] = results.filter(
-          (r): r is Result => r !== undefined
+          (r): r is Result => r !== undefined,
         );
         const sortedResults = [...filteredResults].sort((a, b) =>
-          a.id.localeCompare(b.id)
+          a.id.localeCompare(b.id),
         );
 
         const hashable: GenerateBoardInput = {
@@ -355,7 +355,7 @@ const generateAllChartsForCache = async () => {
 
         const pdfPath = path.join(
           "./apps/backend/public/boards",
-          `./${fileName}.pdf`
+          `./${fileName}.pdf`,
         );
 
         const { pdf, totalSeconds, totalNanoSeconds } = await boardToPdf(
@@ -363,7 +363,7 @@ const generateAllChartsForCache = async () => {
           {
             rootToImages: path.join("./apps/backend/private"),
             rootToPdfs: path.join("./apps/backend/public"),
-          }
+          },
         );
         writeFileSync(pdfPath, Buffer.from(pdf));
         counter += 1;
@@ -371,7 +371,7 @@ const generateAllChartsForCache = async () => {
         const elapsedTimeSeconds = totalSeconds + totalNanoSeconds / 1e9;
 
         console.log(
-          `${counter} - ${currentTemplate.name} - ${symbolsSystem.label} - ${layout.label} - ${elapsedTimeSeconds}s - ${fileName}`
+          `${counter} - ${currentTemplate.name} - ${symbolsSystem.label} - ${layout.label} - ${elapsedTimeSeconds}s - ${fileName}`,
         );
         console.log("");
       }
@@ -384,14 +384,14 @@ const generateAllChartsForCache = async () => {
 const createBoard = async (
   chosenTemplate: Template,
   templateResults: any,
-  presetOverrides: any
+  presetOverrides: any,
 ) => {
   const results = getResults(chosenTemplate, templateResults, presetOverrides);
 
   const board = templateToBoard(chosenTemplate, results);
 
   const pdfPath = path.join(
-    `./${chosenTemplate.id}-${new Date().toUTCString()}.pdf`
+    `./${chosenTemplate.id}-${new Date().toUTCString()}.pdf`,
   );
   const obfPath = path.join(`./${chosenTemplate.id}.obf`);
 
@@ -404,7 +404,7 @@ const createBoard = async (
 
   console.log("");
   console.log(
-    `✨✨✨✨✨ Successfully created a new board (${totalSeconds}.${totalNanoSeconds}s) ✨✨✨✨✨`
+    `✨✨✨✨✨ Successfully created a new board (${totalSeconds}.${totalNanoSeconds}s) ✨✨✨✨✨`,
   );
   console.log("");
   console.log(`PDF saved to: ${pdfPath} (${convertBytes(pdfStats.size)})`);
@@ -415,14 +415,14 @@ const createBoard = async (
 async function runGuideFlow() {
   // Get all unique categories and levels
   const categories = Array.from(
-    new Set(GUIDE_TEMPLATES.map((g) => g.category).filter(Boolean))
+    new Set(GUIDE_TEMPLATES.map((g) => g.category).filter(Boolean)),
   ).sort();
   const levels = Array.from(
     new Set(
       GUIDE_TEMPLATES.map((g) => g.level).filter(
-        (lvl): lvl is number => lvl !== undefined
-      )
-    )
+        (lvl): lvl is number => lvl !== undefined,
+      ),
+    ),
   ).sort((a, b) => a - b);
 
   // Add "All" options
@@ -467,8 +467,7 @@ async function runGuideFlow() {
   // Filter guides
   const filteredGuides = GUIDE_TEMPLATES.filter((g) => {
     const categoryMatch =
-      useAllCategories ||
-      (g.category && chosenCategories.includes(g.category));
+      useAllCategories || (g.category && chosenCategories.includes(g.category));
     const levelMatch =
       useAllLevels || (g.level && chosenLevels.includes(g.level));
     return categoryMatch && levelMatch;

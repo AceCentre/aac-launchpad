@@ -286,6 +286,8 @@ export interface GuideSection {
   body: string;
   image?: string; // path or URL
   links?: GuideLink[]; // array of links within this section
+  middleText1?: string; // optional text for first middle column row (WHAT YOU'LL NEED table)
+  middleText2?: string; // optional text for second middle column row
 }
 
 export interface GuideTemplate {

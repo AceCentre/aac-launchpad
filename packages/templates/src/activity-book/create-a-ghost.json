@@ -12,11 +12,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/switches/set-switches/it-click-on.png"
+      "image": "activity-book/switches/set-switches/it-click-on.png",
+      "middleText1": "<b>appliance controller \nconnect:\nwired or wireless switch \nfan or hairdryer</b>",
+      "middleText2": "black paper \nwhite paint"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Connect a wired or wireless switch and a fan or hairdryer to an appliance controller.\n• Set the appliance controller to direct mode so the fan or hairdryer is activated while the switch is pressed.\n• Pour a blob of white paint onto the bottom of the black paper and place it on a surface close to the fan or hairdryer so the air will blow the paint up the paper.\n• Prompt the switch user to press the switch to create their ghost!\n• Add googly eyes or glitter as an optional extra."
+      "body": "1. Set the controller to direct mode so the fan runs while pressed.\n2. Put white paint on black paper near the fan or hairdryer.\n3. Prompt the switch user to press the switch to blow the paint upward.\n4. Add googly eyes or glitter if desired."
     }
   ],
   "tooltipText": "Use an appliance controller to use a fan and paint to create a ghost"

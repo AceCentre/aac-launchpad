@@ -4,18 +4,22 @@
   "title": "Twister",
   "activityType": "Activity Book",
   "category": "Games",
+  "gear": 1,
   "badgeText": "Gear 1",
   "mainImage": "activity-book/twister.png",
   "numberOfSwitches": 1,
-  "thirdImage": "activity-book/thirdImages/twister.png",
+  "thirdImage": "activity-book/thirdImages/twister-2.png",
+  "fourthImage": "activity-book/thirdImages/twister-3.png",
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/switches/set-switches/all-turn-it.png"
+      "image": "activity-book/switches/set-switches/all-turn-it.png",
+      "middleText1": "<b>switch-accessible spinner\nconnect: \na switch</b>",
+      "middleText2": "printed images of body parts and coloured dots  used in Twister"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Connect a switch to a switch‑accessible spinner.*\n• Attach images of the body parts used in Twister to the spinner.\n• The switch user presses their switch to spin and select which body part the player must use e.g. right hand, left foot.\n• Next attach images of the Twister coloured dots to the spinner.\n• The switch user presses their switch again to spin and choose which colour the player must place that body part on e.g. right hand on a green spot.\n* If you don’t have a physical spinner, you can use an online spinner instead. There are many free, customisable options available. Use a wired or wireless switch with a switch interface to trigger the spin."
+      "body": "1. Attach body-part images to the spinner. The switch user spins to choose the body part the player must use.\n2. Attach the Twister colour-dot images to the spinner and repeat to choose the colour the player places that body part on, e.g. right hand on a green spot.\nNB: If you do not have a spinner, use an online one. Many free, customisable options work with a switch and switch interface."
     }
   ],
   "tooltipText": "Use a switch accessible spinner to join in on a game of Twister"

@@ -12,11 +12,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "a switch\nrecord:\n\"more\" on it",
+      "middleText2": "motivating music "
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• The purpose of this game is to discover new body parts that can be used to activate a switch.\n• Record \"more\" onto the switch.\n• Play motivating music for 10 seconds and then pause it.\n• Each time the music stops, move the switch to a different body part e.g. head, hand, foot etc. and prompt the switch user to ask for more music.\n• When the switch user presses the switch, restart the music for another 10 seconds."
+      "body": "1. The goal is to find other body parts that can be used to activate a switch.\n2. Play motivating music for 10 seconds, then pause it.\n3. When the music stops, move the switch to a different body part\n4. Prompt the switch user to ask for more music.\n5. When the switch user presses the switch, restart the music for another 10 seconds."
     }
   ],
   "tooltipText": "This game helps find a second body part to activate a switch using motivating music."

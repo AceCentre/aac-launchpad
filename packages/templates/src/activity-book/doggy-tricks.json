@@ -12,11 +12,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "a switch\nrecord:\nthe dog's name and a command e.g. \"Ozzy, sit!\"",
+      "middleText2": "a dog"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Record the dog’s name and a command onto the switch e.g. \"Ozzy, sit!\"\n• Record new commands onto the switch for the switch user to say to the dog to keep it fun and motivating.\n• Reward the dog with treats to keep them engaged also!"
+      "body": "1.  Record fun commands for the switch user to \"tell\" the dog.\n2.  Reward the dog with treats to keep them motivated and engaged."
     }
   ],
   "tooltipText": "Activate the switch to call your dog over or command them to do a trick (make sure they get a treat!)"

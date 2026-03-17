@@ -12,11 +12,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "two switches\nrecord:\n\"ready, steady\" on one switch \n\"go!\" on the other",
+      "middleText2": "race course and finish line\nrace cars e.g. students in wheelchairs, model cars or plush toys"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Record \"ready, steady\" on one switch and \"go!\" on the other.\n• Set up a race with a finish line, whether students in wheelchairs, model cars or plush toys.\n• When the switch user presses the switch that says \"ready, steady\" get the activity ready e.g. shake their wheelchair like the engine in a car has started.\n• When the switch user presses the switch that says \"go!\" complete the action e.g. push their wheelchair towards a finish line."
+      "body": "1. When the switch user presses \"ready, steady\", get the activity ready, e.g. shake their wheelchair like an engine starting.\n2. When they press \"go!\", complete the action, e.g. push their wheelchair towards the finish line."
     }
   ],
   "tooltipText": "Activate 2 switches to say \"ready, steady\" and \"GO!\" to join in a race"

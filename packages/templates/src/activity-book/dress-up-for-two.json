@@ -12,11 +12,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "two switches\nrecord:\neach players name e.g. \"Mum\" on one switch \n\"me\" on the other",
+      "middleText2": "selection of dress up items\ntwo players, one can be the switch user"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• You need two players for this game (this can include the switch user plus one other person).\n• Record each player’s name onto a different switch e.g., one switch says \"Mum\" and the other says \"Dad\".\n• Hold up a dress‑up item, such as funky sunglasses.\n• The switch user then decides who should wear the item by pressing one of the switches. For example, if the switch user presses the switch that says \"Mum\" then she puts on the funky sunglasses."
+      "body": "1. Hold up a dress-up item, such as funky sunglasses.\n2. The switch user presses a switch to choose who wears it e.g., \"Mum\"."
     }
   ],
   "tooltipText": "Use 2 switches to choose who is going to dress up in what e.g \"Mum\" wears the glasses \"Dad\" wears the hat"

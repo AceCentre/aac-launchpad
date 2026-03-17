@@ -12,11 +12,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/switches/set-switches/all-turn-it.png"
+      "image": "activity-book/switches/set-switches/all-turn-it.png",
+      "middleText1": "<b>switch-accessible spinner \nconnect:\na switch</b>",
+      "middleText2": "attach printed images of body parts to the spinner e.g. right hand, head, left foot "
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• The aim of this game is to explore different body parts that can be used to activate a switch.\n• Connect a switch to a switch‑accessible spinner*.\n• Attach images of various body parts to the spinner e.g., right hand, head, left foot.\n• When the switch user presses their switch, the spinner will spin.\n• Wherever the spinner lands is the body part they must use next to press the switch. e.g. if it lands on \"left hand,\" move the switch so they can press it with their left hand.\n*If you don’t have a physical spinner, you can use an online spinner instead. There are many free, customisable options available. Use a wired or wireless switch with a switch interface to trigger the spin."
+      "body": "1. The goal is to find other body parts that can be used to activate a switch.\n2.  When the switch user presses their switch, the spinner will spin.\n3.  Wherever it lands is the body part they must use next to press the switch, e.g. if it lands on \"left hand\", move the switch so they can use their left hand.\nNB: If you do not have a spinner, use an online one. Many free, customisable options work with a switch and switch interface."
     }
   ],
   "tooltipText": "Use a switch accessible spinner to identify body parts to activate a switch, so you can begin exploring Gear 3 activities"

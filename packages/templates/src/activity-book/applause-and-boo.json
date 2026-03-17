@@ -11,11 +11,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "two switches\nrecord:\nclapping on one switch \n\"boo\" on the other",
+      "middleText2": ""
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Have the switch user be the judge of your jokes, talents, dancing or anything that they will find funny!\n• Record clapping or \"woo!\" on one switch and \"boo\" on the other switch.\n• Tell the switch user your joke or show them your dance moves and they can press their switch to give you a round of applause or boo."
+      "body": "1. Invite the switch user to be the judge of jokes, dancing or anything funny. \n2. Perform your joke, dance, or talent. \n3.The switch user presses a switch to respond with either a round of applause or a boo."
     }
   ],
   "tooltipText": "Use 2 switches to give a round of applause or boo"

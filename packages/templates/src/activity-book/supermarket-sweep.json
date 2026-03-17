@@ -13,11 +13,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "two switches\nrecord:\n\"next\" on one switch \n\"put it in the basket\" on the other",
+      "middleText2": "shopping list\nshopping basket\nitems on the list"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Record \"next\" on one switch and \"put it in the basket!\" on the other.\n• Read the shopping list aloud to the switch user (up to 5 items).\n• Hold up physical items e.g., play food and ask the switch user, \"Was this on our list?\"\n• If they press the \"next\" switch, show the next item.\n• If they press the \"put it in the basket!\" switch, place the item in the basket.\n• At the end of the game, go through the items in the basket and check them against the list. The switch user earns one point for each correct item!"
+      "body": "1.  Read the shopping list (up to five items) aloud to the switch user.\n2.  Hold up each item, e.g. play food, and ask, \"Was this on our list?\"\n3.  If the switch user presses \"next\", show the next item.\n4.  If they press \"put it in the basket!\", place the item in the basket.\n5.  At the end, check the basket against the list. The switch user earns a point for each correct item."
     }
   ],
   "tooltipText": "Create a shopping list and use 2 switches to scan through play food items and get as many items off the list as you can remember!"

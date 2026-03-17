@@ -11,11 +11,13 @@
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
-      "image": "activity-book/bigmack-switch.png"
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "a switch\nrecord:\n\"tickle me!\" on it ",
+      "middleText2": ""
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "• Record \"tickle me!\" onto the switch.\n• Each time the switch user hits their switch, tickle them for 5 seconds.\n• Prompt the switch user to press the switch again by asking questions such as \"Shall we do more tickles?\" or \"I wonder if you want to do that again!\""
+      "body": "1. Each time the switch user hits their switch, tickle them for 5 seconds.\n2. Encourage them to press again by asking questions like \"Shall we do more tickles?\" or \"I wonder if you want to do that again!\""
     }
   ],
   "tooltipText": "Activate a switch to ask for tickles!"
