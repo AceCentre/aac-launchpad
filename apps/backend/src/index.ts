@@ -762,9 +762,34 @@ async function setupServer() {
       let preStoredPath: string | null = null;
 
       if (isSelectAll) {
+        const computeAllGuidesCacheVersion = (): string => {
+          try {
+            const hash = crypto.createHash("sha256");
+            hash.update(JSON.stringify(GUIDE_TEMPLATES));
+
+            // Include the renderer package version + entrypoint bytes so any
+            // guide PDF rendering changes invalidate the pre-generated cache.
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
+            const boardToPdfPkg = require("board-to-pdf/package.json");
+            hash.update(String(boardToPdfPkg?.version ?? ""));
+
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
+            const entryPath = require.resolve("board-to-pdf");
+            if (entryPath && fs.existsSync(entryPath)) {
+              hash.update(fs.readFileSync(entryPath));
+            }
+
+            return hash.digest("hex").slice(0, 10);
+          } catch (e) {
+            console.warn("Failed to compute all-guides cache version:", e);
+            return "fallback";
+          }
+        };
+
+        const cacheVersion = computeAllGuidesCacheVersion();
         const defaultPath = path.join(
           boardsDirAbs,
-          "activity-book-all-guides.pdf",
+          `activity-book-all-guides-${cacheVersion}.pdf`,
         );
         if (selectedSwitchImage) {
           const switchName = path.basename(
@@ -777,7 +802,7 @@ async function setupServer() {
           } else {
             const candidatePath = path.join(
               boardsDirAbs,
-              `activity-book-all-guides-switch-${switchName}.pdf`,
+              `activity-book-all-guides-${cacheVersion}-switch-${switchName}.pdf`,
             );
             if (fs.existsSync(candidatePath)) {
               preStoredPath = candidatePath;

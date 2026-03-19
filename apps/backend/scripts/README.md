@@ -13,8 +13,9 @@ yarn --cwd apps/backend generate-all-guides
 ```
 
 **Outputs:**
-- `activity-book-all-guides.pdf` – default (no switch)
-- `activity-book-all-guides-switch-{name}.pdf` – one per switch (BIGmack, little_mack, etc.)
+
+- `activity-book-all-guides-{version}.pdf` – default (no switch)
+- `activity-book-all-guides-{version}-switch-{name}.pdf` – one per switch (BIGmack, little_mack, etc.)
 
 **Note:** The bulk-download endpoint uses these when the user selects all guides. The appropriate PDF is chosen based on whether a switch image is selected. If missing, it falls back to on-demand generation (which may timeout).
 
