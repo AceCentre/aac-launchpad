@@ -286,25 +286,34 @@ export async function guideToPdf(
   // Function to add logo to current page
   const addLogoToPage = () => {
     try {
-      const logoPath =
-        "/Users/admin.stephen/Documents/Work/web/acecentre.org.uk/public/activity-book/activity-book-logo.png";
+      const logoPath = path.join(
+        rootToImages,
+        "activity-book",
+        "activity-book-logo.png",
+      );
+
+      const logoWidth = 48;
+      const logoX = 10; // Left aligned
+      const logoY = 280; // Near bottom of page
+
+      let logoHeight = 0;
+      let textX = logoX + logoWidth + 9;
+      let textY = logoY + logoHeight / 2 + 2;
+
       if (fs.existsSync(logoPath)) {
         const logoData = fs.readFileSync(logoPath);
         const logoBase64 =
           "data:image/png;base64," + logoData.toString("base64");
         const logoProps = doc.getImageProperties(logoBase64);
-        const logoWidth = 48;
-        const logoHeight = (logoWidth * logoProps.height) / logoProps.width;
-        const logoX = 10; // Left aligned
-        const logoY = 280; // Near bottom of page
+        logoHeight = (logoWidth * logoProps.height) / logoProps.width;
         doc.addImage(logoBase64, "PNG", logoX, logoY, logoWidth, logoHeight);
 
         // Add accompanying text to the right of the logo
-        const textX = logoX + logoWidth + 9;
-        const textY = logoY + logoHeight / 2 + 2;
         doc.setFontSize(12);
         doc.setFont("helvetica", "normal");
         doc.setTextColor(120, 120, 120);
+        // Center vertically with the image
+        textY = logoY + logoHeight / 2 + 2;
         doc.text(
           "For more information visit functionalswitching.com",
           textX,
@@ -312,6 +321,19 @@ export async function guideToPdf(
         );
 
         // Reset text color
+        doc.setTextColor(0, 0, 0);
+      }
+
+      // Always add the footer text even if the logo image is missing
+      if (!fs.existsSync(logoPath)) {
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "normal");
+        doc.setTextColor(120, 120, 120);
+        doc.text(
+          "For more information visit functionalswitching.com",
+          10,
+          280 + 5,
+        );
         doc.setTextColor(0, 0, 0);
       }
     } catch (error) {

@@ -15,12 +15,36 @@ import { guideToPdf } from "board-to-pdf";
 import path from "path";
 import fs from "fs";
 import { PDFDocument } from "pdf-lib";
+import crypto from "crypto";
 
 const BOARDS_DIR = path.join(__dirname, "../public/boards");
 const SWITCHES_DIR = path.join(__dirname, "../public/activity-book/switches");
 const rootToImages = path.join(__dirname, "../public");
 
 const DEFAULT_SWITCH = "BIGmack"; // Default PDF already uses this; skip generating a duplicate
+
+function computeAllGuidesCacheVersion(): string {
+  try {
+    const hash = crypto.createHash("sha256");
+    hash.update(JSON.stringify(GUIDE_TEMPLATES));
+
+    // Match backend cache-busting: include renderer package version + entrypoint bytes
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const boardToPdfPkg = require("board-to-pdf/package.json");
+    hash.update(String(boardToPdfPkg?.version ?? ""));
+
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const entryPath = require.resolve("board-to-pdf");
+    if (entryPath && fs.existsSync(entryPath)) {
+      hash.update(fs.readFileSync(entryPath) as unknown as Uint8Array);
+    }
+
+    return hash.digest("hex").slice(0, 10);
+  } catch (e) {
+    console.warn("Failed to compute all-guides cache version:", e);
+    return "fallback";
+  }
+}
 
 function getSwitchPaths(): Array<{ path: string; name: string }> {
   const files = fs.readdirSync(SWITCHES_DIR);
@@ -30,7 +54,7 @@ function getSwitchPaths(): Array<{ path: string; name: string }> {
         (f.toLowerCase().endsWith(".png") ||
           f.toLowerCase().endsWith(".jpg") ||
           f.toLowerCase().endsWith(".jpeg")) &&
-        path.basename(f, path.extname(f)) !== DEFAULT_SWITCH
+        path.basename(f, path.extname(f)) !== DEFAULT_SWITCH,
     )
     .map((file) => ({
       path: `activity-book/switches/${file}`,
@@ -59,10 +83,10 @@ async function generateAllGuidesPdf(switchPath?: string): Promise<Buffer> {
       : guide;
 
     const pdfBuffer = await guideToPdf(modifiedGuide, { rootToImages });
-    const guidePdf = await PDFDocument.load(pdfBuffer);
+    const guidePdf = await PDFDocument.load(pdfBuffer as unknown as Uint8Array);
     const guidePages = await finalPdf.copyPages(
       guidePdf,
-      guidePdf.getPageIndices()
+      guidePdf.getPageIndices(),
     );
     guidePages.forEach((page) => finalPdf.addPage(page));
   }
@@ -75,16 +99,26 @@ async function main() {
     fs.mkdirSync(BOARDS_DIR, { recursive: true });
   }
 
+  const cacheVersion = computeAllGuidesCacheVersion();
+  console.log(`Cache version: ${cacheVersion}\n`);
+
   const switches = getSwitchPaths();
   console.log(`Found ${switches.length} switch images\n`);
 
   // 1. Default (no switch)
   console.log("Generating default (no switch)...");
   const defaultBuffer = await generateAllGuidesPdf();
-  const defaultPath = path.join(BOARDS_DIR, "activity-book-all-guides.pdf");
-  fs.writeFileSync(defaultPath, defaultBuffer);
+  const defaultPath = path.join(
+    BOARDS_DIR,
+    `activity-book-all-guides-${cacheVersion}.pdf`,
+  );
+  fs.writeFileSync(defaultPath, defaultBuffer as unknown as Uint8Array);
   console.log(
-    `  ✓ activity-book-all-guides.pdf (${(defaultBuffer.length / 1024 / 1024).toFixed(2)} MB)\n`
+    `  ✓ activity-book-all-guides-${cacheVersion}.pdf (${(
+      defaultBuffer.length /
+      1024 /
+      1024
+    ).toFixed(2)} MB)\n`,
   );
 
   // 2. One per switch
@@ -93,11 +127,15 @@ async function main() {
     const buffer = await generateAllGuidesPdf(sw.path);
     const outPath = path.join(
       BOARDS_DIR,
-      `activity-book-all-guides-switch-${sw.name}.pdf`
+      `activity-book-all-guides-${cacheVersion}-switch-${sw.name}.pdf`,
     );
-    fs.writeFileSync(outPath, buffer);
+    fs.writeFileSync(outPath, buffer as unknown as Uint8Array);
     console.log(
-      `  ✓ activity-book-all-guides-switch-${sw.name}.pdf (${(buffer.length / 1024 / 1024).toFixed(2)} MB)\n`
+      `  ✓ activity-book-all-guides-${cacheVersion}-switch-${sw.name}.pdf (${(
+        buffer.length /
+        1024 /
+        1024
+      ).toFixed(2)} MB)\n`,
     );
   }
 
