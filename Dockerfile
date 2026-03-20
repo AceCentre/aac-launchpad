@@ -22,7 +22,8 @@ RUN apt-get update && \
 RUN yarn install
 RUN yarn build
 
-# Generate pre-stored "all guides" PDF for fast bulk download (select all)
+# Pre-generate "all guides" PDFs for fast "select all" (merge cover + stored body at runtime).
+# Writes to apps/backend/public/boards/activity-book-all-guides*.pdf inside the image.
 RUN yarn --cwd apps/backend generate-all-guides
 
 # This will always bust the cache so that images are always freshly downloaded

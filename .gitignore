@@ -1,6 +1,11 @@
 .DS_Store
 test-files
-apps/backend/public/boards
+
+# Activity book bulk cache (built in Docker via generate-all-guides; do not commit multi‑GB PDFs)
+apps/backend/public/boards/activity-book-all-guides*.pdf
+# Per-download merged PDFs (runtime only)
+apps/backend/public/boards/activity-book-with-customization-*.pdf
+
 apps/backend/private
 symbols
 
@@ -141,3 +146,6 @@ dist
 .pnp.*
 # Local Netlify folder
 .netlify
+
+# template change 
+yarn --cwd apps/backend generate-all-guides

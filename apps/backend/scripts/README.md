@@ -8,14 +8,16 @@ This script generates pre-stored PDFs containing all activity book guides. Used 
 
 **When to run:** Whenever guides or switch images are added or updated.
 
+**Docker:** The root `Dockerfile` runs `yarn --cwd apps/backend generate-all-guides` during `docker build`, so production images include fresh `activity-book-all-guides*.pdf` files without committing them to Git.
+
 ```bash
 yarn --cwd apps/backend generate-all-guides
 ```
 
 **Outputs:**
 
-- `activity-book-all-guides-{version}.pdf` – default (no switch)
-- `activity-book-all-guides-{version}-switch-{name}.pdf` – one per switch (BIGmack, little_mack, etc.)
+- `activity-book-all-guides.pdf` – default (no switch)
+- `activity-book-all-guides-switch-{name}.pdf` – one per switch (except BIGmack, which uses the default PDF)
 
 **Note:** The bulk-download endpoint uses these when the user selects all guides. The appropriate PDF is chosen based on whether a switch image is selected. If missing, it falls back to on-demand generation (which may timeout).
 
