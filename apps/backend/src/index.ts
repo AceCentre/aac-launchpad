@@ -896,7 +896,19 @@ async function setupServer() {
         );
         coverPages.forEach((page) => finalPdf.addPage(page));
 
-        for (const templateId of templateIds) {
+        const gearOrderIndex = new Map(
+          GUIDE_TEMPLATES.map((g, i) => [g.templateId, i]),
+        );
+        const templateIdsInGearOrder = [...templateIds].sort((a, b) => {
+          const ia = gearOrderIndex.get(a);
+          const ib = gearOrderIndex.get(b);
+          if (ia === undefined && ib === undefined) return a.localeCompare(b);
+          if (ia === undefined) return 1;
+          if (ib === undefined) return -1;
+          return ia - ib;
+        });
+
+        for (const templateId of templateIdsInGearOrder) {
           const guide = GUIDE_TEMPLATES.find(
             (g) => g.templateId === templateId,
           );
