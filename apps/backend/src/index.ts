@@ -762,54 +762,85 @@ async function setupServer() {
       let preStoredPath: string | null = null;
 
       if (isSelectAll) {
-        const computeAllGuidesCacheVersion = (): string => {
-          try {
-            const hash = crypto.createHash("sha256");
-            hash.update(JSON.stringify(GUIDE_TEMPLATES));
-
-            // Include the renderer package version + entrypoint bytes so any
-            // guide PDF rendering changes invalidate the pre-generated cache.
-            // eslint-disable-next-line @typescript-eslint/no-var-requires
-            const boardToPdfPkg = require("board-to-pdf/package.json");
-            hash.update(String(boardToPdfPkg?.version ?? ""));
-
-            // eslint-disable-next-line @typescript-eslint/no-var-requires
-            const entryPath = require.resolve("board-to-pdf");
-            if (entryPath && fs.existsSync(entryPath)) {
-              hash.update(fs.readFileSync(entryPath));
+        const pickNewestFile = (paths: string[]): string | null => {
+          let newestPath: string | null = null;
+          let newestMtime = -1;
+          for (const p of paths) {
+            try {
+              const mtime = fs.statSync(p).mtimeMs;
+              if (mtime > newestMtime) {
+                newestMtime = mtime;
+                newestPath = p;
+              }
+            } catch {
+              // Ignore files that disappear between readdir/stat.
             }
-
-            return hash.digest("hex").slice(0, 10);
-          } catch (e) {
-            console.warn("Failed to compute all-guides cache version:", e);
-            return "fallback";
           }
+          return newestPath;
         };
 
-        const cacheVersion = computeAllGuidesCacheVersion();
-        const defaultPath = path.join(
+        // Prefer versioned filenames from older builds; Docker now emits fixed names too.
+        const getLatestDefaultAllGuides = (): string | null => {
+          if (!fs.existsSync(boardsDirAbs)) return null;
+          const files = fs.readdirSync(boardsDirAbs);
+          const matches = files
+            .filter(
+              (f) =>
+                f.startsWith("activity-book-all-guides-") &&
+                f.endsWith(".pdf") &&
+                !f.includes("-switch-"),
+            )
+            .map((f) => path.join(boardsDirAbs, f));
+          return pickNewestFile(matches);
+        };
+
+        const getLatestSwitchAllGuides = (
+          switchName: string,
+        ): string | null => {
+          if (!fs.existsSync(boardsDirAbs)) return null;
+          const files = fs.readdirSync(boardsDirAbs);
+          const matches = files
+            .filter(
+              (f) =>
+                f.startsWith("activity-book-all-guides-") &&
+                f.endsWith(`-switch-${switchName}.pdf`),
+            )
+            .map((f) => path.join(boardsDirAbs, f));
+          return pickNewestFile(matches);
+        };
+
+        const legacyDefaultPath = path.join(
           boardsDirAbs,
-          `activity-book-all-guides-${cacheVersion}.pdf`,
+          "activity-book-all-guides.pdf",
         );
+        const legacySwitchBase = (switchName: string) =>
+          path.join(
+            boardsDirAbs,
+            `activity-book-all-guides-switch-${switchName}.pdf`,
+          );
+
         if (selectedSwitchImage) {
           const switchName = path.basename(
             selectedSwitchImage,
             path.extname(selectedSwitchImage),
           );
-          // BIGmack is the default in guides – use default PDF
-          if (switchName === "BIGmack" && fs.existsSync(defaultPath)) {
-            preStoredPath = defaultPath;
+
+          // BIGmack is the default in guides – use the default all-guides PDF.
+          if (switchName === "BIGmack") {
+            preStoredPath =
+              getLatestDefaultAllGuides() ??
+              (fs.existsSync(legacyDefaultPath) ? legacyDefaultPath : null);
           } else {
-            const candidatePath = path.join(
-              boardsDirAbs,
-              `activity-book-all-guides-${cacheVersion}-switch-${switchName}.pdf`,
-            );
-            if (fs.existsSync(candidatePath)) {
-              preStoredPath = candidatePath;
-            }
+            preStoredPath =
+              getLatestSwitchAllGuides(switchName) ??
+              (fs.existsSync(legacySwitchBase(switchName))
+                ? legacySwitchBase(switchName)
+                : null);
           }
-        } else if (fs.existsSync(defaultPath)) {
-          preStoredPath = defaultPath;
+        } else {
+          preStoredPath =
+            getLatestDefaultAllGuides() ??
+            (fs.existsSync(legacyDefaultPath) ? legacyDefaultPath : null);
         }
       }
 
