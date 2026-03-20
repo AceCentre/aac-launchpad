@@ -2,6 +2,18 @@ import { jsPDF } from "jspdf";
 import { GuideTemplate, GuideSection } from "types";
 import fs from "fs";
 import path from "path";
+import sharp from "sharp";
+
+/** Longest edge in pixels for embedded bitmaps (~2× needed print size at table cell scale). */
+const PDF_IMG_MAX_TABLE_CELL = 320;
+/** Title / hero image on guide (drawn ~80mm tall). */
+const PDF_IMG_MAX_MAIN = 640;
+/** Full-page action card (~170×250mm drawable). */
+const PDF_IMG_MAX_ACTION_CARD = 1400;
+/** Footer logo (drawn ~48mm wide). */
+const PDF_IMG_MAX_LOGO = 200;
+
+type EmbeddedImage = { dataUri: string; format: "PNG" | "JPEG" };
 
 // Sanitise text so it only contains characters in jsPDF's WinAnsi charset.
 function sanitiseText(text: string): string {
@@ -15,18 +27,52 @@ function sanitiseText(text: string): string {
     .replace(/\u201D/g, '"'); // right double quote → straight quote
 }
 
-// Helper to load images as base64 (for local files)
-async function getImageBase64(
+/**
+ * Load and downscale an image for PDF embedding so we don't store multi‑megapixel
+ * PNGs at thumbnail size (major file size win for merged activity-book PDFs).
+ */
+async function getImageForPdf(
   imgPath: string,
   rootToImages: string,
-): Promise<string | undefined> {
+  maxEdgePx: number,
+): Promise<EmbeddedImage | undefined> {
   try {
     const absPath = path.isAbsolute(imgPath)
       ? imgPath
       : path.join(rootToImages, imgPath);
     console.log("Trying to load image:", absPath);
-    const data = fs.readFileSync(absPath);
-    return "data:image/png;base64," + data.toString("base64");
+    if (!fs.existsSync(absPath)) {
+      console.warn(`Warning: Could not load image at ${imgPath}`);
+      return undefined;
+    }
+
+    const input = fs.readFileSync(absPath);
+    const meta = await sharp(input).metadata();
+
+    const pipeline = sharp(input)
+      .rotate()
+      .resize({
+        width: maxEdgePx,
+        height: maxEdgePx,
+        fit: "inside",
+        withoutEnlargement: true,
+      });
+
+    let buffer: Buffer;
+    let format: "PNG" | "JPEG";
+    if (meta.hasAlpha) {
+      buffer = await pipeline.png({ compressionLevel: 9 }).toBuffer();
+      format = "PNG";
+    } else {
+      buffer = await pipeline.jpeg({ quality: 88, mozjpeg: true }).toBuffer();
+      format = "JPEG";
+    }
+
+    const mime = format === "PNG" ? "image/png" : "image/jpeg";
+    return {
+      dataUri: `data:${mime};base64,${buffer.toString("base64")}`,
+      format,
+    };
   } catch (e) {
     console.warn(`Warning: Could not load image at ${imgPath}`);
     return undefined;
@@ -96,9 +142,13 @@ async function renderWhatYouNeedTable(params: {
       ? section.image
       : "activity-book/switches/BIGmack.png";
   if (leftImagePath) {
-    const imgData = await getImageBase64(leftImagePath, rootToImages);
-    if (imgData) {
-      const imgProps = doc.getImageProperties(imgData);
+    const embedded = await getImageForPdf(
+      leftImagePath,
+      rootToImages,
+      PDF_IMG_MAX_TABLE_CELL,
+    );
+    if (embedded) {
+      const imgProps = doc.getImageProperties(embedded.dataUri);
       const maxWidth = col1Width - cellPadding * 2;
       const maxHeight = rowHeight - cellPadding * 2;
       let drawWidth = maxWidth;
@@ -109,7 +159,14 @@ async function renderWhatYouNeedTable(params: {
       }
       const imgX = marginX + (col1Width - drawWidth) / 2;
       const imgY = row1TopY + (rowHeight - drawHeight) / 2;
-      doc.addImage(imgData, "PNG", imgX, imgY, drawWidth, drawHeight);
+      doc.addImage(
+        embedded.dataUri,
+        embedded.format,
+        imgX,
+        imgY,
+        drawWidth,
+        drawHeight,
+      );
     }
   }
 
@@ -213,9 +270,13 @@ async function renderWhatYouNeedTable(params: {
 
   // Left image cell – third image if available
   if (template.thirdImage) {
-    const thirdData = await getImageBase64(template.thirdImage, rootToImages);
-    if (thirdData) {
-      const thirdProps = doc.getImageProperties(thirdData);
+    const embedded = await getImageForPdf(
+      template.thirdImage,
+      rootToImages,
+      PDF_IMG_MAX_TABLE_CELL,
+    );
+    if (embedded) {
+      const thirdProps = doc.getImageProperties(embedded.dataUri);
       const maxWidth = col1Width - cellPadding * 2;
       const maxHeight = rowHeight - cellPadding * 2;
       let drawWidth = maxWidth;
@@ -226,7 +287,14 @@ async function renderWhatYouNeedTable(params: {
       }
       const imgX = marginX + (col1Width - drawWidth) / 2;
       const imgY = row2TopY + (rowHeight - drawHeight) / 2;
-      doc.addImage(thirdData, "PNG", imgX, imgY, drawWidth, drawHeight);
+      doc.addImage(
+        embedded.dataUri,
+        embedded.format,
+        imgX,
+        imgY,
+        drawWidth,
+        drawHeight,
+      );
     }
   }
 
@@ -252,9 +320,13 @@ async function renderWhatYouNeedTable(params: {
 
   // Right image cell – fourth image if available
   if (template.fourthImage) {
-    const fourthData = await getImageBase64(template.fourthImage, rootToImages);
-    if (fourthData) {
-      const fourthProps = doc.getImageProperties(fourthData);
+    const embedded = await getImageForPdf(
+      template.fourthImage,
+      rootToImages,
+      PDF_IMG_MAX_TABLE_CELL,
+    );
+    if (embedded) {
+      const fourthProps = doc.getImageProperties(embedded.dataUri);
       const maxWidth = col3Width - cellPadding * 2;
       const maxHeight = rowHeight - cellPadding * 2;
       let drawWidth = maxWidth;
@@ -265,7 +337,14 @@ async function renderWhatYouNeedTable(params: {
       }
       const imgX = col2RightX + (col3Width - drawWidth) / 2;
       const imgY = row2TopY + (rowHeight - drawHeight) / 2;
-      doc.addImage(fourthData, "PNG", imgX, imgY, drawWidth, drawHeight);
+      doc.addImage(
+        embedded.dataUri,
+        embedded.format,
+        imgX,
+        imgY,
+        drawWidth,
+        drawHeight,
+      );
     }
   }
 
@@ -284,7 +363,7 @@ export async function guideToPdf(
   const pageWidth = doc.internal.pageSize.width;
 
   // Function to add logo to current page
-  const addLogoToPage = () => {
+  const addLogoToPage = async () => {
     try {
       const logoPath = path.join(
         rootToImages,
@@ -301,12 +380,23 @@ export async function guideToPdf(
       let textY = logoY + logoHeight / 2 + 2;
 
       if (fs.existsSync(logoPath)) {
-        const logoData = fs.readFileSync(logoPath);
-        const logoBase64 =
-          "data:image/png;base64," + logoData.toString("base64");
-        const logoProps = doc.getImageProperties(logoBase64);
-        logoHeight = (logoWidth * logoProps.height) / logoProps.width;
-        doc.addImage(logoBase64, "PNG", logoX, logoY, logoWidth, logoHeight);
+        const embedded = await getImageForPdf(
+          path.join("activity-book", "activity-book-logo.png"),
+          rootToImages,
+          PDF_IMG_MAX_LOGO,
+        );
+        if (embedded) {
+          const logoProps = doc.getImageProperties(embedded.dataUri);
+          logoHeight = (logoWidth * logoProps.height) / logoProps.width;
+          doc.addImage(
+            embedded.dataUri,
+            embedded.format,
+            logoX,
+            logoY,
+            logoWidth,
+            logoHeight,
+          );
+        }
 
         // Add accompanying text to the right of the logo
         doc.setFontSize(12);
@@ -385,7 +475,7 @@ export async function guideToPdf(
   });
 
   // Add logo to first page
-  addLogoToPage();
+  await addLogoToPage();
 
   // (Old horizontal layout helper removed – "WHAT YOU'LL NEED TO PLAY" now
   // uses the table layout defined in renderWhatYouNeedTable for all guides.)
@@ -393,9 +483,13 @@ export async function guideToPdf(
   // Main image
   let y = 75; // default if no main image
   if (template.mainImage && typeof template.mainImage === "string") {
-    const imgData = await getImageBase64(template.mainImage, rootToImages);
-    if (imgData) {
-      const imgProps = doc.getImageProperties(imgData);
+    const embedded = await getImageForPdf(
+      template.mainImage,
+      rootToImages,
+      PDF_IMG_MAX_MAIN,
+    );
+    if (embedded) {
+      const imgProps = doc.getImageProperties(embedded.dataUri);
       const desiredHeight = 80;
       const aspectRatio = imgProps.width / imgProps.height;
       let desiredWidth = desiredHeight * aspectRatio;
@@ -408,7 +502,14 @@ export async function guideToPdf(
 
       // Center the image horizontally
       const imgX = (pageWidth - desiredWidth) / 2;
-      doc.addImage(imgData, "PNG", imgX, 23, desiredWidth, desiredHeight);
+      doc.addImage(
+        embedded.dataUri,
+        embedded.format,
+        imgX,
+        23,
+        desiredWidth,
+        desiredHeight,
+      );
       y = Math.max(y, 25 + desiredHeight + 10); // set y below the image, with 10 units padding
     }
   }
@@ -542,7 +643,7 @@ export async function guideToPdf(
       doc.addPage();
       y = 0;
       // Add logo to new page
-      addLogoToPage();
+      await addLogoToPage();
     }
   }
 
@@ -552,15 +653,16 @@ export async function guideToPdf(
       doc.addPage();
 
       // Add logo to action card page
-      addLogoToPage();
+      await addLogoToPage();
 
       // Load and add the action card image to fill the entire page
-      const actionCardData = await getImageBase64(
+      const actionEmbedded = await getImageForPdf(
         actionCardImage,
         rootToImages,
+        PDF_IMG_MAX_ACTION_CARD,
       );
-      if (actionCardData) {
-        const actionCardProps = doc.getImageProperties(actionCardData);
+      if (actionEmbedded) {
+        const actionCardProps = doc.getImageProperties(actionEmbedded.dataUri);
         const pageWidth = doc.internal.pageSize.width;
         const pageHeight = doc.internal.pageSize.height;
 
@@ -584,8 +686,8 @@ export async function guideToPdf(
         const imageY = (pageHeight - imageHeight) / 2;
 
         doc.addImage(
-          actionCardData,
-          "PNG",
+          actionEmbedded.dataUri,
+          actionEmbedded.format,
           imageX,
           imageY,
           imageWidth,
@@ -601,7 +703,7 @@ export async function guideToPdf(
       doc.addPage();
 
       // Add logo to extra page
-      addLogoToPage();
+      await addLogoToPage();
 
       const pageWidth = doc.internal.pageSize.width;
       const margin = 20;
@@ -637,7 +739,7 @@ export async function guideToPdf(
         // Check if we need a new page
         if (currentY > 260) {
           doc.addPage();
-          addLogoToPage();
+          await addLogoToPage();
           currentY = 30;
         }
 
