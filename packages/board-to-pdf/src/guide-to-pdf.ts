@@ -49,14 +49,12 @@ async function getImageForPdf(
     const input = fs.readFileSync(absPath);
     const meta = await sharp(input).metadata();
 
-    const pipeline = sharp(input)
-      .rotate()
-      .resize({
-        width: maxEdgePx,
-        height: maxEdgePx,
-        fit: "inside",
-        withoutEnlargement: true,
-      });
+    const pipeline = sharp(input).rotate().resize({
+      width: maxEdgePx,
+      height: maxEdgePx,
+      fit: "inside",
+      withoutEnlargement: true,
+    });
 
     let buffer: Buffer;
     let format: "PNG" | "JPEG";
@@ -106,8 +104,11 @@ async function renderWhatYouNeedTable(params: {
 
   const topY = startY;
 
-  // Outer border
+  const tableLineGrey = [219, 219, 219] as const;
+  doc.setDrawColor(...tableLineGrey);
   doc.setLineWidth(0.5);
+
+  // Outer border
   doc.rect(marginX, topY, tableWidth, tableHeight);
 
   // Horizontal lines (header + between rows)
@@ -121,6 +122,8 @@ async function renderWhatYouNeedTable(params: {
   const col2RightX = marginX + col1Width + col2Width;
   doc.line(col1RightX, headerBottomY, col1RightX, topY + tableHeight);
   doc.line(col2RightX, headerBottomY, col2RightX, topY + tableHeight);
+
+  doc.setDrawColor(0, 0, 0);
 
   // Header text centered
   doc.setFontSize(12);
@@ -237,11 +240,11 @@ async function renderWhatYouNeedTable(params: {
       : gear >= 3 && gear <= 5
       ? {
           text: "Look at page 2 for my two switch set-up.",
-          color: "#5075b1",
+          color: "#87a3c7",
         }
       : {
           text: "Look at page 2 for my two switch set-up.",
-          color: "#5075b1",
+          color: "#87a3c7",
         };
 
   const [badgeR, badgeG, badgeB] = hexToRgb(badgeConfig.color);
@@ -458,13 +461,13 @@ export async function guideToPdf(
     const gearFontSize = 11;
     doc.setFontSize(gearFontSize);
     doc.setFont("helvetica", "italic");
-    doc.setTextColor(82, 82, 82); // Red color
+    doc.setTextColor(0, 0, 0);
     doc.text(gearText, 10, gearY, {
       align: "left",
     });
     // Reset to default font and color
     doc.setFont("helvetica", "normal");
-    doc.setTextColor(0, 0, 0); // Black
+    doc.setTextColor(0, 0, 0);
   }
 
   // Title - centered, placed below gear text
