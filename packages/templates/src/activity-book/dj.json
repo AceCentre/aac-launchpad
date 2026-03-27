@@ -13,12 +13,12 @@
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
       "image": "activity-book/switches/BIGmack.png",
-      "middleText1": "two switches\nrecord:\n\"next\" on one switch \n\"add to list\" on the other",
+      "middleText1": "two single or multi-message switches\nrecord:\n\"next\" on one switch \n\"add to list\" on the other ",
       "middleText2": "music-streaming service to create a playlist that can be saved"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "1.  The switch user creates their own playlist for any occasion.\n2.  Play a song or say an artist's name.\n3.  If they choose \"next\", move to a new song or artist.\n4.  If they choose \"add to the list\", add the current song or artist to the playlist."
+      "body": "1.  The switch user creates their own playlist for any occasion.\n2.  Play a song or say an artist\u2019s name.\n3.  If they choose \"next\", move to a new song or artist.\n4.  If they choose \"add to the list\", add the current song or artist to the playlist."
     }
   ],
   "tooltipText": "Use 2 switches to scan through different songs and create a custom playlist"

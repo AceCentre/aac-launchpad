@@ -307,6 +307,12 @@ export interface GuideTemplate {
   thirdImage?: string; // path or URL for additional image below horizontal layout
   fourthImage?: string; // path or URL for second row image (used with thirdImage)
   actionCardImages?: string[]; // array of action card image paths for additional pages
+  /** Single PDF appended after the guide (e.g. multi-card sheet). Skips per-image actionCardImages when set. */
+  actionCardPdf?: string;
+  /** Line height (jsPDF units) for extraPages bullet items; default 8. */
+  extraPagesLineHeight?: number;
+  /** Extra vertical space after each extraPages item; default 3. */
+  extraPagesItemGap?: number;
   extraPages?: Array<{
     title: string;
     subtitle?: string;

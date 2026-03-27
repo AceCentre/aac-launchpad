@@ -12,12 +12,12 @@
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
       "image": "activity-book/switches/BIGmack.png",
-      "middleText1": "two switches\nrecord:\na leading question on one switch  \na response on the other ",
+      "middleText1": "two single or multi-message switches\nrecord:\na leading question on one switch  \na response on the other ",
       "middleText2": ""
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "1. Decide with the switch user what news they want to share.\n2. Record a leading question on one switch e.g. \"guess what I did yesterday?\"\n3. Record the response on the other switch, e.g. \"I went to the beach, it was so much fun!\"\n4. You can add another question after the response to keep things going, e.g. \"what did you get up to?\""
+      "body": "1. Decide with the switch user what news they want to share.\n2. The switch user presses the switch with a leading question e.g. \"guess what I did yesterday?\"\n3.  Then they press the switch with the response e.g. \"I went to the beach, it was so much fun!\"\n4. Another question can be added after the response to keep things going e.g. \"what did you get up to?\""
     }
   ],
   "tooltipText": "Activate 2 switches to share news and ask questions"
