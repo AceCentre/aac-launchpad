@@ -13,12 +13,12 @@
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
       "image": "activity-book/switches/set-switches/it-click-on.png",
-      "middleText1": "<b>appliance controller \nconnect:\nwired/wireless switch \nhairdryer</b>",
+      "middleText1": "<b>appliance controller \nconnect:\nwired/wireless switch</b> \nhairdryer",
       "middleText2": "black paper \npaints"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "1. Set the controller to direct mode so the hairdryer runs while pressed.\n2. Put paint on black paper near the hairdryer.\n3. Prompt the switch user to press the switch to create a firework.\n4. Repeat the process to create a picture of a night sky filled with fireworks!"
+      "body": "1. Set the appliance controller to direct mode so the hairdryer runs while pressed.\n2. Put paint on black paper near the hairdryer.\n3. Prompt the switch user to press the switch to create a firework.\n4. Repeat the process to create a picture of a night sky filled with fireworks!"
     }
   ],
   "tooltipText": "Use an appliance controller to use a hairdryer to blow paint on paper to make fireworks"

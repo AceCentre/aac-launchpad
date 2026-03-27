@@ -1,4 +1,5 @@
 import { jsPDF } from "jspdf";
+import { PDFDocument } from "pdf-lib";
 import { GuideTemplate, GuideSection } from "types";
 import fs from "fs";
 import path from "path";
@@ -180,35 +181,70 @@ async function renderWhatYouNeedTable(params: {
     let currentY = row1TopY + 8;
 
     let mt1Text = sanitiseText(section.middleText1);
-    const forceAllBold = mt1Text.includes("<b>");
-    if (forceAllBold) {
-      mt1Text = mt1Text.replace(/<\/?b>/g, "");
-    }
-
-    const rawLines = mt1Text.split("\n").map((l) => l.trimEnd());
 
     const isBoldLine = (lower: string) =>
       lower.includes("two switches") ||
       lower.startsWith("a switch") ||
       lower.startsWith("record") ||
-      lower.includes("appliance controller");
+      lower.includes("appliance controller") ||
+      lower.includes("a single or multi-message switch") ||
+      lower.includes("two single or multi-message switches");
 
-    const hasPattern = rawLines.some((line) => isBoldLine(line.toLowerCase()));
+    /** e.g. "<b>a\\nb</b>\\nc" → bold a,b then normal c (not whole block bold). */
+    const trailingBoldThenNormal = mt1Text.match(
+      /^<b>([\s\S]*?)<\/b>\s*([\s\S]*)$/,
+    );
 
-    for (const line of rawLines) {
-      if (!line) continue;
-      const lower = line.toLowerCase();
-      const shouldBold = forceAllBold || isBoldLine(lower) || !hasPattern;
+    const emitMiddleLines = (
+      lines: string[],
+      fixedBold: boolean | undefined,
+    ) => {
+      const trimmed = lines.map((l) => l.trimEnd());
+      const hasPattern =
+        fixedBold === undefined &&
+        trimmed.some((l) => l && isBoldLine(l.toLowerCase()));
+      for (const line of trimmed) {
+        if (!line) continue;
+        const lower = line.toLowerCase();
+        const shouldBold =
+          fixedBold === true
+            ? true
+            : fixedBold === false
+              ? isBoldLine(lower)
+              : isBoldLine(lower) || !hasPattern;
+        doc.setFontSize(12);
+        doc.setFont("helvetica", shouldBold ? "bold" : "normal");
+        const wrapped = doc.splitTextToSize(line, row1TextMaxWidth);
+        doc.text(wrapped, row1TextX, currentY);
+        currentY += wrapped.length * 5.5;
+      }
+    };
 
-      doc.setFontSize(12);
-      doc.setFont("helvetica", shouldBold ? "bold" : "normal");
-
-      const wrapped = doc.splitTextToSize(line, row1TextMaxWidth);
-      doc.text(wrapped, row1TextX, currentY);
-      currentY += wrapped.length * 5.5;
+    if (trailingBoldThenNormal) {
+      emitMiddleLines(trailingBoldThenNormal[1].split("\n"), true);
+      emitMiddleLines(trailingBoldThenNormal[2].split("\n"), false);
+    } else {
+      let working = mt1Text;
+      const forceAllBold = working.includes("<b>");
+      if (forceAllBold) {
+        working = working.replace(/<\/?b>/g, "");
+      }
+      const rawLines = working.split("\n").map((l) => l.trimEnd());
+      const hasPattern = rawLines.some(
+        (line) => line && isBoldLine(line.toLowerCase()),
+      );
+      for (const line of rawLines) {
+        if (!line) continue;
+        const lower = line.toLowerCase();
+        const shouldBold = forceAllBold || isBoldLine(lower) || !hasPattern;
+        doc.setFontSize(12);
+        doc.setFont("helvetica", shouldBold ? "bold" : "normal");
+        const wrapped = doc.splitTextToSize(line, row1TextMaxWidth);
+        doc.text(wrapped, row1TextX, currentY);
+        currentY += wrapped.length * 5.5;
+      }
     }
 
-    // Reset font back to normal for the rest of the page
     doc.setFont("helvetica", "normal");
   }
 
@@ -650,8 +686,12 @@ export async function guideToPdf(
     }
   }
 
-  // Add action card pages if they exist
-  if (template.actionCardImages && template.actionCardImages.length > 0) {
+  // Add action card pages if they exist (skipped when actionCardPdf supplies a combined PDF)
+  if (
+    template.actionCardImages &&
+    template.actionCardImages.length > 0 &&
+    !template.actionCardPdf
+  ) {
     for (const actionCardImage of template.actionCardImages) {
       doc.addPage();
 
@@ -734,7 +774,8 @@ export async function guideToPdf(
       // Add items as bulleted list
       doc.setFontSize(12);
       doc.setFont("helvetica", "normal");
-      const lineHeight = 8;
+      const lineHeight = template.extraPagesLineHeight ?? 8;
+      const itemGap = template.extraPagesItemGap ?? 3;
       const bulletX = margin + 5;
       const textX = margin + 12;
 
@@ -752,11 +793,32 @@ export async function guideToPdf(
         const maxWidth = pageWidth - textX - margin;
         const lines = doc.splitTextToSize(item, maxWidth);
         doc.text(lines, textX, currentY);
-        currentY += lines.length * lineHeight + 3;
+        currentY += lines.length * lineHeight + itemGap;
       }
     }
   }
 
-  // Return a buffer, just like boardToPdf
-  return Buffer.from(doc.output("arraybuffer"));
+  let buffer = Buffer.from(doc.output("arraybuffer"));
+
+  if (template.actionCardPdf) {
+    const pdfPath = path.isAbsolute(template.actionCardPdf)
+      ? template.actionCardPdf
+      : path.join(rootToImages, template.actionCardPdf);
+    if (fs.existsSync(pdfPath)) {
+      const mainPdf = await PDFDocument.load(new Uint8Array(buffer));
+      const actionPdf = await PDFDocument.load(
+        new Uint8Array(fs.readFileSync(pdfPath)),
+      );
+      const copied = await mainPdf.copyPages(
+        actionPdf,
+        actionPdf.getPageIndices(),
+      );
+      copied.forEach((page) => mainPdf.addPage(page));
+      buffer = Buffer.from(await mainPdf.save());
+    } else {
+      console.warn(`Warning: actionCardPdf not found at ${pdfPath}`);
+    }
+  }
+
+  return buffer;
 }

@@ -13,7 +13,7 @@
     {
       "heading": "WHAT YOU'LL NEED TO PLAY ",
       "image": "activity-book/switches/BIGmack.png",
-      "middleText1": "two switches\nrecord:\neach players name e.g. \"Mum\" on one switch \n\"Dad\" on the other",
+      "middleText1": "two single or multi-message switches\nrecord:\neach players name e.g. \"Mum\" on one switch \n\"Dad\" on the other",
       "middleText2": "two people the switch user is going to answer questions about"
     },
     {
@@ -22,6 +22,8 @@
     }
   ],
   "tooltipText": "Use 2 switches to answer silly questions about people",
+  "extraPagesLineHeight": 5.5,
+  "extraPagesItemGap": 1,
   "extraPages": [
     {
       "title": "WHO'S MOST LIKELY TO: QUESTION IDEAS",

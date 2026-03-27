@@ -13,12 +13,12 @@
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
       "image": "activity-book/switches/BIGmack.png",
-      "middleText1": "two switches\nrecord:\n\"yes\" on one switch \n\"no\" on the other",
+      "middleText1": "two single or multi-message switches\nrecord:\n\"yes\" on one switch \n\"no\" on the other",
       "middleText2": "Headbanz game"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "1. The switch user answers yes/no with their switches to help you guess the picture.\n2. More answers mean more points for the switch user!\n3. Play in two teams if you want a competitive version."
+      "body": "1. The switch user answers yes or no with their switches to help you guess the picture.\n2. More answers mean more points for the switch user!\n3. Play in two teams if you want a competitive version."
     }
   ],
   "tooltipText": "Use 2 switches to answer yes/no questions in a game of HeadBandz"

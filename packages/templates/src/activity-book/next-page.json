@@ -13,12 +13,12 @@
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
       "image": "activity-book/switches/BIGmack.png",
-      "middleText1": "a switch\nrecord:\n\"turn the page\" on it ",
+      "middleText1": "a single or multi-message switch\nrecord:\n\"turn the page\" on it ",
       "middleText2": "books to choose from"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "1. Let the switch user choose a book they want to read.\n2. Read aloud, pausing at the end of each page for them to press their switch to \"turn the page\".\n3. If they press early, still turn the page so they learn their switch has an effect."
+      "body": "1. Ask the switch user choose a book they want to read.\n2. Read aloud, pausing at the end of each page for them to press their switch to \"turn the page\".\n3. If they press early, still turn the page so they learn their switch has an effect."
     }
   ],
   "tooltipText": "Activate the switch to turn the page of a book"

@@ -147,5 +147,5 @@ dist
 # Local Netlify folder
 .netlify
 
-# template change 
+# template change for select all guides
 yarn --cwd apps/backend generate-all-guides

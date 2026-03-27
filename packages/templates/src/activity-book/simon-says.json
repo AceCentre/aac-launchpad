@@ -9,30 +9,17 @@
   "mainImage": "activity-book/simon-says.png",
   "numberOfSwitches": 2,
   "thirdImage": "activity-book/thirdImages/simon-says-2.png",
-  "actionCardImages": [
-    "activity-book/action-cards/Simon-Says-action-card.png",
-    "activity-book/action-cards/Simon-Says-action-card2.png",
-    "activity-book/action-cards/Simon-Says-action-card3.png",
-    "activity-book/action-cards/Simon-Says-action-card4.png",
-    "activity-book/action-cards/Simon-Says-action-card5.png",
-    "activity-book/action-cards/Simon-Says-action-card6.png",
-    "activity-book/action-cards/Simon-Says-action-card7.png",
-    "activity-book/action-cards/Simon-Says-action-card8.png",
-    "activity-book/action-cards/Simon-Says-action-card9.png",
-    "activity-book/action-cards/Simon-Says-action-card10.png",
-    "activity-book/action-cards/Simon-Says-action-card11.png",
-    "activity-book/action-cards/Simon-Says-action-card12.png"
-  ],
+  "actionCardPdf": "activity-book/action-cards/Simon-Says-Action-Cards.pdf",
   "sections": [
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
       "image": "activity-book/switches/BIGmack.png",
-      "middleText1": "two switches\nrecord:\n\"next\" on one switch \n\"Simon says\" on the other",
+      "middleText1": "two single or multi-message switches\nrecord:\n\"next\" on one switch \n\"Simon says\" on the other",
       "middleText2": "action cards"
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "1. Show an action card to the switch user and read the action aloud.\n2. If they press the \"next\", move on to the next card.\n3. If they press the \"Simon says!\", perform the action shown on the card."
+      "body": "1. Show an action card to the switch user and read the action aloud.\n2. If they press \"next\", move on to the next card.\n3. If they press \"Simon says!\", perform the action shown on the card."
     }
   ],
   "tooltipText": "Use 2 switches to scan through action cards and pick a silly action for other players to perform e.g jump like a frog!"
