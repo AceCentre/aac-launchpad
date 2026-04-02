@@ -283,7 +283,7 @@ export async function generateCoverPagePdf(
   let infoY = height - 100;
 
   const infoText1 =
-    "The activities in this book fall under different ‘Gears’. In First Gear activities, only one switch is needed. Second Gear looks at finding a second movement/body part to activate a switch. Second to Fifth Gear activities require 2 switches to be used at the same time.";
+    "The activities in this book fall under different ‘Gears’. In First Gear activities, only one switch is needed. Second Gear looks at finding a second movement/body part to activate a switch. Third to Fifth Gear activities require 2 switches to be used at the same time.";
   const infoText2 =
     "Insert images of how the person that this book belongs to uses one switch and two switches. If a second body part/movement has not been found yet, leave the 2 switch set up blank until you have explored First and Second Gear Activities. To learn more about the Gears and building switch skills visit FUNctionalswitching.com ";
 
