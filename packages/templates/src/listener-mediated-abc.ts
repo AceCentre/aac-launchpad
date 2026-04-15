@@ -766,7 +766,6 @@ export const listenerMediatedAbc: Template = {
       type: "color",
       name: "Empty Space Background Colour",
       defaultValue: "rgb(255,255,255)",
-      hidden: true,
     },
     {
       id: "numberTextColor",
