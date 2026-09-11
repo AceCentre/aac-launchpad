@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Bug Splat",
   "activityType": "Activity Book",
-  "category": "Funny",
   "gear": 2,
   "badgeText": "Gear 2",
   "mainImage": "activity-book/bug-splat.png",
@@ -21,5 +20,9 @@
       "body": "1. The goal is to find other body parts that can be used to activate a switch.\n2. Move the switch around while making a buzzing \"fly\" sound.\n3. Bring it near a body part (head, hand, foot) and prompt the switch user to \"splat\" it!"
     }
   ],
-  "tooltipText": "This silly game helps find a second body part to activate a switch."
+  "tooltipText": "This silly game helps find a second body part to activate a switch.",
+  "categories": [
+    "Games",
+    "Funny"
+  ]
 }

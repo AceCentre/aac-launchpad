@@ -1,0 +1,28 @@
+{
+  "templateId": "quiz-time",
+  "templateType": "guide",
+  "title": "Quiz Time!",
+  "activityType": "Activity Book",
+  "gear": 5,
+  "badgeText": "Gear 5",
+  "mainImage": "activity-book/quiz-time.png",
+  "thirdImage": "activity-book/thirdImages/quiz-time-2.png",
+  "numberOfSwitches": 2,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "<b>two single or multi-message switches\nrecord:\n</b>\"next\" on one switch \n\"that's the answer\" on the other ",
+      "middleText2": "quiz with multiple choice answers e.g, BBC News website's Weekly Quiz or CBBC website quizzes"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "1. The switch user's knowledge is put to the test.\n2. Read out the question and the first multiple-choice option.\n3. If the switch user presses \"next\", read the next multiple-choice option.\n4. If they press \"that's the answer\", submit their answer and give a point if correct."
+    }
+  ],
+  "tooltipText": "Use 2 switches for QUIZ TIME!",
+  "categories": [
+    "Games",
+    "Older Learners"
+  ]
+}

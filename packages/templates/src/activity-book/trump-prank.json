@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Trump Prank",
   "activityType": "Activity Book",
-  "category": "Funny",
   "gear": 1,
   "badgeText": "Gear 1",
   "mainImage": "activity-book/trump-prank.png",
@@ -20,5 +19,10 @@
       "body": "1. The switch user pranks people by pressing the switch to make a trump noise.\n2. Encourage them to press again with comments like \"I hope there's no more of that!\" or \"Who did that come from?\""
     }
   ],
-  "tooltipText": "Prank people by making a fart noise with the switch!"
+  "tooltipText": "Prank people by making a fart noise with the switch!",
+  "categories": [
+    "Social",
+    "Funny",
+    "Older Learners"
+  ]
 }

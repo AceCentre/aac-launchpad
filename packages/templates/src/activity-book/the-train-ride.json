@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "The Train Ride Book",
   "activityType": "Activity Book",
-  "category": "Reading and Writing",
   "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/the-train-ride-book.png",
@@ -21,5 +20,8 @@
       "body": "1. Use switches to complete repeated lines of The Train Ride. \n2. Begin reading the book. \n3. Model switch use on the first repeated line \"We're off on a journey out of the town (what) shall I (see).\"\n4. Continue reading and pause so the switch user can fill in the gap."
     }
   ],
-  "tooltipText": "Use 2 switches to say the repeated line in the book"
+  "tooltipText": "Use 2 switches to say the repeated line in the book",
+  "categories": [
+    "Reading & Writing"
+  ]
 }

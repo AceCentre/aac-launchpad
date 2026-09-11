@@ -1,0 +1,28 @@
+{
+  "templateId": "connect-4",
+  "templateType": "guide",
+  "title": "Connect 4",
+  "activityType": "Activity Book",
+  "gear": 5,
+  "badgeText": "Gear 5",
+  "mainImage": "activity-book/connect-4.png",
+  "numberOfSwitches": 2,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "<b>two single or multi-message switches\nrecord:\n</b>\"next\" on one switch \n\"there\" on the other ",
+      "middleText2": "Connect 4 game"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "1. Set up a game of Connect 4 or display on computer or tablet.\n2. On the switch user's turn point to the first column.\n3. If they press \"next\", move to the next column. If they press \"there\", put their counter in that column.\n4. Keep playing until a player wins with 4 counters in a row!"
+    }
+  ],
+  "tooltipText": "Use 2 switches for CONNECT 4",
+  "categories": [
+    "Social",
+    "Games",
+    "Older Learners"
+  ]
+}

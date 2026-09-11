@@ -1,0 +1,25 @@
+{
+  "templateId": "beetle-drive",
+  "templateType": "guide",
+  "title": "Beetle Drive",
+  "activityType": "Activity Book",
+  "gear": 1,
+  "badgeText": "Gear 1",
+  "mainImage": "activity-book/beetle-drive.png",
+  "thirdImage": "activity-book/thirdImages/beetle-drive-2.png",
+  "numberOfSwitches": 1,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/switches/set-switches/all-turn-it.png",
+      "middleText1": "<b>switch-accessible spinner or die \nconnect: \na wired switch</b>",
+      "middleText2": "Beetle Drive game set or pen and paper"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "1. Set up a game of Beetle Drive or have pen and paper ready to draw the beetles.\n2. The switch user rolls the die by pressing their switch during the game.\nNB: If a spinner or die is not available, search YouTube for \"Roll a die\". Use a wired or wireless switch with a switch interface to start and pause the video so it acts like a die being thrown."
+    }
+  ],
+  "tooltipText": "Use a switch for BEETLE DRIVE",
+  "categories": ["Social", "Games", "Older Learners"]
+}

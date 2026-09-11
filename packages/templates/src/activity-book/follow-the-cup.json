@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Follow the Cup",
   "activityType": "Activity Book",
-  "category": "Games",
   "gear": 5,
   "badgeText": "Gear 5",
   "mainImage": "activity-book/follow-the-cup.png",
@@ -21,5 +20,9 @@
       "body": "1. Arrange 4 cups upside down where the switch user can see them.\n2. Hide the prize under a cup and mix them up.\n3. Point to the first cup; if they press \"next\", move to the next.\n4. If they press \"under there!\", lift that cup.\n5. If they find the prize, they get to keep it!"
     }
   ],
-  "tooltipText": "Use 2 switches to scan through cups to find the hidden chocolate coin!"
+  "tooltipText": "Use 2 switches to scan through cups to find the hidden chocolate coin!",
+  "categories": [
+    "Games",
+    "Older Learners"
+  ]
 }

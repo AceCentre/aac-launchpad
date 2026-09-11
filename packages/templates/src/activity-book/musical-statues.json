@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Musical Statues",
   "activityType": "Activity Book",
-  "category": "Music",
   "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/musical-statues.png",
@@ -21,5 +20,10 @@
       "body": "1. Play some music and start dancing.\n2. When the switch user presses \"freeze!\", pause the music and everyone stops.\n3. Restart the music and dance again when the switch user presses \"dance!\""
     }
   ],
-  "tooltipText": "Use 2 switches to play a game of musical statues, controlling when the music starts and stops"
+  "tooltipText": "Use 2 switches to play a game of musical statues, controlling when the music starts and stops",
+  "categories": [
+    "Social",
+    "Games",
+    "Music"
+  ]
 }

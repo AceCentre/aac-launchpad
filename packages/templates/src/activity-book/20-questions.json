@@ -1,0 +1,28 @@
+{
+  "templateId": "20-questions",
+  "templateType": "guide",
+  "title": "20 Questions",
+  "activityType": "Activity Book",
+  "gear": 3,
+  "badgeText": "Gear 3",
+  "mainImage": "activity-book/20-questions.png",
+  "numberOfSwitches": 2,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "<b>two single or multi-message switches\nrecord:\n</b>\"yes\" on one switch \n\"no\" on the other ",
+      "middleText2": ""
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "1. Ask the switch user to think of a person, place, or thing.\n2. Take turns asking questions to work out what they are thinking of.\n3. The switch user uses their switch to answer yes or no.\n4. Award a point for each question answered before the correct answer is guessed.\n5. For a competitive version, play in two teams and see which team scores the most points."
+    }
+  ],
+  "tooltipText": "Use 2 switches for 20 QUESTIONS",
+  "categories": [
+    "Social",
+    "Games",
+    "Older Learners"
+  ]
+}

@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Headbandz",
   "activityType": "Activity Book",
-  "category": "Games",
   "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/headbandz.png",
@@ -21,5 +20,10 @@
       "body": "1. The switch user answers yes or no with their switches to help you guess the picture.\n2. More answers mean more points for the switch user!\n3. Play in two teams if you want a competitive version."
     }
   ],
-  "tooltipText": "Use 2 switches to answer yes/no questions in a game of HeadBandz"
+  "tooltipText": "Use 2 switches to answer yes/no questions in a game of HeadBandz",
+  "categories": [
+    "Social",
+    "Games",
+    "Older Learners"
+  ]
 }

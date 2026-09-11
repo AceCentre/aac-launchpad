@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Who's Calling?!",
   "activityType": "Activity Book",
-  "category": "Funny",
   "gear": 1,
   "badgeText": "Gear 1",
   "mainImage": "activity-book/whos-calling.png",
@@ -20,5 +19,9 @@
       "body": "1. The switch user pranks people by pressing the switch to make the ring tone play.\n2. Encourage them to press again with comments like \"who's phone\nkeeps ringing?\" or \"not again!\""
     }
   ],
-  "tooltipText": "Prank people by making a phone ringtone noise with the switch!"
+  "tooltipText": "Prank people by making a phone ringtone noise with the switch!",
+  "categories": [
+    "Social",
+    "Funny"
+  ]
 }

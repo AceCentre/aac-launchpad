@@ -5,7 +5,7 @@ import { WEB_TEMPLATES } from "templates";
 import { GUIDE_TEMPLATES } from "templates";
 import express, { Request } from "express";
 import http from "http";
-import { Template, AllTemplateVariable, Result } from "types";
+import { Template, AllTemplateVariable, Result, getGuideCategories } from "types";
 import boardToPdf from "board-to-pdf";
 import { guideToPdf } from "board-to-pdf";
 import templateToBoard from "template-to-board";
@@ -25,7 +25,7 @@ const client = new PostHog("phc_Nlj20BgEB3vtw36wCPHFpTTVqpmvEzfD3IrG5zw7B2h");
 const getResults = (
   template: Template,
   templateResults: any,
-  presetOverrides: any,
+  presetOverrides: any
 ): Array<Result> => {
   // First, resolve preset values
   const resolvedPresets: { [key: string]: string } = {};
@@ -36,7 +36,7 @@ const getResults = (
       const presetVariable = variable as any; // Cast to access presets
 
       const selectedPreset = presetVariable.presets.find(
-        (preset: any) => preset.value === presetValue,
+        (preset: any) => preset.value === presetValue
       );
 
       if (selectedPreset) {
@@ -114,7 +114,7 @@ const addTypenameToTemplate = (template: Template): any => {
           ...templateVariable,
           __typename: templateMap[templateVariable.type],
         };
-      },
+      }
     ),
   };
 };
@@ -136,7 +136,7 @@ const resolvers = {
     },
     template: (_: null, { id }: { id: string }) => {
       return WEB_TEMPLATES.map(addTypenameToTemplate).find(
-        (x: { templateId: string }) => x.templateId === id,
+        (x: { templateId: string }) => x.templateId === id
       );
     },
   },
@@ -145,7 +145,7 @@ const resolvers = {
     generateBoard: async (
       _: undefined,
       input: GenerateBoardInput,
-      context: any,
+      context: any
     ) => {
       const mutationStartTime = process.hrtime();
 
@@ -166,7 +166,7 @@ const resolvers = {
           .digest("hex");
       const fileLocation = new URL(
         `/boards/${fileHash}.pdf`,
-        getBaseUrl(),
+        getBaseUrl()
       ).toString();
 
       // Technically, this is vulnerable to a timing attack. I think the data we are risking
@@ -223,7 +223,7 @@ const resolvers = {
       }
 
       const template = WEB_TEMPLATES.find(
-        (x) => x.templateId === input.templateId,
+        (x) => x.templateId === input.templateId
       );
 
       if (!template) {
@@ -250,7 +250,7 @@ const resolvers = {
       });
 
       console.log(
-        `Board generation (${board.id}) ${totalSeconds}.${totalNanoSeconds}s`,
+        `Board generation (${board.id}) ${totalSeconds}.${totalNanoSeconds}s`
       );
 
       const writeStartTime = process.hrtime();
@@ -263,20 +263,20 @@ const resolvers = {
 
       fs.writeFileSync(
         path.join("./public/boards", `${fileHash}.pdf`),
-        Buffer.from(pdf),
+        Buffer.from(pdf)
       );
 
       const [writeSeconds, writeNanoSeconds] = process.hrtime(writeStartTime);
 
       console.log(
-        `Write to disk took (${board.id}) ${writeSeconds}.${writeNanoSeconds}s`,
+        `Write to disk took (${board.id}) ${writeSeconds}.${writeNanoSeconds}s`
       );
 
       const [mutationSeconds, mutationNanoSeconds] =
         process.hrtime(mutationStartTime);
 
       console.log(
-        `Mutation took (${board.id}) ${mutationSeconds}.${mutationNanoSeconds}s`,
+        `Mutation took (${board.id}) ${mutationSeconds}.${mutationNanoSeconds}s`
       );
 
       const fullTimeInMs =
@@ -317,7 +317,7 @@ const resolvers = {
     generateGuide: async (
       _: undefined,
       input: { templateId: string },
-      context: any,
+      context: any
     ) => {
       const mutationStartTime = process.hrtime();
 
@@ -326,7 +326,7 @@ const resolvers = {
         .toString("hex")}`;
       const fileLocation = new URL(
         `/boards/${fileHash}.pdf`,
-        getBaseUrl(),
+        getBaseUrl()
       ).toString();
 
       // Check if guide already exists in cache
@@ -340,7 +340,7 @@ const resolvers = {
       }
 
       const guide = GUIDE_TEMPLATES.find(
-        (x) => x.templateId === input.templateId,
+        (x) => x.templateId === input.templateId
       );
 
       if (!guide) {
@@ -357,7 +357,10 @@ const resolvers = {
         if (!fs.existsSync(boardsDir)) {
           fs.mkdirSync(boardsDir, { recursive: true });
         }
-        fs.writeFileSync(path.join(boardsDir, `${fileHash}.pdf`), pdfBuffer);
+        fs.writeFileSync(
+          path.join(boardsDir, `${fileHash}.pdf`),
+          pdfBuffer
+        );
 
         const [mutationSeconds, mutationNanoSeconds] =
           process.hrtime(mutationStartTime);
@@ -374,7 +377,7 @@ const resolvers = {
       } catch (error) {
         console.error(`Error generating guide ${input.templateId}:`, error);
         throw new Error(
-          `Failed to generate guide: ${(error as Error).message}`,
+          `Failed to generate guide: ${(error as Error).message}`
         );
       }
     },
@@ -394,7 +397,7 @@ const ACCEPTED_MIME_TYPES = ["image/jpeg", "image/png"];
 const fileFilter = (
   req: Request,
   file: Express.Multer.File,
-  cb: multer.FileFilterCallback,
+  cb: multer.FileFilterCallback
 ): void => {
   const mimeType = file.mimetype.toLowerCase();
 
@@ -448,7 +451,7 @@ async function setupServer() {
         "https://www.acecentre.org.uk",
       ],
       credentials: true,
-    }),
+    })
   );
   app.use(cookieParser());
   app.use(express.json());
@@ -512,7 +515,7 @@ async function setupServer() {
           console.log("User photo saved to:", files.userPhoto[0].path);
           console.log(
             "User photo exists:",
-            fs.existsSync(files.userPhoto[0].path),
+            fs.existsSync(files.userPhoto[0].path)
           );
         }
 
@@ -521,7 +524,7 @@ async function setupServer() {
           console.log("Device photo saved to:", files.devicePhoto[0].path);
           console.log(
             "Device photo exists:",
-            fs.existsSync(files.devicePhoto[0].path),
+            fs.existsSync(files.devicePhoto[0].path)
           );
         }
 
@@ -538,7 +541,7 @@ async function setupServer() {
           error: "Failed to upload photos",
         });
       }
-    },
+    }
   );
 
   app.get("/test-cors", (req, res) => {
@@ -564,7 +567,7 @@ async function setupServer() {
       `${boardId}-${date.toISOString()}.docx`,
       {
         root: "./public/boards",
-      },
+      }
     );
   });
 
@@ -577,22 +580,26 @@ async function setupServer() {
       `${boardId}-${date.toISOString()}.zip`,
       {
         root: "./public/boards",
-      },
+      }
     );
   });
 
   app.get("/api/activity-book", (req, res) => {
     try {
-      const guides = GUIDE_TEMPLATES.map((guide) => ({
-        templateId: guide.templateId,
-        title: guide.title,
-        activityType: guide.activityType,
-        category: guide.category,
-        badgeText: guide.badgeText,
-        mainImage: guide.mainImage,
-        sections: guide.sections,
-        tooltipText: (guide as any).tooltipText, // Include tooltipText from guide data
-      }));
+      const guides = GUIDE_TEMPLATES.map((guide) => {
+        const categories = getGuideCategories(guide);
+        return {
+          templateId: guide.templateId,
+          title: guide.title,
+          activityType: guide.activityType,
+          categories,
+          category: categories[0],
+          badgeText: guide.badgeText,
+          mainImage: guide.mainImage,
+          sections: guide.sections,
+          tooltipText: (guide as any).tooltipText, // Include tooltipText from guide data
+        };
+      });
 
       res.json(guides);
     } catch (error) {
@@ -604,8 +611,8 @@ async function setupServer() {
   app.get("/api/activity-book/categories", (req, res) => {
     try {
       const categories = Array.from(
-        new Set(GUIDE_TEMPLATES.map((guide) => guide.category)),
-      ).filter(Boolean);
+        new Set(GUIDE_TEMPLATES.flatMap((guide) => getGuideCategories(guide))),
+      ).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
       res.json(categories);
     } catch (error) {
       console.error("Error fetching guide categories:", error);
@@ -617,14 +624,14 @@ async function setupServer() {
     try {
       const switchesDir = path.join(
         __dirname,
-        "../public/activity-book/switches",
+        "../public/activity-book/switches"
       );
       const files = fs.readdirSync(switchesDir);
       const imageFiles = files.filter(
         (file) =>
           file.toLowerCase().endsWith(".png") ||
           file.toLowerCase().endsWith(".jpg") ||
-          file.toLowerCase().endsWith(".jpeg"),
+          file.toLowerCase().endsWith(".jpeg")
       );
 
       const switchImages = imageFiles.map((file) => ({
@@ -668,7 +675,7 @@ async function setupServer() {
         userName,
         activityBookTitle: guide.title,
         activityBookLevel: guide.badgeText,
-        activityBookCategory: guide.category,
+        activityBookCategory: getGuideCategories(guide)[0],
         userPhotoPath: req.body.userPhotoPath,
         devicePhotoPath: req.body.devicePhotoPath,
       });
@@ -686,7 +693,7 @@ async function setupServer() {
       const coverPdf = await PDFDocument.load(coverPdfBuffer);
       const coverPages = await mergedPdf.copyPages(
         coverPdf,
-        coverPdf.getPageIndices(),
+        coverPdf.getPageIndices()
       );
       coverPages.forEach((page) => mergedPdf.addPage(page));
 
@@ -694,7 +701,7 @@ async function setupServer() {
       const activityPdf = await PDFDocument.load(activityBookPdf);
       const activityPages = await mergedPdf.copyPages(
         activityPdf,
-        activityPdf.getPageIndices(),
+        activityPdf.getPageIndices()
       );
       activityPages.forEach((page) => mergedPdf.addPage(page));
 
@@ -719,7 +726,7 @@ async function setupServer() {
         message: "Activity book with cover generated!",
         pdfLocation: new URL(
           `/boards/${fileHash}.pdf`,
-          getBaseUrl(),
+          getBaseUrl()
         ).toString(),
       });
     } catch (error) {
@@ -762,85 +769,29 @@ async function setupServer() {
       let preStoredPath: string | null = null;
 
       if (isSelectAll) {
-        const pickNewestFile = (paths: string[]): string | null => {
-          let newestPath: string | null = null;
-          let newestMtime = -1;
-          for (const p of paths) {
-            try {
-              const mtime = fs.statSync(p).mtimeMs;
-              if (mtime > newestMtime) {
-                newestMtime = mtime;
-                newestPath = p;
-              }
-            } catch {
-              // Ignore files that disappear between readdir/stat.
-            }
-          }
-          return newestPath;
-        };
-
-        // Prefer versioned filenames from older builds; Docker now emits fixed names too.
-        const getLatestDefaultAllGuides = (): string | null => {
-          if (!fs.existsSync(boardsDirAbs)) return null;
-          const files = fs.readdirSync(boardsDirAbs);
-          const matches = files
-            .filter(
-              (f) =>
-                f.startsWith("activity-book-all-guides-") &&
-                f.endsWith(".pdf") &&
-                !f.includes("-switch-"),
-            )
-            .map((f) => path.join(boardsDirAbs, f));
-          return pickNewestFile(matches);
-        };
-
-        const getLatestSwitchAllGuides = (
-          switchName: string,
-        ): string | null => {
-          if (!fs.existsSync(boardsDirAbs)) return null;
-          const files = fs.readdirSync(boardsDirAbs);
-          const matches = files
-            .filter(
-              (f) =>
-                f.startsWith("activity-book-all-guides-") &&
-                f.endsWith(`-switch-${switchName}.pdf`),
-            )
-            .map((f) => path.join(boardsDirAbs, f));
-          return pickNewestFile(matches);
-        };
-
-        const legacyDefaultPath = path.join(
+        const defaultPath = path.join(
           boardsDirAbs,
-          "activity-book-all-guides.pdf",
+          "activity-book-all-guides.pdf"
         );
-        const legacySwitchBase = (switchName: string) =>
-          path.join(
-            boardsDirAbs,
-            `activity-book-all-guides-switch-${switchName}.pdf`,
-          );
-
         if (selectedSwitchImage) {
           const switchName = path.basename(
             selectedSwitchImage,
-            path.extname(selectedSwitchImage),
+            path.extname(selectedSwitchImage)
           );
-
-          // BIGmack is the default in guides – use the default all-guides PDF.
-          if (switchName === "BIGmack") {
-            preStoredPath =
-              getLatestDefaultAllGuides() ??
-              (fs.existsSync(legacyDefaultPath) ? legacyDefaultPath : null);
+          // BIGmack is the default in guides – use default PDF
+          if (switchName === "BIGmack" && fs.existsSync(defaultPath)) {
+            preStoredPath = defaultPath;
           } else {
-            preStoredPath =
-              getLatestSwitchAllGuides(switchName) ??
-              (fs.existsSync(legacySwitchBase(switchName))
-                ? legacySwitchBase(switchName)
-                : null);
+            const candidatePath = path.join(
+              boardsDirAbs,
+              `activity-book-all-guides-switch-${switchName}.pdf`
+            );
+            if (fs.existsSync(candidatePath)) {
+              preStoredPath = candidatePath;
+            }
           }
-        } else {
-          preStoredPath =
-            getLatestDefaultAllGuides() ??
-            (fs.existsSync(legacyDefaultPath) ? legacyDefaultPath : null);
+        } else if (fs.existsSync(defaultPath)) {
+          preStoredPath = defaultPath;
         }
       }
 
@@ -875,13 +826,13 @@ async function setupServer() {
         // Use pdftk to merge on disk - avoids loading 424MB into memory (OOM)
         const coverTempPath = path.join(
           boardsDir,
-          `cover-temp-${crypto.randomBytes(8).toString("hex")}.pdf`,
+          `cover-temp-${crypto.randomBytes(8).toString("hex")}.pdf`
         );
         fs.writeFileSync(coverTempPath, coverPdfBuffer);
         try {
           execSync(
             `pdftk "${coverTempPath}" "${preStoredPath}" cat output "${pdfPath}"`,
-            { maxBuffer: 50 * 1024 * 1024 },
+            { maxBuffer: 50 * 1024 * 1024 }
           );
         } finally {
           fs.unlinkSync(coverTempPath);
@@ -892,26 +843,12 @@ async function setupServer() {
         const coverPdf = await PDFDocument.load(coverPdfBuffer);
         const coverPages = await finalPdf.copyPages(
           coverPdf,
-          coverPdf.getPageIndices(),
+          coverPdf.getPageIndices()
         );
         coverPages.forEach((page) => finalPdf.addPage(page));
 
-        const gearOrderIndex = new Map(
-          GUIDE_TEMPLATES.map((g, i) => [g.templateId, i]),
-        );
-        const templateIdsInGearOrder = [...templateIds].sort((a, b) => {
-          const ia = gearOrderIndex.get(a);
-          const ib = gearOrderIndex.get(b);
-          if (ia === undefined && ib === undefined) return a.localeCompare(b);
-          if (ia === undefined) return 1;
-          if (ib === undefined) return -1;
-          return ia - ib;
-        });
-
-        for (const templateId of templateIdsInGearOrder) {
-          const guide = GUIDE_TEMPLATES.find(
-            (g) => g.templateId === templateId,
-          );
+        for (const templateId of templateIds) {
+          const guide = GUIDE_TEMPLATES.find((g) => g.templateId === templateId);
           if (!guide) {
             console.log(`Guide not found: ${templateId}`);
             continue;
@@ -939,7 +876,7 @@ async function setupServer() {
           const guidePdf = await PDFDocument.load(pdfBuffer);
           const guidePages = await finalPdf.copyPages(
             guidePdf,
-            guidePdf.getPageIndices(),
+            guidePdf.getPageIndices()
           );
           guidePages.forEach((page) => finalPdf.addPage(page));
         }

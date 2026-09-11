@@ -1,0 +1,28 @@
+{
+  "templateId": "word-puzzle",
+  "templateType": "guide",
+  "title": "Word Puzzle",
+  "activityType": "Activity Book",
+  "gear": 5,
+  "badgeText": "Gear 5",
+  "mainImage": "activity-book/word-puzzle.png",
+  "thirdImage": "activity-book/thirdImages/word-puzzle-2.png",
+  "numberOfSwitches": 2,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "<b>two single or multi-message switches\nrecord:\n</b>\"next\" on one switch \n\"that letter\" on the other ",
+      "middleText2": "pen and paper or a phone/tablet with an online word game"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "1. Set up a word puzzle where letters have to be guessed e.g. hangman\n2. Start at the beginning of the alphabet and say \"A\"\n3. If the switch user presses \"next\", move onto the next letter in the alphabet\n4. If they press \"that letter\", use that letter for their turn in the game\n5. Carry on until they win or lose!"
+    }
+  ],
+  "tooltipText": "Use 2 switches for WORD PUZZLE",
+  "categories": [
+    "Games",
+    "Older Learners"
+  ]
+}

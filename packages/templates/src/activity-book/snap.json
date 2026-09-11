@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "SNAP!",
   "activityType": "Activity Book",
-  "category": "Games",
   "gear": 5,
   "badgeText": "Gear 5",
   "mainImage": "activity-book/snap.png",
@@ -21,5 +20,10 @@
       "body": "1. Lay down a card or a motivating image.\n2. When the switch user presses \"next\", place another card on top of the previous one to form a pile.\n3. When two identical cards appear after each other, the switch user can press \"snap!\" to win a point."
     }
   ],
-  "tooltipText": "Use 2 switches to scan through motivating images to play the matching game 'Snap!'"
+  "tooltipText": "Use 2 switches to scan through motivating images to play the matching game 'Snap!'",
+  "categories": [
+    "Social",
+    "Games",
+    "Older Learners"
+  ]
 }

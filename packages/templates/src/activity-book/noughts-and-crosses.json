@@ -1,0 +1,29 @@
+{
+  "templateId": "noughts-and-crosses",
+  "templateType": "guide",
+  "title": "Noughts and Crosses",
+  "activityType": "Activity Book",
+  "gear": 5,
+  "badgeText": "Gear 5",
+  "mainImage": "activity-book/noughts-and-crosses.png",
+  "thirdImage": "activity-book/thirdImages/noughts-and-crosses-2.png",
+  "numberOfSwitches": 2,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "<b>two single or multi-message switches\nrecord:\n</b>\"next\" on one switch \n\"there\" on the other ",
+      "middleText2": "pen and paper"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "1. Draw a noughts and crosses grid.\n2. On the switch user's turn, point to the first empty square.\n3. If they presses \"next\", move to the next empty square. If they press \"there\", place their mark in that square.\n4. Keep playing until a player wins with 3 marks in a row!"
+    }
+  ],
+  "tooltipText": "Use 2 switches for NOUGHTS AND CROSSES",
+  "categories": [
+    "Social",
+    "Games",
+    "Older Learners"
+  ]
+}

@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "DJ",
   "activityType": "Activity Book",
-  "category": "Music",
   "gear": 5,
   "badgeText": "Gear 5",
   "mainImage": "activity-book/DJ.png",
@@ -18,8 +17,13 @@
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "1.  The switch user creates their own playlist for any occasion.\n2.  Play a song or say an artist\u2019s name.\n3.  If they choose \"next\", move to a new song or artist.\n4.  If they choose \"add to the list\", add the current song or artist to the playlist."
+      "body": "1.  The switch user creates their own playlist for any occasion.\n2.  Play a song or say an artist’s name.\n3.  If they choose \"next\", move to a new song or artist.\n4.  If they choose \"add to the list\", add the current song or artist to the playlist."
     }
   ],
-  "tooltipText": "Use 2 switches to scan through different songs and create a custom playlist"
+  "tooltipText": "Use 2 switches to scan through different songs and create a custom playlist",
+  "categories": [
+    "Social",
+    "Music",
+    "Older Learners"
+  ]
 }

@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Next Page",
   "activityType": "Activity Book",
-  "category": "Reading and Writing",
   "gear": 1,
   "badgeText": "Gear 1",
   "mainImage": "activity-book/next-page.png",
@@ -21,5 +20,9 @@
       "body": "1. Ask the switch user choose a book they want to read.\n2. Read aloud, pausing at the end of each page for them to press their switch to \"turn the page\".\n3. If they press early, still turn the page so they learn their switch has an effect."
     }
   ],
-  "tooltipText": "Activate the switch to turn the page of a book"
+  "tooltipText": "Activate the switch to turn the page of a book",
+  "categories": [
+    "Reading & Writing",
+    "Older Learners"
+  ]
 }

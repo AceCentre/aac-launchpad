@@ -1,0 +1,27 @@
+{
+  "templateId": "dream-house",
+  "templateType": "guide",
+  "title": "Dream House",
+  "activityType": "Activity Book",
+  "gear": 3,
+  "badgeText": "Gear 3",
+  "mainImage": "activity-book/dream-house.png",
+  "thirdImage": "activity-book/thirdImages/dream-house-2.png",
+  "numberOfSwitches": 2,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "<b>two single or multi-message switches</b>\n<b>record</b>:\n\"buy it!\" on one switch \n\"no way!\" on the other ",
+      "middleText2": "home interiors catalogue, website or visit a shop"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "1. Invite the switch user to be the judge whether items would go in their dream house.\n2. Look at a range of items.\n3. The switch user presses a switch to respond with either \"buy it\"\" or \"no way!"
+    }
+  ],
+  "tooltipText": "Use 2 switches for DREAM HOUSE",
+  "categories": [
+    "Older Learners"
+  ]
+}

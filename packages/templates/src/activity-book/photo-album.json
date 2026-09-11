@@ -1,0 +1,28 @@
+{
+  "templateId": "photo-album",
+  "templateType": "guide",
+  "title": "Photo Album",
+  "activityType": "Activity Book",
+  "gear": 4,
+  "badgeText": "Gear 4",
+  "mainImage": "activity-book/photo-album.png",
+  "thirdImage": "activity-book/thirdImages/photo-album-2.png",
+  "numberOfSwitches": 2,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "<b>two single or multi-message switches\nrecord:\n</b>\"next\" on one switch \n\"add to album\" on the other ",
+      "middleText2": "A phone or tablet with photos from an event or activity the switch user took part in"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "1. Invite the switch user to create a photo album about the event or activity.\n2. Show one photo at a time.\n3. If the switch user presses \"Next\", show the next photo.\n4. If they press \"Add to album\", add the photo to the album.\n5. Look through the finished album together and share it with others if you wish."
+    }
+  ],
+  "tooltipText": "Use 2 switches for PHOTO ALBUM",
+  "categories": [
+    "Social",
+    "Older Learners"
+  ]
+}

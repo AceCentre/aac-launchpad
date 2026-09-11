@@ -1,0 +1,28 @@
+{
+  "templateId": "swipe",
+  "templateType": "guide",
+  "title": "Swipe!",
+  "activityType": "Activity Book",
+  "gear": 1,
+  "badgeText": "Gear 1",
+  "mainImage": "activity-book/swipe.png",
+  "thirdImage": "activity-book/thirdImages/swipe-2.png",
+  "numberOfSwitches": 1,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "<b>a single or multi-message switch\nrecord</b> \"swipe!\" on it ",
+      "middleText2": "a phone or tablet with apps such as Instagram, TickTok"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "1. Ask the switch user to choose the app they want to look at.\n2. Turn off 'automatic play' in the apps' settings.\n3. Look at the content together, pause for them to press their switch to tell you to \"swipe\" to the next photo/reel etc.\n4. If they press early, still swipe so they learn their switch has an effect."
+    }
+  ],
+  "tooltipText": "Use a switch for SWIPE!",
+  "categories": [
+    "Social",
+    "Older Learners"
+  ]
+}

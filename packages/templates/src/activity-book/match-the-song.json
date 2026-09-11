@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Match the Song",
   "activityType": "Activity Book",
-  "category": "Music",
   "gear": 5,
   "badgeText": "Gear 5",
   "mainImage": "activity-book/match-the-song.png",
@@ -22,5 +21,10 @@
       "body": "1. The switch user's music knowledge is put to the test.\n2. Play a song, hold up and read out the singer/band card e.g. \"Little Mix\".\n3. If the switch user presses \"next\", put the picture down and show the next one.\n4. If they press \"that's the singer!\", check their guess and give a point if correct."
     }
   ],
-  "tooltipText": "Play a song and use 2 switches to scan through images of singers/bands to play a music trivia game!"
+  "tooltipText": "Play a song and use 2 switches to scan through images of singers/bands to play a music trivia game!",
+  "categories": [
+    "Games",
+    "Music",
+    "Older Learners"
+  ]
 }

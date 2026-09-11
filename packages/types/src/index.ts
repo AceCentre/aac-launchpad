@@ -283,11 +283,11 @@ export interface GuideLink {
 
 export interface GuideSection {
   heading?: string;
-  body: string;
+  body?: string;
   image?: string; // path or URL
   links?: GuideLink[]; // array of links within this section
-  middleText1?: string; // optional text for first middle column row (WHAT YOU'LL NEED table)
-  middleText2?: string; // optional text for second middle column row
+  middleText1?: string; // first middle column row (WHAT YOU'LL NEED table)
+  middleText2?: string; // second middle column row
 }
 
 export interface GuideTemplate {
@@ -295,7 +295,9 @@ export interface GuideTemplate {
   templateType: "guide";
   title: string;
   activityType?: string;
+  /** @deprecated Use categories instead. */
   category?: string;
+  categories?: string[];
   /**
    * @deprecated Use 'gear' instead.
    */
@@ -307,7 +309,7 @@ export interface GuideTemplate {
   thirdImage?: string; // path or URL for additional image below horizontal layout
   fourthImage?: string; // path or URL for second row image (used with thirdImage)
   actionCardImages?: string[]; // array of action card image paths for additional pages
-  /** Single PDF appended after the guide (e.g. multi-card sheet). Skips per-image actionCardImages when set. */
+  /** Single PDF appended after the guide (e.g. multi-card sheet). Skips actionCardImages when set. */
   actionCardPdf?: string;
   /** Line height (jsPDF units) for extraPages bullet items; default 8. */
   extraPagesLineHeight?: number;
@@ -320,4 +322,17 @@ export interface GuideTemplate {
   }>; // array of text-based extra pages
   sections: GuideSection[];
   tooltipText?: string; // custom text to display in tooltip on hover
+}
+
+/** Resolve category tags from categories[] or legacy single category field. */
+export function getGuideCategories(
+  guide: Pick<GuideTemplate, "category" | "categories">,
+): string[] {
+  if (guide.categories && guide.categories.length > 0) {
+    return guide.categories;
+  }
+  if (guide.category) {
+    return [guide.category];
+  }
+  return [];
 }

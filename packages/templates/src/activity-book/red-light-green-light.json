@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Red Light, Green Light",
   "activityType": "Activity Book",
-  "category": "Games",
   "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/red-light-green-light.png",
@@ -21,5 +20,9 @@
       "body": "1. The person playing with the switch user stands at the opposite end of the room.\n2. When the switch user presses \"green light\", the person begins to walk or run toward them.\n3. When the switch user presses \"red light\", they must stop immediately or lose a point."
     }
   ],
-  "tooltipText": "Activate 2 switches to control the game, \"red light\" means stay still, \"green light\" means go!"
+  "tooltipText": "Activate 2 switches to control the game, \"red light\" means stay still, \"green light\" means go!",
+  "categories": [
+    "Social",
+    "Games"
+  ]
 }

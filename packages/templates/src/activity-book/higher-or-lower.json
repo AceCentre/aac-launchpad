@@ -1,0 +1,29 @@
+{
+  "templateId": "higher-or-lower",
+  "templateType": "guide",
+  "title": "Higher or Lower?",
+  "activityType": "Activity Book",
+  "gear": 3,
+  "badgeText": "Gear 3",
+  "mainImage": "activity-book/higher-or-lower.png",
+  "thirdImage": "activity-book/thirdImages/higher-or-lower-2.png",
+  "numberOfSwitches": 2,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "<b>two single or multi-message switches\nrecord:\n</b>\"higher\" on one switch \n\"lower\" on the other ",
+      "middleText2": "deck of playing cards"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "1. Hold up a card.\n2. Ask the switch user \"Do you think the next card will be higher or lower?\"\n3. The switch user makes their guess \"higher\" or \"lower\" using their switches."
+    }
+  ],
+  "tooltipText": "Use 2 switches for HIGHER OR LOWER?",
+  "categories": [
+    "Social",
+    "Games",
+    "Older Learners"
+  ]
+}

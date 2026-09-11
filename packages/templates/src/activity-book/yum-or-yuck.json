@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Yum or Yuck",
   "activityType": "Activity Book",
-  "category": "Cooking/arts and Crafts",
   "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/yum-or-yuck.png",
@@ -21,5 +20,10 @@
       "body": "1. The switch user creates a yummy or yucky snack by choosing ingredients.\n2. Hold up one yummy and one yucky item, e.g. cheese and a toy spider.\n3. Ask, \"Shall we put the yummy cheese on our sandwich or the yucky spider?\"\n4. If the switch user presses \"yum\", add the yummy item.\n5. If they press \"yuck\", add the yucky item instead."
     }
   ],
-  "tooltipText": "Use 2 switches to create a fake snack that is as yummy or yucky as they like."
+  "tooltipText": "Use 2 switches to create a fake snack that is as yummy or yucky as they like.",
+  "categories": [
+    "Games",
+    "Funny",
+    "Cooking & Crafts"
+  ]
 }

@@ -1,0 +1,27 @@
+{
+  "templateId": "watching-sports",
+  "templateType": "guide",
+  "title": "Watching Sports",
+  "activityType": "Activity Book",
+  "gear": 1,
+  "badgeText": "Gear 1",
+  "mainImage": "activity-book/watching-sports.png",
+  "numberOfSwitches": 1,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "<b>a single or multi-message switch\nrecord</b> a sports phrase \ne.g. \"GO [TEAM NAME]!\"",
+      "middleText2": "a sports match - go to the match or watch live"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "1. The switch user cheers for their team while watching the match with friends/family.\n2. Change the recorded phrase to the team chant/song to celebrate if you win!"
+    }
+  ],
+  "tooltipText": "Use a switch for WATCHING SPORTS",
+  "categories": [
+    "Social",
+    "Older Learners"
+  ]
+}

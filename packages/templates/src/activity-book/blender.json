@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Blender",
   "activityType": "Activity Book",
-  "category": "Cooking/arts and Crafts",
   "gear": 1,
   "badgeText": "Gear 1",
   "mainImage": "activity-book/Bllender.png",
@@ -21,5 +20,9 @@
       "body": "1. Set the appliance controller to run the blender for 5 seconds using the timed setting.\n2. Prompt the switch user to press their switch to blend their smoothie or soup.\n3. They may need to press it a few times until it is fully blended."
     }
   ],
-  "tooltipText": "Use an appliance controller to turn on a blender and make a smoothie"
+  "tooltipText": "Use an appliance controller to turn on a blender and make a smoothie",
+  "categories": [
+    "Cooking & Crafts",
+    "Older Learners"
+  ]
 }

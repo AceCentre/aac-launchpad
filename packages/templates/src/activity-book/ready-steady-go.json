@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Ready, Steady, Go!",
   "activityType": "Activity Book",
-  "category": "Games",
   "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/ready-steady-go.png",
@@ -21,5 +20,9 @@
       "body": "1. When the switch user presses \"ready, steady\", get the activity ready, e.g. shake their wheelchair like an engine starting.\n2. When they press \"go!\", complete the action, e.g. push their wheelchair towards the finish line."
     }
   ],
-  "tooltipText": "Activate 2 switches to say \"ready, steady\" and \"GO!\" to join in a race"
+  "tooltipText": "Activate 2 switches to say \"ready, steady\" and \"GO!\" to join in a race",
+  "categories": [
+    "Social",
+    "Games"
+  ]
 }
