@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Bigger or Smaller?",
   "activityType": "Activity Book",
-  "category": "Games",
   "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/bigger-or-smaller.png",
@@ -21,5 +20,9 @@
       "body": "1. Hold up a card. \n2. Ask the switch user \"Do you think the next card will show a bigger or smaller animal?\"\n3. The switch user makes their guess \"bigger\" or \"smaller\" using their switches."
     }
   ],
-  "tooltipText": "Use 2 switches to guess whether the next animal is going to be \"bigger\" or \"smaller\" than the one shown"
+  "tooltipText": "Use 2 switches to guess whether the next animal is going to be \"bigger\" or \"smaller\" than the one shown",
+  "categories": [
+    "Social",
+    "Games"
+  ]
 }

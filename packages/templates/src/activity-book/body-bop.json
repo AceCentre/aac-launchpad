@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Body Bop",
   "activityType": "Activity Book",
-  "category": "Music",
   "gear": 2,
   "badgeText": "Gear 2",
   "mainImage": "activity-book/body-bop.png",
@@ -21,5 +20,8 @@
       "body": "1. The goal is to find other body parts that can be used to activate a switch.\n2. Play motivating music for 10 seconds, then pause it.\n3. When the music stops, move the switch to a different body part\n4. Prompt the switch user to ask for more music.\n5. When the switch user presses the switch, restart the music for another 10 seconds."
     }
   ],
-  "tooltipText": "This game helps find a second body part to activate a switch using motivating music."
+  "tooltipText": "This game helps find a second body part to activate a switch using motivating music.",
+  "categories": [
+    "Music"
+  ]
 }

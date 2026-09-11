@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Applause and Boo",
   "activityType": "Activity Book",
-  "category": "Funny",
   "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/applause-and-boo.png",
@@ -20,5 +19,10 @@
       "body": "1. Invite the switch user to be the judge of jokes, dancing or anything funny. \n2. Perform your joke, dance, or talent. \n3.The switch user presses a switch to respond with either a round of applause or a boo."
     }
   ],
-  "tooltipText": "Use 2 switches to give a round of applause or boo"
+  "tooltipText": "Use 2 switches to give a round of applause or boo",
+  "categories": [
+    "Social",
+    "Games",
+    "Funny"
+  ]
 }

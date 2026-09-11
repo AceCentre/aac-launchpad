@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Dress Up for Two",
   "activityType": "Activity Book",
-  "category": "Funny",
   "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/dress-up-for-two.png",
@@ -21,5 +20,9 @@
       "body": "1. Hold up a dress-up item, such as funky sunglasses.\n2. The switch user presses a switch to choose who wears it e.g., \"Mum\"."
     }
   ],
-  "tooltipText": "Use 2 switches to choose who is going to dress up in what e.g \"Mum\" wears the glasses \"Dad\" wears the hat"
+  "tooltipText": "Use 2 switches to choose who is going to dress up in what e.g \"Mum\" wears the glasses \"Dad\" wears the hat",
+  "categories": [
+    "Social",
+    "Funny"
+  ]
 }

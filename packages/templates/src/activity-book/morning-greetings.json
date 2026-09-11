@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Morning Greetings",
   "activityType": "Activity Book",
-  "category": "Social",
   "gear": 1,
   "badgeText": "Gear 1",
   "mainImage": "activity-book/morning-greetings.png",
@@ -20,5 +19,8 @@
       "body": "1. The switch user greets people each morning, such as friends or family.\n2. Take it on a morning walk and greet people as they pass by."
     }
   ],
-  "tooltipText": "Greet people with the switch!"
+  "tooltipText": "Greet people with the switch!",
+  "categories": [
+    "Social"
+  ]
 }

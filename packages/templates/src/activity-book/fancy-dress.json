@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Fancy Dress",
   "activityType": "Activity Book",
-  "category": "Funny",
   "gear": 4,
   "badgeText": "Gear 4",
   "mainImage": "activity-book/fancy-dress.png",
@@ -13,7 +12,7 @@
     {
       "heading": "WHAT YOU'LL NEED TO PLAY",
       "image": "activity-book/switches/BIGmack.png",
-      "middleText1": "two single or multi-message switches\nrecord:\n\"next\" on one switch \n\u201cwear it\u201d on the other ",
+      "middleText1": "two single or multi-message switches\nrecord:\n\"next\" on one switch \n“wear it” on the other ",
       "middleText2": "selection of dress up items\nsomeone to dress up, which could be the switch user"
     },
     {
@@ -21,5 +20,8 @@
       "body": "1. Hold up a dress-up item.\n2. If the switch user presses \"next\", show the next item.\n3. If they press \"wear it\", the chosen person wears that item."
     }
   ],
-  "tooltipText": "Use 2 switches to scan through dress up items"
+  "tooltipText": "Use 2 switches to scan through dress up items",
+  "categories": [
+    "Funny"
+  ]
 }

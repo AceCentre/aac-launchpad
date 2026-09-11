@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Snakes and Ladders",
   "activityType": "Activity Book",
-  "category": "Games",
   "gear": 1,
   "badgeText": "Gear 1",
   "mainImage": "activity-book/snakes-and-ladders.png",
@@ -18,8 +17,12 @@
     },
     {
       "heading": "HOW TO PLAY",
-      "body": "1. Set up a game of Snakes and Ladders or display it on the smartboard for the class.\n2. The switch user rolls the die by pressing their switch during the game.\nNB: If a spinner or die is not available, search YouTube for \u201cRoll a die\u201d. Use a wired or wireless switch with a switch interface to start and pause the video so it acts like a die being thrown."
+      "body": "1. Set up a game of Snakes and Ladders or display it on the smartboard for the class.\n2. The switch user rolls the die by pressing their switch during the game.\nNB: If a spinner or die is not available, search YouTube for “Roll a die”. Use a wired or wireless switch with a switch interface to start and pause the video so it acts like a die being thrown."
     }
   ],
-  "tooltipText": "Use a switch accessible spinner or die to join in a game of Snakes and Ladders"
+  "tooltipText": "Use a switch accessible spinner or die to join in a game of Snakes and Ladders",
+  "categories": [
+    "Social",
+    "Games"
+  ]
 }

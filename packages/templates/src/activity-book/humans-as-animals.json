@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Humans as Animals",
   "activityType": "Activity Book",
-  "category": "Funny",
   "gear": 4,
   "badgeText": "Gear 4",
   "mainImage": "activity-book/humans-as-animals.png",
@@ -21,5 +20,9 @@
       "body": "1. Hold up each animal picture and say what's on the card, e.g. \"lion\".\n2. If the switch user presses \"next\", put the picture down and show the next one.\n3. If the switch user presses \"say it!\", make the animal sound for the picture you are holding, e.g. \"quack quack!\""
     }
   ],
-  "tooltipText": "Use 2 switches to scan through pictures of animals and choose which animal the other player must impersonate e.g choosing a cow the player must say \"moo\""
+  "tooltipText": "Use 2 switches to scan through pictures of animals and choose which animal the other player must impersonate e.g choosing a cow the player must say \"moo\"",
+  "categories": [
+    "Social",
+    "Funny"
+  ]
 }

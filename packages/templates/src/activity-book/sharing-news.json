@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Sharing News",
   "activityType": "Activity Book",
-  "category": "Social",
   "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/sharing-news.png",
@@ -20,5 +19,9 @@
       "body": "1. Decide with the switch user what news they want to share.\n2. The switch user presses the switch with a leading question e.g. \"guess what I did yesterday?\"\n3.  Then they press the switch with the response e.g. \"I went to the beach, it was so much fun!\"\n4. Another question can be added after the response to keep things going e.g. \"what did you get up to?\""
     }
   ],
-  "tooltipText": "Activate 2 switches to share news and ask questions"
+  "tooltipText": "Activate 2 switches to share news and ask questions",
+  "categories": [
+    "Social",
+    "Older Learners"
+  ]
 }

@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Who's Most Likely To?",
   "activityType": "Activity Book",
-  "category": "Social",
   "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/whos-most-likely-to.png",
@@ -53,5 +52,11 @@
         "Eat all the sweets?"
       ]
     }
+  ],
+  "categories": [
+    "Social",
+    "Games",
+    "Funny",
+    "Older Learners"
   ]
 }

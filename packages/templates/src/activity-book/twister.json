@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Twister",
   "activityType": "Activity Book",
-  "category": "Games",
   "gear": 1,
   "badgeText": "Gear 1",
   "mainImage": "activity-book/twister.png",
@@ -22,5 +21,9 @@
       "body": "1. Attach body-part images to the spinner. The switch user spins to choose the body part the player must use.\n2. Attach the Twister colour-dot images to the spinner and repeat to choose the colour the player places that body part on, e.g. right hand on a green spot.\nNB: If you do not have a spinner, use an online one. Many free, customisable options work with a switch and switch interface."
     }
   ],
-  "tooltipText": "Use a switch accessible spinner to join in on a game of Twister"
+  "tooltipText": "Use a switch accessible spinner to join in on a game of Twister",
+  "categories": [
+    "Social",
+    "Games"
+  ]
 }

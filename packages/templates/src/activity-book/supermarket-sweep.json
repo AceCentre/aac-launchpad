@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Supermarket Sweep",
   "activityType": "Activity Book",
-  "category": "Games",
   "gear": 5,
   "badgeText": "Gear 5",
   "mainImage": "activity-book/shopping-list.png",
@@ -22,5 +21,8 @@
       "body": "1.  Read the shopping list (up to five items) aloud to the switch user.\n2.  Hold up one item at a time and ask, \"Was this on our list?\"\n3.  If the switch user presses \"next\", show the next item.\n4.  If they press \"put it in the basket!\", place the item in the basket.\n5.  At the end, check the basket against the list. The switch user earns a point for each correct item."
     }
   ],
-  "tooltipText": "Create a shopping list and use 2 switches to scan through play food items and get as many items off the list as you can remember!"
+  "tooltipText": "Create a shopping list and use 2 switches to scan through play food items and get as many items off the list as you can remember!",
+  "categories": [
+    "Games"
+  ]
 }

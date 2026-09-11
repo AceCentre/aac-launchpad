@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Smoothie Maker",
   "activityType": "Activity Book",
-  "category": "Cooking/arts and Crafts",
   "gear": 4,
   "badgeText": "Gear 4",
   "mainImage": "activity-book/smoothie-maker.png",
@@ -22,5 +21,9 @@
       "body": "1. Hold up one ingredient at a time. \n2. If the switch user presses \"next,\" put it down and show the next one. \n3. If they press \"put it in the blender,\" place it into the blender. \n4. When all chosen ingredients are in the blender, the switch user can press the switch connected to the appliance controller to blend the smoothie."
     }
   ],
-  "tooltipText": "Use 2 switches to scan through ingredients. Then use an appliance controller to turn the blender on."
+  "tooltipText": "Use 2 switches to scan through ingredients. Then use an appliance controller to turn the blender on.",
+  "categories": [
+    "Cooking & Crafts",
+    "Older Learners"
+  ]
 }

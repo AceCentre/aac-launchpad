@@ -15,6 +15,7 @@ const PDF_IMG_MAX_ACTION_CARD = 1400;
 const PDF_IMG_MAX_LOGO = 200;
 
 type EmbeddedImage = { dataUri: string; format: "PNG" | "JPEG" };
+type TextSegment = { text: string; bold: boolean };
 
 // Sanitise text so it only contains characters in jsPDF's WinAnsi charset.
 function sanitiseText(text: string): string {
@@ -26,6 +27,118 @@ function sanitiseText(text: string): string {
     .replace(/\u2019/g, "'") // right single quote → apostrophe
     .replace(/\u201C/g, '"') // left double quote → straight quote
     .replace(/\u201D/g, '"'); // right double quote → straight quote
+}
+
+/** Split text on <b> / </b> into bold and normal segments. */
+function parseBoldSegments(raw: string): TextSegment[] {
+  const text = sanitiseText(raw);
+  const segments: TextSegment[] = [];
+  let bold = false;
+  let i = 0;
+  while (i < text.length) {
+    if (text.startsWith("<b>", i)) {
+      bold = true;
+      i += 3;
+      continue;
+    }
+    if (text.startsWith("</b>", i)) {
+      bold = false;
+      i += 4;
+      continue;
+    }
+    const rest = text.slice(i);
+    const tagAt = rest.search(/<\/?b>/);
+    const chunk = tagAt === -1 ? rest : rest.slice(0, tagAt);
+    if (chunk) {
+      const last = segments[segments.length - 1];
+      if (last && last.bold === bold) {
+        last.text += chunk;
+      } else {
+        segments.push({ text: chunk, bold });
+      }
+    }
+    i += chunk.length || 1;
+  }
+  return segments;
+}
+
+function isBoldMiddleLine(lower: string): boolean {
+  return (
+    lower.includes("two switches") ||
+    lower.startsWith("a switch") ||
+    lower.startsWith("record") ||
+    lower.startsWith("connect") ||
+    lower.includes("appliance controller") ||
+    lower.includes("switch-accessible spinner") ||
+    lower.includes("a wired switch") ||
+    lower.includes("a single or multi-message switch") ||
+    lower.includes("two single or multi-message switches")
+  );
+}
+
+/** Render middle-column text with optional inline <b> markup. Returns next Y. */
+function renderMiddleColumnText(params: {
+  doc: jsPDF;
+  text: string;
+  x: number;
+  y: number;
+  maxWidth: number;
+  lineHeight?: number;
+}): number {
+  const { doc, text, x, y, maxWidth, lineHeight = 5.5 } = params;
+  let currentY = y;
+
+  const drawLine = (lineSegments: TextSegment[]) => {
+    let xPos = x;
+    for (const seg of lineSegments) {
+      if (!seg.text) continue;
+      doc.setFontSize(12);
+      doc.setFont("helvetica", seg.bold ? "bold" : "normal");
+      doc.text(seg.text, xPos, currentY);
+      xPos += doc.getTextWidth(seg.text);
+    }
+    currentY += lineHeight;
+  };
+
+  if (text.includes("<b>")) {
+    const segments = parseBoldSegments(text);
+    let lineSegments: TextSegment[] = [];
+    for (const seg of segments) {
+      const parts = seg.text.split("\n");
+      for (let i = 0; i < parts.length; i++) {
+        if (i > 0) {
+          drawLine(lineSegments);
+          lineSegments = [];
+        }
+        if (parts[i]) {
+          const last = lineSegments[lineSegments.length - 1];
+          if (last && last.bold === seg.bold) {
+            last.text += parts[i];
+          } else {
+            lineSegments.push({ text: parts[i], bold: seg.bold });
+          }
+        }
+      }
+    }
+    if (lineSegments.length > 0) {
+      drawLine(lineSegments);
+    }
+    return currentY;
+  }
+
+  const lines = sanitiseText(text).split("\n").map((l) => l.trimEnd());
+  for (const line of lines) {
+    if (!line) continue;
+    doc.setFontSize(12);
+    doc.setFont(
+      "helvetica",
+      isBoldMiddleLine(line.toLowerCase()) ? "bold" : "normal",
+    );
+    const wrapped = doc.splitTextToSize(line, maxWidth);
+    doc.text(wrapped, x, currentY);
+    currentY += wrapped.length * lineHeight;
+  }
+  return currentY;
 }
 
 /**
@@ -178,73 +291,13 @@ async function renderWhatYouNeedTable(params: {
   if (section.middleText1) {
     const row1TextX = marginX + col1Width + cellPadding;
     const row1TextMaxWidth = col2Width - cellPadding * 2;
-    let currentY = row1TopY + 8;
-
-    let mt1Text = sanitiseText(section.middleText1);
-
-    const isBoldLine = (lower: string) =>
-      lower.includes("two switches") ||
-      lower.startsWith("a switch") ||
-      lower.startsWith("record") ||
-      lower.includes("appliance controller") ||
-      lower.includes("a single or multi-message switch") ||
-      lower.includes("two single or multi-message switches");
-
-    /** e.g. "<b>a\\nb</b>\\nc" → bold a,b then normal c (not whole block bold). */
-    const trailingBoldThenNormal = mt1Text.match(
-      /^<b>([\s\S]*?)<\/b>\s*([\s\S]*)$/,
-    );
-
-    const emitMiddleLines = (
-      lines: string[],
-      fixedBold: boolean | undefined,
-    ) => {
-      const trimmed = lines.map((l) => l.trimEnd());
-      const hasPattern =
-        fixedBold === undefined &&
-        trimmed.some((l) => l && isBoldLine(l.toLowerCase()));
-      for (const line of trimmed) {
-        if (!line) continue;
-        const lower = line.toLowerCase();
-        const shouldBold =
-          fixedBold === true
-            ? true
-            : fixedBold === false
-              ? isBoldLine(lower)
-              : isBoldLine(lower) || !hasPattern;
-        doc.setFontSize(12);
-        doc.setFont("helvetica", shouldBold ? "bold" : "normal");
-        const wrapped = doc.splitTextToSize(line, row1TextMaxWidth);
-        doc.text(wrapped, row1TextX, currentY);
-        currentY += wrapped.length * 5.5;
-      }
-    };
-
-    if (trailingBoldThenNormal) {
-      emitMiddleLines(trailingBoldThenNormal[1].split("\n"), true);
-      emitMiddleLines(trailingBoldThenNormal[2].split("\n"), false);
-    } else {
-      let working = mt1Text;
-      const forceAllBold = working.includes("<b>");
-      if (forceAllBold) {
-        working = working.replace(/<\/?b>/g, "");
-      }
-      const rawLines = working.split("\n").map((l) => l.trimEnd());
-      const hasPattern = rawLines.some(
-        (line) => line && isBoldLine(line.toLowerCase()),
-      );
-      for (const line of rawLines) {
-        if (!line) continue;
-        const lower = line.toLowerCase();
-        const shouldBold = forceAllBold || isBoldLine(lower) || !hasPattern;
-        doc.setFontSize(12);
-        doc.setFont("helvetica", shouldBold ? "bold" : "normal");
-        const wrapped = doc.splitTextToSize(line, row1TextMaxWidth);
-        doc.text(wrapped, row1TextX, currentY);
-        currentY += wrapped.length * 5.5;
-      }
-    }
-
+    renderMiddleColumnText({
+      doc,
+      text: section.middleText1,
+      x: row1TextX,
+      y: row1TopY + 8,
+      maxWidth: row1TextMaxWidth,
+    });
     doc.setFont("helvetica", "normal");
   }
 
@@ -342,18 +395,13 @@ async function renderWhatYouNeedTable(params: {
     const row2TextX = marginX + col1Width + cellPadding;
     const row2MaxWidth = col2Width - cellPadding * 2;
 
-    // Strip <b> tags and check if the text was wrapped in them
-    let row2Text = sanitiseText(section.middleText2);
-    const forceBold = row2Text.includes("<b>");
-    if (forceBold) {
-      row2Text = row2Text.replace(/<\/?b>/g, "");
-    }
-
-    doc.setFontSize(12);
-    doc.setFont("helvetica", forceBold ? "bold" : "normal");
-    const row2Lines = doc.splitTextToSize(row2Text, row2MaxWidth);
-    const row2TextY = row2TopY + 8;
-    doc.text(row2Lines, row2TextX, row2TextY);
+    renderMiddleColumnText({
+      doc,
+      text: section.middleText2,
+      x: row2TextX,
+      y: row2TopY + 8,
+      maxWidth: row2MaxWidth,
+    });
     doc.setFont("helvetica", "normal");
   }
 

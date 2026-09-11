@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Disco",
   "activityType": "Activity Book",
-  "category": "Music",
   "gear": 3,
   "badgeText": "Gear 3",
   "mainImage": "activity-book/disco.png",
@@ -22,5 +21,10 @@
       "body": "1.  Play some music to set the disco mood.\n2.  The switch user can press switches to control lights and bubbles.\n3.  Encourage them to explore and have fun with the effects.\nNB: You can use a switch adapted bubble machine and/or disco light with or instead of an appliance controller."
     }
   ],
-  "tooltipText": "Use a Click-It-On (or similar) or two switch adapted toys to control lights and bubbles for a disco"
+  "tooltipText": "Use a Click-It-On (or similar) or two switch adapted toys to control lights and bubbles for a disco",
+  "categories": [
+    "Social",
+    "Music",
+    "Older Learners"
+  ]
 }

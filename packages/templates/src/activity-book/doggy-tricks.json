@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Doggy Tricks",
   "activityType": "Activity Book",
-  "category": "Social",
   "gear": 1,
   "badgeText": "Gear 1",
   "mainImage": "activity-book/doggy-tricks.png",
@@ -21,5 +20,10 @@
       "body": "1.  Record fun commands for the switch user to \"tell\" the dog.\n2.  Reward the dog with treats to keep them motivated and engaged."
     }
   ],
-  "tooltipText": "Activate the switch to call your dog over or command them to do a trick (make sure they get a treat!)"
+  "tooltipText": "Activate the switch to call your dog over or command them to do a trick (make sure they get a treat!)",
+  "categories": [
+    "Social",
+    "Games",
+    "Older Learners"
+  ]
 }

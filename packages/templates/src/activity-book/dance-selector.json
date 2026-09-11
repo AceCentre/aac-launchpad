@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Dance Selector",
   "activityType": "Activity Book",
-  "category": "Music",
   "gear": 4,
   "badgeText": "Gear 4",
   "mainImage": "activity-book/dance-selector.png",
@@ -22,5 +21,10 @@
       "body": "1.  Play music and seat dancers in a row before the switch user.\n2.  The person in the first chair stands.\n3.  If the user presses \"next\", that person sits and the next person stands.\n4.  If the user presses \"dance!\", the standing person dances for 10 seconds."
     }
   ],
-  "tooltipText": "Use 2 switches to scan through at least 3 people willing to dance. Whoever is chosen must strut their stuff!"
+  "tooltipText": "Use 2 switches to scan through at least 3 people willing to dance. Whoever is chosen must strut their stuff!",
+  "categories": [
+    "Social",
+    "Games",
+    "Music"
+  ]
 }

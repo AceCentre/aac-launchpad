@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Freeze!",
   "activityType": "Activity Book",
-  "category": "Music",
   "gear": 1,
   "badgeText": "Gear 1",
   "mainImage": "activity-book/Freeze.png",
@@ -21,5 +20,10 @@
       "body": "1. Play some music and start dancing.\n2. When the switch user presses the switch, pause the music and everyone freezes.\n3. Restart the music after a 5-second pause."
     }
   ],
-  "tooltipText": "A game of musical statues, the switch user orders everyone to \"freeze!\" and music automatically restarts after 5 seconds"
+  "tooltipText": "A game of musical statues, the switch user orders everyone to \"freeze!\" and music automatically restarts after 5 seconds",
+  "categories": [
+    "Social",
+    "Games",
+    "Music"
+  ]
 }

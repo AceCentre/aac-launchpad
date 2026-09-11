@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Vomiting Vincent",
   "activityType": "Activity Book",
-  "category": "Funny",
   "gear": 2,
   "badgeText": "Gear 2",
   "mainImage": "activity-book/vomiting-vincent.png",
@@ -22,5 +21,8 @@
       "body": "1. The goal is to find other body parts that can be used to activate a switch.\n2. Use the puppet to pick up the wired switch and pretend he eats it.\n3. Place the switch by a different body part, e.g. head, foot, elbow, as if Vincent \"vomited\" it out.\n4. Each time the switch user presses \"dinner time!\", Vincent eats the switch again and \"vomits\" it out beside a new body part."
     }
   ],
-  "tooltipText": "This game helps you find a second body part to activate a switch using a puppet, so you can begin exploring Gear 3 activities."
+  "tooltipText": "This game helps you find a second body part to activate a switch using a puppet, so you can begin exploring Gear 3 activities.",
+  "categories": [
+    "Funny"
+  ]
 }

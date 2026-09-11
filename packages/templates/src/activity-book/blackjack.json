@@ -1,0 +1,29 @@
+{
+  "templateId": "blackjack",
+  "templateType": "guide",
+  "title": "Blackjack (21)",
+  "activityType": "Activity Book",
+  "gear": 3,
+  "badgeText": "Gear 3",
+  "mainImage": "activity-book/blackjack.png",
+  "thirdImage": "activity-book/thirdImages/blackjack-2.png",
+  "numberOfSwitches": 2,
+  "sections": [
+    {
+      "heading": "WHAT YOU'LL NEED TO PLAY",
+      "image": "activity-book/switches/BIGmack.png",
+      "middleText1": "<b>two single or multi-message switches\nrecord:\n</b>\"stick\" on one switch \n\"twist\" on the other ",
+      "middleText2": "deck of playing cards"
+    },
+    {
+      "heading": "HOW TO PLAY",
+      "body": "1. Deal two cards to everyone in a game of Blackjack (21).\n2. The switch user adds up their card values and decides their move.\n3. On their turn, the switch user says \"stick\" (stop) or \"twist\" (get 1 card) using their switches.\n4. Carry on playing until everyone \"sticks\" or goes bust.\n5. Closest player to 21 without going bust wins!"
+    }
+  ],
+  "tooltipText": "Use 2 switches for BLACKJACK (21)",
+  "categories": [
+    "Social",
+    "Games",
+    "Older Learners"
+  ]
+}

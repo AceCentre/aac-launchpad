@@ -3,7 +3,6 @@
   "templateType": "guide",
   "title": "Create a Ghost",
   "activityType": "Activity Book",
-  "category": "Cooking/arts and Crafts",
   "gear": 1,
   "badgeText": "Gear 1",
   "mainImage": "activity-book/create-a-ghost.png",
@@ -21,5 +20,8 @@
       "body": "1. Set the appliance controller to direct mode so the fan runs while pressed.\n2. Put white paint on black paper near the fan or hairdryer.\n3. The switch user presses the switch to blow the paint upward.\n4. Add googly eyes or glitter if desired."
     }
   ],
-  "tooltipText": "Use an appliance controller to use a fan and paint to create a ghost"
+  "tooltipText": "Use an appliance controller to use a fan and paint to create a ghost",
+  "categories": [
+    "Cooking & Crafts"
+  ]
 }
