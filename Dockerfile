@@ -1,4 +1,4 @@
-FROM node:16-bullseye
+FROM node:20-bookworm
 
 ARG ACCESS_KEY_ID
 ARG SECRET_ACCESS_KEY
@@ -17,7 +17,7 @@ COPY . .
 # Symbols will be downloaded from S3 during runtime if AWS credentials are provided
 
 RUN apt-get update && \
-	apt-get install -y pdftk libvips-dev
+	apt-get install -y pdftk-java libvips-dev
 
 RUN yarn install
 RUN yarn build
